@@ -4,12 +4,19 @@
   isA #Type
   label "Person"
   description "A human being."
-  attribute ~name, ~birthDate, ~locatedIn
+  attribute ~name, ~birthDate, ~deathDate, ~locatedIn
 }
 
 ~birthDate {
   isA #Predicate
   label "birth date"
   description "The birth date of a person."
+  targetType #Date
+}
+
+~deathDate {
+  isA #Predicate
+  label "death date"
+  description "The date of death of a person."
   targetType #Date
 }
