@@ -1,0 +1,88 @@
+#Type {
+  isA #Type
+  label "Type"
+  description "A category of things."
+  attribute ~label, ~description, ~isA, ~attribute
+}
+
+#Predicate {
+  isA #Type
+  label "Predicate"
+  description "A relation between a subject and an object."
+  attribute ~label, ~description, ~isA
+}
+
+#String {
+  isA #Type
+  label "String"
+  description "A human-readable text value."
+}
+
+#Integer {
+  isA #Type
+  label "Integer"
+  description "A whole number value."
+}
+
+#Decimal {
+  isA #Type
+  label "Decimal"
+  description "A decimal number value."
+}
+
+#Date {
+  isA #Type
+  label "Date"
+  description "A calendar date value."
+}
+
+#DateTime {
+  isA #Type
+  label "DateTime"
+  description "A date and time value."
+}
+
+#Boolean {
+  isA #Type
+  label "Boolean"
+  description "A true or false value."
+}
+
+#Symbol {
+  isA #Type
+  label "Symbol"
+  description "An identifier-like literal value."
+}
+
+~isA {
+  isA #Predicate
+  label "is a"
+  description "Declares that a subject is an instance of a type."
+}
+
+~label {
+  isA #Predicate
+  label "label"
+  description "Provides a human-readable name."
+  valueType #String
+}
+
+~description {
+  isA #Predicate
+  label "description"
+  description "Provides a human-readable description."
+  valueType #String
+}
+
+~attribute {
+  isA #Predicate
+  label "attribute"
+  description "Declares that a type may use a predicate as an attribute."
+  valueType #Predicate
+}
+
+~valueType {
+  isA #Predicate
+  label "value type"
+  description "Declares the expected value type of a predicate."
+}

@@ -539,6 +539,14 @@ dependencies = [
 ]
 
 [[package]]
+name = "nosqo-parser"
+version = "0.1.0"
+dependencies = [
+ "nosqo-base",
+ "nosqo-model",
+]
+
+[[package]]
 name = "nosqo-server"
 version = "0.1.0"
 dependencies = [

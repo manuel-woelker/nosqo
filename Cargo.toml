@@ -2,6 +2,7 @@
 members = [
     "crates/base",
     "crates/model",
+    "crates/parser",
     "crates/pal",
     "crates/server",
 ]
