@@ -1,0 +1,14 @@
+[package]
+name = "nosqo-server"
+version = "0.1.0"
+edition = "2024"
+description = "Axum server for the nosqo knowledge database"
+license = "MIT"
+
+[dependencies]
+axum = { workspace = true }
+nosqo-base = { path = "../base", version = "0.1.0" }
+nosqo-pal = { path = "../pal", version = "0.1.0" }
+serde_json = { workspace = true }
+tokio = { workspace = true }
+tracing = { workspace = true }

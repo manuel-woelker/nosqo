@@ -1,0 +1,14 @@
+[package]
+name = "nosqo-pal"
+version = "0.1.0"
+edition = "2024"
+description = "Platform abstraction layer for the nosqo knowledge database"
+license = "MIT"
+
+[dependencies]
+nosqo-base = { path = "../base", version = "0.1.0" }
+expect-test = {workspace = true}
+ignore = {workspace = true}
+notify-debouncer-full = {workspace = true}
+relative-path = {workspace = true}
+tokio = { workspace = true, features = ["io-util", "macros", "process", "rt-multi-thread", "sync"] }

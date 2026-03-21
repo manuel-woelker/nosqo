@@ -1,0 +1,45 @@
+schema-version = "1.10.0"
+
+[install]
+rustc.pkg-path = "rustc"
+rustc.version = "1.93.0"
+
+cargo.pkg-path = "cargo"
+cargo.version = "1.93.0"
+
+rustfmt.pkg-path = "rustfmt"
+rustfmt.version = "1.93.0"
+
+clippy.pkg-path = "clippy"
+clippy.version = "1.93.0"
+
+cargo-nextest.pkg-path = "cargo-nextest"
+cargo-nextest.version = "0.9.130"
+
+gcc.pkg-path = "gcc"
+gcc.version = "15.2.0"
+
+pkg-config.pkg-path = "pkg-config"
+
+[hook]
+on-activate = '''
+  export CARGO_HOME="${CARGO_HOME:-$FLOX_ENV_CACHE/cargo}"
+  export CARGO_INSTALL_ROOT="${CARGO_INSTALL_ROOT:-$FLOX_ENV_CACHE/cargo-install}"
+  export CARGO_TARGET_DIR="${CARGO_TARGET_DIR:-$FLOX_ENV_CACHE/target}"
+  mkdir -p "$CARGO_HOME" "$CARGO_INSTALL_ROOT" "$CARGO_TARGET_DIR"
+'''
+
+[profile]
+common = '''
+  export CARGO_HOME="${CARGO_HOME:-$FLOX_ENV_CACHE/cargo}"
+  export CARGO_INSTALL_ROOT="${CARGO_INSTALL_ROOT:-$FLOX_ENV_CACHE/cargo-install}"
+  export CARGO_TARGET_DIR="${CARGO_TARGET_DIR:-$FLOX_ENV_CACHE/target}"
+'''
+
+[options]
+systems = [
+  "aarch64-darwin",
+  "aarch64-linux",
+  "x86_64-darwin",
+  "x86_64-linux",
+]

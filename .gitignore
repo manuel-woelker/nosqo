@@ -1,0 +1,11 @@
+/target
+/.idea
+/dist
+/coverage
+perf.data*
+flamegraph.svg
+.devenv*
+devenv.local.nix
+devenv.local.yaml
+.direnv
+/.devcontainer/state

@@ -55,6 +55,7 @@ The project is intended to use:
 - Rust for the core implementation
 - Axum for the HTTP server / API
 - A web-based UI for browsing and editing knowledge
+- shared `base` and `pal` crates for common infrastructure
 
 ## Planned architecture
 
@@ -103,10 +104,23 @@ One reasonable starting layout:
 .
 ├── crates/
 │   ├── core/        # statement model, validation, query primitives
+│   ├── base/        # shared utilities, error handling, logging
+│   ├── pal/         # platform abstraction layer
 │   └── server/      # axum application and HTTP API
+├── docs/            # contributor guidance and plans
+├── scripts/         # repo tooling
 ├── web/             # browser-based UI
 └── README.md
 ```
+
+## Development
+
+Useful entry points already scaffolded in the repository:
+
+- `cargo run -p nosqo-server`
+- `./scripts/check-code.sh`
+- `./scripts/dev.sh`
+- `./scripts/enter-devenv.sh`
 
 ## Design principles
 

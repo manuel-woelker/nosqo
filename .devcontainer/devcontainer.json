@@ -1,0 +1,39 @@
+{
+  "name": "nosqo",
+  "build": {
+    "context": "..",
+    "dockerfile": "Dockerfile",
+    "args": {
+      "UBUNTU_VERSION": "24.04",
+      "USERNAME": "vscode",
+      "NODE_MAJOR": "22",
+      "RUST_VERSION": "1.93.1",
+      "CODEX_NPM_PACKAGE": "@openai/codex",
+      "CODEX_VERSION": "0.115.0"
+    }
+  },
+  "remoteUser": "vscode",
+  "updateRemoteUserUID": true,
+  "workspaceFolder": "/workspaces/nosqo",
+  "mounts": [
+    "source=${localWorkspaceFolder}/.devcontainer/state/cargo-registry,target=/home/vscode/.cargo/registry,type=bind",
+    "source=${localWorkspaceFolder}/.devcontainer/state/cargo-git,target=/home/vscode/.cargo/git,type=bind",
+    "source=${localWorkspaceFolder}/.devcontainer/state/cargo-target,target=/workspaces/.cargo-target,type=bind"
+  ],
+  "containerEnv": {
+    "CARGO_TARGET_DIR": "/workspaces/.cargo-target"
+  },
+  "postCreateCommand": "bash .devcontainer/post-create.sh",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "rust-lang.rust-analyzer",
+        "tamasfe.even-better-toml"
+      ],
+      "settings": {
+        "rust-analyzer.check.command": "clippy",
+        "terminal.integrated.defaultProfile.linux": "bash"
+      }
+    }
+  }
+}
