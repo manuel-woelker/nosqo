@@ -1,0 +1,28 @@
+// nosqo ontology: persons
+
+#Person {
+  isA #Type
+  label "Person"
+  description "A human being."
+  attribute ~name, ~birthDate, ~locatedIn, ~participatesIn
+}
+
+~name {
+  isA #Predicate
+  label "name"
+  description "A human-readable name."
+  valueType #String
+}
+
+~birthDate {
+  isA #Predicate
+  label "birth date"
+  description "The birth date of a person."
+  valueType #Date
+}
+
+~participatesIn {
+  isA #Predicate
+  label "participates in"
+  description "Relates a person to an event they participate in."
+}

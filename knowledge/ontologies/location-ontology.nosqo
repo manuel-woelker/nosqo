@@ -1,0 +1,8 @@
+// nosqo ontology: locations
+
+#Location {
+  isA #Type
+  label "Location"
+  description "A place, area, or geographic entity."
+  attribute ~name, ~locatedIn
+}

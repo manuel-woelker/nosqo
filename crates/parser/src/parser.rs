@@ -354,8 +354,10 @@ mod tests {
 
     #[test]
     fn parses_the_core_ontology_file() {
-        let statement_set =
-            Parser::parse_str(include_str!("../../../knowledge/ontology.nosqo")).unwrap();
+        let statement_set = Parser::parse_str(include_str!(
+            "../../../knowledge/ontologies/meta-ontology.nosqo"
+        ))
+        .unwrap();
 
         assert_eq!(statement_set.as_slice().len(), 52);
         assert!(statement_set.as_slice().contains(&Statement::value(

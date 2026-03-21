@@ -1,0 +1,28 @@
+// nosqo ontology: events
+
+#Event {
+  isA #Type
+  label "Event"
+  description "Something that happens at a time and possibly at a place."
+  attribute ~name, ~startDate, ~endDate, ~locatedIn, ~hasParticipant
+}
+
+~startDate {
+  isA #Predicate
+  label "start date"
+  description "The date an event starts."
+  valueType #Date
+}
+
+~endDate {
+  isA #Predicate
+  label "end date"
+  description "The date an event ends."
+  valueType #Date
+}
+
+~hasParticipant {
+  isA #Predicate
+  label "has participant"
+  description "Relates an event to a participating person."
+}
