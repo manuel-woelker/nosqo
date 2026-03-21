@@ -1,42 +1,40 @@
-Here’s the **current nosqo textual format (v1 draft)** clearly written down.
+Here is a **concise, implementation-ready syntax document** for the current nosqo text format.
 
 ---
 
-# 🧱 Core Structure
+# nosqo Text Format (v1 Draft)
 
-A statement is a **triple of atoms**:
+A human-readable format for expressing knowledge as triples:
+
+```text
+(subject, predicate, object)
+```
+
+---
+
+# 1. Basic Structure
+
+A **statement** is a triple:
 
 ```text
 <subject> <predicate> <object>
 ```
 
-Each statement is typically **one line**:
+Example:
 
 ```text
 @berlin @capitalof @germany
 ```
 
----
-
-# 🔤 Atom Format
-
-Every value in the system is an **atom**, and every atom is **explicitly typed**.
-
-General shape:
-
-```text
-<type-indicator><payload>
-```
-
-Exceptions:
-
-* `T` and `F` are complete atoms (no payload)
+A file is a sequence of statements, blocks, and comments.
 
 ---
 
-# 🧩 Type System
+# 2. Atoms
 
-## 1. References (graph nodes)
+All values are **typed atoms**.
+
+## 2.1 References (IDs)
 
 ```text
 @<id>
@@ -52,7 +50,7 @@ Examples:
 
 ---
 
-## 2. Numeric values
+## 2.2 Numbers
 
 ### Integer
 
@@ -65,21 +63,20 @@ i42
 i-3
 ```
 
-### Decimal (number)
+### Decimal
 
 ```text
-n<decimal>
+n<number>
 ```
 
 ```text
 n3.14
 n-0.01
-n19.99
 ```
 
 ---
 
-## 3. Temporal values
+## 2.3 Temporal Values
 
 ### Date
 
@@ -87,52 +84,30 @@ n19.99
 d<YYYY-MM-DD>
 ```
 
-```text
-d2026-03-21
-```
-
 ### DateTime
 
 ```text
-t<ISO-8601 datetime>
-```
-
-```text
-t2026-03-21T12:34:56Z
+t<ISO-8601>
 ```
 
 ---
 
-## 4. Boolean values
+## 2.4 Boolean
 
 ```text
-T   # true
-F   # false
-```
-
-Examples:
-
-```text
-@alice @verified T
-@user42 @active F
+T   // true
+F   // false
 ```
 
 ---
 
-## 5. Textual values
+## 2.5 Text
 
-### String (human-readable text)
+### String (human-readable)
 
 ```text
 "..."
 ```
-
-```text
-"Berlin"
-"capital of Germany"
-```
-
----
 
 ### Symbol (identifier-like literal)
 
@@ -140,57 +115,156 @@ Examples:
 '...'
 ```
 
+---
+
+# 3. Comments
+
+## Line comment
+
 ```text
-'capital_of'
-'en'
-'kg'
+// comment
 ```
 
----
+## Block comment
 
-# ✨ Summary Table
+```text
+/* comment */
+```
 
-| Type      | Syntax    | Example              |
-| --------- | --------- | -------------------- |
-| Reference | `@...`    | `@berlin`            |
-| Integer   | `i...`    | `i42`                |
-| Decimal   | `n...`    | `n3.14`              |
-| Date      | `d...`    | `d2026-03-21`        |
-| DateTime  | `t...`    | `t2026-03-21T12:00Z` |
-| Boolean   | `T` / `F` | `T`                  |
-| String    | `"..."`   | `"Berlin"`           |
-| Symbol    | `'...'`   | `'capital_of'`       |
+Block comments are not nested.
 
 ---
 
-# 🧾 Example
+# 4. Lists
+
+Comma-separated lists expand into multiple statements.
+
+## Multiple objects
+
+```text
+@alice @speaks 'en', 'de'
+```
+
+Expands to:
+
+```text
+@alice @speaks 'en'
+@alice @speaks 'de'
+```
+
+## Multiple subjects
+
+```text
+@berlin, @paris @instanceof @city
+```
+
+Expands to:
+
+```text
+@berlin @instanceof @city
+@paris @instanceof @city
+```
+
+## Multiple subjects and objects
+
+```text
+@a, @b @rel @x, @y
+```
+
+Expands to all combinations.
+
+---
+
+# 5. Subject Blocks
+
+Group multiple predicates for one subject:
+
+```text
+@berlin {
+  @capitalof @germany
+  @label "Berlin"
+  @population i3769000
+}
+```
+
+Expands to:
 
 ```text
 @berlin @capitalof @germany
 @berlin @label "Berlin"
 @berlin @population i3769000
-@berlin @growthrate n0.012
-@berlin @founded d1237-01-01
-@berlin @iscapital T
-
-@alice @birthdate d1990-05-14
-@alice @verified F
-
-@product42 @price n19.99
-
-@capitalof @label "capital of"
-@capitalof @alias 'capital_of'
-
-@text1 @language 'en'
 ```
 
 ---
 
-# 🧠 Key Design Principles (captured)
+# 6. Predicate Blocks
 
-* **Single id type** → everything in the graph is `@...`
-* **Explicit typing everywhere** → no ambiguity
-* **Minimal syntax** → single-character prefixes
-* **Human-readable** → quotes for text, ISO formats for time
-* **Extensible** → new prefixes can be added later
+Group multiple subject-object pairs for one predicate:
 
+```text
+@capitalof {
+  @berlin -> @germany
+  @paris  -> @france
+}
+```
+
+Expands to:
+
+```text
+@berlin @capitalof @germany
+@paris  @capitalof @france
+```
+
+---
+
+# 7. Expansion Model
+
+All constructs reduce to plain triples:
+
+```text
+@subject @predicate @object
+```
+
+The format defines only **syntax sugar** on top of this core model.
+
+---
+
+# 8. Example
+
+```text
+// capitals
+@capitalof {
+  @berlin -> @germany
+  @paris  -> @france
+}
+
+@berlin {
+  @label "Berlin"
+  @population i3769000
+  @founded d1237-01-01
+  @iscapital T
+}
+
+@alice {
+  @birthdate d1990-05-14
+  @speaks 'en', 'de'
+  @verified F
+}
+```
+
+---
+
+# 9. Design Principles
+
+* **Single ID type**: all graph nodes use `@...`
+* **Explicit typing**: no untyped values
+* **Minimal syntax**: single-character prefixes
+* **Composable**: all syntax reduces to triples
+* **Human-friendly**: readable and writable by hand
+
+---
+
+If you want, next step can be:
+
+* a **formal EBNF grammar**
+* or a **reference parser design (tokenizer + AST + expansion)**
