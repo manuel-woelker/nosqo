@@ -1,6 +1,7 @@
+use nosqo_base::shared_string::SharedString;
 use serde::{Deserialize, Serialize};
 
-use crate::{NodeId, Value};
+use crate::{DateTimeValue, DateValue, DecimalValue, NodeId, Value};
 
 /// A single knowledge statement expressed as a subject, predicate, and object.
 #[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize)]
@@ -45,6 +46,116 @@ impl Statement {
     ) -> Self {
         Self::new(subject, predicate, object)
     }
+
+    /// Creates a statement from string-like inputs.
+    ///
+    /// Values are normalized using the nosqo statement conventions for
+    /// subjects, predicates, and objects.
+    pub fn from_strings(
+        subject: impl Into<SharedString>,
+        predicate: impl Into<SharedString>,
+        object: impl Into<SharedString>,
+    ) -> Self {
+        let subject: SharedString = subject.into();
+        let predicate: SharedString = predicate.into();
+        let object: SharedString = object.into();
+
+        Self::new(
+            parse_node_id(subject, StatementPosition::Subject),
+            parse_node_id(predicate, StatementPosition::Predicate),
+            parse_value(object),
+        )
+    }
+}
+
+enum StatementPosition {
+    Subject,
+    Predicate,
+}
+
+fn parse_node_id(value: SharedString, position: StatementPosition) -> NodeId {
+    if let Some(id) = value.as_str().strip_prefix('@') {
+        return NodeId::new(id);
+    }
+
+    if value.starts_with('#') || value.starts_with('~') {
+        return NodeId::new(value);
+    }
+
+    match position {
+        StatementPosition::Subject => NodeId::entity(value),
+        StatementPosition::Predicate => NodeId::predicate_name(value),
+    }
+}
+
+fn parse_value(value: SharedString) -> Value {
+    if value == "T" {
+        return Value::Boolean(true);
+    }
+
+    if value == "F" {
+        return Value::Boolean(false);
+    }
+
+    if let Some(id) = value.as_str().strip_prefix('@') {
+        return Value::id(NodeId::entity(id));
+    }
+
+    if value.starts_with('#') || value.starts_with('~') {
+        return Value::id(NodeId::new(value));
+    }
+
+    if is_integer_literal(value.as_str()) {
+        return Value::Integer(
+            value.as_str()[1..]
+                .parse()
+                .expect("validated integer literal"),
+        );
+    }
+
+    if is_decimal_literal(value.as_str()) {
+        return Value::Decimal(DecimalValue::new(&value.as_str()[1..]));
+    }
+
+    if is_date_literal(value.as_str()) {
+        return Value::Date(DateValue::new(&value.as_str()[1..]));
+    }
+
+    if is_date_time_literal(value.as_str()) {
+        return Value::DateTime(DateTimeValue::new(&value.as_str()[1..]));
+    }
+
+    Value::text(value)
+}
+
+fn is_integer_literal(value: &str) -> bool {
+    value.starts_with('i')
+        && value.len() > 1
+        && value[1..]
+            .chars()
+            .enumerate()
+            .all(|(index, ch)| ch.is_ascii_digit() || (index == 0 && ch == '-'))
+}
+
+fn is_decimal_literal(value: &str) -> bool {
+    value.starts_with('n')
+        && value.len() > 1
+        && value[1..]
+            .chars()
+            .enumerate()
+            .all(|(index, ch)| ch.is_ascii_digit() || ch == '.' || (index == 0 && ch == '-'))
+}
+
+fn is_date_literal(value: &str) -> bool {
+    value.starts_with('d')
+        && value.len() > 1
+        && value[1..]
+            .chars()
+            .all(|ch| ch.is_ascii_digit() || ch == '-')
+}
+
+fn is_date_time_literal(value: &str) -> bool {
+    value.starts_with('t') && value.len() > 1
 }
 
 #[cfg(test)]
@@ -76,5 +187,22 @@ mod tests {
         assert_eq!(statement.subject.as_str(), "berlin");
         assert_eq!(statement.predicate.as_str(), "~label");
         assert_eq!(statement.object, Value::text("Berlin"));
+    }
+
+    #[test]
+    fn creates_statements_from_strings() {
+        let statement = Statement::from_strings("berlin", "label", "@germany");
+        let literal_statement = Statement::from_strings("berlin", "population", "i42");
+
+        assert_eq!(statement.subject, NodeId::entity("berlin"));
+        assert_eq!(statement.predicate, NodeId::predicate_name("label"));
+        assert_eq!(statement.object, Value::id("germany"));
+
+        assert_eq!(literal_statement.subject, NodeId::entity("berlin"));
+        assert_eq!(
+            literal_statement.predicate,
+            NodeId::predicate_name("population")
+        );
+        assert_eq!(literal_statement.object, Value::Integer(42));
     }
 }
