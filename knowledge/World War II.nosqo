@@ -1,0 +1,1520 @@
+// World War II knowledge graph
+// Uses updated ontology with organization participants
+
+nation_state {
+  isA #OrganizationType
+  name "Nation State"
+}
+
+alliance {
+  isA #OrganizationType
+  name "Alliance"
+}
+
+military {
+  isA #OrganizationType
+  name "Military Organization"
+}
+
+government_in_exile {
+  isA #OrganizationType
+  name "Government in Exile"
+}
+
+resistance_movement {
+  isA #OrganizationType
+  name "Resistance Movement"
+}
+
+international_body {
+  isA #OrganizationType
+  name "International Body"
+}
+
+europe {
+  isA #Location
+  name "Europe"
+}
+
+asia {
+  isA #Location
+  name "Asia"
+}
+
+africa {
+  isA #Location
+  name "Africa"
+}
+
+north_america {
+  isA #Location
+  name "North America"
+}
+
+pacific_ocean {
+  isA #Location
+  name "Pacific Ocean"
+}
+
+atlantic_ocean {
+  isA #Location
+  name "Atlantic Ocean"
+}
+
+world {
+  isA #Location
+  name "World"
+}
+
+germany_location {
+  isA #Location
+  name "Germany"
+  locatedIn @europe
+}
+
+poland_location {
+  isA #Location
+  name "Poland"
+  locatedIn @europe
+}
+
+soviet_union_location {
+  isA #Location
+  name "Soviet Union"
+  locatedIn @europe
+}
+
+france_location {
+  isA #Location
+  name "France"
+  locatedIn @europe
+}
+
+united_kingdom_location {
+  isA #Location
+  name "United Kingdom"
+  locatedIn @europe
+}
+
+italy_location {
+  isA #Location
+  name "Italy"
+  locatedIn @europe
+}
+
+japan_location {
+  isA #Location
+  name "Japan"
+  locatedIn @asia
+}
+
+china_location {
+  isA #Location
+  name "China"
+  locatedIn @asia
+}
+
+united_states_location {
+  isA #Location
+  name "United States"
+  locatedIn @north_america
+}
+
+austria {
+  isA #Location
+  name "Austria"
+  locatedIn @europe
+}
+
+czechoslovakia {
+  isA #Location
+  name "Czechoslovakia"
+  locatedIn @europe
+}
+
+norway {
+  isA #Location
+  name "Norway"
+  locatedIn @europe
+}
+
+denmark {
+  isA #Location
+  name "Denmark"
+  locatedIn @europe
+}
+
+belgium {
+  isA #Location
+  name "Belgium"
+  locatedIn @europe
+}
+
+netherlands {
+  isA #Location
+  name "Netherlands"
+  locatedIn @europe
+}
+
+yugoslavia {
+  isA #Location
+  name "Yugoslavia"
+  locatedIn @europe
+}
+
+greece {
+  isA #Location
+  name "Greece"
+  locatedIn @europe
+}
+
+finland {
+  isA #Location
+  name "Finland"
+  locatedIn @europe
+}
+
+romania {
+  isA #Location
+  name "Romania"
+  locatedIn @europe
+}
+
+hungary {
+  isA #Location
+  name "Hungary"
+  locatedIn @europe
+}
+
+bulgaria {
+  isA #Location
+  name "Bulgaria"
+  locatedIn @europe
+}
+
+libya {
+  isA #Location
+  name "Libya"
+  locatedIn @africa
+}
+
+egypt {
+  isA #Location
+  name "Egypt"
+  locatedIn @africa
+}
+
+tunisia {
+  isA #Location
+  name "Tunisia"
+  locatedIn @africa
+}
+
+algeria {
+  isA #Location
+  name "Algeria"
+  locatedIn @africa
+}
+
+morocco {
+  isA #Location
+  name "Morocco"
+  locatedIn @africa
+}
+
+sicily {
+  isA #Location
+  name "Sicily"
+  locatedIn @italy_location
+}
+
+salerno {
+  isA #Location
+  name "Salerno"
+  locatedIn @italy_location
+}
+
+rome {
+  isA #Location
+  name "Rome"
+  locatedIn @italy_location
+}
+
+caserta {
+  isA #Location
+  name "Caserta"
+  locatedIn @italy_location
+}
+
+berlin {
+  isA #Location
+  name "Berlin"
+  locatedIn @germany_location
+}
+
+warsaw {
+  isA #Location
+  name "Warsaw"
+  locatedIn @poland_location
+}
+
+moscow {
+  isA #Location
+  name "Moscow"
+  locatedIn @soviet_union_location
+}
+
+leningrad {
+  isA #Location
+  name "Leningrad"
+  locatedIn @soviet_union_location
+}
+
+stalingrad {
+  isA #Location
+  name "Stalingrad"
+  locatedIn @soviet_union_location
+}
+
+kursk {
+  isA #Location
+  name "Kursk"
+  locatedIn @soviet_union_location
+}
+
+paris {
+  isA #Location
+  name "Paris"
+  locatedIn @france_location
+}
+
+dunkirk {
+  isA #Location
+  name "Dunkirk"
+  locatedIn @france_location
+}
+
+normandy {
+  isA #Location
+  name "Normandy"
+  locatedIn @france_location
+}
+
+munich {
+  isA #Location
+  name "Munich"
+  locatedIn @germany_location
+}
+
+prague {
+  isA #Location
+  name "Prague"
+  locatedIn @czechoslovakia
+}
+
+manchuria {
+  isA #Location
+  name "Manchuria"
+  locatedIn @asia
+}
+
+nanjing {
+  isA #Location
+  name "Nanjing"
+  locatedIn @china_location
+}
+
+pearl_harbor {
+  isA #Location
+  name "Pearl Harbor"
+  locatedIn @pacific_ocean
+}
+
+midway {
+  isA #Location
+  name "Midway Atoll"
+  locatedIn @pacific_ocean
+}
+
+guadalcanal {
+  isA #Location
+  name "Guadalcanal"
+  locatedIn @pacific_ocean
+}
+
+iwo_jima {
+  isA #Location
+  name "Iwo Jima"
+  locatedIn @pacific_ocean
+}
+
+okinawa {
+  isA #Location
+  name "Okinawa"
+  locatedIn @asia
+}
+
+hiroshima {
+  isA #Location
+  name "Hiroshima"
+  locatedIn @japan_location
+}
+
+nagasaki {
+  isA #Location
+  name "Nagasaki"
+  locatedIn @japan_location
+}
+
+tokyo {
+  isA #Location
+  name "Tokyo"
+  locatedIn @japan_location
+}
+
+philippines {
+  isA #Location
+  name "Philippines"
+  locatedIn @asia
+}
+
+burma {
+  isA #Location
+  name "Burma"
+  locatedIn @asia
+}
+
+germany {
+  isA #Organization
+  name "Germany"
+  organizationType @nation_state
+  locatedIn @germany_location
+}
+
+nazi_germany {
+  isA #Organization
+  name "Nazi Germany"
+  organizationType @nation_state
+  locatedIn @germany_location
+}
+
+soviet_union {
+  isA #Organization
+  name "Soviet Union"
+  organizationType @nation_state
+  locatedIn @soviet_union_location
+}
+
+united_kingdom {
+  isA #Organization
+  name "United Kingdom"
+  organizationType @nation_state
+  locatedIn @united_kingdom_location
+}
+
+france {
+  isA #Organization
+  name "France"
+  organizationType @nation_state
+  locatedIn @france_location
+}
+
+free_france {
+  isA #Organization
+  name "Free France"
+  organizationType @government_in_exile
+  locatedIn @france_location
+}
+
+united_states {
+  isA #Organization
+  name "United States"
+  organizationType @nation_state
+  locatedIn @united_states_location
+}
+
+italy {
+  isA #Organization
+  name "Italy"
+  organizationType @nation_state
+  locatedIn @italy_location
+}
+
+japan {
+  isA #Organization
+  name "Japan"
+  organizationType @nation_state
+  locatedIn @japan_location
+}
+
+china {
+  isA #Organization
+  name "China"
+  organizationType @nation_state
+  locatedIn @china_location
+}
+
+poland {
+  isA #Organization
+  name "Poland"
+  organizationType @nation_state
+  locatedIn @poland_location
+}
+
+allies {
+  isA #Organization
+  name "Allies"
+  organizationType @alliance
+  locatedIn @world
+}
+
+axis_powers {
+  isA #Organization
+  name "Axis Powers"
+  organizationType @alliance
+  locatedIn @world
+}
+
+wehrmacht {
+  isA #Organization
+  name "Wehrmacht"
+  organizationType @military
+  locatedIn @germany_location
+}
+
+red_army {
+  isA #Organization
+  name "Red Army"
+  organizationType @military
+  locatedIn @soviet_union_location
+}
+
+british_armed_forces {
+  isA #Organization
+  name "British Armed Forces"
+  organizationType @military
+  locatedIn @united_kingdom_location
+}
+
+united_states_armed_forces {
+  isA #Organization
+  name "United States Armed Forces"
+  organizationType @military
+  locatedIn @united_states_location
+}
+
+imperial_japanese_military {
+  isA #Organization
+  name "Imperial Japanese Military"
+  organizationType @military
+  locatedIn @japan_location
+}
+
+french_resistance {
+  isA #Organization
+  name "French Resistance"
+  organizationType @resistance_movement
+  locatedIn @france_location
+}
+
+united_nations {
+  isA #Organization
+  name "United Nations"
+  organizationType @international_body
+  locatedIn @world
+}
+
+adolf_hitler {
+  isA #Person
+  name "Adolf Hitler"
+  birthDate d1889-04-20
+  deathDate d1945-04-30
+  locatedIn @germany_location
+}
+
+joachim_von_ribbentrop {
+  isA #Person
+  name "Joachim von Ribbentrop"
+  birthDate d1893-04-30
+  deathDate d1946-10-16
+  locatedIn @germany_location
+}
+
+vyacheslav_molotov {
+  isA #Person
+  name "Vyacheslav Molotov"
+  birthDate d1890-03-09
+  deathDate d1986-11-08
+  locatedIn @soviet_union_location
+}
+
+joseph_stalin {
+  isA #Person
+  name "Joseph Stalin"
+  birthDate d1878-12-18
+  deathDate d1953-03-05
+  locatedIn @soviet_union_location
+}
+
+winston_churchill {
+  isA #Person
+  name "Winston Churchill"
+  birthDate d1874-11-30
+  deathDate d1965-01-24
+  locatedIn @united_kingdom_location
+}
+
+neville_chamberlain {
+  isA #Person
+  name "Neville Chamberlain"
+  birthDate d1869-03-18
+  deathDate d1940-11-09
+  locatedIn @united_kingdom_location
+}
+
+edouard_daladier {
+  isA #Person
+  name "Edouard Daladier"
+  birthDate d1884-06-18
+  deathDate d1970-10-10
+  locatedIn @france_location
+}
+
+charles_de_gaulle {
+  isA #Person
+  name "Charles de Gaulle"
+  birthDate d1890-11-22
+  deathDate d1970-11-09
+  locatedIn @france_location
+}
+
+franklin_roosevelt {
+  isA #Person
+  name "Franklin D. Roosevelt"
+  birthDate d1882-01-30
+  deathDate d1945-04-12
+  locatedIn @united_states_location
+}
+
+harry_truman {
+  isA #Person
+  name "Harry S. Truman"
+  birthDate d1884-05-08
+  deathDate d1972-12-26
+  locatedIn @united_states_location
+}
+
+george_marshall {
+  isA #Person
+  name "George C. Marshall"
+  birthDate d1880-12-31
+  deathDate d1959-10-16
+  locatedIn @united_states_location
+}
+
+dwight_eisenhower {
+  isA #Person
+  name "Dwight D. Eisenhower"
+  birthDate d1890-10-14
+  deathDate d1969-03-28
+  locatedIn @united_states_location
+}
+
+douglas_macarthur {
+  isA #Person
+  name "Douglas MacArthur"
+  birthDate d1880-01-26
+  deathDate d1964-04-05
+  locatedIn @united_states_location
+}
+
+bernard_montgomery {
+  isA #Person
+  name "Bernard Montgomery"
+  birthDate d1887-11-17
+  deathDate d1976-03-24
+  locatedIn @united_kingdom_location
+}
+
+georgy_zhukov {
+  isA #Person
+  name "Georgy Zhukov"
+  birthDate d1896-12-01
+  deathDate d1974-06-18
+  locatedIn @soviet_union_location
+}
+
+benito_mussolini {
+  isA #Person
+  name "Benito Mussolini"
+  birthDate d1883-07-29
+  deathDate d1945-04-28
+  locatedIn @italy_location
+}
+
+pietro_badoglio {
+  isA #Person
+  name "Pietro Badoglio"
+  birthDate d1871-09-28
+  deathDate d1956-11-01
+  locatedIn @italy_location
+}
+
+albert_kesselring {
+  isA #Person
+  name "Albert Kesselring"
+  birthDate d1885-11-30
+  deathDate d1960-07-16
+  locatedIn @italy_location
+}
+
+harold_alexander {
+  isA #Person
+  name "Harold Alexander"
+  birthDate d1891-12-10
+  deathDate d1969-06-16
+  locatedIn @united_kingdom_location
+}
+
+erwin_rommel {
+  isA #Person
+  name "Erwin Rommel"
+  birthDate d1891-11-15
+  deathDate d1944-10-14
+  locatedIn @germany_location
+}
+
+hermann_goering {
+  isA #Person
+  name "Hermann Goring"
+  birthDate d1893-01-12
+  deathDate d1946-10-15
+  locatedIn @germany_location
+}
+
+heinrich_himmler {
+  isA #Person
+  name "Heinrich Himmler"
+  birthDate d1900-10-07
+  deathDate d1945-05-23
+  locatedIn @germany_location
+}
+
+karl_doenitz {
+  isA #Person
+  name "Karl Donitz"
+  birthDate d1891-09-16
+  deathDate d1980-12-24
+  locatedIn @germany_location
+}
+
+emperor_hirohito {
+  isA #Person
+  name "Hirohito"
+  birthDate d1901-04-29
+  deathDate d1989-01-07
+  locatedIn @japan_location
+}
+
+hideki_tojo {
+  isA #Person
+  name "Hideki Tojo"
+  birthDate d1884-12-30
+  deathDate d1948-12-23
+  locatedIn @japan_location
+}
+
+isoroku_yamamoto {
+  isA #Person
+  name "Isoroku Yamamoto"
+  birthDate d1884-04-04
+  deathDate d1943-04-18
+  locatedIn @japan_location
+}
+
+chiang_kai_shek {
+  isA #Person
+  name "Chiang Kai-shek"
+  birthDate d1887-10-31
+  deathDate d1975-04-05
+  locatedIn @china_location
+}
+
+allies {
+  hasMember @united_states
+  hasMember @united_kingdom
+  hasMember @france
+  hasMember @free_france
+  hasMember @soviet_union
+  hasMember @china
+  hasMember @poland
+}
+
+axis_powers {
+  hasMember @nazi_germany
+  hasMember @italy
+  hasMember @japan
+}
+
+nazi_germany {
+  hasMember @adolf_hitler
+  hasMember @joachim_von_ribbentrop
+  hasMember @hermann_goering
+  hasMember @heinrich_himmler
+  hasMember @erwin_rommel
+  hasMember @karl_doenitz
+}
+
+soviet_union {
+  hasMember @joseph_stalin
+  hasMember @vyacheslav_molotov
+  hasMember @georgy_zhukov
+}
+
+united_kingdom {
+  hasMember @neville_chamberlain
+  hasMember @winston_churchill
+  hasMember @bernard_montgomery
+  hasMember @harold_alexander
+}
+
+united_states {
+  hasMember @franklin_roosevelt
+  hasMember @harry_truman
+  hasMember @george_marshall
+  hasMember @dwight_eisenhower
+  hasMember @douglas_macarthur
+}
+
+france {
+  hasMember @edouard_daladier
+}
+
+free_france {
+  hasMember @charles_de_gaulle
+}
+
+italy {
+  hasMember @benito_mussolini
+  hasMember @pietro_badoglio
+  hasMember @albert_kesselring
+}
+
+japan {
+  hasMember @emperor_hirohito
+  hasMember @hideki_tojo
+  hasMember @isoroku_yamamoto
+}
+
+china {
+  hasMember @chiang_kai_shek
+}
+
+world_war_ii {
+  isA #Event
+  name "World War II"
+  startDate d1939-09-01
+  endDate d1945-09-02
+  locatedIn @world
+  hasParticipant @allies
+  hasParticipant @axis_powers
+}
+
+second_sino_japanese_war {
+  isA #Event
+  name "Second Sino-Japanese War"
+  startDate d1937-07-07
+  endDate d1945-09-02
+  locatedIn @china_location
+  hasParticipant @china
+  hasParticipant @japan
+  hasParticipant @chiang_kai_shek
+  hasParticipant @emperor_hirohito
+}
+
+rape_of_nanjing {
+  isA #Event
+  name "Rape of Nanjing"
+  startDate d1937-12-13
+  endDate d1938-01-13
+  locatedIn @nanjing
+  hasParticipant @china
+  hasParticipant @japan
+}
+
+annexation_of_austria {
+  isA #Event
+  name "Annexation of Austria"
+  startDate d1938-03-12
+  endDate d1938-03-13
+  locatedIn @austria
+  hasParticipant @nazi_germany
+  hasParticipant @adolf_hitler
+}
+
+munich_agreement {
+  isA #Event
+  name "Munich Agreement"
+  startDate d1938-09-30
+  endDate d1938-09-30
+  locatedIn @munich
+  hasParticipant @nazi_germany
+  hasParticipant @italy
+  hasParticipant @united_kingdom
+  hasParticipant @france
+  hasParticipant @adolf_hitler
+  hasParticipant @benito_mussolini
+  hasParticipant @neville_chamberlain
+  hasParticipant @edouard_daladier
+}
+
+occupation_of_czechoslovakia {
+  isA #Event
+  name "Occupation of Czechoslovakia"
+  startDate d1939-03-15
+  endDate d1939-03-15
+  locatedIn @prague
+  hasParticipant @nazi_germany
+  hasParticipant @adolf_hitler
+}
+
+signing_of_molotov_ribbentrop_pact {
+  isA #Event
+  name "Signing of the Molotov-Ribbentrop Pact"
+  startDate d1939-08-23
+  endDate d1939-08-23
+  locatedIn @moscow
+  hasParticipant @nazi_germany
+  hasParticipant @soviet_union
+  hasParticipant @joachim_von_ribbentrop
+  hasParticipant @vyacheslav_molotov
+  hasParticipant @joseph_stalin
+}
+
+invasion_of_poland {
+  isA #Event
+  name "Invasion of Poland"
+  startDate d1939-09-01
+  endDate d1939-10-06
+  locatedIn @poland_location
+  hasParticipant @nazi_germany
+  hasParticipant @poland
+  hasParticipant @wehrmacht
+  hasParticipant @adolf_hitler
+}
+
+britain_and_france_declare_war {
+  isA #Event
+  name "Britain and France Declare War on Germany"
+  startDate d1939-09-03
+  endDate d1939-09-03
+  locatedIn @europe
+  hasParticipant @united_kingdom
+  hasParticipant @france
+  hasParticipant @nazi_germany
+  hasParticipant @neville_chamberlain
+  hasParticipant @edouard_daladier
+  hasParticipant @adolf_hitler
+}
+
+soviet_invasion_of_eastern_poland {
+  isA #Event
+  name "Soviet Invasion of Eastern Poland"
+  startDate d1939-09-17
+  endDate d1939-10-06
+  locatedIn @poland_location
+  hasParticipant @soviet_union
+  hasParticipant @poland
+  hasParticipant @joseph_stalin
+}
+
+winter_war {
+  isA #Event
+  name "Winter War"
+  startDate d1939-11-30
+  endDate d1940-03-13
+  locatedIn @finland
+  hasParticipant @soviet_union
+  hasParticipant @joseph_stalin
+}
+
+invasion_of_denmark_and_norway {
+  isA #Event
+  name "Invasion of Denmark and Norway"
+  startDate d1940-04-09
+  endDate d1940-06-10
+  locatedIn @norway
+  hasParticipant @nazi_germany
+  hasParticipant @united_kingdom
+  hasParticipant @france
+}
+
+battle_of_france {
+  isA #Event
+  name "Battle of France"
+  startDate d1940-05-10
+  endDate d1940-06-25
+  locatedIn @france_location
+  hasParticipant @nazi_germany
+  hasParticipant @france
+  hasParticipant @united_kingdom
+  hasParticipant @adolf_hitler
+  hasParticipant @charles_de_gaulle
+}
+
+dunkirk_evacuation {
+  isA #Event
+  name "Dunkirk Evacuation"
+  startDate d1940-05-26
+  endDate d1940-06-04
+  locatedIn @dunkirk
+  hasParticipant @united_kingdom
+  hasParticipant @france
+}
+
+armistice_of_22_june_1940 {
+  isA #Event
+  name "Franco-German Armistice"
+  startDate d1940-06-22
+  endDate d1940-06-22
+  locatedIn @france_location
+  hasParticipant @nazi_germany
+  hasParticipant @france
+}
+
+battle_of_britain {
+  isA #Event
+  name "Battle of Britain"
+  startDate d1940-07-10
+  endDate d1940-10-31
+  locatedIn @united_kingdom_location
+  hasParticipant @nazi_germany
+  hasParticipant @united_kingdom
+  hasParticipant @hermann_goering
+  hasParticipant @winston_churchill
+}
+
+the_blitz {
+  isA #Event
+  name "The Blitz"
+  startDate d1940-09-07
+  endDate d1941-05-11
+  locatedIn @united_kingdom_location
+  hasParticipant @nazi_germany
+  hasParticipant @united_kingdom
+}
+
+tripartite_pact {
+  isA #Event
+  name "Signing of the Tripartite Pact"
+  startDate d1940-09-27
+  endDate d1940-09-27
+  locatedIn @europe
+  hasParticipant @nazi_germany
+  hasParticipant @italy
+  hasParticipant @japan
+  hasParticipant @adolf_hitler
+  hasParticipant @benito_mussolini
+  hasParticipant @emperor_hirohito
+}
+
+invasion_of_yugoslavia {
+  isA #Event
+  name "Invasion of Yugoslavia"
+  startDate d1941-04-06
+  endDate d1941-04-17
+  locatedIn @yugoslavia
+  hasParticipant @nazi_germany
+  hasParticipant @italy
+}
+
+invasion_of_greece {
+  isA #Event
+  name "Invasion of Greece"
+  startDate d1941-04-06
+  endDate d1941-06-01
+  locatedIn @greece
+  hasParticipant @nazi_germany
+  hasParticipant @italy
+  hasParticipant @united_kingdom
+}
+
+operation_barbarossa {
+  isA #Event
+  name "Operation Barbarossa"
+  startDate d1941-06-22
+  endDate d1941-12-05
+  locatedIn @soviet_union_location
+  hasParticipant @nazi_germany
+  hasParticipant @soviet_union
+  hasParticipant @wehrmacht
+  hasParticipant @red_army
+  hasParticipant @adolf_hitler
+  hasParticipant @joseph_stalin
+  hasParticipant @georgy_zhukov
+}
+
+siege_of_leningrad {
+  isA #Event
+  name "Siege of Leningrad"
+  startDate d1941-09-08
+  endDate d1944-01-27
+  locatedIn @leningrad
+  hasParticipant @nazi_germany
+  hasParticipant @soviet_union
+}
+
+battle_of_moscow {
+  isA #Event
+  name "Battle of Moscow"
+  startDate d1941-10-02
+  endDate d1942-01-07
+  locatedIn @moscow
+  hasParticipant @nazi_germany
+  hasParticipant @soviet_union
+  hasParticipant @adolf_hitler
+  hasParticipant @joseph_stalin
+  hasParticipant @georgy_zhukov
+}
+
+attack_on_pearl_harbor {
+  isA #Event
+  name "Attack on Pearl Harbor"
+  startDate d1941-12-07
+  endDate d1941-12-07
+  locatedIn @pearl_harbor
+  hasParticipant @japan
+  hasParticipant @united_states
+  hasParticipant @isoroku_yamamoto
+  hasParticipant @franklin_roosevelt
+}
+
+united_states_enters_war {
+  isA #Event
+  name "United States Enters the War"
+  startDate d1941-12-08
+  endDate d1941-12-11
+  locatedIn @united_states_location
+  hasParticipant @united_states
+  hasParticipant @japan
+  hasParticipant @nazi_germany
+  hasParticipant @franklin_roosevelt
+}
+
+battle_of_midway {
+  isA #Event
+  name "Battle of Midway"
+  startDate d1942-06-04
+  endDate d1942-06-07
+  locatedIn @midway
+  hasParticipant @united_states
+  hasParticipant @japan
+  hasParticipant @united_states_armed_forces
+  hasParticipant @imperial_japanese_military
+  hasParticipant @isoroku_yamamoto
+}
+
+first_battle_of_el_alamein {
+  isA #Event
+  name "First Battle of El Alamein"
+  startDate d1942-07-01
+  endDate d1942-07-27
+  locatedIn @egypt
+  hasParticipant @united_kingdom
+  hasParticipant @nazi_germany
+  hasParticipant @italy
+  hasParticipant @erwin_rommel
+}
+
+guadalcanal_campaign {
+  isA #Event
+  name "Guadalcanal Campaign"
+  startDate d1942-08-07
+  endDate d1943-02-09
+  locatedIn @guadalcanal
+  hasParticipant @united_states
+  hasParticipant @japan
+  hasParticipant @douglas_macarthur
+}
+
+battle_of_stalingrad {
+  isA #Event
+  name "Battle of Stalingrad"
+  startDate d1942-08-23
+  endDate d1943-02-02
+  locatedIn @stalingrad
+  hasParticipant @nazi_germany
+  hasParticipant @soviet_union
+  hasParticipant @adolf_hitler
+  hasParticipant @joseph_stalin
+  hasParticipant @georgy_zhukov
+}
+
+second_battle_of_el_alamein {
+  isA #Event
+  name "Second Battle of El Alamein"
+  startDate d1942-10-23
+  endDate d1942-11-11
+  locatedIn @egypt
+  hasParticipant @united_kingdom
+  hasParticipant @nazi_germany
+  hasParticipant @italy
+  hasParticipant @bernard_montgomery
+  hasParticipant @erwin_rommel
+}
+
+operation_torch {
+  isA #Event
+  name "Operation Torch"
+  startDate d1942-11-08
+  endDate d1942-11-16
+  locatedIn @north_africa
+  hasParticipant @united_states
+  hasParticipant @united_kingdom
+  hasParticipant @dwight_eisenhower
+}
+
+north_africa {
+  isA #Location
+  name "North Africa"
+  locatedIn @africa
+}
+
+casablanca_conference {
+  isA #Event
+  name "Casablanca Conference"
+  startDate d1943-01-14
+  endDate d1943-01-24
+  locatedIn @north_africa
+  hasParticipant @united_states
+  hasParticipant @united_kingdom
+  hasParticipant @free_france
+  hasParticipant @franklin_roosevelt
+  hasParticipant @winston_churchill
+  hasParticipant @charles_de_gaulle
+}
+
+battle_of_kursk {
+  isA #Event
+  name "Battle of Kursk"
+  startDate d1943-07-05
+  endDate d1943-08-23
+  locatedIn @kursk
+  hasParticipant @nazi_germany
+  hasParticipant @soviet_union
+  hasParticipant @adolf_hitler
+  hasParticipant @joseph_stalin
+  hasParticipant @georgy_zhukov
+}
+
+invasion_of_sicily {
+  isA #Event
+  name "Invasion of Sicily"
+  startDate d1943-07-09
+  endDate d1943-08-17
+  locatedIn @sicily
+  hasParticipant @allies
+  hasParticipant @italy
+  hasParticipant @nazi_germany
+  hasParticipant @dwight_eisenhower
+  hasParticipant @bernard_montgomery
+  hasParticipant @benito_mussolini
+}
+
+fall_of_mussolini {
+  isA #Event
+  name "Fall of Mussolini"
+  startDate d1943-07-25
+  endDate d1943-07-25
+  locatedIn @rome
+  hasParticipant @italy
+  hasParticipant @benito_mussolini
+  hasParticipant @pietro_badoglio
+}
+
+armistice_of_cassibile {
+  isA #Event
+  name "Armistice of Cassibile"
+  startDate d1943-09-03
+  endDate d1943-09-03
+  locatedIn @sicily
+  hasParticipant @italy
+  hasParticipant @allies
+  hasParticipant @pietro_badoglio
+  hasParticipant @dwight_eisenhower
+}
+
+allied_invasion_of_italy {
+  isA #Event
+  name "Allied Invasion of Italy"
+  startDate d1943-09-03
+  endDate d1943-09-16
+  locatedIn @salerno
+  hasParticipant @allies
+  hasParticipant @italy
+  hasParticipant @nazi_germany
+}
+
+tehran_conference {
+  isA #Event
+  name "Tehran Conference"
+  startDate d1943-11-28
+  endDate d1943-12-01
+  locatedIn @asia
+  hasParticipant @united_states
+  hasParticipant @united_kingdom
+  hasParticipant @soviet_union
+  hasParticipant @franklin_roosevelt
+  hasParticipant @winston_churchill
+  hasParticipant @joseph_stalin
+}
+
+rome_falls_to_allies {
+  isA #Event
+  name "Liberation of Rome"
+  startDate d1944-06-04
+  endDate d1944-06-04
+  locatedIn @rome
+  hasParticipant @allies
+  hasParticipant @nazi_germany
+}
+
+d_day {
+  isA #Event
+  name "Normandy Landings"
+  startDate d1944-06-06
+  endDate d1944-06-06
+  locatedIn @normandy
+  hasParticipant @allies
+  hasParticipant @nazi_germany
+  hasParticipant @dwight_eisenhower
+  hasParticipant @bernard_montgomery
+}
+
+battle_of_normandy {
+  isA #Event
+  name "Battle of Normandy"
+  startDate d1944-06-06
+  endDate d1944-08-30
+  locatedIn @normandy
+  hasParticipant @allies
+  hasParticipant @nazi_germany
+  hasParticipant @dwight_eisenhower
+  hasParticipant @erwin_rommel
+}
+
+liberation_of_paris {
+  isA #Event
+  name "Liberation of Paris"
+  startDate d1944-08-19
+  endDate d1944-08-25
+  locatedIn @paris
+  hasParticipant @allies
+  hasParticipant @free_france
+  hasParticipant @charles_de_gaulle
+}
+
+operation_market_garden {
+  isA #Event
+  name "Operation Market Garden"
+  startDate d1944-09-17
+  endDate d1944-09-25
+  locatedIn @netherlands
+  hasParticipant @allies
+  hasParticipant @nazi_germany
+  hasParticipant @dwight_eisenhower
+  hasParticipant @bernard_montgomery
+}
+
+battle_of_the_bulge {
+  isA #Event
+  name "Battle of the Bulge"
+  startDate d1944-12-16
+  endDate d1945-01-25
+  locatedIn @belgium
+  hasParticipant @nazi_germany
+  hasParticipant @allies
+  hasParticipant @adolf_hitler
+  hasParticipant @dwight_eisenhower
+  hasParticipant @george_marshall
+}
+
+yalta_conference {
+  isA #Event
+  name "Yalta Conference"
+  startDate d1945-02-04
+  endDate d1945-02-11
+  locatedIn @europe
+  hasParticipant @united_states
+  hasParticipant @united_kingdom
+  hasParticipant @soviet_union
+  hasParticipant @franklin_roosevelt
+  hasParticipant @winston_churchill
+  hasParticipant @joseph_stalin
+}
+
+battle_of_iwo_jima {
+  isA #Event
+  name "Battle of Iwo Jima"
+  startDate d1945-02-19
+  endDate d1945-03-26
+  locatedIn @iwo_jima
+  hasParticipant @united_states
+  hasParticipant @japan
+  hasParticipant @douglas_macarthur
+}
+
+surrender_at_caserta {
+  isA #Event
+  name "Surrender at Caserta"
+  startDate d1945-04-29
+  endDate d1945-04-29
+  locatedIn @caserta
+  hasParticipant @allies
+  hasParticipant @nazi_germany
+  hasParticipant @harold_alexander
+  hasParticipant @albert_kesselring
+}
+
+battle_of_berlin {
+  isA #Event
+  name "Battle of Berlin"
+  startDate d1945-04-16
+  endDate d1945-05-02
+  locatedIn @berlin
+  hasParticipant @soviet_union
+  hasParticipant @nazi_germany
+  hasParticipant @red_army
+  hasParticipant @adolf_hitler
+  hasParticipant @joseph_stalin
+  hasParticipant @georgy_zhukov
+}
+
+death_of_hitler {
+  isA #Event
+  name "Death of Adolf Hitler"
+  startDate d1945-04-30
+  endDate d1945-04-30
+  locatedIn @berlin
+  hasParticipant @adolf_hitler
+}
+
+surrender_of_berlin {
+  isA #Event
+  name "Surrender of Berlin"
+  startDate d1945-05-02
+  endDate d1945-05-02
+  locatedIn @berlin
+  hasParticipant @soviet_union
+  hasParticipant @nazi_germany
+}
+
+reims_surrender {
+  isA #Event
+  name "German Surrender at Reims"
+  startDate d1945-05-07
+  endDate d1945-05-07
+  locatedIn @france_location
+  hasParticipant @allies
+  hasParticipant @nazi_germany
+  hasParticipant @karl_doenitz
+  hasParticipant @dwight_eisenhower
+}
+
+berlin_instrument_of_surrender {
+  isA #Event
+  name "Berlin Instrument of Surrender"
+  startDate d1945-05-08
+  endDate d1945-05-08
+  locatedIn @berlin
+  hasParticipant @allies
+  hasParticipant @nazi_germany
+  hasParticipant @soviet_union
+  hasParticipant @karl_doenitz
+  hasParticipant @georgy_zhukov
+}
+
+potsdam_conference {
+  isA #Event
+  name "Potsdam Conference"
+  startDate d1945-07-17
+  endDate d1945-08-02
+  locatedIn @germany_location
+  hasParticipant @united_states
+  hasParticipant @united_kingdom
+  hasParticipant @soviet_union
+  hasParticipant @harry_truman
+  hasParticipant @winston_churchill
+  hasParticipant @joseph_stalin
+}
+
+hiroshima_bombing {
+  isA #Event
+  name "Atomic Bombing of Hiroshima"
+  startDate d1945-08-06
+  endDate d1945-08-06
+  locatedIn @hiroshima
+  hasParticipant @united_states
+  hasParticipant @japan
+  hasParticipant @harry_truman
+  hasParticipant @emperor_hirohito
+}
+
+soviet_invasion_of_manchuria {
+  isA #Event
+  name "Soviet Invasion of Manchuria"
+  startDate d1945-08-09
+  endDate d1945-09-02
+  locatedIn @manchuria
+  hasParticipant @soviet_union
+  hasParticipant @japan
+  hasParticipant @joseph_stalin
+}
+
+nagasaki_bombing {
+  isA #Event
+  name "Atomic Bombing of Nagasaki"
+  startDate d1945-08-09
+  endDate d1945-08-09
+  locatedIn @nagasaki
+  hasParticipant @united_states
+  hasParticipant @japan
+  hasParticipant @harry_truman
+  hasParticipant @emperor_hirohito
+}
+
+japan_announces_surrender {
+  isA #Event
+  name "Japan Announces Surrender"
+  startDate d1945-08-15
+  endDate d1945-08-15
+  locatedIn @tokyo
+  hasParticipant @japan
+  hasParticipant @emperor_hirohito
+}
+
+formal_japanese_surrender {
+  isA #Event
+  name "Formal Japanese Surrender"
+  startDate d1945-09-02
+  endDate d1945-09-02
+  locatedIn @pacific_ocean
+  hasParticipant @allies
+  hasParticipant @japan
+  hasParticipant @douglas_macarthur
+  hasParticipant @emperor_hirohito
+}
+
+founding_of_united_nations {
+  isA #Event
+  name "Founding of the United Nations"
+  startDate d1945-10-24
+  endDate d1945-10-24
+  locatedIn @world
+  hasParticipant @united_nations
+  hasParticipant @united_states
+  hasParticipant @united_kingdom
+  hasParticipant @soviet_union
+  hasParticipant @france
+  hasParticipant @china
+}
