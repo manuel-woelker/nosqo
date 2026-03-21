@@ -1,0 +1,527 @@
+// Aurelian Expanse knowledge graph
+// Focused on exploration, colonization, scientific exchange, and first contact
+
+exploration_agency {
+  isA #OrganizationType
+  name "Exploration Agency"
+}
+
+colonial_cooperative {
+  isA #OrganizationType
+  name "Colonial Cooperative"
+}
+
+research_institute {
+  isA #OrganizationType
+  name "Research Institute"
+}
+
+diplomatic_council {
+  isA #OrganizationType
+  name "Diplomatic Council"
+}
+
+mutual_aid_network {
+  isA #OrganizationType
+  name "Mutual Aid Network"
+}
+
+emergency_service {
+  isA #OrganizationType
+  name "Emergency Service"
+}
+
+ecological_stewardship_body {
+  isA #OrganizationType
+  name "Ecological Stewardship Body"
+}
+
+aurelian_expanse {
+  isA #Location
+  name "Aurelian Expanse"
+}
+
+solari_system {
+  isA #Location
+  name "Solari System"
+  locatedIn @aurelian_expanse
+}
+
+vesper_system {
+  isA #Location
+  name "Vesper System"
+  locatedIn @aurelian_expanse
+}
+
+nacre_system {
+  isA #Location
+  name "Nacre System"
+  locatedIn @aurelian_expanse
+}
+
+lyr_system {
+  isA #Location
+  name "Lyr System"
+  locatedIn @aurelian_expanse
+}
+
+orison_system {
+  isA #Location
+  name "Orison System"
+  locatedIn @aurelian_expanse
+}
+
+helion {
+  isA #Location
+  name "Helion"
+  locatedIn @solari_system
+}
+
+mirrorglass_station {
+  isA #Location
+  name "Mirrorglass Station"
+  locatedIn @helion
+}
+
+sunward_archives {
+  isA #Location
+  name "Sunward Archives"
+  locatedIn @helion
+}
+
+caelus {
+  isA #Location
+  name "Caelus"
+  locatedIn @vesper_system
+}
+
+new_tethys {
+  isA #Location
+  name "New Tethys"
+  locatedIn @vesper_system
+}
+
+brink_harbor {
+  isA #Location
+  name "Brink Harbor"
+  locatedIn @new_tethys
+}
+
+stormbreak_plateau {
+  isA #Location
+  name "Stormbreak Plateau"
+  locatedIn @new_tethys
+}
+
+opal_belt {
+  isA #Location
+  name "Opal Belt"
+  locatedIn @nacre_system
+}
+
+quiet_step {
+  isA #Location
+  name "Quiet Step"
+  locatedIn @opal_belt
+}
+
+glass_ocean {
+  isA #Location
+  name "Glass Ocean"
+  locatedIn @caelus
+}
+
+pelagic_ladders {
+  isA #Location
+  name "Pelagic Ladders"
+  locatedIn @glass_ocean
+}
+
+lyr_prime {
+  isA #Location
+  name "Lyr Prime"
+  locatedIn @lyr_system
+}
+
+chorus_reef {
+  isA #Location
+  name "Chorus Reef"
+  locatedIn @lyr_prime
+}
+
+stillwater_basin {
+  isA #Location
+  name "Stillwater Basin"
+  locatedIn @lyr_prime
+}
+
+orison_gate {
+  isA #Location
+  name "Orison Gate"
+  locatedIn @orison_system
+}
+
+continuance_union {
+  isA #Organization
+  name "Continuance Union"
+  locatedIn @helion
+  organizationType @colonial_cooperative
+}
+
+wayfinder_guild {
+  isA #Organization
+  name "Wayfinder Guild"
+  locatedIn @mirrorglass_station
+  organizationType @exploration_agency
+}
+
+aurora_cartography_institute {
+  isA #Organization
+  name "Aurora Cartography Institute"
+  locatedIn @mirrorglass_station
+  organizationType @research_institute
+}
+
+vesper_settlement_cooperative {
+  isA #Organization
+  name "Vesper Settlement Cooperative"
+  locatedIn @new_tethys
+  organizationType @colonial_cooperative
+}
+
+chorus_contact_council {
+  isA #Organization
+  name "Chorus Contact Council"
+  locatedIn @chorus_reef
+  organizationType @diplomatic_council
+}
+
+reef_exchange {
+  isA #Organization
+  name "Reef Exchange"
+  locatedIn @chorus_reef
+  organizationType @mutual_aid_network
+}
+
+solari_rescue_service {
+  isA #Organization
+  name "Solari Rescue Service"
+  locatedIn @helion
+  organizationType @emergency_service
+}
+
+caelus_tidewatch {
+  isA #Organization
+  name "Caelus Tidewatch"
+  locatedIn @glass_ocean
+  organizationType @ecological_stewardship_body
+}
+
+orison_deep_range {
+  isA #Organization
+  name "Orison Deep Range"
+  locatedIn @orison_gate
+  organizationType @exploration_agency
+}
+
+continuance_union {
+  hasMember @wayfinder_guild
+  hasMember @aurora_cartography_institute
+  hasMember @vesper_settlement_cooperative
+  hasMember @solari_rescue_service
+}
+
+chorus_contact_council {
+  hasMember @reef_exchange
+}
+
+caelus_tidewatch {
+  hasMember @reef_exchange
+}
+
+mina_velle {
+  isA #Person
+  name "Mina Velle"
+  birthDate d2194-04-16
+  locatedIn @mirrorglass_station
+}
+
+jo_lorren {
+  isA #Person
+  name "Jo Lorren"
+  birthDate d2188-11-02
+  locatedIn @new_tethys
+}
+
+sera_quill {
+  isA #Person
+  name "Sera Quill"
+  birthDate d2201-07-08
+  locatedIn @mirrorglass_station
+}
+
+idris_senn {
+  isA #Person
+  name "Idris Senn"
+  birthDate d2190-01-27
+  locatedIn @helion
+}
+
+tovan_rei {
+  isA #Person
+  name "Tovan Rei"
+  birthDate d2197-09-03
+  locatedIn @brink_harbor
+}
+
+naia_sel {
+  isA #Person
+  name "Naia Sel"
+  birthDate d2185-05-14
+  locatedIn @chorus_reef
+}
+
+thalen_ri {
+  isA #Person
+  name "Thalen Ri"
+  birthDate d2179-10-21
+  locatedIn @chorus_reef
+}
+
+iri_of_the_tidefold {
+  isA #Person
+  name "Iri of the Tidefold"
+  birthDate d2192-12-07
+  locatedIn @chorus_reef
+}
+
+elian_rho {
+  isA #Person
+  name "Elian Rho"
+  birthDate d2183-03-30
+  locatedIn @helion
+}
+
+pema_voss {
+  isA #Person
+  name "Pema Voss"
+  birthDate d2204-08-25
+  locatedIn @stormbreak_plateau
+}
+
+sio_aran {
+  isA #Person
+  name "Sio Aran"
+  birthDate d2199-02-12
+  locatedIn @orison_gate
+}
+
+vesh_of_the_low_current {
+  isA #Person
+  name "Vesh of the Low Current"
+  birthDate d2187-06-18
+  locatedIn @stillwater_basin
+}
+
+wayfinder_guild {
+  hasMember @mina_velle
+  hasMember @sera_quill
+}
+
+vesper_settlement_cooperative {
+  hasMember @jo_lorren
+  hasMember @tovan_rei
+}
+
+aurora_cartography_institute {
+  hasMember @idris_senn
+}
+
+chorus_contact_council {
+  hasMember @naia_sel
+  hasMember @thalen_ri
+}
+
+reef_exchange {
+  hasMember @iri_of_the_tidefold
+  hasMember @vesh_of_the_low_current
+}
+
+solari_rescue_service {
+  hasMember @elian_rho
+}
+
+caelus_tidewatch {
+  hasMember @naia_sel
+  hasMember @vesh_of_the_low_current
+}
+
+orison_deep_range {
+  hasMember @sio_aran
+}
+
+launch_of_the_pale_dawn {
+  isA #Event
+  name "Launch of the Pale Dawn"
+  startDate d2221-03-04
+  locatedIn @mirrorglass_station
+  hasParticipant @wayfinder_guild
+  hasParticipant @mina_velle
+  hasParticipant @sera_quill
+}
+
+vesper_charter_signing {
+  isA #Event
+  name "Vesper Charter Signing"
+  startDate d2222-08-19
+  locatedIn @helion
+  hasParticipant @continuance_union
+  hasParticipant @vesper_settlement_cooperative
+  hasParticipant @idris_senn
+}
+
+new_tethys_landing {
+  isA #Event
+  name "New Tethys Landing"
+  startDate d2223-02-11
+  locatedIn @new_tethys
+  hasParticipant @vesper_settlement_cooperative
+  hasParticipant @jo_lorren
+  hasParticipant @tovan_rei
+}
+
+opal_belt_survey {
+  isA #Event
+  name "Opal Belt Survey"
+  startDate d2224-06-02
+  endDate d2224-09-14
+  locatedIn @opal_belt
+  hasParticipant @wayfinder_guild
+  hasParticipant @aurora_cartography_institute
+  hasParticipant @sera_quill
+  hasParticipant @idris_senn
+}
+
+first_contact_at_chorus_reef {
+  isA #Event
+  name "First Contact at Chorus Reef"
+  startDate d2226-01-28
+  locatedIn @chorus_reef
+  hasParticipant @chorus_contact_council
+  hasParticipant @reef_exchange
+  hasParticipant @mina_velle
+  hasParticipant @naia_sel
+  hasParticipant @thalen_ri
+  hasParticipant @iri_of_the_tidefold
+}
+
+glass_ocean_language_exchange {
+  isA #Event
+  name "Glass Ocean Language Exchange"
+  startDate d2226-05-17
+  endDate d2226-06-03
+  locatedIn @glass_ocean
+  hasParticipant @chorus_contact_council
+  hasParticipant @aurora_cartography_institute
+  hasParticipant @naia_sel
+  hasParticipant @iri_of_the_tidefold
+  hasParticipant @idris_senn
+}
+
+brink_harbor_opening {
+  isA #Event
+  name "Brink Harbor Opening"
+  startDate d2227-04-09
+  locatedIn @brink_harbor
+  hasParticipant @continuance_union
+  hasParticipant @vesper_settlement_cooperative
+  hasParticipant @jo_lorren
+  hasParticipant @tovan_rei
+}
+
+stormglass_supercell {
+  isA #Event
+  name "Stormglass Supercell"
+  startDate d2228-10-22
+  endDate d2228-10-25
+  locatedIn @stormbreak_plateau
+  hasParticipant @vesper_settlement_cooperative
+  hasParticipant @solari_rescue_service
+  hasParticipant @elian_rho
+  hasParticipant @pema_voss
+}
+
+brink_harbor_evacuation_lift {
+  isA #Event
+  name "Brink Harbor Evacuation Lift"
+  startDate d2228-10-23
+  endDate d2228-10-27
+  locatedIn @brink_harbor
+  hasParticipant @solari_rescue_service
+  hasParticipant @vesper_settlement_cooperative
+  hasParticipant @jo_lorren
+  hasParticipant @elian_rho
+  hasParticipant @pema_voss
+}
+
+quiet_step_habitat_breach {
+  isA #Event
+  name "Quiet Step Habitat Breach"
+  startDate d2229-03-12
+  endDate d2229-03-18
+  locatedIn @quiet_step
+  hasParticipant @aurora_cartography_institute
+  hasParticipant @solari_rescue_service
+  hasParticipant @idris_senn
+  hasParticipant @elian_rho
+}
+
+glass_ocean_bloom_crisis {
+  isA #Event
+  name "Glass Ocean Bloom Crisis"
+  startDate d2230-07-01
+  endDate d2230-08-09
+  locatedIn @glass_ocean
+  hasParticipant @caelus_tidewatch
+  hasParticipant @chorus_contact_council
+  hasParticipant @naia_sel
+  hasParticipant @vesh_of_the_low_current
+  hasParticipant @iri_of_the_tidefold
+}
+
+stillwater_recovery_accord {
+  isA #Event
+  name "Stillwater Recovery Accord"
+  startDate d2230-08-14
+  locatedIn @stillwater_basin
+  hasParticipant @caelus_tidewatch
+  hasParticipant @reef_exchange
+  hasParticipant @chorus_contact_council
+  hasParticipant @naia_sel
+  hasParticipant @vesh_of_the_low_current
+}
+
+orison_shadow_migration {
+  isA #Event
+  name "Orison Shadow Migration"
+  startDate d2231-04-03
+  endDate d2231-06-22
+  locatedIn @orison_gate
+  hasParticipant @orison_deep_range
+  hasParticipant @wayfinder_guild
+  hasParticipant @sio_aran
+  hasParticipant @sera_quill
+}
+
+sunward_archive_conclave {
+  isA #Event
+  name "Sunward Archive Conclave"
+  startDate d2231-11-05
+  endDate d2231-11-12
+  locatedIn @sunward_archives
+  hasParticipant @continuance_union
+  hasParticipant @aurora_cartography_institute
+  hasParticipant @chorus_contact_council
+  hasParticipant @idris_senn
+  hasParticipant @thalen_ri
+}
