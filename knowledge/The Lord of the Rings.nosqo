@@ -1,0 +1,336 @@
+// Lord of the Rings trilogy knowledge graph
+// Uses the provided ontology for Person, Event, and Location
+
+shire {
+  isA #Location
+  name "The Shire"
+}
+
+hobbiton {
+  isA #Location
+  name "Hobbiton"
+  locatedIn @shire
+}
+
+rivendell {
+  isA #Location
+  name "Rivendell"
+}
+
+bree {
+  isA #Location
+  name "Bree"
+}
+
+weathertop {
+  isA #Location
+  name "Weathertop"
+}
+
+moria {
+  isA #Location
+  name "Mines of Moria"
+}
+
+lorien {
+  isA #Location
+  name "Lothlorien"
+}
+
+amon_hen {
+  isA #Location
+  name "Amon Hen"
+}
+
+rohan {
+  isA #Location
+  name "Rohan"
+}
+
+edoras {
+  isA #Location
+  name "Edoras"
+  locatedIn @rohan
+}
+
+helms_deep {
+  isA #Location
+  name "Helm's Deep"
+  locatedIn @rohan
+}
+
+isengard {
+  isA #Location
+  name "Isengard"
+}
+
+fangorn {
+  isA #Location
+  name "Fangorn Forest"
+}
+
+gondor {
+  isA #Location
+  name "Gondor"
+}
+
+minas_tirith {
+  isA #Location
+  name "Minas Tirith"
+  locatedIn @gondor
+}
+
+osgiliath {
+  isA #Location
+  name "Osgiliath"
+  locatedIn @gondor
+}
+
+mordor {
+  isA #Location
+  name "Mordor"
+}
+
+minas_morgul {
+  isA #Location
+  name "Minas Morgul"
+  locatedIn @mordor
+}
+
+cirith_ungol {
+  isA #Location
+  name "Cirith Ungol"
+  locatedIn @mordor
+}
+
+mount_doom {
+  isA #Location
+  name "Mount Doom"
+  locatedIn @mordor
+}
+
+black_gate {
+  isA #Location
+  name "Black Gate"
+  locatedIn @mordor
+}
+
+gollum {
+  isA #Person
+  name "Gollum"
+  locatedIn @mordor
+  participatesIn @breaking_of_the_fellowship, @journey_through_ithilien, @destroying_of_the_ring
+}
+
+frodo_baggins {
+  isA #Person
+  name "Frodo Baggins"
+  locatedIn @shire
+  participatesIn @departure_from_the_shire, @council_of_elrond, @journey_through_moria, @breaking_of_the_fellowship, @journey_through_ithilien, @destroying_of_the_ring, @coronation_of_aragorn
+}
+
+samwise_gamgee {
+  isA #Person
+  name "Samwise Gamgee"
+  locatedIn @shire
+  participatesIn @departure_from_the_shire, @council_of_elrond, @journey_through_moria, @breaking_of_the_fellowship, @journey_through_ithilien, @destroying_of_the_ring, @coronation_of_aragorn
+}
+
+merry {
+  isA #Person
+  name "Meriadoc Brandybuck"
+  locatedIn @shire
+  participatesIn @departure_from_the_shire, @council_of_elrond, @journey_through_moria, @breaking_of_the_fellowship, @battle_of_pelennor_fields, @coronation_of_aragorn
+}
+
+pippin {
+  isA #Person
+  name "Peregrin Took"
+  locatedIn @shire
+  participatesIn @departure_from_the_shire, @council_of_elrond, @journey_through_moria, @breaking_of_the_fellowship, @battle_of_pelennor_fields, @coronation_of_aragorn
+}
+
+aragorn {
+  isA #Person
+  name "Aragorn"
+  locatedIn @rivendell
+  participatesIn @departure_from_the_shire, @council_of_elrond, @journey_through_moria, @breaking_of_the_fellowship, @battle_of_helms_deep, @battle_of_pelennor_fields, @battle_of_the_black_gate, @coronation_of_aragorn
+}
+
+legolas {
+  isA #Person
+  name "Legolas"
+  locatedIn @rivendell
+  participatesIn @council_of_elrond, @journey_through_moria, @breaking_of_the_fellowship, @battle_of_helms_deep, @battle_of_pelennor_fields, @battle_of_the_black_gate, @coronation_of_aragorn
+}
+
+gimli {
+  isA #Person
+  name "Gimli"
+  locatedIn @rivendell
+  participatesIn @council_of_elrond, @journey_through_moria, @breaking_of_the_fellowship, @battle_of_helms_deep, @battle_of_pelennor_fields, @battle_of_the_black_gate, @coronation_of_aragorn
+}
+
+gandalf {
+  isA #Person
+  name "Gandalf"
+  locatedIn @shire
+  participatesIn @departure_from_the_shire, @council_of_elrond, @journey_through_moria, @battle_of_helms_deep, @battle_of_pelennor_fields, @battle_of_the_black_gate, @coronation_of_aragorn
+}
+
+boromir {
+  isA #Person
+  name "Boromir"
+  locatedIn @gondor
+  participatesIn @council_of_elrond, @journey_through_moria, @breaking_of_the_fellowship
+}
+
+saruman {
+  isA #Person
+  name "Saruman"
+  locatedIn @isengard
+  participatesIn @battle_of_helms_deep
+}
+
+theoden {
+  isA #Person
+  name "Theoden"
+  locatedIn @rohan
+  participatesIn @battle_of_helms_deep, @battle_of_pelennor_fields
+}
+
+eowyn {
+  isA #Person
+  name "Eowyn"
+  locatedIn @rohan
+  participatesIn @battle_of_pelennor_fields, @coronation_of_aragorn
+}
+
+faramir {
+  isA #Person
+  name "Faramir"
+  locatedIn @gondor
+  participatesIn @journey_through_ithilien, @battle_of_pelennor_fields, @coronation_of_aragorn
+}
+
+elrond {
+  isA #Person
+  name "Elrond"
+  locatedIn @rivendell
+  participatesIn @council_of_elrond, @coronation_of_aragorn
+}
+
+arwen {
+  isA #Person
+  name "Arwen"
+  locatedIn @rivendell
+  participatesIn @coronation_of_aragorn
+}
+
+departure_from_the_shire {
+  isA #Event
+  name "Departure from the Shire"
+  startDate d3018-09-23
+  endDate d3018-09-23
+  locatedIn @shire
+  hasParticipant @frodo_baggins, @samwise_gamgee, @merry, @pippin
+}
+
+arrival_at_bree {
+  isA #Event
+  name "Arrival at Bree"
+  startDate d3018-09-29
+  endDate d3018-09-29
+  locatedIn @bree
+  hasParticipant @frodo_baggins, @samwise_gamgee, @merry, @pippin, @aragorn
+}
+
+attack_on_weathertop {
+  isA #Event
+  name "Attack on Weathertop"
+  startDate d3018-10-06
+  endDate d3018-10-06
+  locatedIn @weathertop
+  hasParticipant @frodo_baggins, @samwise_gamgee, @merry, @pippin, @aragorn
+}
+
+council_of_elrond {
+  isA #Event
+  name "Council of Elrond"
+  startDate d3018-10-25
+  endDate d3018-10-25
+  locatedIn @rivendell
+  hasParticipant @frodo_baggins, @samwise_gamgee, @merry, @pippin, @aragorn, @legolas, @gimli, @gandalf, @boromir, @elrond
+}
+
+journey_through_moria {
+  isA #Event
+  name "Journey through Moria"
+  startDate d3019-01-13
+  endDate d3019-01-15
+  locatedIn @moria
+  hasParticipant @frodo_baggins, @samwise_gamgee, @merry, @pippin, @aragorn, @legolas, @gimli, @gandalf, @boromir
+}
+
+breaking_of_the_fellowship {
+  isA #Event
+  name "Breaking of the Fellowship"
+  startDate d3019-02-26
+  endDate d3019-02-26
+  locatedIn @amon_hen
+  hasParticipant @frodo_baggins, @samwise_gamgee, @merry, @pippin, @aragorn, @legolas, @gimli, @boromir, @gollum
+}
+
+battle_of_helms_deep {
+  isA #Event
+  name "Battle of Helm's Deep"
+  startDate d3019-03-03
+  endDate d3019-03-04
+  locatedIn @helms_deep
+  hasParticipant @aragorn, @legolas, @gimli, @gandalf, @theoden, @saruman
+}
+
+journey_through_ithilien {
+  isA #Event
+  name "Journey through Ithilien"
+  startDate d3019-03-07
+  endDate d3019-03-13
+  locatedIn @gondor
+  hasParticipant @frodo_baggins, @samwise_gamgee, @gollum, @faramir
+}
+
+battle_of_pelennor_fields {
+  isA #Event
+  name "Battle of the Pelennor Fields"
+  startDate d3019-03-15
+  endDate d3019-03-15
+  locatedIn @minas_tirith
+  hasParticipant @aragorn, @gandalf, @theoden, @eowyn, @merry, @pippin, @faramir, @legolas, @gimli
+}
+
+destroying_of_the_ring {
+  isA #Event
+  name "Destruction of the One Ring"
+  startDate d3019-03-25
+  endDate d3019-03-25
+  locatedIn @mount_doom
+  hasParticipant @frodo_baggins, @samwise_gamgee, @gollum
+}
+
+battle_of_the_black_gate {
+  isA #Event
+  name "Battle of the Black Gate"
+  startDate d3019-03-25
+  endDate d3019-03-25
+  locatedIn @black_gate
+  hasParticipant @aragorn, @gandalf, @legolas, @gimli, @merry, @pippin
+}
+
+coronation_of_aragorn {
+  isA #Event
+  name "Coronation of Aragorn"
+  startDate d3019-05-01
+  endDate d3019-05-01
+  locatedIn @minas_tirith
+  hasParticipant @aragorn, @frodo_baggins, @samwise_gamgee, @merry, @pippin, @gandalf, @legolas, @gimli, @eowyn, @faramir, @elrond, @arwen
+}
