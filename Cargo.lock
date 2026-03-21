@@ -561,6 +561,7 @@ dependencies = [
  "axum",
  "expect-test",
  "nosqo-base",
+ "nosqo-engine",
  "nosqo-model",
  "nosqo-pal",
  "nosqo-parser",

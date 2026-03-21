@@ -1,20 +1,25 @@
-mod read_ontogies;
+mod read_knowledge;
 
 use axum::Json;
 use axum::Router;
 use axum::extract::State;
 use axum::routing::get;
 use nosqo_base::logging::init_logging;
+use nosqo_engine::{InMemoryStatementStore, StatementStore};
+use nosqo_model::StatementPattern;
 use nosqo_pal::pal::PalHandle;
 use nosqo_pal::pal_real::PalReal;
-use read_ontogies::read_ontogies;
+use read_knowledge::read_knowledge;
 use serde_json::{Value, json};
 use std::net::SocketAddr;
+use std::sync::Arc;
 
 #[derive(Clone)]
 struct AppState {
     #[allow(dead_code)]
     pal: PalHandle,
+    #[allow(dead_code)]
+    store: Arc<InMemoryStatementStore>,
 }
 
 #[tokio::main]
@@ -22,13 +27,18 @@ async fn main() {
     init_logging();
 
     let pal = PalReal::new_handle();
-    let ontology = read_ontogies(&*pal).expect("server should load ontologies at startup");
+    let store = Arc::new(read_knowledge(&*pal).expect("server should load knowledge at startup"));
+    let statement_count = store
+        .find_statements(&StatementPattern::any())
+        .expect("server should be able to inspect the loaded knowledge")
+        .as_slice()
+        .len();
     tracing::info!(
-        "loaded {} ontology statements into target/ontology.nosqo",
-        ontology.as_slice().len()
+        "loaded {} statements from knowledge/ into the in-memory store",
+        statement_count
     );
 
-    let state = AppState { pal };
+    let state = AppState { pal, store };
 
     let app = Router::new()
         .route("/health", get(health))

@@ -447,7 +447,7 @@ erkenbrand {
   locatedIn @rohan
 }
 
-gh an_buri_ghan {
+gh_an_buri_ghan {
   isA #Person
   name "Ghan-buri-Ghan"
   locatedIn @rohan
@@ -646,7 +646,7 @@ angbor {
   locatedIn @gondor
 }
 
-gh an_buri_ghan {
+gh_an_buri_ghan {
   isA #Person
   name "Ghan-buri-Ghan"
   locatedIn @dunharrow
