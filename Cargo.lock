@@ -519,6 +519,14 @@ dependencies = [
 ]
 
 [[package]]
+name = "nosqo-model"
+version = "0.1.0"
+dependencies = [
+ "nosqo-base",
+ "serde",
+]
+
+[[package]]
 name = "nosqo-pal"
 version = "0.1.0"
 dependencies = [

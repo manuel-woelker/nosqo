@@ -1,0 +1,10 @@
+[package]
+name = "nosqo-model"
+version = "0.1.0"
+edition = "2024"
+description = "Statement data model for the nosqo knowledge database"
+license = "MIT"
+
+[dependencies]
+nosqo-base = { path = "../base", version = "0.1.0" }
+serde = { workspace = true }
