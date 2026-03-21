@@ -1,0 +1,30 @@
+// nosqo ontology: organizations
+
+#Organization {
+  isA #Type
+  label "Organization"
+  description "A structured group of people with a shared purpose."
+  attribute ~name, ~locatedIn, ~hasMember, ~organizationType
+}
+
+#OrganizationType {
+  isA #Type
+  label "OrganizationType"
+  description "A category of organization."
+  attribute ~name
+}
+
+~hasMember {
+  isA #Predicate
+  label "has member"
+  description "Relates an organization to one of its members."
+  targetType #Person
+  targetType #Organization
+}
+
+~organizationType {
+  isA #Predicate
+  label "organization type"
+  description "Relates an organization to its organization type."
+  targetType #OrganizationType
+}

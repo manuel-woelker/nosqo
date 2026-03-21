@@ -24,6 +24,7 @@
 ~hasParticipant {
   isA #Predicate
   label "has participant"
-  description "Relates an event to a participating person."
+  description "Relates an event to a participating person or organization."
   targetType #Person
+  targetType #Organization
 }

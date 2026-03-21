@@ -4,7 +4,7 @@
   isA #Type
   label "Person"
   description "A human being."
-  attribute ~name, ~birthDate, ~locatedIn, ~participatesIn
+  attribute ~name, ~birthDate, ~locatedIn
 }
 
 ~birthDate {
@@ -12,11 +12,4 @@
   label "birth date"
   description "The birth date of a person."
   targetType #Date
-}
-
-~participatesIn {
-  isA #Predicate
-  label "participates in"
-  description "Relates a person to an event they participate in."
-  targetType #Event
 }
