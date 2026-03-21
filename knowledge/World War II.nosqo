@@ -4,389 +4,456 @@
 nation_state {
   isA #OrganizationType
   name "Nation State"
+  description "A sovereign state acting as a political and military participant in the war."
 }
 
 alliance {
   isA #OrganizationType
   name "Alliance"
+  description "A coalition of states and armed forces joined by shared wartime aims."
 }
 
 military {
   isA #OrganizationType
   name "Military Organization"
+  description "An organized armed force used to wage campaigns and occupy territory."
 }
 
 government_in_exile {
   isA #OrganizationType
   name "Government in Exile"
+  description "A displaced national leadership that continues to claim legitimacy after occupation or defeat."
 }
 
 resistance_movement {
   isA #OrganizationType
   name "Resistance Movement"
+  description "An underground movement opposing occupation, collaboration, or authoritarian rule."
 }
 
 international_body {
   isA #OrganizationType
   name "International Body"
+  description "A multinational institution formed to coordinate diplomacy beyond any single state."
 }
 
 europe {
   isA #Location
   name "Europe"
+  description "The main continental theater of World War II, including its opening invasions and final collapse of Nazi rule."
 }
 
 asia {
   isA #Location
   name "Asia"
+  description "The broad Asian theater shaped by Japanese expansion, Chinese resistance, and the Pacific war."
 }
 
 africa {
   isA #Location
   name "Africa"
+  description "The continent whose northern regions became a major battleground between Axis and Allied forces."
 }
 
 north_america {
   isA #Location
   name "North America"
+  description "The North American continent, industrial and political base of the United States during the war."
 }
 
 pacific_ocean {
   isA #Location
   name "Pacific Ocean"
+  description "The vast naval theater of the Pacific war, linking island campaigns, naval battles, and Japan's surrender."
 }
 
 atlantic_ocean {
   isA #Location
   name "Atlantic Ocean"
+  description "The maritime route whose control was vital to Britain's survival and Allied logistics."
 }
 
 world {
   isA #Location
   name "World"
+  description "The global frame of the conflict, reflecting how World War II linked multiple theaters into one war."
 }
 
 germany_location {
   isA #Location
   name "Germany"
+  description "The core European territory from which Nazi Germany projected military power across the continent."
   locatedIn @europe
 }
 
 poland_location {
   isA #Location
   name "Poland"
+  description "The state whose invasion in 1939 triggered the formal start of war in Europe."
   locatedIn @europe
 }
 
 soviet_union_location {
   isA #Location
   name "Soviet Union"
+  description "The Soviet homeland, site of the war's largest land campaigns and immense civilian loss."
   locatedIn @europe
 }
 
 france_location {
   isA #Location
   name "France"
+  description "A major Western European state invaded in 1940 and later liberated by Allied advance."
   locatedIn @europe
 }
 
 united_kingdom_location {
   isA #Location
   name "United Kingdom"
+  description "The island base from which Britain resisted Germany and launched later Allied operations."
   locatedIn @europe
 }
 
 italy_location {
   isA #Location
   name "Italy"
+  description "The European peninsula ruled by Mussolini until invasion, collapse, and civil conflict reshaped it."
   locatedIn @europe
 }
 
 japan_location {
   isA #Location
   name "Japan"
+  description "The home islands of Imperial Japan, later devastated by blockade, bombing, and surrender."
   locatedIn @asia
 }
 
 china_location {
   isA #Location
   name "China"
+  description "A principal Asian battlefield where invasion, occupation, and prolonged resistance defined the war."
   locatedIn @asia
 }
 
 united_states_location {
   isA #Location
   name "United States"
+  description "The continental base of American industrial production, planning, and global force projection."
   locatedIn @north_america
 }
 
 austria {
   isA #Location
   name "Austria"
+  description "The state annexed by Nazi Germany in the Anschluss before open European war began."
   locatedIn @europe
 }
 
 czechoslovakia {
   isA #Location
   name "Czechoslovakia"
+  description "The Central European state first dismantled through appeasement and then occupied by Germany."
   locatedIn @europe
 }
 
 norway {
   isA #Location
   name "Norway"
+  description "A Scandinavian country invaded by Germany to secure sea routes and strategic access to the north."
   locatedIn @europe
 }
 
 denmark {
   isA #Location
   name "Denmark"
+  description "A small Scandinavian state overrun quickly in Germany's 1940 northern offensive."
   locatedIn @europe
 }
 
 belgium {
   isA #Location
   name "Belgium"
+  description "A Western European country invaded during Germany's drive through the Low Countries."
   locatedIn @europe
 }
 
 netherlands {
   isA #Location
   name "Netherlands"
+  description "A Low Country state occupied by Germany and later central to Operation Market Garden."
   locatedIn @europe
 }
 
 yugoslavia {
   isA #Location
   name "Yugoslavia"
+  description "A Balkan state shattered by invasion, occupation, and resistance movements."
   locatedIn @europe
 }
 
 greece {
   isA #Location
   name "Greece"
+  description "A Balkan battleground invaded by Italy and Germany, then occupied during the wider Mediterranean war."
   locatedIn @europe
 }
 
 finland {
   isA #Location
   name "Finland"
+  description "The northern state that fought the Soviet Union in the Winter War and again during the Eastern Front."
   locatedIn @europe
 }
 
 romania {
   isA #Location
   name "Romania"
+  description "An Eastern European state aligned with the Axis and strategically important for oil and front-line access."
   locatedIn @europe
 }
 
 hungary {
   isA #Location
   name "Hungary"
+  description "A Central European Axis partner drawn into the war and later occupied by Germany."
   locatedIn @europe
 }
 
 bulgaria {
   isA #Location
   name "Bulgaria"
+  description "A Balkan Axis-aligned state tied to German influence in southeastern Europe."
   locatedIn @europe
 }
 
 libya {
   isA #Location
   name "Libya"
+  description "The North African colony where Axis and Allied armies maneuvered across desert front lines."
   locatedIn @africa
 }
 
 egypt {
   isA #Location
   name "Egypt"
+  description "The North African state guarding the Suez route and central to the desert war."
   locatedIn @africa
 }
 
 tunisia {
   isA #Location
   name "Tunisia"
+  description "The North African theater where Axis forces made their final stand in Africa."
   locatedIn @africa
 }
 
 algeria {
   isA #Location
   name "Algeria"
+  description "A French North African territory drawn into Allied operations after Operation Torch."
   locatedIn @africa
 }
 
 morocco {
   isA #Location
   name "Morocco"
+  description "A North African landing zone for Allied forces during Operation Torch."
   locatedIn @africa
 }
 
 sicily {
   isA #Location
   name "Sicily"
+  description "The Mediterranean island whose invasion opened the way to Mussolini's downfall and the Italian campaign."
   locatedIn @italy_location
 }
 
 salerno {
   isA #Location
   name "Salerno"
+  description "The Italian landing area used in the Allied invasion of mainland Italy."
   locatedIn @italy_location
 }
 
 rome {
   isA #Location
   name "Rome"
+  description "Italy's capital, politically central to Fascist rule and symbolically important in liberation."
   locatedIn @italy_location
 }
 
 caserta {
   isA #Location
   name "Caserta"
+  description "The Italian site where German forces in Italy signed their surrender."
   locatedIn @italy_location
 }
 
 berlin {
   isA #Location
   name "Berlin"
+  description "The capital of Nazi Germany and the final urban battlefield of the European war."
   locatedIn @germany_location
 }
 
 warsaw {
   isA #Location
   name "Warsaw"
+  description "Poland's capital, devastated by invasion, occupation, and repeated uprisings."
   locatedIn @poland_location
 }
 
 moscow {
   isA #Location
   name "Moscow"
+  description "The Soviet capital, whose defense marked a major failure of Germany's 1941 offensive."
   locatedIn @soviet_union_location
 }
 
 leningrad {
   isA #Location
   name "Leningrad"
+  description "The Soviet city subjected to one of the longest and deadliest sieges in modern history."
   locatedIn @soviet_union_location
 }
 
 stalingrad {
   isA #Location
   name "Stalingrad"
+  description "The Volga city whose battle became the decisive turning point of the Eastern Front."
   locatedIn @soviet_union_location
 }
 
 kursk {
   isA #Location
   name "Kursk"
+  description "The Soviet region where the war's largest tank battle broke German offensive strength in 1943."
   locatedIn @soviet_union_location
 }
 
 paris {
   isA #Location
   name "Paris"
+  description "The capital of France, occupied by Germany and later liberated as Allied forces returned."
   locatedIn @france_location
 }
 
 dunkirk {
   isA #Location
   name "Dunkirk"
+  description "The French port from which Allied troops were evacuated in 1940 under intense pressure."
   locatedIn @france_location
 }
 
 normandy {
   isA #Location
   name "Normandy"
+  description "The French region where the western Allies opened their decisive land front in 1944."
   locatedIn @france_location
 }
 
 munich {
   isA #Location
   name "Munich"
+  description "The German city associated with the Munich Agreement and the failure of appeasement."
   locatedIn @germany_location
 }
 
 prague {
   isA #Location
   name "Prague"
+  description "The capital of Czechoslovakia, brought under German domination after the state's dismemberment."
   locatedIn @czechoslovakia
 }
 
 manchuria {
   isA #Location
   name "Manchuria"
+  description "The northeastern Asian region long occupied by Japan and overrun by the Soviet Union in 1945."
   locatedIn @asia
 }
 
 nanjing {
   isA #Location
   name "Nanjing"
+  description "The Chinese capital captured by Japan in 1937 and associated with mass atrocities."
   locatedIn @china_location
 }
 
 pearl_harbor {
   isA #Location
   name "Pearl Harbor"
+  description "The Hawaiian naval base attacked by Japan, bringing the United States directly into the war."
   locatedIn @pacific_ocean
 }
 
 midway {
   isA #Location
   name "Midway Atoll"
+  description "The Pacific atoll whose battle blunted Japanese naval expansion in 1942."
   locatedIn @pacific_ocean
 }
 
 guadalcanal {
   isA #Location
   name "Guadalcanal"
+  description "The island campaign that marked the first major sustained Allied offensive in the Pacific."
   locatedIn @pacific_ocean
 }
 
 iwo_jima {
   isA #Location
   name "Iwo Jima"
+  description "The volcanic island whose capture gave the United States an air base closer to Japan."
   locatedIn @pacific_ocean
 }
 
 okinawa {
   isA #Location
   name "Okinawa"
+  description "The island battle that previewed the expected cost of invading the Japanese home islands."
   locatedIn @asia
 }
 
 hiroshima {
   isA #Location
   name "Hiroshima"
+  description "The Japanese city destroyed by the first wartime atomic bombing."
   locatedIn @japan_location
 }
 
 nagasaki {
   isA #Location
   name "Nagasaki"
+  description "The Japanese city struck by the second atomic bomb days before surrender."
   locatedIn @japan_location
 }
 
 tokyo {
   isA #Location
   name "Tokyo"
+  description "Japan's capital and political center at the end of the Pacific war."
   locatedIn @japan_location
 }
 
 philippines {
   isA #Location
   name "Philippines"
+  description "The archipelago contested by Japan and later retaken by American-led forces."
   locatedIn @asia
 }
 
 burma {
   isA #Location
   name "Burma"
+  description "The Southeast Asian campaign zone linking India, China, and Japanese imperial ambitions."
   locatedIn @asia
 }
 
 germany {
   isA #Organization
   name "Germany"
+  description "The German state as a European power before and during its mobilization for total war."
   organizationType @nation_state
   locatedIn @germany_location
 }
@@ -394,6 +461,7 @@ germany {
 nazi_germany {
   isA #Organization
   name "Nazi Germany"
+  description "Hitler's dictatorship, the principal aggressor in Europe and architect of genocidal policy."
   organizationType @nation_state
   locatedIn @germany_location
 }
@@ -401,6 +469,7 @@ nazi_germany {
 soviet_union {
   isA #Organization
   name "Soviet Union"
+  description "The communist state whose manpower and losses were central to defeating Nazi Germany."
   organizationType @nation_state
   locatedIn @soviet_union_location
 }
@@ -408,6 +477,7 @@ soviet_union {
 united_kingdom {
   isA #Organization
   name "United Kingdom"
+  description "The British state that remained in the war after France fell and served as a key Allied base."
   organizationType @nation_state
   locatedIn @united_kingdom_location
 }
@@ -415,6 +485,7 @@ united_kingdom {
 france {
   isA #Organization
   name "France"
+  description "The French state before defeat, occupation, and the reconstitution of a fighting French cause."
   organizationType @nation_state
   locatedIn @france_location
 }
@@ -422,6 +493,7 @@ france {
 free_france {
   isA #Organization
   name "Free France"
+  description "The anti-German French leadership and forces organized by Charles de Gaulle after 1940."
   organizationType @government_in_exile
   locatedIn @france_location
 }
@@ -429,6 +501,7 @@ free_france {
 united_states {
   isA #Organization
   name "United States"
+  description "The industrial and military power whose entry transformed the scale of Allied war-making."
   organizationType @nation_state
   locatedIn @united_states_location
 }
@@ -436,6 +509,7 @@ united_states {
 italy {
   isA #Organization
   name "Italy"
+  description "The Fascist state under Mussolini until military failure and armistice fractured its role in the war."
   organizationType @nation_state
   locatedIn @italy_location
 }
@@ -443,6 +517,7 @@ italy {
 japan {
   isA #Organization
   name "Japan"
+  description "The imperial state driving expansion across East Asia and the Pacific until defeat in 1945."
   organizationType @nation_state
   locatedIn @japan_location
 }
@@ -450,6 +525,7 @@ japan {
 china {
   isA #Organization
   name "China"
+  description "The war-torn state that resisted Japan across a long and brutal Asian front."
   organizationType @nation_state
   locatedIn @china_location
 }
@@ -457,6 +533,7 @@ china {
 poland {
   isA #Organization
   name "Poland"
+  description "The state partitioned and occupied in 1939, yet represented throughout the war by resistance and exile."
   organizationType @nation_state
   locatedIn @poland_location
 }
@@ -464,6 +541,7 @@ poland {
 allies {
   isA #Organization
   name "Allies"
+  description "The coalition of states and forces fighting to defeat the Axis powers."
   organizationType @alliance
   locatedIn @world
 }
@@ -471,6 +549,7 @@ allies {
 axis_powers {
   isA #Organization
   name "Axis Powers"
+  description "The coalition led by Germany, Italy, and Japan in pursuit of territorial expansion and domination."
   organizationType @alliance
   locatedIn @world
 }
@@ -478,6 +557,7 @@ axis_powers {
 wehrmacht {
   isA #Organization
   name "Wehrmacht"
+  description "The unified armed forces of Nazi Germany responsible for major campaigns across Europe."
   organizationType @military
   locatedIn @germany_location
 }
@@ -485,6 +565,7 @@ wehrmacht {
 red_army {
   isA #Organization
   name "Red Army"
+  description "The Soviet land force that absorbed, stopped, and then reversed the German invasion."
   organizationType @military
   locatedIn @soviet_union_location
 }
@@ -492,6 +573,7 @@ red_army {
 british_armed_forces {
   isA #Organization
   name "British Armed Forces"
+  description "Britain's military establishment across land, sea, and air during the war."
   organizationType @military
   locatedIn @united_kingdom_location
 }
@@ -499,6 +581,7 @@ british_armed_forces {
 united_states_armed_forces {
   isA #Organization
   name "United States Armed Forces"
+  description "The American military machine that fought in both Europe and the Pacific."
   organizationType @military
   locatedIn @united_states_location
 }
@@ -506,6 +589,7 @@ united_states_armed_forces {
 imperial_japanese_military {
   isA #Organization
   name "Imperial Japanese Military"
+  description "Japan's wartime military establishment driving imperial expansion across Asia and the Pacific."
   organizationType @military
   locatedIn @japan_location
 }
@@ -513,6 +597,7 @@ imperial_japanese_military {
 french_resistance {
   isA #Organization
   name "French Resistance"
+  description "The network of fighters, saboteurs, and underground organizers opposing German occupation in France."
   organizationType @resistance_movement
   locatedIn @france_location
 }
@@ -520,6 +605,7 @@ french_resistance {
 united_nations {
   isA #Organization
   name "United Nations"
+  description "The international body founded at war's end to replace failed interwar diplomacy with collective security."
   organizationType @international_body
   locatedIn @world
 }
@@ -527,6 +613,7 @@ united_nations {
 adolf_hitler {
   isA #Person
   name "Adolf Hitler"
+  description "The dictator of Nazi Germany whose expansionism and ideology drove Europe into catastrophic war and genocide."
   birthDate d1889-04-20
   deathDate d1945-04-30
   locatedIn @germany_location
@@ -535,6 +622,7 @@ adolf_hitler {
 joachim_von_ribbentrop {
   isA #Person
   name "Joachim von Ribbentrop"
+  description "Hitler's foreign minister, closely associated with Nazi diplomacy and the pact with the Soviet Union."
   birthDate d1893-04-30
   deathDate d1946-10-16
   locatedIn @germany_location
@@ -543,6 +631,7 @@ joachim_von_ribbentrop {
 vyacheslav_molotov {
   isA #Person
   name "Vyacheslav Molotov"
+  description "The Soviet foreign minister linked to high-level wartime diplomacy and the Molotov-Ribbentrop Pact."
   birthDate d1890-03-09
   deathDate d1986-11-08
   locatedIn @soviet_union_location
@@ -551,6 +640,7 @@ vyacheslav_molotov {
 joseph_stalin {
   isA #Person
   name "Joseph Stalin"
+  description "The Soviet leader who directed the USSR through invasion, mass mobilization, and victory at immense cost."
   birthDate d1878-12-18
   deathDate d1953-03-05
   locatedIn @soviet_union_location
@@ -559,6 +649,7 @@ joseph_stalin {
 winston_churchill {
   isA #Person
   name "Winston Churchill"
+  description "The British prime minister whose wartime leadership became synonymous with defiance against Nazi Germany."
   birthDate d1874-11-30
   deathDate d1965-01-24
   locatedIn @united_kingdom_location
@@ -567,6 +658,7 @@ winston_churchill {
 neville_chamberlain {
   isA #Person
   name "Neville Chamberlain"
+  description "The British prime minister associated with appeasement before being replaced during the war's early crisis."
   birthDate d1869-03-18
   deathDate d1940-11-09
   locatedIn @united_kingdom_location
@@ -575,6 +667,7 @@ neville_chamberlain {
 edouard_daladier {
   isA #Person
   name "Edouard Daladier"
+  description "The French statesman who led France during the late appeasement era and the approach of war."
   birthDate d1884-06-18
   deathDate d1970-10-10
   locatedIn @france_location
@@ -583,6 +676,7 @@ edouard_daladier {
 charles_de_gaulle {
   isA #Person
   name "Charles de Gaulle"
+  description "The French leader who built Free France into a continuing national and military cause after defeat."
   birthDate d1890-11-22
   deathDate d1970-11-09
   locatedIn @france_location
@@ -591,6 +685,7 @@ charles_de_gaulle {
 franklin_roosevelt {
   isA #Person
   name "Franklin D. Roosevelt"
+  description "The American president who led the United States through mobilization, alliance-building, and most of the war."
   birthDate d1882-01-30
   deathDate d1945-04-12
   locatedIn @united_states_location
@@ -599,6 +694,7 @@ franklin_roosevelt {
 harry_truman {
   isA #Person
   name "Harry S. Truman"
+  description "The American president who took office in 1945 and oversaw the war's final decisions against Japan."
   birthDate d1884-05-08
   deathDate d1972-12-26
   locatedIn @united_states_location
@@ -607,6 +703,7 @@ harry_truman {
 george_marshall {
   isA #Person
   name "George C. Marshall"
+  description "The American army chief of staff and central architect of U.S. wartime military expansion."
   birthDate d1880-12-31
   deathDate d1959-10-16
   locatedIn @united_states_location
@@ -615,6 +712,7 @@ george_marshall {
 dwight_eisenhower {
   isA #Person
   name "Dwight D. Eisenhower"
+  description "The Allied commander who led the Normandy invasion and later the push into Germany."
   birthDate d1890-10-14
   deathDate d1969-03-28
   locatedIn @united_states_location
@@ -623,6 +721,7 @@ dwight_eisenhower {
 douglas_macarthur {
   isA #Person
   name "Douglas MacArthur"
+  description "The American commander most associated with the Southwest Pacific and the return to the Philippines."
   birthDate d1880-01-26
   deathDate d1964-04-05
   locatedIn @united_states_location
@@ -631,6 +730,7 @@ douglas_macarthur {
 bernard_montgomery {
   isA #Person
   name "Bernard Montgomery"
+  description "The British field commander closely linked to El Alamein and later northwestern Europe."
   birthDate d1887-11-17
   deathDate d1976-03-24
   locatedIn @united_kingdom_location
@@ -639,6 +739,7 @@ bernard_montgomery {
 georgy_zhukov {
   isA #Person
   name "Georgy Zhukov"
+  description "One of the Soviet Union's most important commanders in the defense of Moscow and the drive to Berlin."
   birthDate d1896-12-01
   deathDate d1974-06-18
   locatedIn @soviet_union_location
@@ -647,6 +748,7 @@ georgy_zhukov {
 benito_mussolini {
   isA #Person
   name "Benito Mussolini"
+  description "The Fascist ruler of Italy whose alliance with Hitler ended in collapse and overthrow."
   birthDate d1883-07-29
   deathDate d1945-04-28
   locatedIn @italy_location
@@ -655,6 +757,7 @@ benito_mussolini {
 pietro_badoglio {
   isA #Person
   name "Pietro Badoglio"
+  description "The Italian marshal who replaced Mussolini and led Italy into armistice with the Allies."
   birthDate d1871-09-28
   deathDate d1956-11-01
   locatedIn @italy_location
@@ -663,6 +766,7 @@ pietro_badoglio {
 albert_kesselring {
   isA #Person
   name "Albert Kesselring"
+  description "The senior German commander associated with the defense of Italy and Mediterranean operations."
   birthDate d1885-11-30
   deathDate d1960-07-16
   locatedIn @italy_location
@@ -671,6 +775,7 @@ albert_kesselring {
 harold_alexander {
   isA #Person
   name "Harold Alexander"
+  description "The Allied commander who oversaw major British-led operations in the Mediterranean theater."
   birthDate d1891-12-10
   deathDate d1969-06-16
   locatedIn @united_kingdom_location
@@ -679,6 +784,7 @@ harold_alexander {
 erwin_rommel {
   isA #Person
   name "Erwin Rommel"
+  description "The German field marshal famed for desert warfare and later implicated in anti-Hitler circles."
   birthDate d1891-11-15
   deathDate d1944-10-14
   locatedIn @germany_location
@@ -687,6 +793,7 @@ erwin_rommel {
 hermann_goering {
   isA #Person
   name "Hermann Goring"
+  description "A leading Nazi figure who commanded the Luftwaffe and ranked among the regime's most powerful men."
   birthDate d1893-01-12
   deathDate d1946-10-15
   locatedIn @germany_location
@@ -695,6 +802,7 @@ hermann_goering {
 heinrich_himmler {
   isA #Person
   name "Heinrich Himmler"
+  description "The SS chief central to Nazi terror, repression, and the machinery of genocide."
   birthDate d1900-10-07
   deathDate d1945-05-23
   locatedIn @germany_location
@@ -703,6 +811,7 @@ heinrich_himmler {
 karl_doenitz {
   isA #Person
   name "Karl Donitz"
+  description "The German naval commander who briefly succeeded Hitler at the collapsing end of the Reich."
   birthDate d1891-09-16
   deathDate d1980-12-24
   locatedIn @germany_location
@@ -711,6 +820,7 @@ karl_doenitz {
 emperor_hirohito {
   isA #Person
   name "Hirohito"
+  description "Japan's emperor during the war, symbolically central to the imperial state and its surrender."
   birthDate d1901-04-29
   deathDate d1989-01-07
   locatedIn @japan_location
@@ -719,6 +829,7 @@ emperor_hirohito {
 hideki_tojo {
   isA #Person
   name "Hideki Tojo"
+  description "Japan's wartime prime minister and one of the political faces of imperial militarism."
   birthDate d1884-12-30
   deathDate d1948-12-23
   locatedIn @japan_location
@@ -727,6 +838,7 @@ hideki_tojo {
 isoroku_yamamoto {
   isA #Person
   name "Isoroku Yamamoto"
+  description "The Japanese naval strategist associated with Pearl Harbor and early Pacific operations."
   birthDate d1884-04-04
   deathDate d1943-04-18
   locatedIn @japan_location
@@ -735,6 +847,7 @@ isoroku_yamamoto {
 chiang_kai_shek {
   isA #Person
   name "Chiang Kai-shek"
+  description "The Chinese Nationalist leader whose government fought Japan throughout the long Asian war."
   birthDate d1887-10-31
   deathDate d1975-04-05
   locatedIn @china_location
@@ -813,6 +926,7 @@ china {
 world_war_ii {
   isA #Event
   name "World War II"
+  description "The global conflict from 1939 to 1945 that joined European, Asian, African, and Pacific theaters into a single war."
   startDate d1939-09-01
   endDate d1945-09-02
   locatedIn @world
@@ -823,6 +937,7 @@ world_war_ii {
 second_sino_japanese_war {
   isA #Event
   name "Second Sino-Japanese War"
+  description "The Asian conflict between China and Japan that both preceded and fed directly into World War II."
   startDate d1937-07-07
   endDate d1945-09-02
   locatedIn @china_location
@@ -835,6 +950,7 @@ second_sino_japanese_war {
 rape_of_nanjing {
   isA #Event
   name "Rape of Nanjing"
+  description "The massacre and atrocity campaign carried out by Japanese forces after the capture of Nanjing."
   startDate d1937-12-13
   endDate d1938-01-13
   locatedIn @nanjing
@@ -845,6 +961,7 @@ rape_of_nanjing {
 annexation_of_austria {
   isA #Event
   name "Annexation of Austria"
+  description "The Anschluss, in which Nazi Germany absorbed Austria without broader military resistance."
   startDate d1938-03-12
   endDate d1938-03-13
   locatedIn @austria
@@ -855,6 +972,7 @@ annexation_of_austria {
 munich_agreement {
   isA #Event
   name "Munich Agreement"
+  description "The 1938 settlement that sacrificed Czechoslovak territory in the hope of avoiding wider war."
   startDate d1938-09-30
   endDate d1938-09-30
   locatedIn @munich
@@ -871,6 +989,7 @@ munich_agreement {
 occupation_of_czechoslovakia {
   isA #Event
   name "Occupation of Czechoslovakia"
+  description "Germany's takeover of the rest of Czechoslovakia, exposing the failure of appeasement."
   startDate d1939-03-15
   endDate d1939-03-15
   locatedIn @prague
@@ -881,6 +1000,7 @@ occupation_of_czechoslovakia {
 signing_of_molotov_ribbentrop_pact {
   isA #Event
   name "Signing of the Molotov-Ribbentrop Pact"
+  description "The non-aggression pact between Nazi Germany and the Soviet Union, including secret plans to divide Eastern Europe."
   startDate d1939-08-23
   endDate d1939-08-23
   locatedIn @moscow
@@ -894,6 +1014,7 @@ signing_of_molotov_ribbentrop_pact {
 invasion_of_poland {
   isA #Event
   name "Invasion of Poland"
+  description "Germany's attack on Poland, the immediate trigger for war in Europe."
   startDate d1939-09-01
   endDate d1939-10-06
   locatedIn @poland_location
@@ -906,6 +1027,7 @@ invasion_of_poland {
 britain_and_france_declare_war {
   isA #Event
   name "Britain and France Declare War on Germany"
+  description "The declaration that formally turned the Polish crisis into a wider European war."
   startDate d1939-09-03
   endDate d1939-09-03
   locatedIn @europe
@@ -920,6 +1042,7 @@ britain_and_france_declare_war {
 soviet_invasion_of_eastern_poland {
   isA #Event
   name "Soviet Invasion of Eastern Poland"
+  description "The Soviet move into eastern Poland under the terms of the German-Soviet partition arrangement."
   startDate d1939-09-17
   endDate d1939-10-06
   locatedIn @poland_location
@@ -931,6 +1054,7 @@ soviet_invasion_of_eastern_poland {
 winter_war {
   isA #Event
   name "Winter War"
+  description "The conflict in which Finland resisted Soviet invasion with surprising effectiveness despite heavy pressure."
   startDate d1939-11-30
   endDate d1940-03-13
   locatedIn @finland
@@ -941,6 +1065,7 @@ winter_war {
 invasion_of_denmark_and_norway {
   isA #Event
   name "Invasion of Denmark and Norway"
+  description "Germany's northern operation to secure ports, sea lanes, and strategic reach."
   startDate d1940-04-09
   endDate d1940-06-10
   locatedIn @norway
@@ -952,6 +1077,7 @@ invasion_of_denmark_and_norway {
 battle_of_france {
   isA #Event
   name "Battle of France"
+  description "The 1940 campaign that shattered Allied defenses and led to France's defeat."
   startDate d1940-05-10
   endDate d1940-06-25
   locatedIn @france_location
@@ -965,6 +1091,7 @@ battle_of_france {
 dunkirk_evacuation {
   isA #Event
   name "Dunkirk Evacuation"
+  description "The emergency sea evacuation that preserved much of Britain's expeditionary army after the fall of France."
   startDate d1940-05-26
   endDate d1940-06-04
   locatedIn @dunkirk
@@ -975,6 +1102,7 @@ dunkirk_evacuation {
 armistice_of_22_june_1940 {
   isA #Event
   name "Franco-German Armistice"
+  description "The agreement that ended organized French resistance to Germany in 1940."
   startDate d1940-06-22
   endDate d1940-06-22
   locatedIn @france_location
@@ -985,6 +1113,7 @@ armistice_of_22_june_1940 {
 battle_of_britain {
   isA #Event
   name "Battle of Britain"
+  description "The air campaign in which Britain resisted German attempts to gain dominance over its skies."
   startDate d1940-07-10
   endDate d1940-10-31
   locatedIn @united_kingdom_location
@@ -997,6 +1126,7 @@ battle_of_britain {
 the_blitz {
   isA #Event
   name "The Blitz"
+  description "Germany's sustained bombing of British cities, intended to break morale and war capacity."
   startDate d1940-09-07
   endDate d1941-05-11
   locatedIn @united_kingdom_location
@@ -1007,6 +1137,7 @@ the_blitz {
 tripartite_pact {
   isA #Event
   name "Signing of the Tripartite Pact"
+  description "The formal agreement tying Germany, Italy, and Japan together as Axis powers."
   startDate d1940-09-27
   endDate d1940-09-27
   locatedIn @europe
@@ -1021,6 +1152,7 @@ tripartite_pact {
 invasion_of_yugoslavia {
   isA #Event
   name "Invasion of Yugoslavia"
+  description "The Axis assault that rapidly destroyed Yugoslavia as an independent wartime actor."
   startDate d1941-04-06
   endDate d1941-04-17
   locatedIn @yugoslavia
@@ -1031,6 +1163,7 @@ invasion_of_yugoslavia {
 invasion_of_greece {
   isA #Event
   name "Invasion of Greece"
+  description "The Axis campaign that overran Greece after earlier Italian failure."
   startDate d1941-04-06
   endDate d1941-06-01
   locatedIn @greece
@@ -1042,6 +1175,7 @@ invasion_of_greece {
 operation_barbarossa {
   isA #Event
   name "Operation Barbarossa"
+  description "Germany's massive invasion of the Soviet Union, opening the largest front of the war."
   startDate d1941-06-22
   endDate d1941-12-05
   locatedIn @soviet_union_location
@@ -1057,6 +1191,7 @@ operation_barbarossa {
 siege_of_leningrad {
   isA #Event
   name "Siege of Leningrad"
+  description "The encirclement of Leningrad, marked by starvation, bombardment, and extraordinary civilian endurance."
   startDate d1941-09-08
   endDate d1944-01-27
   locatedIn @leningrad
@@ -1067,6 +1202,7 @@ siege_of_leningrad {
 battle_of_moscow {
   isA #Event
   name "Battle of Moscow"
+  description "The failed German attempt to seize the Soviet capital before winter and Soviet counterattack."
   startDate d1941-10-02
   endDate d1942-01-07
   locatedIn @moscow
@@ -1080,6 +1216,7 @@ battle_of_moscow {
 attack_on_pearl_harbor {
   isA #Event
   name "Attack on Pearl Harbor"
+  description "Japan's surprise strike on the U.S. Pacific Fleet that transformed the war's scale."
   startDate d1941-12-07
   endDate d1941-12-07
   locatedIn @pearl_harbor
@@ -1092,6 +1229,7 @@ attack_on_pearl_harbor {
 united_states_enters_war {
   isA #Event
   name "United States Enters the War"
+  description "The political and military turning point in which the United States became a full belligerent."
   startDate d1941-12-08
   endDate d1941-12-11
   locatedIn @united_states_location
@@ -1104,6 +1242,7 @@ united_states_enters_war {
 battle_of_midway {
   isA #Event
   name "Battle of Midway"
+  description "The naval battle that crippled Japan's carrier strength and shifted momentum in the Pacific."
   startDate d1942-06-04
   endDate d1942-06-07
   locatedIn @midway
@@ -1117,6 +1256,7 @@ battle_of_midway {
 first_battle_of_el_alamein {
   isA #Event
   name "First Battle of El Alamein"
+  description "The battle that helped halt the Axis advance toward Egypt and the Suez corridor."
   startDate d1942-07-01
   endDate d1942-07-27
   locatedIn @egypt
@@ -1129,6 +1269,7 @@ first_battle_of_el_alamein {
 guadalcanal_campaign {
   isA #Event
   name "Guadalcanal Campaign"
+  description "The long attritional campaign that marked the Allied shift to sustained offensive action in the Pacific."
   startDate d1942-08-07
   endDate d1943-02-09
   locatedIn @guadalcanal
@@ -1140,6 +1281,7 @@ guadalcanal_campaign {
 battle_of_stalingrad {
   isA #Event
   name "Battle of Stalingrad"
+  description "The brutal urban and encirclement battle that broke Germany's strategic initiative in the east."
   startDate d1942-08-23
   endDate d1943-02-02
   locatedIn @stalingrad
@@ -1153,6 +1295,7 @@ battle_of_stalingrad {
 second_battle_of_el_alamein {
   isA #Event
   name "Second Battle of El Alamein"
+  description "Montgomery's offensive victory that drove Axis forces back across North Africa."
   startDate d1942-10-23
   endDate d1942-11-11
   locatedIn @egypt
@@ -1166,6 +1309,7 @@ second_battle_of_el_alamein {
 operation_torch {
   isA #Event
   name "Operation Torch"
+  description "The Allied landings in French North Africa that opened a western front in the Mediterranean."
   startDate d1942-11-08
   endDate d1942-11-16
   locatedIn @north_africa
@@ -1177,12 +1321,14 @@ operation_torch {
 north_africa {
   isA #Location
   name "North Africa"
+  description "The wider desert theater where Axis and Allied armies fought for control of the Mediterranean approaches."
   locatedIn @africa
 }
 
 casablanca_conference {
   isA #Event
   name "Casablanca Conference"
+  description "The Allied summit that advanced strategy and publicly affirmed the demand for Axis unconditional surrender."
   startDate d1943-01-14
   endDate d1943-01-24
   locatedIn @north_africa
@@ -1197,6 +1343,7 @@ casablanca_conference {
 battle_of_kursk {
   isA #Event
   name "Battle of Kursk"
+  description "The great armored clash that ended Germany's capacity for major offensive recovery on the Eastern Front."
   startDate d1943-07-05
   endDate d1943-08-23
   locatedIn @kursk
@@ -1210,6 +1357,7 @@ battle_of_kursk {
 invasion_of_sicily {
   isA #Event
   name "Invasion of Sicily"
+  description "The Allied operation that opened the road to mainland Italy and destabilized Mussolini's regime."
   startDate d1943-07-09
   endDate d1943-08-17
   locatedIn @sicily
@@ -1224,6 +1372,7 @@ invasion_of_sicily {
 fall_of_mussolini {
   isA #Event
   name "Fall of Mussolini"
+  description "The political collapse that removed Mussolini from power after Italian military failure."
   startDate d1943-07-25
   endDate d1943-07-25
   locatedIn @rome
@@ -1235,6 +1384,7 @@ fall_of_mussolini {
 armistice_of_cassibile {
   isA #Event
   name "Armistice of Cassibile"
+  description "The agreement by which Italy left the Axis and aligned against Germany."
   startDate d1943-09-03
   endDate d1943-09-03
   locatedIn @sicily
@@ -1247,6 +1397,7 @@ armistice_of_cassibile {
 allied_invasion_of_italy {
   isA #Event
   name "Allied Invasion of Italy"
+  description "The landing on mainland Italy that began a long and difficult campaign northward."
   startDate d1943-09-03
   endDate d1943-09-16
   locatedIn @salerno
@@ -1258,6 +1409,7 @@ allied_invasion_of_italy {
 tehran_conference {
   isA #Event
   name "Tehran Conference"
+  description "The first wartime summit of Roosevelt, Churchill, and Stalin, where major Allied strategy was coordinated."
   startDate d1943-11-28
   endDate d1943-12-01
   locatedIn @asia
@@ -1272,6 +1424,7 @@ tehran_conference {
 rome_falls_to_allies {
   isA #Event
   name "Liberation of Rome"
+  description "The Allied liberation of Rome, the first Axis capital to fall."
   startDate d1944-06-04
   endDate d1944-06-04
   locatedIn @rome
@@ -1282,6 +1435,7 @@ rome_falls_to_allies {
 d_day {
   isA #Event
   name "Normandy Landings"
+  description "The Normandy landings that reopened a major western front against Germany."
   startDate d1944-06-06
   endDate d1944-06-06
   locatedIn @normandy
@@ -1294,6 +1448,7 @@ d_day {
 battle_of_normandy {
   isA #Event
   name "Battle of Normandy"
+  description "The campaign that expanded the Normandy bridgehead into a decisive breakout into France."
   startDate d1944-06-06
   endDate d1944-08-30
   locatedIn @normandy
@@ -1306,6 +1461,7 @@ battle_of_normandy {
 liberation_of_paris {
   isA #Event
   name "Liberation of Paris"
+  description "The event marking the end of German occupation in the French capital."
   startDate d1944-08-19
   endDate d1944-08-25
   locatedIn @paris
@@ -1317,6 +1473,7 @@ liberation_of_paris {
 operation_market_garden {
   isA #Event
   name "Operation Market Garden"
+  description "The ambitious Allied airborne-ground offensive that failed to secure a decisive bridgehead into Germany."
   startDate d1944-09-17
   endDate d1944-09-25
   locatedIn @netherlands
@@ -1329,6 +1486,7 @@ operation_market_garden {
 battle_of_the_bulge {
   isA #Event
   name "Battle of the Bulge"
+  description "Germany's last major western offensive, launched through the Ardennes in late 1944."
   startDate d1944-12-16
   endDate d1945-01-25
   locatedIn @belgium
@@ -1342,6 +1500,7 @@ battle_of_the_bulge {
 yalta_conference {
   isA #Event
   name "Yalta Conference"
+  description "The Allied summit that shaped occupation plans and the emerging postwar order."
   startDate d1945-02-04
   endDate d1945-02-11
   locatedIn @europe
@@ -1356,6 +1515,7 @@ yalta_conference {
 battle_of_iwo_jima {
   isA #Event
   name "Battle of Iwo Jima"
+  description "The costly island battle whose imagery and sacrifice became emblematic of the Pacific war."
   startDate d1945-02-19
   endDate d1945-03-26
   locatedIn @iwo_jima
@@ -1367,6 +1527,7 @@ battle_of_iwo_jima {
 surrender_at_caserta {
   isA #Event
   name "Surrender at Caserta"
+  description "The formal surrender of German forces in Italy near the end of the European war."
   startDate d1945-04-29
   endDate d1945-04-29
   locatedIn @caserta
@@ -1379,6 +1540,7 @@ surrender_at_caserta {
 battle_of_berlin {
   isA #Event
   name "Battle of Berlin"
+  description "The final Soviet assault that destroyed Nazi Germany's capital and ended the Third Reich."
   startDate d1945-04-16
   endDate d1945-05-02
   locatedIn @berlin
@@ -1393,6 +1555,7 @@ battle_of_berlin {
 death_of_hitler {
   isA #Event
   name "Death of Adolf Hitler"
+  description "Hitler's suicide in Berlin as Soviet forces closed around the collapsing regime."
   startDate d1945-04-30
   endDate d1945-04-30
   locatedIn @berlin
@@ -1402,6 +1565,7 @@ death_of_hitler {
 surrender_of_berlin {
   isA #Event
   name "Surrender of Berlin"
+  description "The capitulation of German defenders in Berlin after the city's fall."
   startDate d1945-05-02
   endDate d1945-05-02
   locatedIn @berlin
@@ -1412,6 +1576,7 @@ surrender_of_berlin {
 reims_surrender {
   isA #Event
   name "German Surrender at Reims"
+  description "The initial signing of Germany's surrender to the Western Allies at Reims."
   startDate d1945-05-07
   endDate d1945-05-07
   locatedIn @france_location
@@ -1424,6 +1589,7 @@ reims_surrender {
 berlin_instrument_of_surrender {
   isA #Event
   name "Berlin Instrument of Surrender"
+  description "The final ratified act of German military surrender signed in Berlin."
   startDate d1945-05-08
   endDate d1945-05-08
   locatedIn @berlin
@@ -1437,6 +1603,7 @@ berlin_instrument_of_surrender {
 potsdam_conference {
   isA #Event
   name "Potsdam Conference"
+  description "The Allied meeting that addressed occupation policy and the terms presented to Japan."
   startDate d1945-07-17
   endDate d1945-08-02
   locatedIn @germany_location
@@ -1451,6 +1618,7 @@ potsdam_conference {
 hiroshima_bombing {
   isA #Event
   name "Atomic Bombing of Hiroshima"
+  description "The first wartime use of an atomic bomb, destroying Hiroshima and transforming the endgame with Japan."
   startDate d1945-08-06
   endDate d1945-08-06
   locatedIn @hiroshima
@@ -1463,6 +1631,7 @@ hiroshima_bombing {
 soviet_invasion_of_manchuria {
   isA #Event
   name "Soviet Invasion of Manchuria"
+  description "The Soviet offensive that rapidly destroyed Japan's position in Manchuria in August 1945."
   startDate d1945-08-09
   endDate d1945-09-02
   locatedIn @manchuria
@@ -1474,6 +1643,7 @@ soviet_invasion_of_manchuria {
 nagasaki_bombing {
   isA #Event
   name "Atomic Bombing of Nagasaki"
+  description "The second atomic bombing, delivered as Japan's leadership confronted final defeat."
   startDate d1945-08-09
   endDate d1945-08-09
   locatedIn @nagasaki
@@ -1486,6 +1656,7 @@ nagasaki_bombing {
 japan_announces_surrender {
   isA #Event
   name "Japan Announces Surrender"
+  description "Japan's public acceptance of surrender following atomic bombings and Soviet entry into the war."
   startDate d1945-08-15
   endDate d1945-08-15
   locatedIn @tokyo
@@ -1496,6 +1667,7 @@ japan_announces_surrender {
 formal_japanese_surrender {
   isA #Event
   name "Formal Japanese Surrender"
+  description "The ceremony aboard USS Missouri that officially ended World War II."
   startDate d1945-09-02
   endDate d1945-09-02
   locatedIn @pacific_ocean
@@ -1508,6 +1680,7 @@ formal_japanese_surrender {
 founding_of_united_nations {
   isA #Event
   name "Founding of the United Nations"
+  description "The creation of the United Nations as a postwar attempt to prevent another global conflict."
   startDate d1945-10-24
   endDate d1945-10-24
   locatedIn @world
