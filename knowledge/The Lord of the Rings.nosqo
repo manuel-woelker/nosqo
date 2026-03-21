@@ -5,311 +5,363 @@
 middle_earth {
   isA #Location
   name "Middle-earth"
+  description "The main continent of Tolkien's legendarium where the War of the Ring unfolds."
 }
 
 eriador {
   isA #Location
   name "Eriador"
+  description "The broad northwestern region of Middle-earth that includes the Shire, Bree, and Rivendell."
   locatedIn @middle_earth
 }
 
 rovanion {
   isA #Location
   name "Rhovanion"
+  description "The Wilderland east of the Misty Mountains, spanning forests, rivers, and the Fellowship's middle road."
   locatedIn @middle_earth
 }
 
 gondor {
   isA #Location
   name "Gondor"
+  description "The great southern kingdom of Men that bears the main weight of Sauron's war in the west."
   locatedIn @middle_earth
 }
 
 rohan {
   isA #Location
   name "Rohan"
+  description "The Riddermark, horse-lord kingdom allied with Gondor and ruled from Edoras."
   locatedIn @middle_earth
 }
 
 mordor {
   isA #Location
   name "Mordor"
+  description "Sauron's black realm, ringed by mountains and centered on Mount Doom and Barad-dur."
   locatedIn @middle_earth
 }
 
 shire {
   isA #Location
   name "The Shire"
+  description "The peaceful homeland of the hobbits, whose quiet life the Quest is meant to preserve."
   locatedIn @eriador
 }
 
 hobbiton {
   isA #Location
   name "Hobbiton"
+  description "Frodo and Bilbo's village in the Shire, home to Bag End and the story's opening chapters."
   locatedIn @shire
 }
 
 bywater {
   isA #Location
   name "Bywater"
+  description "A Shire village west of Hobbiton, remembered for its inn and its role in the Scouring."
   locatedIn @shire
 }
 
 buckland {
   isA #Location
   name "Buckland"
+  description "The eastern Shire borderland beyond the Brandywine, home to the Brandybuck family."
   locatedIn @shire
 }
 
 crickhollow {
   isA #Location
   name "Crickhollow"
+  description "The Buckland house prepared as Frodo's cover residence before the flight from the Shire."
   locatedIn @buckland
 }
 
 old_forest {
   isA #Location
   name "Old Forest"
+  description "An ancient and unsettling wood beside Buckland where the hobbits first leave safe country."
   locatedIn @eriador
 }
 
 house_of_tom_bombadil {
   isA #Location
   name "House of Tom Bombadil"
+  description "Tom Bombadil's strange refuge, where the hobbits find safety, rest, and counsel."
   locatedIn @old_forest
 }
 
 barrow_downs {
   isA #Location
   name "Barrow-downs"
+  description "Haunted hills of ancient tombs where the hobbits are trapped by a barrow-wight."
   locatedIn @eriador
 }
 
 bree {
   isA #Location
   name "Bree"
+  description "The mixed village of Men and hobbits where the travellers first openly meet Aragorn."
   locatedIn @eriador
 }
 
 the_prancing_pony {
   isA #Location
   name "The Prancing Pony"
+  description "Bree's famous inn, where Frodo's company meets Strider under Butterbur's roof."
   locatedIn @bree
 }
 
 weathertop {
   isA #Location
   name "Weathertop"
+  description "The ruined watchtower of Amon Sul, where the Nazgul wound Frodo with a Morgul blade."
   locatedIn @eriador
 }
 
 ford_of_bruinen {
   isA #Location
   name "Ford of Bruinen"
+  description "The river crossing before Rivendell where Frodo escapes the Black Riders."
   locatedIn @eriador
 }
 
 rivendell {
   isA #Location
   name "Rivendell"
+  description "Elrond's hidden refuge, a place of healing, memory, and the forming of the Fellowship."
   locatedIn @eriador
 }
 
 hollin {
   isA #Location
   name "Hollin"
+  description "The empty land west of Moria once close to Eregion, crossed before the mountains close in."
   locatedIn @eriador
 }
 
 caradhras {
   isA #Location
   name "Caradhras"
+  description "The Redhorn peak whose storm turns the Fellowship away from the high pass."
   locatedIn @rovanion
 }
 
 moria {
   isA #Location
   name "Mines of Moria"
+  description "The ancient Dwarven kingdom of Khazad-dum, now a dark ruin full of Orcs and older terrors."
   locatedIn @rovanion
 }
 
 khazad_dum_bridge {
   isA #Location
   name "Bridge of Khazad-dum"
+  description "The narrow bridge in Moria where Gandalf confronts Durin's Bane."
   locatedIn @moria
 }
 
 lorien {
   isA #Location
   name "Lothlorien"
+  description "The Golden Wood ruled by Galadriel and Celeborn, fair, perilous, and untouched by time."
   locatedIn @rovanion
 }
 
 celebdil_anduin_region {
   isA #Location
   name "Great River Region"
+  description "The river country below Lothlorien where the Fellowship drifts toward Amon Hen."
   locatedIn @rovanion
 }
 
 amon_hen {
   isA #Location
   name "Amon Hen"
+  description "The hill of sight where the Fellowship breaks and Boromir makes his last stand."
   locatedIn @rovanion
 }
 
 rauros {
   isA #Location
   name "Rauros"
+  description "The great falls of the Anduin near Amon Hen, marking the Fellowship's turning point southward."
   locatedIn @rovanion
 }
 
 emyn_muil {
   isA #Location
   name "Emyn Muil"
+  description "A maze of broken hills east of the Anduin where Frodo and Sam first master Gollum."
   locatedIn @rovanion
 }
 
 dead_marshes {
   isA #Location
   name "Dead Marshes"
+  description "A haunted marshland of drowned faces through which Gollum leads Frodo and Sam."
   locatedIn @rovanion
 }
 
 fangorn {
   isA #Location
   name "Fangorn Forest"
+  description "The ancient forest of the Ents, where Merry and Pippin awaken a power older than kingdoms."
   locatedIn @rohan
 }
 
 isengard {
   isA #Location
   name "Isengard"
+  description "Saruman's ringed stronghold in Nan Curunir, later broken by the Ents."
   locatedIn @rohan
 }
 
 orthanc {
   isA #Location
   name "Orthanc"
+  description "The black tower of Isengard, seat of Saruman's pride and the seeing-stone encounter."
   locatedIn @isengard
 }
 
 edoras {
   isA #Location
   name "Edoras"
+  description "The hill-city of the Rohirrim and royal seat of Theoden in the Golden Hall."
   locatedIn @rohan
 }
 
 golden_hall {
   isA #Location
   name "Meduseld"
+  description "Meduseld, Theoden's hall in Edoras, where Wormtongue's hold is broken."
   locatedIn @edoras
 }
 
 helms_deep {
   isA #Location
   name "Helm's Deep"
+  description "Rohan's mountain fortress where Theoden withstands Saruman's assault."
   locatedIn @rohan
 }
 
 dunharrow {
   isA #Location
   name "Dunharrow"
+  description "The Rohirrim's refuge beneath the mountain, where the muster gathers before dawn rides east."
   locatedIn @rohan
 }
 
 paths_of_the_dead {
   isA #Location
   name "Paths of the Dead"
+  description "The haunted road under the mountain that Aragorn takes to summon the Oathbreakers."
   locatedIn @rohan
 }
 
 ithilien {
   isA #Location
   name "Ithilien"
+  description "Gondor's fair eastern province, fought over in war and crossed by Frodo on the road to Mordor."
   locatedIn @gondor
 }
 
 osgiliath {
   isA #Location
   name "Osgiliath"
+  description "The ruined river-city of Gondor, first shield of Minas Tirith against Mordor's advance."
   locatedIn @gondor
 }
 
 minas_tirith {
   isA #Location
   name "Minas Tirith"
+  description "The White City of Gondor, besieged yet unbroken until the Ring's destruction."
   locatedIn @gondor
 }
 
 houses_of_healing {
   isA #Location
   name "Houses of Healing"
+  description "In the Houses of Healing, Aragorn restores the wounded and is recognized by his healing hands."
   locatedIn @minas_tirith
 }
 
 pelennor_fields {
   isA #Location
   name "Pelennor Fields"
+  description "The farmlands before Minas Tirith, turned into the field of Gondor's greatest battle."
   locatedIn @gondor
 }
 
 harad_road_region {
   isA #Location
   name "South Gondor Region"
+  description "The southern approaches of Gondor from which Haradrim forces and oliphaunts are seen advancing."
   locatedIn @gondor
 }
 
 minas_morgul {
   isA #Location
   name "Minas Morgul"
+  description "The dead city once called Minas Ithil, now a Nazgul stronghold glaring across Mordor's border."
   locatedIn @mordor
 }
 
 cirith_ungol {
   isA #Location
   name "Cirith Ungol"
+  description "The mountain pass above Shelob's tunnel and site of the Orc tower where Frodo is held."
   locatedIn @mordor
 }
 
 shelobs_lair {
   isA #Location
   name "Shelob's Lair"
+  description "The dark tunnel of the giant spider Shelob, terror of the pass into Mordor."
   locatedIn @mordor
 }
 
 gorgoroth {
   isA #Location
   name "Plateau of Gorgoroth"
+  description "The ash-choked plateau of inner Mordor that Frodo and Sam cross in their final exhaustion."
   locatedIn @mordor
 }
 
 mount_doom {
   isA #Location
   name "Mount Doom"
+  description "Orodruin, the Fire Mountain where the One Ring was forged and can be unmade."
   locatedIn @mordor
 }
 
 barad_dur_region {
   isA #Location
   name "Barad-dur Region"
+  description "The region around Sauron's fortress where his power dominates the land of Mordor."
   locatedIn @mordor
 }
 
 black_gate {
   isA #Location
   name "Black Gate"
+  description "The Morannon, Mordor's main gate, where the Captains of the West make their last feint."
   locatedIn @mordor
 }
 
 grey_havens {
   isA #Location
   name "Grey Havens"
+  description "The western haven of the Elves from which the Ring-bearers sail out of Middle-earth."
   locatedIn @eriador
 }
 
 frodo_baggins {
   isA #Person
   name "Frodo Baggins"
+  description "The Ring-bearer, a quiet hobbit of the Shire whose endurance carries the Quest to Mount Doom."
   birthDate d2968-09-22
   locatedIn @shire
 }
@@ -317,6 +369,7 @@ frodo_baggins {
 samwise_gamgee {
   isA #Person
   name "Samwise Gamgee"
+  description "Frodo's gardener, servant, and truest companion, whose loyalty saves the Quest again and again."
   birthDate d2980-04-06
   locatedIn @shire
 }
@@ -324,6 +377,7 @@ samwise_gamgee {
 meriadoc_brandybuck {
   isA #Person
   name "Meriadoc Brandybuck"
+  description "Merry, a perceptive hobbit who rides with the Rohirrim and helps bring down the Witch-king."
   birthDate d2982-01-01
   locatedIn @shire
 }
@@ -331,6 +385,7 @@ meriadoc_brandybuck {
 peregrin_took {
   isA #Person
   name "Peregrin Took"
+  description "Pippin, the youngest hobbit of the Company, whose curiosity repeatedly changes the story's course."
   birthDate d2990-04-13
   locatedIn @shire
 }
@@ -338,6 +393,7 @@ peregrin_took {
 bilbo_baggins {
   isA #Person
   name "Bilbo Baggins"
+  description "Frodo's uncle, former Ring-bearer, and the old hobbit whose earlier adventure set this one in motion."
   birthDate d2890-09-22
   locatedIn @rivendell
 }
@@ -345,12 +401,14 @@ bilbo_baggins {
 gandalf {
   isA #Person
   name "Gandalf"
+  description "The wizard who guides the resistance to Sauron and returns as Gandalf the White."
   locatedIn @middle_earth
 }
 
 aragorn {
   isA #Person
   name "Aragorn"
+  description "The hidden heir of Isildur who leads men in war and is crowned King Elessar."
   birthDate d2931-03-01
   locatedIn @rivendell
 }
@@ -358,18 +416,21 @@ aragorn {
 legolas {
   isA #Person
   name "Legolas"
+  description "The Elven prince of the Woodland Realm and one of the nine companions of the Ring."
   locatedIn @rivendell
 }
 
 gimli {
   isA #Person
   name "Gimli"
+  description "The Dwarf son of Gloin whose friendship with Legolas becomes one of the tale's great reconciliations."
   locatedIn @rivendell
 }
 
 boromir {
   isA #Person
   name "Boromir"
+  description "The proud son of Denethor whose fall and repentance end in a heroic defense of Merry and Pippin."
   birthDate d2978-02-20
   locatedIn @gondor
 }
@@ -377,6 +438,7 @@ boromir {
 faramir {
   isA #Person
   name "Faramir"
+  description "Boromir's younger brother, a captain of Gondor who resists the Ring and later wins Eowyn's love."
   birthDate d2983-01-01
   locatedIn @gondor
 }
@@ -384,198 +446,231 @@ faramir {
 denethor_ii {
   isA #Person
   name "Denethor II"
+  description "The ruling Steward of Gondor, wise and formidable but driven to despair by Sauron's pressure."
   locatedIn @minas_tirith
 }
 
 beregond {
   isA #Person
   name "Beregond"
+  description "A Guard of the Citadel whose loyalty to Faramir outweighs his obedience to Denethor."
   locatedIn @minas_tirith
 }
 
 bergil {
   isA #Person
   name "Bergil"
+  description "Beregond's son, a brave boy of Minas Tirith who befriends Pippin during the siege."
   locatedIn @minas_tirith
 }
 
 theoden {
   isA #Person
   name "Theoden"
+  description "King of Rohan, restored from Wormtongue's influence to die gloriously on the Pelennor."
   locatedIn @rohan
 }
 
 eomer {
   isA #Person
   name "Eomer"
+  description "Theoden's nephew and marshal of the Mark, later king after the War of the Ring."
   locatedIn @rohan
 }
 
 eowyn {
   isA #Person
   name "Eowyn"
+  description "Shieldmaiden of Rohan who slays the Witch-king and refuses the cage laid upon her."
   locatedIn @rohan
 }
 
 grima_wormtongue {
   isA #Person
   name "Grima Wormtongue"
+  description "Saruman's poisonous counselor in Edoras, master of whispers and slow ruin."
   locatedIn @edoras
 }
 
 gamling {
   isA #Person
   name "Gamling"
+  description "A seasoned captain of Rohan who stands with Theoden through the dark days and Helm's Deep."
   locatedIn @rohan
 }
 
 hama {
   isA #Person
   name "Hama"
+  description "The doorward of Meduseld who obeys Theoden faithfully and falls in the war for Rohan."
   locatedIn @rohan
 }
 
 elfhelm {
   isA #Person
   name "Elfhelm"
+  description "A captain of the Riddermark who helps lead Rohan's muster in the war against Mordor."
   locatedIn @rohan
 }
 
 erkenbrand {
   isA #Person
   name "Erkenbrand"
+  description "The lord who returns with reinforcements to turn the tide at Helm's Deep."
   locatedIn @rohan
 }
 
 gh_an_buri_ghan {
   isA #Person
   name "Ghan-buri-Ghan"
+  description "The chief of the Wild Men of Druadan Forest who guides the Rohirrim by hidden roads."
   locatedIn @rohan
 }
 
 elrond {
   isA #Person
   name "Elrond"
+  description "Lord of Rivendell, loremaster and healer whose house gathers the Council of Elrond."
   locatedIn @rivendell
 }
 
 arwen {
   isA #Person
   name "Arwen"
+  description "Elrond's daughter, whose fate is bound to Aragorn and the waning of the Elves."
   locatedIn @rivendell
 }
 
 glorfindel {
   isA #Person
   name "Glorfindel"
+  description "A mighty Elf-lord of Rivendell associated with the hunt against the Nazgul."
   locatedIn @rivendell
 }
 
 elladan {
   isA #Person
   name "Elladan"
+  description "One of Elrond's twin sons, a ranger and warrior of the northern Dunedain."
   locatedIn @rivendell
 }
 
 elrohir {
   isA #Person
   name "Elrohir"
+  description "One of Elrond's twin sons, riding with the Grey Company in Aragorn's cause."
   locatedIn @rivendell
 }
 
 galadriel {
   isA #Person
   name "Galadriel"
+  description "The Lady of Lothlorien, ancient, far-seeing, and one of the greatest Elves left in Middle-earth."
   locatedIn @lorien
 }
 
 celeborn {
   isA #Person
   name "Celeborn"
+  description "The Lord of Lothlorien who rules beside Galadriel and receives the Fellowship."
   locatedIn @lorien
 }
 
 haldir {
   isA #Person
   name "Haldir"
+  description "An Elf of Lothlorien who guides the Fellowship through the guarded Golden Wood."
   locatedIn @lorien
 }
 
 treebeard {
   isA #Person
   name "Treebeard"
+  description "The eldest Ent encountered in the tale, slow to anger until Isengard stirs the forest to war."
   locatedIn @fangorn
 }
 
 quickbeam {
   isA #Person
   name "Quickbeam"
+  description "A younger, hasty Ent who befriends Merry and Pippin in Fangorn."
   locatedIn @fangorn
 }
 
 saruman {
   isA #Person
   name "Saruman"
+  description "The fallen head of the White Council whose desire for power makes him Sauron's rival and imitator."
   locatedIn @orthanc
 }
 
 radagast {
   isA #Person
   name "Radagast"
+  description "The brown wizard more at home with beasts and birds than with councils and crowns."
   locatedIn @middle_earth
 }
 
 tom_bombadil {
   isA #Person
   name "Tom Bombadil"
+  description "A mysterious master of his own small country, untouched by the Ring's usual power."
   locatedIn @house_of_tom_bombadil
 }
 
 goldberry {
   isA #Person
   name "Goldberry"
+  description "Tom Bombadil's radiant river-daughter wife, associated with grace, song, and seasonal beauty."
   locatedIn @house_of_tom_bombadil
 }
 
 barliman_butterbur {
   isA #Person
   name "Barliman Butterbur"
+  description "The good-hearted but forgetful innkeeper of the Prancing Pony."
   locatedIn @the_prancing_pony
 }
 
 bill_ferny {
   isA #Person
   name "Bill Ferny"
+  description "A sneering Bree-lander allied with shady company and hostile to the travellers."
   locatedIn @bree
 }
 
 farmer_maggot {
   isA #Person
   name "Farmer Maggot"
+  description "A practical and generous Shire farmer who quietly helps Frodo early in the flight."
   locatedIn @shire
 }
 
 fredegar_bolger {
   isA #Person
   name "Fredegar Bolger"
+  description "Fatty Bolger, Frodo's friend who stays behind at Crickhollow as part of the deception."
   locatedIn @crickhollow
 }
 
 lobelia_sackville_baggins {
   isA #Person
   name "Lobelia Sackville-Baggins"
+  description "Bilbo's grasping relative who later shows unexpected courage in the Scouring."
   locatedIn @shire
 }
 
 lotho_sackville_baggins {
   isA #Person
   name "Lotho Sackville-Baggins"
+  description "Lobelia's son who becomes the petty collaborator behind Sharkey's takeover of the Shire."
   locatedIn @shire
 }
 
 gollum {
   isA #Person
   name "Gollum"
+  description "Once Smeagol, a creature twisted by the Ring who serves as guide, betrayer, and final instrument of its end."
   birthDate d2430-01-01
   locatedIn @mordor
 }
@@ -583,66 +678,77 @@ gollum {
 sauron {
   isA #Person
   name "Sauron"
+  description "The Dark Lord of Mordor, seeking the One Ring to dominate the free peoples of Middle-earth."
   locatedIn @barad_dur_region
 }
 
 witch_king {
   isA #Person
   name "The Witch-king of Angmar"
+  description "Lord of the Nazgul and Sauron's chief captain, brought down before Minas Tirith."
   locatedIn @minas_morgul
 }
 
 mouth_of_sauron {
   isA #Person
   name "The Mouth of Sauron"
+  description "Sauron's herald at the Black Gate, cruelly eloquent and bent on despair."
   locatedIn @black_gate
 }
 
 gorbag {
   isA #Person
   name "Gorbag"
+  description "An Orc captain of Minas Morgul who quarrels over Frodo's gear after Shelob's attack."
   locatedIn @cirith_ungol
 }
 
 shagrat {
   isA #Person
   name "Shagrat"
+  description "The hard Orc captain of Cirith Ungol who clashes with Gorbag over prisoners and spoil."
   locatedIn @cirith_ungol
 }
 
 shelob {
   isA #Person
   name "Shelob"
+  description "The ancient giant spider who haunts the pass into Mordor and nearly ends the Quest."
   locatedIn @shelobs_lair
 }
 
 imrahil {
   isA #Person
   name "Prince Imrahil"
+  description "Prince of Dol Amroth, noble ally of Gondor during the siege and battle of the Pelennor."
   locatedIn @gondor
 }
 
 forlong {
   isA #Person
   name "Forlong the Fat"
+  description "Lord of Lossarnach, one of Gondor's captains who answers Minas Tirith's call."
   locatedIn @gondor
 }
 
 hirluin {
   isA #Person
   name "Hirluin the Fair"
+  description "Lord of Pinnath Gelin, remembered among the southern captains of Gondor."
   locatedIn @gondor
 }
 
 duinhir {
   isA #Person
   name "Duinhir"
+  description "Lord of the Blackroot Vale whose archers march to Gondor's defense."
   locatedIn @gondor
 }
 
 angbor {
   isA #Person
   name "Angbor"
+  description "Lord of Lamedon, a hill-country leader later gathered to Aragorn's cause."
   locatedIn @gondor
 }
 
@@ -655,54 +761,63 @@ gh_an_buri_ghan {
 shadowfax {
   isA #Person
   name "Shadowfax"
+  description "The lord of horses who bears Gandalf with unmatched speed."
   locatedIn @rohan
 }
 
 bill_the_pony {
   isA #Person
   name "Bill the Pony"
+  description "The sturdy pony that carries the Company's burdens until the road grows too dark."
   locatedIn @shire
 }
 
 fatty_lumpkin {
   isA #Person
   name "Fatty Lumpkin"
+  description "Tom Bombadil's cheerful pony, impossible to lose and perfectly at home in the wild."
   locatedIn @fangorn
 }
 
 barrow_wight {
   isA #Person
   name "Barrow-wight"
+  description "The malevolent spirit of the Barrow-downs that traps the hobbits in a tomb."
   locatedIn @barrow_downs
 }
 
 farmer_cotton {
   isA #Person
   name "Farmer Cotton"
+  description "A stout-hearted Shire farmer who helps resist Sharkey's ruffians."
   locatedIn @shire
 }
 
 rose_cotton {
   isA #Person
   name "Rose Cotton"
+  description "Sam's beloved in the Shire, symbol of the homely life for which the Quest is fought."
   locatedIn @shire
 }
 
 ted_sandyman {
   isA #Person
   name "Ted Sandyman"
+  description "A mocking Shire villager whose gossip and resentment color the hobbits' early home life."
   locatedIn @shire
 }
 
 saruman_as_sharkey {
   isA #Person
   name "Sharkey"
+  description "Saruman's final diminished guise, ruling the Shire meanly as Sharkey."
   locatedIn @shire
 }
 
 birthday_party_at_bag_end {
   isA #Event
   name "Bilbo's Farewell Party at Bag End"
+  description "Bilbo's great birthday feast, ending with his disappearance and the first major turning of the tale."
   startDate d3001-09-22
   endDate d3001-09-22
   locatedIn @hobbiton
@@ -712,6 +827,7 @@ birthday_party_at_bag_end {
 departure_from_hobbiton {
   isA #Event
   name "Departure from Hobbiton"
+  description "Frodo, Sam, and Pippin secretly leave Hobbiton to begin the long flight from the Shire."
   startDate d3018-09-23
   endDate d3018-09-23
   locatedIn @hobbiton
@@ -721,6 +837,7 @@ departure_from_hobbiton {
 meeting_farmer_maggot {
   isA #Event
   name "Meeting with Farmer Maggot"
+  description "Frodo's party finds unexpected help and a meal from the blunt but loyal Farmer Maggot."
   startDate d3018-09-23
   endDate d3018-09-23
   locatedIn @shire
@@ -730,6 +847,7 @@ meeting_farmer_maggot {
 arrival_at_crickhollow {
   isA #Event
   name "Arrival at Crickhollow"
+  description "The conspirators reach the Buckland house that masks Frodo's departure from the Shire."
   startDate d3018-09-23
   endDate d3018-09-23
   locatedIn @crickhollow
@@ -739,6 +857,7 @@ arrival_at_crickhollow {
 journey_through_old_forest {
   isA #Event
   name "Journey through the Old Forest"
+  description "The hobbits enter the dangerous Old Forest and learn how quickly the wild can turn hostile."
   startDate d3018-09-26
   endDate d3018-09-26
   locatedIn @old_forest
@@ -748,6 +867,7 @@ journey_through_old_forest {
 rescue_by_tom_bombadil {
   isA #Event
   name "Rescue by Tom Bombadil"
+  description "Tom Bombadil saves the hobbits from Old Man Willow with effortless, baffling authority."
   startDate d3018-09-26
   endDate d3018-09-26
   locatedIn @old_forest
@@ -757,6 +877,7 @@ rescue_by_tom_bombadil {
 stay_with_tom_bombadil {
   isA #Event
   name "Stay in the House of Tom Bombadil"
+  description "The travellers rest under Tom Bombadil's roof and receive songs, stories, and uneasy wisdom."
   startDate d3018-09-26
   endDate d3018-09-28
   locatedIn @house_of_tom_bombadil
@@ -766,6 +887,7 @@ stay_with_tom_bombadil {
 capture_in_barrow_downs {
   isA #Event
   name "Capture in the Barrow-downs"
+  description "A barrow-wight seizes the hobbits in the haunted downs and lays them in a tomb."
   startDate d3018-09-28
   endDate d3018-09-28
   locatedIn @barrow_downs
@@ -775,6 +897,7 @@ capture_in_barrow_downs {
 rescue_from_barrow {
   isA #Event
   name "Rescue from the Barrow"
+  description "Tom Bombadil frees the hobbits from the barrow and arms them with ancient blades."
   startDate d3018-09-28
   endDate d3018-09-28
   locatedIn @barrow_downs
@@ -784,6 +907,7 @@ rescue_from_barrow {
 arrival_at_bree {
   isA #Event
   name "Arrival at Bree"
+  description "The company reaches Bree and enters the wider world of inns, strangers, and rumor."
   startDate d3018-09-29
   endDate d3018-09-29
   locatedIn @bree
@@ -793,6 +917,7 @@ arrival_at_bree {
 meeting_at_prancing_pony {
   isA #Event
   name "Meeting at the Prancing Pony"
+  description "At the inn in Bree, Frodo's company formally joins with Strider."
   startDate d3018-09-29
   endDate d3018-09-30
   locatedIn @the_prancing_pony
@@ -802,6 +927,7 @@ meeting_at_prancing_pony {
 departure_from_bree {
   isA #Event
   name "Departure from Bree"
+  description "The travellers leave Bree under Aragorn's guidance and with danger closing behind them."
   startDate d3018-09-30
   endDate d3018-09-30
   locatedIn @bree
@@ -811,6 +937,7 @@ departure_from_bree {
 attack_on_weathertop {
   isA #Event
   name "Attack on Weathertop"
+  description "The Nazgul assail the camp on Weathertop and Frodo receives his deadly wound."
   startDate d3018-10-06
   endDate d3018-10-06
   locatedIn @weathertop
@@ -820,6 +947,7 @@ attack_on_weathertop {
 flight_to_the_ford {
   isA #Event
   name "Flight to the Ford"
+  description "Aragorn's desperate escort to Rivendell ends at the river crossing before the Black Riders."
   startDate d3018-10-07
   endDate d3018-10-20
   locatedIn @ford_of_bruinen
@@ -829,6 +957,7 @@ flight_to_the_ford {
 arrival_in_rivendell {
   isA #Event
   name "Arrival in Rivendell"
+  description "Frodo wakes in safety in Elrond's house after the long pursuit from the Shire."
   startDate d3018-10-20
   endDate d3018-10-20
   locatedIn @rivendell
@@ -838,6 +967,7 @@ arrival_in_rivendell {
 council_of_elrond {
   isA #Event
   name "Council of Elrond"
+  description "Elrond's council reveals the Ring's history and resolves that it must be taken to Mordor."
   startDate d3018-10-25
   endDate d3018-10-25
   locatedIn @rivendell
@@ -847,6 +977,7 @@ council_of_elrond {
 departure_of_the_fellowship {
   isA #Event
   name "Departure of the Fellowship"
+  description "The nine companions set out from Rivendell to carry the Ring south in secrecy."
   startDate d3018-12-25
   endDate d3018-12-25
   locatedIn @rivendell
@@ -856,6 +987,7 @@ departure_of_the_fellowship {
 attempt_on_caradhras {
   isA #Event
   name "Attempt to Cross Caradhras"
+  description "Snow and malice on Caradhras force the Fellowship to abandon the mountain pass."
   startDate d3019-01-11
   endDate d3019-01-12
   locatedIn @caradhras
@@ -865,6 +997,7 @@ attempt_on_caradhras {
 entry_into_moria {
   isA #Event
   name "Entry into Moria"
+  description "The Company passes the Doors of Durin and enters the long darkness beneath the mountains."
   startDate d3019-01-13
   endDate d3019-01-13
   locatedIn @moria
@@ -874,6 +1007,7 @@ entry_into_moria {
 journey_through_moria {
   isA #Event
   name "Journey through Moria"
+  description "The Fellowship struggles through the ruined halls of Khazad-dum under gathering threat."
   startDate d3019-01-13
   endDate d3019-01-15
   locatedIn @moria
@@ -883,6 +1017,7 @@ journey_through_moria {
 battle_in_chamber_of_mazarbul {
   isA #Event
   name "Battle in the Chamber of Mazarbul"
+  description "In Balin's tomb, the Fellowship is attacked by Orcs and forced to fight its way out."
   startDate d3019-01-15
   endDate d3019-01-15
   locatedIn @moria
@@ -892,6 +1027,7 @@ battle_in_chamber_of_mazarbul {
 fall_of_gandalf_in_moria {
   isA #Event
   name "Fall of Gandalf in Moria"
+  description "Gandalf breaks the bridge and falls with the Balrog, saving the rest of the Fellowship."
   startDate d3019-01-15
   endDate d3019-01-15
   locatedIn @khazad_dum_bridge
@@ -901,6 +1037,7 @@ fall_of_gandalf_in_moria {
 arrival_in_lorien {
   isA #Event
   name "Arrival in Lothlorien"
+  description "The grieving Fellowship crosses into Lothlorien and finds guarded refuge there."
   startDate d3019-01-17
   endDate d3019-01-17
   locatedIn @lorien
@@ -910,6 +1047,7 @@ arrival_in_lorien {
 meeting_galadriel_and_celeborn {
   isA #Event
   name "Meeting Galadriel and Celeborn"
+  description "Galadriel and Celeborn receive the Fellowship, test them, and look deep into their hearts."
   startDate d3019-01-17
   endDate d3019-01-18
   locatedIn @lorien
@@ -919,6 +1057,7 @@ meeting_galadriel_and_celeborn {
 departure_from_lorien {
   isA #Event
   name "Departure from Lothlorien"
+  description "The Fellowship leaves the Golden Wood by boat, carrying gifts and foreboding."
   startDate d3019-02-16
   endDate d3019-02-16
   locatedIn @lorien
@@ -928,6 +1067,7 @@ departure_from_lorien {
 breaking_of_the_fellowship {
   isA #Event
   name "Breaking of the Fellowship"
+  description "At Amon Hen the Company's unity fails under pressure, temptation, and sudden assault."
   startDate d3019-02-26
   endDate d3019-02-26
   locatedIn @amon_hen
@@ -937,6 +1077,7 @@ breaking_of_the_fellowship {
 death_of_boromir {
   isA #Event
   name "Death of Boromir"
+  description "Boromir dies defending Merry and Pippin, redeemed by courage after his fall."
   startDate d3019-02-26
   endDate d3019-02-26
   locatedIn @amon_hen
@@ -946,6 +1087,7 @@ death_of_boromir {
 capture_of_merry_and_pippin {
   isA #Event
   name "Capture of Merry and Pippin"
+  description "The two hobbits are taken by Orcs, splitting the story into separate roads."
   startDate d3019-02-26
   endDate d3019-02-26
   locatedIn @amon_hen
@@ -955,6 +1097,7 @@ capture_of_merry_and_pippin {
 pursuit_of_the_orcs {
   isA #Event
   name "Pursuit of the Orcs"
+  description "Aragorn, Legolas, and Gimli run across Rohan in relentless pursuit of the Orc-band."
   startDate d3019-02-27
   endDate d3019-03-01
   locatedIn @rohan
@@ -964,6 +1107,7 @@ pursuit_of_the_orcs {
 meeting_eomer {
   isA #Event
   name "Meeting with Eomer"
+  description "The Three Hunters encounter Eomer and gain news, horses, and a fragile alliance."
   startDate d3019-03-01
   endDate d3019-03-01
   locatedIn @rohan
@@ -973,6 +1117,7 @@ meeting_eomer {
 escape_into_fangorn {
   isA #Event
   name "Escape into Fangorn"
+  description "Merry and Pippin break from their captors and vanish into the deep forest of Fangorn."
   startDate d3019-02-29
   endDate d3019-03-01
   locatedIn @fangorn
@@ -982,6 +1127,7 @@ escape_into_fangorn {
 meeting_treebeard {
   isA #Event
   name "Meeting with Treebeard"
+  description "The hobbits meet Treebeard and begin to awaken Entish judgment against Saruman."
   startDate d3019-03-01
   endDate d3019-03-02
   locatedIn @fangorn
@@ -991,6 +1137,7 @@ meeting_treebeard {
 return_of_gandalf {
   isA #Event
   name "Return of Gandalf"
+  description "Gandalf the White reveals himself in Fangorn after his struggle beyond death."
   startDate d3019-03-01
   endDate d3019-03-01
   locatedIn @fangorn
@@ -1000,6 +1147,7 @@ return_of_gandalf {
 ride_to_edoras {
   isA #Event
   name "Ride to Edoras"
+  description "The companions ride to Theoden's hall to confront the decay at the heart of Rohan."
   startDate d3019-03-02
   endDate d3019-03-02
   locatedIn @rohan
@@ -1009,6 +1157,7 @@ ride_to_edoras {
 healing_of_theoden {
   isA #Event
   name "Healing of Theoden"
+  description "Theoden casts off Wormtongue's shadow and rises again to kingly action."
   startDate d3019-03-02
   endDate d3019-03-02
   locatedIn @golden_hall
@@ -1018,6 +1167,7 @@ healing_of_theoden {
 departure_from_edoras {
   isA #Event
   name "Departure from Edoras"
+  description "Rohan rides out from Edoras knowing war cannot be delayed any longer."
   startDate d3019-03-03
   endDate d3019-03-03
   locatedIn @edoras
@@ -1027,6 +1177,7 @@ departure_from_edoras {
 muster_at_helms_deep {
   isA #Event
   name "Muster at Helm's Deep"
+  description "The Rohirrim gather behind Helm's walls as Saruman's army closes in."
   startDate d3019-03-03
   endDate d3019-03-03
   locatedIn @helms_deep
@@ -1036,6 +1187,7 @@ muster_at_helms_deep {
 battle_of_helms_deep {
   isA #Event
   name "Battle of Helm's Deep"
+  description "Rohan survives the long night at Helm's Deep until dawn, Gandalf, and Erkenbrand turn the field."
   startDate d3019-03-03
   endDate d3019-03-04
   locatedIn @helms_deep
@@ -1045,6 +1197,7 @@ battle_of_helms_deep {
 last_march_of_the_ents {
   isA #Event
   name "Last March of the Ents"
+  description "Treebeard leads the Ents against Isengard in one of the oldest powers' answer to war."
   startDate d3019-03-03
   endDate d3019-03-04
   locatedIn @fangorn
@@ -1054,6 +1207,7 @@ last_march_of_the_ents {
 ruin_of_isengard {
   isA #Event
   name "Ruin of Isengard"
+  description "The Ents break Saruman's works, flood the ring, and leave his power in ruins."
   startDate d3019-03-03
   endDate d3019-03-04
   locatedIn @isengard
@@ -1063,6 +1217,7 @@ ruin_of_isengard {
 parley_at_orthanc {
   isA #Event
   name "Parley at Orthanc"
+  description "Gandalf and the leaders confront Saruman from below the tower he can no longer command."
   startDate d3019-03-05
   endDate d3019-03-05
   locatedIn @orthanc
@@ -1072,6 +1227,7 @@ parley_at_orthanc {
 palantir_incident {
   isA #Event
   name "Palantir Incident"
+  description "Pippin seizes a dangerous glimpse into Sauron's will by looking into Orthanc's stone."
   startDate d3019-03-06
   endDate d3019-03-06
   locatedIn @orthanc
@@ -1081,6 +1237,7 @@ palantir_incident {
 ride_to_minas_tirith {
   isA #Event
   name "Ride to Minas Tirith"
+  description "Gandalf and Pippin race to Gondor as war rises toward the White City."
   startDate d3019-03-06
   endDate d3019-03-09
   locatedIn @gondor
@@ -1090,6 +1247,7 @@ ride_to_minas_tirith {
 taming_of_smeagol {
   isA #Event
   name "Taming of Smeagol"
+  description "Frodo and Sam capture Gollum and bind him into guiding them toward Mordor."
   startDate d3019-02-29
   endDate d3019-03-01
   locatedIn @emyn_muil
@@ -1099,6 +1257,7 @@ taming_of_smeagol {
 passage_through_dead_marshes {
   isA #Event
   name "Passage through the Dead Marshes"
+  description "The Ring-bearers are led through the corpse-lit bogs on the secret road east."
   startDate d3019-03-01
   endDate d3019-03-05
   locatedIn @dead_marshes
@@ -1108,6 +1267,7 @@ passage_through_dead_marshes {
 meeting_faramir {
   isA #Event
   name "Meeting with Faramir"
+  description "Faramir encounters Frodo in Ithilien and proves wiser than his brother regarding the Ring."
   startDate d3019-03-07
   endDate d3019-03-09
   locatedIn @ithilien
@@ -1117,6 +1277,7 @@ meeting_faramir {
 oliphaunt_sighting {
   isA #Event
   name "Oliphaunt Sighting in Ithilien"
+  description "Sam glimpses the great mûmakil of Harad during the fighting in Ithilien."
   startDate d3019-03-07
   endDate d3019-03-07
   locatedIn @ithilien
@@ -1126,6 +1287,7 @@ oliphaunt_sighting {
 departure_from_henneth_annun_region {
   isA #Event
   name "Departure from Ithilien"
+  description "Frodo and Sam leave Faramir's protection and go on toward Cirith Ungol alone with Gollum."
   startDate d3019-03-10
   endDate d3019-03-10
   locatedIn @ithilien
@@ -1135,6 +1297,7 @@ departure_from_henneth_annun_region {
 beacon_and_mustering_of_gondor {
   isA #Event
   name "Defense of Gondor Begins"
+  description "Minas Tirith braces for siege as Gondor draws in all strength still able to answer."
   startDate d3019-03-09
   endDate d3019-03-14
   locatedIn @minas_tirith
@@ -1144,6 +1307,7 @@ beacon_and_mustering_of_gondor {
 muster_of_rohan {
   isA #Event
   name "Muster of Rohan"
+  description "The Rohirrim gather at Dunharrow for the desperate ride to Gondor's aid."
   startDate d3019-03-10
   endDate d3019-03-14
   locatedIn @dunharrow
@@ -1153,6 +1317,7 @@ muster_of_rohan {
 journey_on_paths_of_the_dead {
   isA #Event
   name "Journey on the Paths of the Dead"
+  description "Aragorn takes the haunted road beneath the mountain to summon the oathbreakers."
   startDate d3019-03-08
   endDate d3019-03-13
   locatedIn @paths_of_the_dead
@@ -1162,6 +1327,7 @@ journey_on_paths_of_the_dead {
 siege_of_gondor {
   isA #Event
   name "Siege of Gondor"
+  description "Sauron's hosts close on Minas Tirith and begin the great assault on the White City."
   startDate d3019-03-13
   endDate d3019-03-15
   locatedIn @minas_tirith
@@ -1171,6 +1337,7 @@ siege_of_gondor {
 retreat_from_osgiliath {
   isA #Event
   name "Retreat from Osgiliath"
+  description "Gondor's defenders are driven back from Osgiliath toward the city's final walls."
   startDate d3019-03-13
   endDate d3019-03-13
   locatedIn @osgiliath
@@ -1180,6 +1347,7 @@ retreat_from_osgiliath {
 passage_of_cirith_ungol {
   isA #Event
   name "Passage of Cirith Ungol"
+  description "Frodo and Sam attempt the perilous high pass that Gollum has chosen for them."
   startDate d3019-03-11
   endDate d3019-03-12
   locatedIn @cirith_ungol
@@ -1189,6 +1357,7 @@ passage_of_cirith_ungol {
 shelobs_attack {
   isA #Event
   name "Shelob's Attack"
+  description "Shelob strikes in the dark tunnel and leaves Frodo seemingly dead."
   startDate d3019-03-13
   endDate d3019-03-13
   locatedIn @shelobs_lair
@@ -1198,6 +1367,7 @@ shelobs_attack {
 capture_of_frodo {
   isA #Event
   name "Capture of Frodo at Cirith Ungol"
+  description "Orcs carry Frodo to the tower at Cirith Ungol after Shelob's assault."
   startDate d3019-03-13
   endDate d3019-03-13
   locatedIn @cirith_ungol
@@ -1207,6 +1377,7 @@ capture_of_frodo {
 rescue_from_cirith_ungol {
   isA #Event
   name "Rescue from Cirith Ungol"
+  description "Sam storms the tower, recovers Frodo, and returns the burden to its bearer."
   startDate d3019-03-14
   endDate d3019-03-14
   locatedIn @cirith_ungol
@@ -1216,6 +1387,7 @@ rescue_from_cirith_ungol {
 riders_reach_pelennor {
   isA #Event
   name "Ride of the Rohirrim to Pelennor"
+  description "The Rohirrim arrive at dawn on the Pelennor and charge into Gondor's hour of need."
   startDate d3019-03-15
   endDate d3019-03-15
   locatedIn @pelennor_fields
@@ -1225,6 +1397,7 @@ riders_reach_pelennor {
 battle_of_pelennor_fields {
   isA #Event
   name "Battle of the Pelennor Fields"
+  description "The greatest battle before Minas Tirith breaks Sauron's assault but costs dearly."
   startDate d3019-03-15
   endDate d3019-03-15
   locatedIn @pelennor_fields
@@ -1234,6 +1407,7 @@ battle_of_pelennor_fields {
 slaying_of_the_witch_king {
   isA #Event
   name "Slaying of the Witch-king"
+  description "Eowyn and Merry fulfill the long prophecy by bringing down the Lord of the Nazgul."
   startDate d3019-03-15
   endDate d3019-03-15
   locatedIn @pelennor_fields
@@ -1243,6 +1417,7 @@ slaying_of_the_witch_king {
 arrival_of_aragorn_by_ships {
   isA #Event
   name "Arrival of Aragorn by the Ships"
+  description "Aragorn reaches the Pelennor by the captured black ships, turning despair into hope."
   startDate d3019-03-15
   endDate d3019-03-15
   locatedIn @pelennor_fields
@@ -1252,6 +1427,7 @@ arrival_of_aragorn_by_ships {
 death_of_denethor {
   isA #Event
   name "Death of Denethor"
+  description "Denethor perishes in madness and fire rather than yield to hope or counsel."
   startDate d3019-03-15
   endDate d3019-03-15
   locatedIn @minas_tirith
@@ -1270,6 +1446,7 @@ houses_of_healing {
 debate_of_the_captains {
   isA #Event
   name "Debate of the Captains"
+  description "The leaders of the West choose a hopeless march to the Black Gate to distract Sauron from the Ring-bearer."
   startDate d3019-03-16
   endDate d3019-03-18
   locatedIn @minas_tirith
@@ -1279,6 +1456,7 @@ debate_of_the_captains {
 march_on_the_black_gate {
   isA #Event
   name "March on the Black Gate"
+  description "The Host of the West advances into certain danger to buy Frodo a final chance."
   startDate d3019-03-18
   endDate d3019-03-25
   locatedIn @black_gate
@@ -1288,6 +1466,7 @@ march_on_the_black_gate {
 journey_across_gorgoroth {
   isA #Event
   name "Journey across Gorgoroth"
+  description "Frodo and Sam crawl across Mordor's wasteland in the last extremity of the Quest."
   startDate d3019-03-19
   endDate d3019-03-25
   locatedIn @gorgoroth
@@ -1297,6 +1476,7 @@ journey_across_gorgoroth {
 battle_of_the_black_gate {
   isA #Event
   name "Battle of the Black Gate"
+  description "At the Morannon the captains fight only to hold Sauron's eye away from Mount Doom."
   startDate d3019-03-25
   endDate d3019-03-25
   locatedIn @black_gate
@@ -1306,6 +1486,7 @@ battle_of_the_black_gate {
 destruction_of_the_one_ring {
   isA #Event
   name "Destruction of the One Ring"
+  description "The Ring is unmade in the fire by Gollum's final fall, and Sauron's power collapses."
   startDate d3019-03-25
   endDate d3019-03-25
   locatedIn @mount_doom
@@ -1315,6 +1496,7 @@ destruction_of_the_one_ring {
 field_of_cormallen {
   isA #Event
   name "Field of Cormallen"
+  description "The victors reunite in Ithilien to honor the Ring-bearers after the fall of Sauron."
   startDate d3019-04-08
   endDate d3019-04-08
   locatedIn @ithilien
@@ -1324,6 +1506,7 @@ field_of_cormallen {
 coronation_of_aragorn {
   isA #Event
   name "Coronation of Aragorn"
+  description "Aragorn is crowned King Elessar, renewing the kingship of Gondor and Arnor."
   startDate d3019-05-01
   endDate d3019-05-01
   locatedIn @minas_tirith
@@ -1333,6 +1516,7 @@ coronation_of_aragorn {
 departure_from_minas_tirith {
   isA #Event
   name "Departure from Minas Tirith"
+  description "The companions begin the long homeward road after the crowning and wedding season."
   startDate d3019-07-19
   endDate d3019-07-19
   locatedIn @minas_tirith
@@ -1342,6 +1526,7 @@ departure_from_minas_tirith {
 return_to_rivendell {
   isA #Event
   name "Return to Rivendell"
+  description "The travellers revisit Rivendell, where Bilbo and Elrond mark the passing age."
   startDate d3019-09-21
   endDate d3019-09-22
   locatedIn @rivendell
@@ -1351,6 +1536,7 @@ return_to_rivendell {
 return_to_the_shire {
   isA #Event
   name "Return to the Shire"
+  description "The hobbits come home and discover that the Shire itself now needs saving."
   startDate d3019-10-30
   endDate d3019-11-02
   locatedIn @shire
@@ -1360,6 +1546,7 @@ return_to_the_shire {
 scouring_of_the_shire {
   isA #Event
   name "Scouring of the Shire"
+  description "The returning hobbits overthrow Sharkey's petty tyranny and restore their homeland."
   startDate d3019-11-03
   endDate d3019-11-03
   locatedIn @shire
@@ -1369,6 +1556,7 @@ scouring_of_the_shire {
 death_of_saruman {
   isA #Event
   name "Death of Saruman"
+  description "Saruman's shrunken malice finally ends in the Shire after Wormtongue turns on him."
   startDate d3019-11-03
   endDate d3019-11-03
   locatedIn @shire
@@ -1378,6 +1566,7 @@ death_of_saruman {
 restoration_of_the_shire {
   isA #Event
   name "Restoration of the Shire"
+  description "The Shire is healed and replanted after its brief corruption under Sharkey."
   startDate d3019-11-04
   endDate d3020-09-21
   locatedIn @shire
@@ -1387,6 +1576,7 @@ restoration_of_the_shire {
 wedding_of_sam_and_rose {
   isA #Event
   name "Wedding of Samwise Gamgee and Rose Cotton"
+  description "Sam and Rose marry, embodying the home, harvest, and hope preserved by the Quest."
   startDate d3020-05-01
   endDate d3020-05-01
   locatedIn @shire
@@ -1396,6 +1586,7 @@ wedding_of_sam_and_rose {
 departure_at_the_grey_havens {
   isA #Event
   name "Departure at the Grey Havens"
+  description "Frodo sails west with the Keepers, leaving Middle-earth in sorrow and peace."
   startDate d3021-09-29
   endDate d3021-09-29
   locatedIn @grey_havens
