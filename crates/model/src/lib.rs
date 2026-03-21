@@ -4,6 +4,8 @@ pub mod decimal_value;
 pub mod node_id;
 pub mod nql;
 pub mod statement;
+pub mod statement_pattern;
+pub mod statement_pattern_value;
 pub mod statement_set;
 pub mod value;
 
@@ -17,5 +19,7 @@ pub use nql::NqlReturn;
 pub use nql::NqlTerm;
 pub use nql::NqlVariable;
 pub use statement::Statement;
+pub use statement_pattern::StatementPattern;
+pub use statement_pattern_value::StatementPatternValue;
 pub use statement_set::StatementSet;
 pub use value::Value;

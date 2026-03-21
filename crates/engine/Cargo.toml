@@ -1,0 +1,10 @@
+[package]
+name = "nosqo-engine"
+version = "0.1.0"
+edition = "2024"
+description = "Core engine components for the nosqo knowledge database"
+license = "MIT"
+
+[dependencies]
+nosqo-base = { path = "../base", version = "0.1.0" }
+nosqo-model = { path = "../model", version = "0.1.0" }
