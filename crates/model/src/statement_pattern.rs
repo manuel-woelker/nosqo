@@ -112,6 +112,14 @@ fn parse_node_id(value: SharedString, position: PatternPosition) -> NodeId {
 }
 
 fn parse_value(value: SharedString) -> Value {
+    if let Some(text) = parse_quoted_value(value.as_str(), '"') {
+        return Value::text(text);
+    }
+
+    if let Some(symbol) = parse_quoted_value(value.as_str(), '\'') {
+        return Value::symbol(symbol);
+    }
+
     if value == "T" {
         return Value::Boolean(true);
     }
@@ -181,28 +189,46 @@ fn is_date_time_literal(value: &str) -> bool {
     value.starts_with('t') && value.len() > 1
 }
 
+fn parse_quoted_value(value: &str, quote: char) -> Option<String> {
+    if !(value.starts_with(quote) && value.ends_with(quote) && value.len() >= 2) {
+        return None;
+    }
+
+    let inner = &value[quote.len_utf8()..value.len() - quote.len_utf8()];
+    let mut unescaped = String::new();
+    let mut chars = inner.chars();
+
+    while let Some(ch) = chars.next() {
+        if ch != '\\' {
+            unescaped.push(ch);
+            continue;
+        }
+
+        let escaped = chars.next()?;
+        unescaped.push(match escaped {
+            '\\' => '\\',
+            '"' => '"',
+            '\'' => '\'',
+            'n' => '\n',
+            'r' => '\r',
+            't' => '\t',
+            other => other,
+        });
+    }
+
+    Some(unescaped)
+}
+
 #[cfg(test)]
 mod tests {
     use crate::{NodeId, Statement, StatementPattern, StatementPatternValue, Value};
 
     #[test]
     fn matches_statements_with_exact_and_any_fields() {
-        let statement = Statement::value(
-            "berlin",
-            NodeId::predicate_id("~label").unwrap(),
-            Value::text("Berlin"),
-        );
+        let statement = Statement::from_strings("berlin", "label", "Berlin");
 
-        let matching_pattern = StatementPattern::new(
-            StatementPatternValue::Exact(NodeId::entity("berlin")),
-            StatementPatternValue::Any,
-            StatementPatternValue::Exact(Value::text("Berlin")),
-        );
-        let non_matching_pattern = StatementPattern::new(
-            StatementPatternValue::Exact(NodeId::entity("paris")),
-            StatementPatternValue::Any,
-            StatementPatternValue::Any,
-        );
+        let matching_pattern = StatementPattern::from_strings("berlin", "*", "Berlin");
+        let non_matching_pattern = StatementPattern::from_strings("paris", "*", "*");
 
         assert!(matching_pattern.matches(&statement));
         assert!(!non_matching_pattern.matches(&statement));

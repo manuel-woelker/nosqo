@@ -296,7 +296,7 @@ impl Parser {
 #[cfg(test)]
 mod tests {
     use super::Parser;
-    use nosqo_model::{NodeId, Statement, Value};
+    use nosqo_model::Statement;
 
     #[test]
     fn parses_subject_blocks_into_flat_statements() {
@@ -313,19 +313,11 @@ mod tests {
         assert_eq!(statement_set.as_slice().len(), 3);
         assert_eq!(
             statement_set.as_slice()[0],
-            Statement::value(
-                "berlin",
-                NodeId::predicate_id("~label").unwrap(),
-                Value::text("Berlin"),
-            )
+            Statement::from_strings("berlin", "label", "Berlin")
         );
         assert_eq!(
             statement_set.as_slice()[1],
-            Statement::value(
-                "berlin",
-                NodeId::predicate_id("~speaks").unwrap(),
-                Value::symbol("de"),
-            )
+            Statement::from_strings("berlin", "speaks", "'de'")
         );
     }
 
@@ -344,11 +336,7 @@ mod tests {
         assert_eq!(statement_set.as_slice().len(), 2);
         assert_eq!(
             statement_set.as_slice()[0],
-            Statement::id(
-                "berlin",
-                NodeId::predicate_id("~capitalof").unwrap(),
-                NodeId::entity("germany"),
-            )
+            Statement::from_strings("berlin", "capitalof", "@germany")
         );
     }
 
@@ -360,25 +348,25 @@ mod tests {
         .unwrap();
 
         assert_eq!(statement_set.as_slice().len(), 55);
-        assert!(statement_set.as_slice().contains(&Statement::value(
-            NodeId::type_name("Type"),
-            NodeId::predicate_id("~label").unwrap(),
-            Value::text("Type"),
+        assert!(
+            statement_set
+                .as_slice()
+                .contains(&Statement::from_strings("#Type", "label", "Type"))
+        );
+        assert!(statement_set.as_slice().contains(&Statement::from_strings(
+            "~label",
+            "~targetType",
+            "#String"
         )));
-        assert!(statement_set.as_slice().contains(&Statement::id(
-            NodeId::predicate_id("~label").unwrap(),
-            NodeId::predicate_id("~targetType").unwrap(),
-            NodeId::type_name("String"),
+        assert!(statement_set.as_slice().contains(&Statement::from_strings(
+            "#Type",
+            "~attribute",
+            "~label"
         )));
-        assert!(statement_set.as_slice().contains(&Statement::id(
-            NodeId::type_name("Type"),
-            NodeId::predicate_id("~attribute").unwrap(),
-            NodeId::predicate_id("~label").unwrap(),
-        )));
-        assert!(statement_set.as_slice().contains(&Statement::id(
-            NodeId::predicate_id("~targetType").unwrap(),
-            NodeId::predicate_id("~targetType").unwrap(),
-            NodeId::type_name("Type"),
+        assert!(statement_set.as_slice().contains(&Statement::from_strings(
+            "~targetType",
+            "~targetType",
+            "#Type"
         )));
     }
 

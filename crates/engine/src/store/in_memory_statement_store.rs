@@ -52,47 +52,32 @@ impl StatementStore for InMemoryStatementStore {
 
 #[cfg(test)]
 mod tests {
-    use nosqo_model::{
-        NodeId, Statement, StatementPattern, StatementPatternValue, StatementSet, Value,
-    };
+    use nosqo_model::{Statement, StatementPattern, StatementSet};
 
     use super::InMemoryStatementStore;
     use crate::store::StatementStore;
 
     #[test]
     fn finds_matching_statements() {
-        let store = InMemoryStatementStore::new(StatementSet::new(vec![Statement::value(
-            "berlin",
-            NodeId::predicate_id("~label").unwrap(),
-            Value::text("Berlin"),
+        let store = InMemoryStatementStore::new(StatementSet::new(vec![Statement::from_strings(
+            "berlin", "label", "Berlin",
         )]));
 
         let statement_set = store
-            .find_statements(&StatementPattern::new(
-                StatementPatternValue::Exact(NodeId::entity("berlin")),
-                StatementPatternValue::Any,
-                StatementPatternValue::Any,
-            ))
+            .find_statements(&StatementPattern::from_strings("berlin", "*", "*"))
             .unwrap();
 
         assert_eq!(
             statement_set,
-            StatementSet::new(vec![Statement::value(
-                "berlin",
-                NodeId::predicate_id("~label").unwrap(),
-                Value::text("Berlin"),
-            )])
+            StatementSet::new(vec![Statement::from_strings("berlin", "label", "Berlin")])
         );
     }
 
     #[test]
     fn asserts_new_statements_without_duplicate_inserts() {
         let store = InMemoryStatementStore::default();
-        let statement_set = StatementSet::new(vec![Statement::id(
-            "berlin",
-            NodeId::predicate_id("~isA").unwrap(),
-            NodeId::type_name("City"),
-        )]);
+        let statement_set =
+            StatementSet::new(vec![Statement::from_strings("berlin", "isA", "#City")]);
 
         store.assert_statements(statement_set.clone()).unwrap();
         store.assert_statements(statement_set.clone()).unwrap();

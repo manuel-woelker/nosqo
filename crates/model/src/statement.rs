@@ -89,6 +89,14 @@ fn parse_node_id(value: SharedString, position: StatementPosition) -> NodeId {
 }
 
 fn parse_value(value: SharedString) -> Value {
+    if let Some(text) = parse_quoted_value(value.as_str(), '"') {
+        return Value::text(text);
+    }
+
+    if let Some(symbol) = parse_quoted_value(value.as_str(), '\'') {
+        return Value::symbol(symbol);
+    }
+
     if value == "T" {
         return Value::Boolean(true);
     }
@@ -158,6 +166,36 @@ fn is_date_time_literal(value: &str) -> bool {
     value.starts_with('t') && value.len() > 1
 }
 
+fn parse_quoted_value(value: &str, quote: char) -> Option<String> {
+    if !(value.starts_with(quote) && value.ends_with(quote) && value.len() >= 2) {
+        return None;
+    }
+
+    let inner = &value[quote.len_utf8()..value.len() - quote.len_utf8()];
+    let mut unescaped = String::new();
+    let mut chars = inner.chars();
+
+    while let Some(ch) = chars.next() {
+        if ch != '\\' {
+            unescaped.push(ch);
+            continue;
+        }
+
+        let escaped = chars.next()?;
+        unescaped.push(match escaped {
+            '\\' => '\\',
+            '"' => '"',
+            '\'' => '\'',
+            'n' => '\n',
+            'r' => '\r',
+            't' => '\t',
+            other => other,
+        });
+    }
+
+    Some(unescaped)
+}
+
 #[cfg(test)]
 mod tests {
     use super::Statement;
@@ -193,6 +231,7 @@ mod tests {
     fn creates_statements_from_strings() {
         let statement = Statement::from_strings("berlin", "label", "@germany");
         let literal_statement = Statement::from_strings("berlin", "population", "i42");
+        let symbol_statement = Statement::from_strings("berlin", "speaks", "'de'");
 
         assert_eq!(statement.subject, NodeId::entity("berlin"));
         assert_eq!(statement.predicate, NodeId::predicate_name("label"));
@@ -204,5 +243,6 @@ mod tests {
             NodeId::predicate_name("population")
         );
         assert_eq!(literal_statement.object, Value::Integer(42));
+        assert_eq!(symbol_statement.object, Value::symbol("de"));
     }
 }

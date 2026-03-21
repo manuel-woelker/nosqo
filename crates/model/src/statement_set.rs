@@ -148,15 +148,11 @@ fn escape_string(value: &str, quote: char) -> String {
 #[cfg(test)]
 mod tests {
     use super::StatementSet;
-    use crate::{NodeId, Statement, Value};
+    use crate::Statement;
 
     #[test]
     fn creates_statement_sets_from_vectors() {
-        let statements = vec![Statement::value(
-            "berlin",
-            NodeId::predicate_id("~label").unwrap(),
-            Value::text("Berlin"),
-        )];
+        let statements = vec![Statement::from_strings("berlin", "label", "Berlin")];
 
         let statement_set = StatementSet::new(statements.clone());
 
@@ -166,11 +162,7 @@ mod tests {
     #[test]
     fn appends_statements() {
         let mut statement_set = StatementSet::default();
-        let statement = Statement::id(
-            "berlin",
-            NodeId::predicate_id("~isA").unwrap(),
-            NodeId::type_name("City"),
-        );
+        let statement = Statement::from_strings("berlin", "isA", "#City");
 
         statement_set.push(statement.clone());
 
@@ -180,21 +172,9 @@ mod tests {
     #[test]
     fn renders_subject_blocks_in_alphabetical_order() {
         let statement_set = StatementSet::new(vec![
-            Statement::id(
-                "paris",
-                NodeId::predicate_id("~isA").unwrap(),
-                NodeId::type_name("City"),
-            ),
-            Statement::value(
-                "berlin",
-                NodeId::predicate_id("~label").unwrap(),
-                Value::text("Berlin"),
-            ),
-            Statement::id(
-                "berlin",
-                NodeId::predicate_id("~isA").unwrap(),
-                NodeId::type_name("City"),
-            ),
+            Statement::from_strings("paris", "isA", "#City"),
+            Statement::from_strings("berlin", "label", "Berlin"),
+            Statement::from_strings("berlin", "isA", "#City"),
         ]);
 
         assert_eq!(
@@ -215,26 +195,10 @@ paris {
     #[test]
     fn renders_predicates_and_values_in_alphabetical_order() {
         let statement_set = StatementSet::new(vec![
-            Statement::value(
-                "berlin",
-                NodeId::predicate_id("~speaks").unwrap(),
-                Value::symbol("fr"),
-            ),
-            Statement::value(
-                "berlin",
-                NodeId::predicate_id("~label").unwrap(),
-                Value::text("Berlin"),
-            ),
-            Statement::value(
-                "berlin",
-                NodeId::predicate_id("~speaks").unwrap(),
-                Value::symbol("de"),
-            ),
-            Statement::id(
-                "berlin",
-                NodeId::predicate_id("~capitalOf").unwrap(),
-                NodeId::entity("germany"),
-            ),
+            Statement::from_strings("berlin", "speaks", "'fr'"),
+            Statement::from_strings("berlin", "label", "Berlin"),
+            Statement::from_strings("berlin", "speaks", "'de'"),
+            Statement::from_strings("berlin", "capitalOf", "@germany"),
         ]);
 
         assert_eq!(
@@ -253,16 +217,8 @@ berlin {
     #[test]
     fn renders_object_ids_and_escaped_literals() {
         let statement_set = StatementSet::new(vec![
-            Statement::value(
-                "berlin",
-                NodeId::predicate_id("~label").unwrap(),
-                Value::text("The \"Capital\"\\n"),
-            ),
-            Statement::value(
-                "berlin",
-                NodeId::predicate_id("~symbol").unwrap(),
-                Value::symbol("it\\'s_fine"),
-            ),
+            Statement::from_strings("berlin", "label", "The \"Capital\"\\n"),
+            Statement::from_strings("berlin", "symbol", "'it\\'s_fine'"),
         ]);
 
         assert_eq!(
@@ -270,7 +226,7 @@ berlin {
             r#"
 berlin {
   label "The \"Capital\"\\n"
-  symbol 'it\\\'s_fine'
+  symbol 'it\'s_fine'
 }"#
             .trim_start()
         );
