@@ -1,4 +1,4 @@
-use nosqo_base::shared_string::SharedString;
+use nosqo_base::{err, result::NosqoResult, shared_string::SharedString};
 use serde::{Deserialize, Serialize};
 
 /// A canonical graph node identifier.
@@ -32,6 +32,30 @@ impl NodeId {
     /// Creates an identifier for a predicate node such as `~label`.
     pub fn predicate_name(name: impl AsRef<str>) -> Self {
         Self::new(format!("~{}", name.as_ref()))
+    }
+
+    /// Creates a predicate identifier from canonical predicate-id text.
+    ///
+    /// Valid predicate identifiers must start with `~` and contain at least one
+    /// character after the sigil.
+    pub fn predicate_id(value: impl Into<SharedString>) -> NosqoResult<Self> {
+        let value: SharedString = value.into();
+
+        if !value.starts_with('~') {
+            return Err(err!(
+                "invalid predicate id `{}`: predicate ids must start with `~`",
+                value
+            ));
+        }
+
+        if value.len() == 1 {
+            return Err(err!(
+                "invalid predicate id `{}`: predicate ids must include a name after `~`",
+                value
+            ));
+        }
+
+        Ok(Self::new(value))
     }
 
     /// Returns the canonical identifier text.
@@ -81,5 +105,34 @@ mod tests {
         let id = NodeId::predicate_name("label");
 
         assert_eq!(id.as_str(), "~label");
+    }
+
+    #[test]
+    fn validates_canonical_predicate_ids() {
+        let id = NodeId::predicate_id("~label").unwrap();
+
+        assert_eq!(id.as_str(), "~label");
+    }
+
+    #[test]
+    fn rejects_predicate_ids_without_tilde_prefix() {
+        let error = NodeId::predicate_id("label").unwrap_err();
+
+        assert!(
+            error
+                .to_test_string()
+                .contains("predicate ids must start with `~`")
+        );
+    }
+
+    #[test]
+    fn rejects_empty_predicate_ids() {
+        let error = NodeId::predicate_id("~").unwrap_err();
+
+        assert!(
+            error
+                .to_test_string()
+                .contains("predicate ids must include a name after `~`")
+        );
     }
 }

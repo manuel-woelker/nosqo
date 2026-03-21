@@ -1,11 +1,13 @@
 use nosqo_base::shared_string::SharedString;
 use serde::{Deserialize, Serialize};
 
-use crate::{DateTimeValue, DateValue, DecimalValue};
+use crate::{DateTimeValue, DateValue, DecimalValue, NodeId};
 
-/// A typed literal value in the nosqo statement model.
+/// A value in the nosqo statement model.
 #[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize)]
 pub enum Value {
+    /// Another graph node identifier.
+    Id(NodeId),
     /// A human-readable text value.
     Text(SharedString),
     /// An identifier-like symbol literal.
@@ -23,6 +25,11 @@ pub enum Value {
 }
 
 impl Value {
+    /// Creates an identifier value.
+    pub fn id(value: impl Into<NodeId>) -> Self {
+        Self::Id(value.into())
+    }
+
     /// Creates a text literal.
     pub fn text(value: impl Into<SharedString>) -> Self {
         Self::Text(value.into())
@@ -37,10 +44,11 @@ impl Value {
 #[cfg(test)]
 mod tests {
     use super::Value;
-    use crate::{DateTimeValue, DateValue, DecimalValue};
+    use crate::{DateTimeValue, DateValue, DecimalValue, NodeId};
 
     #[test]
     fn models_the_supported_literal_kinds() {
+        assert_eq!(Value::id("berlin"), Value::Id(NodeId::entity("berlin")));
         assert_eq!(Value::text("Berlin"), Value::Text("Berlin".into()));
         assert_eq!(
             Value::symbol("capital_of"),
