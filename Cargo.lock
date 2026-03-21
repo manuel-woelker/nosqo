@@ -551,8 +551,11 @@ name = "nosqo-server"
 version = "0.1.0"
 dependencies = [
  "axum",
+ "expect-test",
  "nosqo-base",
+ "nosqo-model",
  "nosqo-pal",
+ "nosqo-parser",
  "serde_json",
  "tokio",
  "tracing",

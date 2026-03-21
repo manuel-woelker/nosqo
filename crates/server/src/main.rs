@@ -1,3 +1,5 @@
+mod read_ontogies;
+
 use axum::Json;
 use axum::Router;
 use axum::extract::State;
@@ -5,6 +7,7 @@ use axum::routing::get;
 use nosqo_base::logging::init_logging;
 use nosqo_pal::pal::PalHandle;
 use nosqo_pal::pal_real::PalReal;
+use read_ontogies::read_ontogies;
 use serde_json::{Value, json};
 use std::net::SocketAddr;
 
@@ -18,9 +21,14 @@ struct AppState {
 async fn main() {
     init_logging();
 
-    let state = AppState {
-        pal: PalReal::new_handle(),
-    };
+    let pal = PalReal::new_handle();
+    let ontology = read_ontogies(&*pal).expect("server should load ontologies at startup");
+    tracing::info!(
+        "loaded {} ontology statements into target/ontology.nosqo",
+        ontology.as_slice().len()
+    );
+
+    let state = AppState { pal };
 
     let app = Router::new()
         .route("/health", get(health))
