@@ -41,6 +41,12 @@ impl Value {
     }
 }
 
+impl From<NodeId> for Value {
+    fn from(value: NodeId) -> Self {
+        Self::Id(value)
+    }
+}
+
 #[cfg(test)]
 mod tests {
     use super::Value;
