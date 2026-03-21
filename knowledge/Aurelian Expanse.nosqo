@@ -4,166 +4,195 @@
 exploration_agency {
   isA #OrganizationType
   name "Exploration Agency"
+  description "An organization type for crews and institutions that push beyond mapped lanes, chart unstable routes, and make first landfall on unfamiliar worlds. In the Aurelian Expanse, exploration agencies are treated with a mixture of admiration and suspicion because they are always the first to decide what the frontier will become."
 }
 
 colonial_cooperative {
   isA #OrganizationType
   name "Colonial Cooperative"
+  description "An organization type built around settlement, logistics, and the hard unglamorous work of making remote places livable. Colonial cooperatives in the Expanse are supposed to spread risk and share ownership, even when ambition and scarcity test that ideal."
 }
 
 research_institute {
   isA #OrganizationType
   name "Research Institute"
+  description "An organization type devoted to deep study, survey science, and the patient translation of raw discovery into durable knowledge. Research institutes often mediate between explorers who move too fast and settlers who cannot afford mistakes."
 }
 
 diplomatic_council {
   isA #OrganizationType
   name "Diplomatic Council"
+  description "An organization type concerned with protocol, negotiation, and the fragile work of keeping different peoples in conversation. In the Expanse, diplomatic councils are as much translators of custom and silence as they are makers of agreements."
 }
 
 mutual_aid_network {
   isA #OrganizationType
   name "Mutual Aid Network"
+  description "An organization type organized around reciprocity, local resilience, and practical exchange rather than formal state power. Mutual aid networks tend to survive where grand charters fail because people trust whoever shows up with tools, food, and water."
 }
 
 emergency_service {
   isA #OrganizationType
   name "Emergency Service"
+  description "An organization type trained for evacuation, disaster response, and the split-second decisions that keep frontier settlements from becoming memorial sites. Emergency services in the Expanse are legendary because every colony knows the vacuum is patient."
 }
 
 ecological_stewardship_body {
   isA #OrganizationType
   name "Ecological Stewardship Body"
+  description "An organization type that studies living systems and argues that survival depends on restraint as much as expansion. These bodies often become the conscience of colonization, especially when human plans collide with older ecologies."
 }
 
 aurelian_expanse {
   isA #Location
   name "Aurelian Expanse"
+  description "A loosely connected frontier region of settled systems, survey corridors, and half-understood worlds where exploration and colonization still feel recent. It is famous for radiant skies, difficult distances, and the political shock of encountering intelligent life that was never waiting to be discovered."
 }
 
 solari_system {
   isA #Location
   name "Solari System"
+  description "The administrative heartland of the Expanse, old enough to feel established but still dependent on routes that can fail without warning. Solari is where grand policy is written, and where frontier hardship is often mistaken for an abstraction."
   locatedIn @aurelian_expanse
 }
 
 vesper_system {
   isA #Location
   name "Vesper System"
+  description "A system of young settlements and hard-won infrastructure, shaped by weather, risk, and the dream of making a permanent home beyond Solari. Vesper represents the hopeful face of colonization, along with all the debt and improvisation hidden beneath it."
   locatedIn @aurelian_expanse
 }
 
 nacre_system {
   isA #Location
   name "Nacre System"
+  description "A mineral-rich and sparsely inhabited system known more for survey corridors and industrial speculation than for settled civic life. Nacre attracts navigators, salvage crews, and anyone willing to live with beautiful emptiness and bad odds."
   locatedIn @aurelian_expanse
 }
 
 lyr_system {
   isA #Location
   name "Lyr System"
+  description "A system transformed by contact with nonhuman intelligence, where language, ritual, and ecology became impossible to separate. Lyr unsettled every old colonial assumption by proving that the frontier was already inhabited in ways humans barely knew how to read."
   locatedIn @aurelian_expanse
 }
 
 orison_system {
   isA #Location
   name "Orison System"
+  description "A far-reaching system of dim stations, migratory shadows, and long-range expeditions that operate close to the edge of certainty. Orison draws people who prefer unanswered questions to stable lives."
   locatedIn @aurelian_expanse
 }
 
 helion {
   isA #Location
   name "Helion"
+  description "The civic and industrial anchor of Solari, a world of ports, administration decks, and old infrastructure polished into legitimacy. Helion feels secure by frontier standards, which mostly means its failures happen at a larger scale."
   locatedIn @solari_system
 }
 
 mirrorglass_station {
   isA #Location
   name "Mirrorglass Station"
+  description "A gleaming orbital station known for survey traffic, departure ceremonies, and observation galleries that turn every launch into theater. It is where the Expanse narrates itself as noble, daring, and inevitable."
   locatedIn @helion
 }
 
 sunward_archives {
   isA #Location
   name "Sunward Archives"
+  description "A memory complex on Helion where logs, maps, treaty fragments, and lost transmissions are preserved against bureaucratic amnesia. Scholars love it, politicians fear it, and explorers treat it as a second afterlife."
   locatedIn @helion
 }
 
 caelus {
   isA #Location
   name "Caelus"
+  description "A water-heavy colony world whose beauty concealed ecosystems too dynamic to be treated as scenery. Caelus became a proving ground for whether settlement could coexist with the more-than-human patterns already flourishing there."
   locatedIn @vesper_system
 }
 
 new_tethys {
   isA #Location
   name "New Tethys"
+  description "A windswept colony world in Vesper where every structure looks slightly temporary no matter how much concrete, alloy, or hope is poured into it. New Tethys produces a particular kind of person: practical, proud, and suspicious of people who speak in slogans."
   locatedIn @vesper_system
 }
 
 brink_harbor {
   isA #Location
   name "Brink Harbor"
+  description "The rough, indispensable port of New Tethys, where supply chains, evacuation plans, and frontier gossip all converge. If the colony has a pulse, it can usually be heard in Brink Harbor before it is recorded anywhere else."
   locatedIn @new_tethys
 }
 
 stormbreak_plateau {
   isA #Location
   name "Stormbreak Plateau"
+  description "A highland region on New Tethys where settlers built weather arrays and emergency shelters beneath enormous luminous storm fronts. It is beautiful in the way only places are that might kill you by evening."
   locatedIn @new_tethys
 }
 
 opal_belt {
   isA #Location
   name "Opal Belt"
+  description "A scattered field of bright debris, mining claims, and survey habitats drifting through Nacre like a broken necklace. The belt rewards precision and patience, then punishes overconfidence without ceremony."
   locatedIn @nacre_system
 }
 
 quiet_step {
   isA #Location
   name "Quiet Step"
+  description "A small habitat in the Opal Belt, valued by survey crews for its calm routines and exacting discipline. The name sounds poetic until something breaches the hull and silence becomes the loudest thing in the room."
   locatedIn @opal_belt
 }
 
 glass_ocean {
   isA #Location
   name "Glass Ocean"
+  description "A vast reflective sea on Caelus whose shifting surfaces distort depth, weather, and scale in equal measure. It became central to language exchange because both human and local intelligences learned there that perception itself was negotiable."
   locatedIn @caelus
 }
 
 pelagic_ladders {
   isA #Location
   name "Pelagic Ladders"
+  description "A vertical maze of anchored structures and tide-born pathways rising from the Glass Ocean. It feels less like a city than a conversation between engineering and currents that never quite agree."
   locatedIn @glass_ocean
 }
 
 lyr_prime {
   isA #Location
   name "Lyr Prime"
+  description "The inhabited world of the Lyr system, long assumed to be merely strange and later understood to be socially and ecologically legible on its own terms. Lyr Prime is where the Expanse stopped pretending discovery meant ownership."
   locatedIn @lyr_system
 }
 
 chorus_reef {
   isA #Location
   name "Chorus Reef"
+  description "A vibrant littoral zone on Lyr Prime where resonance, movement, and communal signaling shaped the first sustained contact. Diplomats call it historic; everyone who has stood there calls it alive."
   locatedIn @lyr_prime
 }
 
 stillwater_basin {
   isA #Location
   name "Stillwater Basin"
+  description "A quieter inland water region of Lyr Prime associated with recovery, reflection, and careful negotiation after ecological stress. It became important not because it was dramatic, but because it made patience possible."
   locatedIn @lyr_prime
 }
 
 orison_gate {
   isA #Location
   name "Orison Gate"
+  description "A remote gateway station in Orison, built as a hinge between mapped traffic and deep-range expeditions. It has the atmosphere of a frontier chapel crossed with a launch bay."
   locatedIn @orison_system
 }
 
 continuance_union {
   isA #Organization
   name "Continuance Union"
+  description "A colonial umbrella body that speaks the language of continuity, stewardship, and shared investment while constantly mediating shortage, ambition, and distance. It genuinely wants civilization to hold together, which is not the same thing as always being right."
   locatedIn @helion
   organizationType @colonial_cooperative
 }
@@ -171,6 +200,7 @@ continuance_union {
 wayfinder_guild {
   isA #Organization
   name "Wayfinder Guild"
+  description "A prestigious explorer organization whose pilots and pathfinders make reputations on routes nobody fully trusts. The guild is admired for courage and quietly blamed for every frontier problem that begins with the words “we didn't know.”"
   locatedIn @mirrorglass_station
   organizationType @exploration_agency
 }
@@ -178,6 +208,7 @@ wayfinder_guild {
 aurora_cartography_institute {
   isA #Organization
   name "Aurora Cartography Institute"
+  description "A research body devoted to mapping space, weather, and contact zones with unusual rigor. The institute has a habit of turning wonder into evidence without quite draining the wonder out of it."
   locatedIn @mirrorglass_station
   organizationType @research_institute
 }
@@ -185,6 +216,7 @@ aurora_cartography_institute {
 vesper_settlement_cooperative {
   isA #Organization
   name "Vesper Settlement Cooperative"
+  description "A settlement organization responsible for making New Tethys habitable through shared labor, stubborn logistics, and endless maintenance. It is one part civic experiment and one part collective refusal to be washed off the map."
   locatedIn @new_tethys
   organizationType @colonial_cooperative
 }
@@ -192,6 +224,7 @@ vesper_settlement_cooperative {
 chorus_contact_council {
   isA #Organization
   name "Chorus Contact Council"
+  description "A diplomatic body formed after first contact to keep exchange from collapsing into projection, fear, or opportunism. Its members know that a mistranslated gesture can undo months of trust."
   locatedIn @chorus_reef
   organizationType @diplomatic_council
 }
@@ -199,6 +232,7 @@ chorus_contact_council {
 reef_exchange {
   isA #Organization
   name "Reef Exchange"
+  description "A mutual-aid organization rooted in Chorus Reef and shaped by practical reciprocity rather than ceremony. It became one of the first places where humans learned that cooperation could not be scripted entirely on their own terms."
   locatedIn @chorus_reef
   organizationType @mutual_aid_network
 }
@@ -206,6 +240,7 @@ reef_exchange {
 solari_rescue_service {
   isA #Organization
   name "Solari Rescue Service"
+  description "An emergency response corps famous for arriving fast, improvising hard, and treating every survival as a systems problem someone should have foreseen. Frontier settlers joke that rescue crews are the only bureaucrats they actually pray for."
   locatedIn @helion
   organizationType @emergency_service
 }
@@ -213,6 +248,7 @@ solari_rescue_service {
 caelus_tidewatch {
   isA #Organization
   name "Caelus Tidewatch"
+  description "An ecological stewardship organization watching the living rhythms of Caelus for signs that settlement is pushing too far. Tidewatch is respected because it keeps being correct at inconvenient moments."
   locatedIn @glass_ocean
   organizationType @ecological_stewardship_body
 }
@@ -220,6 +256,7 @@ caelus_tidewatch {
 orison_deep_range {
   isA #Organization
   name "Orison Deep Range"
+  description "A long-range exploration group operating beyond comfortable charts and ordinary support windows. Deep Range crews cultivate a near-religious respect for uncertainty because Orison punishes arrogance immediately."
   locatedIn @orison_gate
   organizationType @exploration_agency
 }
@@ -242,6 +279,7 @@ caelus_tidewatch {
 mina_velle {
   isA #Person
   name "Mina Velle"
+  description "A celebrated pathfinder from Mirrorglass Station whose calm in unknown conditions made her central to both exploration missions and first-contact diplomacy. Mina carries herself like someone who trusts instruments, but listens for what instruments miss."
   birthDate d2194-04-16
   locatedIn @mirrorglass_station
 }
@@ -249,6 +287,7 @@ mina_velle {
 jo_lorren {
   isA #Person
   name "Jo Lorren"
+  description "A settlement organizer on New Tethys known for making fragile plans survive first contact with weather, budgets, and human stubbornness. Jo is the kind of builder who measures success in winters survived rather than speeches given."
   birthDate d2188-11-02
   locatedIn @new_tethys
 }
@@ -256,6 +295,7 @@ jo_lorren {
 sera_quill {
   isA #Person
   name "Sera Quill"
+  description "A young but formidable survey specialist whose appetite for difficult routes made her a natural fit for the Wayfinder Guild. She approaches the frontier with equal parts technical discipline and delighted irreverence."
   birthDate d2201-07-08
   locatedIn @mirrorglass_station
 }
@@ -263,6 +303,7 @@ sera_quill {
 idris_senn {
   isA #Person
   name "Idris Senn"
+  description "A cartographer and scholar whose work ties exploratory data to long memory and institutional accountability. Idris has the unnerving habit of making other people's heroic narratives sound like drafts."
   birthDate d2190-01-27
   locatedIn @helion
 }
@@ -270,6 +311,7 @@ idris_senn {
 tovan_rei {
   isA #Person
   name "Tovan Rei"
+  description "A dockworker-turned-frontier operator from Brink Harbor, shaped by storms, supply manifests, and the ethics of showing up when systems fail. Tovan reads infrastructure the way other people read moods."
   birthDate d2197-09-03
   locatedIn @brink_harbor
 }
@@ -277,6 +319,7 @@ tovan_rei {
 naia_sel {
   isA #Person
   name "Naia Sel"
+  description "A contact mediator from Chorus Reef with a talent for hearing social meaning in cadence, pause, and echo. Naia became essential because she understood early that translation is as much emotional weather as vocabulary."
   birthDate d2185-05-14
   locatedIn @chorus_reef
 }
@@ -284,6 +327,7 @@ naia_sel {
 thalen_ri {
   isA #Person
   name "Thalen Ri"
+  description "A senior contact figure from Chorus Reef whose authority rests on steadiness rather than spectacle. Thalen is often the person in the room who slows events down enough for everyone else to stop making mistakes."
   birthDate d2179-10-21
   locatedIn @chorus_reef
 }
@@ -291,6 +335,7 @@ thalen_ri {
 iri_of_the_tidefold {
   isA #Person
   name "Iri of the Tidefold"
+  description "A community organizer and exchange broker whose instincts run toward reciprocity, repair, and practical coexistence. Iri has little patience for anyone who treats contact as a branding opportunity."
   birthDate d2192-12-07
   locatedIn @chorus_reef
 }
@@ -298,6 +343,7 @@ iri_of_the_tidefold {
 elian_rho {
   isA #Person
   name "Elian Rho"
+  description "A veteran rescue coordinator from Helion whose composure under pressure has become local legend. Elian projects reassurance so effectively that people often forget how much fear is hidden behind the checklist."
   birthDate d2183-03-30
   locatedIn @helion
 }
@@ -305,6 +351,7 @@ elian_rho {
 pema_voss {
   isA #Person
   name "Pema Voss"
+  description "A young systems engineer from Stormbreak Plateau who learned frontier adulthood in the company of unreliable skies and emergency shelters. Pema belongs to the generation that treats crisis competence as a normal social skill."
   birthDate d2204-08-25
   locatedIn @stormbreak_plateau
 }
@@ -312,6 +359,7 @@ pema_voss {
 sio_aran {
   isA #Person
   name "Sio Aran"
+  description "A deep-range explorer from Orison Gate, drawn less by conquest than by the aesthetic pull of the unknown. Sio is at home in the long quiet between sensor pings, where most people begin to unravel."
   birthDate d2199-02-12
   locatedIn @orison_gate
 }
@@ -319,6 +367,7 @@ sio_aran {
 vesh_of_the_low_current {
   isA #Person
   name "Vesh of the Low Current"
+  description "A Stillwater Basin figure associated with ecological recovery, communal memory, and a patient style of public care. Vesh tends to speak as if damage can be mended, but only by people willing to change shape themselves."
   birthDate d2187-06-18
   locatedIn @stillwater_basin
 }
@@ -363,6 +412,7 @@ orison_deep_range {
 launch_of_the_pale_dawn {
   isA #Event
   name "Launch of the Pale Dawn"
+  description "The ceremonial launch that turned months of preparation into a shared frontier myth. People still talk about the reflected engine light on Mirrorglass Station as the moment the Expanse decided it would keep going outward."
   startDate d2221-03-04
   locatedIn @mirrorglass_station
   hasParticipant @wayfinder_guild
@@ -373,6 +423,7 @@ launch_of_the_pale_dawn {
 vesper_charter_signing {
   isA #Event
   name "Vesper Charter Signing"
+  description "The formal agreement that gave New Tethys a durable political future instead of a temporary extraction license. It was celebrated as a founding moment, though everyone involved knew the real work would begin the next morning."
   startDate d2222-08-19
   locatedIn @helion
   hasParticipant @continuance_union
@@ -383,6 +434,7 @@ vesper_charter_signing {
 new_tethys_landing {
   isA #Event
   name "New Tethys Landing"
+  description "The landing that made colony rhetoric real by putting people, equipment, and vulnerability on New Tethys soil. It is remembered not for grandeur but for the first shift from expedition logic to daily life."
   startDate d2223-02-11
   locatedIn @new_tethys
   hasParticipant @vesper_settlement_cooperative
@@ -393,6 +445,7 @@ new_tethys_landing {
 opal_belt_survey {
   isA #Event
   name "Opal Belt Survey"
+  description "A demanding survey mission through the Opal Belt that expanded maps, expectations, and appetites for deeper frontier extraction. The mission proved the belt could support more than speculation, while also proving how thin the margin of safety was."
   startDate d2224-06-02
   endDate d2224-09-14
   locatedIn @opal_belt
@@ -405,6 +458,7 @@ opal_belt_survey {
 first_contact_at_chorus_reef {
   isA #Event
   name "First Contact at Chorus Reef"
+  description "The first sustained encounter at Chorus Reef between human crews and another intelligent people of the Expanse. It remains the hinge event of the setting: a moment when colonization stopped being a one-species story."
   startDate d2226-01-28
   locatedIn @chorus_reef
   hasParticipant @chorus_contact_council
@@ -418,6 +472,7 @@ first_contact_at_chorus_reef {
 glass_ocean_language_exchange {
   isA #Event
   name "Glass Ocean Language Exchange"
+  description "An early exchange program on Caelus where language work unfolded through rhythm, repetition, shared attention, and controlled vulnerability. It taught both sides that understanding would arrive sideways rather than cleanly."
   startDate d2226-05-17
   endDate d2226-06-03
   locatedIn @glass_ocean
@@ -431,6 +486,7 @@ glass_ocean_language_exchange {
 brink_harbor_opening {
   isA #Event
   name "Brink Harbor Opening"
+  description "The opening of Brink Harbor as a functioning colonial port, logistics hub, and social crossroads. From that day forward, New Tethys felt less like an outpost and more like somewhere people intended to stay."
   startDate d2227-04-09
   locatedIn @brink_harbor
   hasParticipant @continuance_union
@@ -442,6 +498,7 @@ brink_harbor_opening {
 stormglass_supercell {
   isA #Event
   name "Stormglass Supercell"
+  description "A violent atmospheric event on Stormbreak Plateau that exposed every weakness hidden inside the colony's confidence. The storm became part of local folklore because it reminded everyone that survival was never a settled question."
   startDate d2228-10-22
   endDate d2228-10-25
   locatedIn @stormbreak_plateau
@@ -454,6 +511,7 @@ stormglass_supercell {
 brink_harbor_evacuation_lift {
   isA #Event
   name "Brink Harbor Evacuation Lift"
+  description "The emergency airlift and harbor withdrawal that prevented the plateau crisis from turning into a mass casualty event. It is remembered as a triumph of competence under pressure rather than of heroics for their own sake."
   startDate d2228-10-23
   endDate d2228-10-27
   locatedIn @brink_harbor
@@ -467,6 +525,7 @@ brink_harbor_evacuation_lift {
 quiet_step_habitat_breach {
   isA #Event
   name "Quiet Step Habitat Breach"
+  description "A habitat failure in the Opal Belt that made the vacuum feel intimate again after years of routine operations. The breach hardened safety culture across the Expanse and haunted everyone who had ever called a survey outpost temporary."
   startDate d2229-03-12
   endDate d2229-03-18
   locatedIn @quiet_step
@@ -479,6 +538,7 @@ quiet_step_habitat_breach {
 glass_ocean_bloom_crisis {
   isA #Event
   name "Glass Ocean Bloom Crisis"
+  description "An ecological crisis in the Glass Ocean where rapid biological change threatened both local life and human assumptions about stewardship. The event forced colonists to accept that contact also meant ecological humility."
   startDate d2230-07-01
   endDate d2230-08-09
   locatedIn @glass_ocean
@@ -492,6 +552,7 @@ glass_ocean_bloom_crisis {
 stillwater_recovery_accord {
   isA #Event
   name "Stillwater Recovery Accord"
+  description "A recovery agreement shaped in the calmer waters of Stillwater Basin after the bloom crisis. Its importance lies less in formal clauses than in the fact that it made shared repair politically imaginable."
   startDate d2230-08-14
   locatedIn @stillwater_basin
   hasParticipant @caelus_tidewatch
@@ -504,6 +565,7 @@ stillwater_recovery_accord {
 orison_shadow_migration {
   isA #Event
   name "Orison Shadow Migration"
+  description "A deep-range observational event tracking immense moving shadow-forms through the Orison system. Part science mission, part spiritual shock, it expanded the sense of how much life in the Expanse remained unreadable."
   startDate d2231-04-03
   endDate d2231-06-22
   locatedIn @orison_gate
@@ -516,6 +578,7 @@ orison_shadow_migration {
 sunward_archive_conclave {
   isA #Event
   name "Sunward Archive Conclave"
+  description "A gathering at the Sunward Archives where explorers, settlers, and contact mediators argued over memory, precedent, and what the Expanse was becoming. People cite it as the moment frontier history started being written with more than one voice in mind."
   startDate d2231-11-05
   endDate d2231-11-12
   locatedIn @sunward_archives
