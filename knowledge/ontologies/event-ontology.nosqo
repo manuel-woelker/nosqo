@@ -4,7 +4,7 @@
   isA #Type
   label "Event"
   description "Something that happens at a time and possibly at a place."
-  attribute ~name, ~startDate, ~endDate, ~locatedIn, ~hasParticipant
+  attribute ~description, ~name, ~startDate, ~endDate, ~locatedIn, ~hasParticipant
 }
 
 ~startDate {

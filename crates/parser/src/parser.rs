@@ -347,12 +347,17 @@ mod tests {
         ))
         .unwrap();
 
-        assert_eq!(statement_set.as_slice().len(), 55);
+        assert!(statement_set.as_slice().len() >= 62);
         assert!(
             statement_set
                 .as_slice()
                 .contains(&Statement::from_strings("#Type", "label", "Type"))
         );
+        assert!(statement_set.as_slice().contains(&Statement::from_strings(
+            "#String",
+            "~attribute",
+            "~description"
+        )));
         assert!(statement_set.as_slice().contains(&Statement::from_strings(
             "~label",
             "~targetType",

@@ -4,5 +4,5 @@
   isA #Type
   label "Location"
   description "A place, area, or geographic entity."
-  attribute ~name, ~locatedIn
+  attribute ~description, ~name, ~locatedIn
 }

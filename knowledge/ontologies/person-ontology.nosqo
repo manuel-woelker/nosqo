@@ -4,7 +4,7 @@
   isA #Type
   label "Person"
   description "A human being."
-  attribute ~name, ~birthDate, ~deathDate, ~locatedIn
+  attribute ~description, ~name, ~birthDate, ~deathDate, ~locatedIn
 }
 
 ~birthDate {

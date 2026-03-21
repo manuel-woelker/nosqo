@@ -16,42 +16,49 @@
   isA #Type
   label "String"
   description "A human-readable text value."
+  attribute ~description
 }
 
 #Integer {
   isA #Type
   label "Integer"
   description "A whole number value."
+  attribute ~description
 }
 
 #Decimal {
   isA #Type
   label "Decimal"
   description "A decimal number value."
+  attribute ~description
 }
 
 #Date {
   isA #Type
   label "Date"
   description "A calendar date value."
+  attribute ~description
 }
 
 #DateTime {
   isA #Type
   label "DateTime"
   description "A date and time value."
+  attribute ~description
 }
 
 #Boolean {
   isA #Type
   label "Boolean"
   description "A true or false value."
+  attribute ~description
 }
 
 #Symbol {
   isA #Type
   label "Symbol"
   description "An identifier-like literal value."
+  attribute ~description
 }
 
 ~isA {

@@ -4,14 +4,14 @@
   isA #Type
   label "Organization"
   description "A structured group of people with a shared purpose."
-  attribute ~name, ~locatedIn, ~hasMember, ~organizationType
+  attribute ~description, ~name, ~locatedIn, ~hasMember, ~organizationType
 }
 
 #OrganizationType {
   isA #Type
   label "OrganizationType"
   description "A category of organization."
-  attribute ~name
+  attribute ~description, ~name
 }
 
 ~hasMember {
