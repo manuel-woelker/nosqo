@@ -11,18 +11,19 @@
   isA #Predicate
   label "start date"
   description "The date an event starts."
-  valueType #Date
+  targetType #Date
 }
 
 ~endDate {
   isA #Predicate
   label "end date"
   description "The date an event ends."
-  valueType #Date
+  targetType #Date
 }
 
 ~hasParticipant {
   isA #Predicate
   label "has participant"
   description "Relates an event to a participating person."
+  targetType #Person
 }

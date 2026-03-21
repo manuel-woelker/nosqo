@@ -359,7 +359,7 @@ mod tests {
         ))
         .unwrap();
 
-        assert_eq!(statement_set.as_slice().len(), 52);
+        assert_eq!(statement_set.as_slice().len(), 55);
         assert!(statement_set.as_slice().contains(&Statement::value(
             NodeId::type_name("Type"),
             NodeId::predicate_id("~label").unwrap(),
@@ -367,13 +367,18 @@ mod tests {
         )));
         assert!(statement_set.as_slice().contains(&Statement::id(
             NodeId::predicate_id("~label").unwrap(),
-            NodeId::predicate_id("~valueType").unwrap(),
+            NodeId::predicate_id("~targetType").unwrap(),
             NodeId::type_name("String"),
         )));
         assert!(statement_set.as_slice().contains(&Statement::id(
             NodeId::type_name("Type"),
             NodeId::predicate_id("~attribute").unwrap(),
             NodeId::predicate_id("~label").unwrap(),
+        )));
+        assert!(statement_set.as_slice().contains(&Statement::id(
+            NodeId::predicate_id("~targetType").unwrap(),
+            NodeId::predicate_id("~targetType").unwrap(),
+            NodeId::type_name("Type"),
         )));
     }
 

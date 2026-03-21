@@ -9,7 +9,7 @@
   isA #Type
   label "Predicate"
   description "A relation between a subject and an object."
-  attribute ~label, ~description, ~isA
+  attribute ~label, ~description, ~isA, ~targetType
 }
 
 #String {
@@ -58,31 +58,33 @@
   isA #Predicate
   label "is a"
   description "Declares that a subject is an instance of a type."
+  targetType #Type
 }
 
 ~label {
   isA #Predicate
   label "label"
   description "Provides a human-readable name."
-  valueType #String
+  targetType #String
 }
 
 ~description {
   isA #Predicate
   label "description"
   description "Provides a human-readable description."
-  valueType #String
+  targetType #String
 }
 
 ~attribute {
   isA #Predicate
   label "attribute"
   description "Declares that a type may use a predicate as an attribute."
-  valueType #Predicate
+  targetType #Predicate
 }
 
-~valueType {
+~targetType {
   isA #Predicate
-  label "value type"
-  description "Declares the expected value type of a predicate."
+  label "target type"
+  description "Declares an allowed target type of a predicate."
+  targetType #Type
 }

@@ -4,11 +4,12 @@
   isA #Predicate
   label "name"
   description "A human-readable name."
-  valueType #String
+  targetType #String
 }
 
 ~locatedIn {
   isA #Predicate
   label "located in"
   description "Relates something to a location that contains or hosts it."
+  targetType #Location
 }
