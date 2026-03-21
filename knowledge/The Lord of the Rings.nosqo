@@ -1,5 +1,6 @@
 // Lord of the Rings trilogy knowledge graph
-// More comprehensive version using the provided ontology
+// Fuller version using the provided ontology
+// Redundant participatesIn links omitted
 
 middle_earth {
   isA #Location
@@ -48,6 +49,12 @@ hobbiton {
   locatedIn @shire
 }
 
+bywater {
+  isA #Location
+  name "Bywater"
+  locatedIn @shire
+}
+
 buckland {
   isA #Location
   name "Buckland"
@@ -66,6 +73,12 @@ old_forest {
   locatedIn @eriador
 }
 
+house_of_tom_bombadil {
+  isA #Location
+  name "House of Tom Bombadil"
+  locatedIn @old_forest
+}
+
 barrow_downs {
   isA #Location
   name "Barrow-downs"
@@ -78,15 +91,15 @@ bree {
   locatedIn @eriador
 }
 
+the_prancing_pony {
+  isA #Location
+  name "The Prancing Pony"
+  locatedIn @bree
+}
+
 weathertop {
   isA #Location
   name "Weathertop"
-  locatedIn @eriador
-}
-
-rivendell {
-  isA #Location
-  name "Rivendell"
   locatedIn @eriador
 }
 
@@ -96,15 +109,45 @@ ford_of_bruinen {
   locatedIn @eriador
 }
 
+rivendell {
+  isA #Location
+  name "Rivendell"
+  locatedIn @eriador
+}
+
+hollin {
+  isA #Location
+  name "Hollin"
+  locatedIn @eriador
+}
+
+caradhras {
+  isA #Location
+  name "Caradhras"
+  locatedIn @rovanion
+}
+
 moria {
   isA #Location
   name "Mines of Moria"
   locatedIn @rovanion
 }
 
+khazad_dum_bridge {
+  isA #Location
+  name "Bridge of Khazad-dum"
+  locatedIn @moria
+}
+
 lorien {
   isA #Location
   name "Lothlorien"
+  locatedIn @rovanion
+}
+
+celebdil_anduin_region {
+  isA #Location
+  name "Great River Region"
   locatedIn @rovanion
 }
 
@@ -132,12 +175,6 @@ dead_marshes {
   locatedIn @rovanion
 }
 
-ithilien {
-  isA #Location
-  name "Ithilien"
-  locatedIn @gondor
-}
-
 fangorn {
   isA #Location
   name "Fangorn Forest"
@@ -150,10 +187,22 @@ isengard {
   locatedIn @rohan
 }
 
+orthanc {
+  isA #Location
+  name "Orthanc"
+  locatedIn @isengard
+}
+
 edoras {
   isA #Location
   name "Edoras"
   locatedIn @rohan
+}
+
+golden_hall {
+  isA #Location
+  name "Meduseld"
+  locatedIn @edoras
 }
 
 helms_deep {
@@ -174,10 +223,28 @@ paths_of_the_dead {
   locatedIn @rohan
 }
 
+ithilien {
+  isA #Location
+  name "Ithilien"
+  locatedIn @gondor
+}
+
+osgiliath {
+  isA #Location
+  name "Osgiliath"
+  locatedIn @gondor
+}
+
 minas_tirith {
   isA #Location
   name "Minas Tirith"
   locatedIn @gondor
+}
+
+houses_of_healing {
+  isA #Location
+  name "Houses of Healing"
+  locatedIn @minas_tirith
 }
 
 pelennor_fields {
@@ -186,9 +253,9 @@ pelennor_fields {
   locatedIn @gondor
 }
 
-osgiliath {
+harad_road_region {
   isA #Location
-  name "Osgiliath"
+  name "South Gondor Region"
   locatedIn @gondor
 }
 
@@ -210,9 +277,21 @@ shelobs_lair {
   locatedIn @mordor
 }
 
+gorgoroth {
+  isA #Location
+  name "Plateau of Gorgoroth"
+  locatedIn @mordor
+}
+
 mount_doom {
   isA #Location
   name "Mount Doom"
+  locatedIn @mordor
+}
+
+barad_dur_region {
+  isA #Location
+  name "Barad-dur Region"
   locatedIn @mordor
 }
 
@@ -222,12 +301,17 @@ black_gate {
   locatedIn @mordor
 }
 
+grey_havens {
+  isA #Location
+  name "Grey Havens"
+  locatedIn @eriador
+}
+
 frodo_baggins {
   isA #Person
   name "Frodo Baggins"
   birthDate d2968-09-22
   locatedIn @shire
-  participatesIn @birthday_party_at_bag_end, @departure_from_hobbiton, @flight_to_bree, @attack_on_weathertop, @flight_to_the_ford, @council_of_elrond, @journey_through_moria, @farewell_to_lorien, @breaking_of_the_fellowship, @taming_of_smeagol, @passage_through_dead_marshes, @meeting_with_faramir, @passage_of_cirith_ungol, @shelobs_attack, @rescue_from_cirith_ungol, @destroying_of_the_ring, @field_of_cormallen, @coronation_of_aragorn
 }
 
 samwise_gamgee {
@@ -235,57 +319,20 @@ samwise_gamgee {
   name "Samwise Gamgee"
   birthDate d2980-04-06
   locatedIn @shire
-  participatesIn @birthday_party_at_bag_end, @departure_from_hobbiton, @flight_to_bree, @attack_on_weathertop, @flight_to_the_ford, @council_of_elrond, @journey_through_moria, @farewell_to_lorien, @breaking_of_the_fellowship, @taming_of_smeagol, @passage_through_dead_marshes, @meeting_with_faramir, @passage_of_cirith_ungol, @shelobs_attack, @rescue_from_cirith_ungol, @destroying_of_the_ring, @field_of_cormallen, @coronation_of_aragorn
 }
 
-merry {
+meriadoc_brandybuck {
   isA #Person
   name "Meriadoc Brandybuck"
   birthDate d2982-01-01
   locatedIn @shire
-  participatesIn @birthday_party_at_bag_end, @departure_from_hobbiton, @flight_to_bree, @attack_on_weathertop, @flight_to_the_ford, @council_of_elrond, @journey_through_moria, @farewell_to_lorien, @breaking_of_the_fellowship, @meeting_with_treebeard, @muster_of_rohan, @battle_of_pelennor_fields, @field_of_cormallen, @coronation_of_aragorn
 }
 
-pippin {
+peregrin_took {
   isA #Person
   name "Peregrin Took"
   birthDate d2990-04-13
   locatedIn @shire
-  participatesIn @birthday_party_at_bag_end, @departure_from_hobbiton, @flight_to_bree, @attack_on_weathertop, @flight_to_the_ford, @council_of_elrond, @journey_through_moria, @farewell_to_lorien, @breaking_of_the_fellowship, @meeting_with_treebeard, @palantir_of_orthanc, @beacon_lighting_of_gondor, @battle_of_pelennor_fields, @battle_of_the_black_gate, @field_of_cormallen, @coronation_of_aragorn
-}
-
-aragorn {
-  isA #Person
-  name "Aragorn"
-  birthDate d2931-03-01
-  locatedIn @rivendell
-  participatesIn @flight_to_bree, @attack_on_weathertop, @flight_to_the_ford, @council_of_elrond, @journey_through_moria, @farewell_to_lorien, @breaking_of_the_fellowship, @meeting_with_treebeard, @mustering_at_edoras, @battle_of_helms_deep, @paths_of_the_dead_journey, @arrival_of_the_corsair_ships, @battle_of_pelennor_fields, @battle_of_the_black_gate, @field_of_cormallen, @coronation_of_aragorn
-}
-
-gandalf {
-  isA #Person
-  name "Gandalf"
-  participatesIn @birthday_party_at_bag_end, @departure_from_hobbiton, @council_of_elrond, @journey_through_moria, @fall_in_moria, @meeting_with_treebeard, @mustering_at_edoras, @battle_of_helms_deep, @palantir_of_orthanc, @beacon_lighting_of_gondor, @battle_of_pelennor_fields, @battle_of_the_black_gate, @field_of_cormallen, @coronation_of_aragorn
-}
-
-legolas {
-  isA #Person
-  name "Legolas"
-  participatesIn @council_of_elrond, @journey_through_moria, @farewell_to_lorien, @breaking_of_the_fellowship, @meeting_with_treebeard, @mustering_at_edoras, @battle_of_helms_deep, @paths_of_the_dead_journey, @arrival_of_the_corsair_ships, @battle_of_pelennor_fields, @battle_of_the_black_gate, @field_of_cormallen, @coronation_of_aragorn
-}
-
-gimli {
-  isA #Person
-  name "Gimli"
-  participatesIn @council_of_elrond, @journey_through_moria, @farewell_to_lorien, @breaking_of_the_fellowship, @meeting_with_treebeard, @mustering_at_edoras, @battle_of_helms_deep, @paths_of_the_dead_journey, @arrival_of_the_corsair_ships, @battle_of_pelennor_fields, @battle_of_the_black_gate, @field_of_cormallen, @coronation_of_aragorn
-}
-
-boromir {
-  isA #Person
-  name "Boromir"
-  birthDate d2978-02-20
-  locatedIn @gondor
-  participatesIn @council_of_elrond, @journey_through_moria, @farewell_to_lorien, @breaking_of_the_fellowship
 }
 
 bilbo_baggins {
@@ -293,92 +340,38 @@ bilbo_baggins {
   name "Bilbo Baggins"
   birthDate d2890-09-22
   locatedIn @rivendell
-  participatesIn @birthday_party_at_bag_end, @council_of_elrond, @coronation_of_aragorn
 }
 
-elrond {
+gandalf {
   isA #Person
-  name "Elrond"
+  name "Gandalf"
+  locatedIn @middle_earth
+}
+
+aragorn {
+  isA #Person
+  name "Aragorn"
+  birthDate d2931-03-01
   locatedIn @rivendell
-  participatesIn @flight_to_the_ford, @council_of_elrond, @coronation_of_aragorn
 }
 
-arwen {
+legolas {
   isA #Person
-  name "Arwen"
+  name "Legolas"
   locatedIn @rivendell
-  participatesIn @coronation_of_aragorn
 }
 
-galadriel {
+gimli {
   isA #Person
-  name "Galadriel"
-  locatedIn @lorien
-  participatesIn @farewell_to_lorien, @field_of_cormallen
+  name "Gimli"
+  locatedIn @rivendell
 }
 
-celeborn {
+boromir {
   isA #Person
-  name "Celeborn"
-  locatedIn @lorien
-  participatesIn @farewell_to_lorien, @field_of_cormallen
-}
-
-gollum {
-  isA #Person
-  name "Gollum"
-  birthDate d2430-01-01
-  locatedIn @mordor
-  participatesIn @taming_of_smeagol, @passage_through_dead_marshes, @meeting_with_faramir, @passage_of_cirith_ungol, @shelobs_attack, @destroying_of_the_ring
-}
-
-treebeard {
-  isA #Person
-  name "Treebeard"
-  locatedIn @fangorn
-  participatesIn @meeting_with_treebeard, @march_of_the_ents_on_isengard
-}
-
-saruman {
-  isA #Person
-  name "Saruman"
-  locatedIn @isengard
-  participatesIn @battle_of_helms_deep, @march_of_the_ents_on_isengard, @palantir_of_orthanc
-}
-
-grima_wormtongue {
-  isA #Person
-  name "Grima Wormtongue"
-  locatedIn @edoras
-  participatesIn @mustering_at_edoras, @palantir_of_orthanc
-}
-
-theoden {
-  isA #Person
-  name "Theoden"
-  locatedIn @rohan
-  participatesIn @mustering_at_edoras, @battle_of_helms_deep, @muster_of_rohan, @battle_of_pelennor_fields
-}
-
-eomer {
-  isA #Person
-  name "Eomer"
-  locatedIn @rohan
-  participatesIn @mustering_at_edoras, @battle_of_helms_deep, @muster_of_rohan, @battle_of_pelennor_fields, @battle_of_the_black_gate, @coronation_of_aragorn
-}
-
-eowyn {
-  isA #Person
-  name "Eowyn"
-  locatedIn @rohan
-  participatesIn @mustering_at_edoras, @muster_of_rohan, @battle_of_pelennor_fields, @coronation_of_aragorn
-}
-
-denethor {
-  isA #Person
-  name "Denethor II"
-  locatedIn @minas_tirith
-  participatesIn @beacon_lighting_of_gondor, @battle_of_pelennor_fields
+  name "Boromir"
+  birthDate d2978-02-20
+  locatedIn @gondor
 }
 
 faramir {
@@ -386,28 +379,325 @@ faramir {
   name "Faramir"
   birthDate d2983-01-01
   locatedIn @gondor
-  participatesIn @meeting_with_faramir, @beacon_lighting_of_gondor, @battle_of_pelennor_fields, @coronation_of_aragorn
+}
+
+denethor_ii {
+  isA #Person
+  name "Denethor II"
+  locatedIn @minas_tirith
 }
 
 beregond {
   isA #Person
   name "Beregond"
   locatedIn @minas_tirith
-  participatesIn @battle_of_pelennor_fields, @coronation_of_aragorn
+}
+
+bergil {
+  isA #Person
+  name "Bergil"
+  locatedIn @minas_tirith
+}
+
+theoden {
+  isA #Person
+  name "Theoden"
+  locatedIn @rohan
+}
+
+eomer {
+  isA #Person
+  name "Eomer"
+  locatedIn @rohan
+}
+
+eowyn {
+  isA #Person
+  name "Eowyn"
+  locatedIn @rohan
+}
+
+grima_wormtongue {
+  isA #Person
+  name "Grima Wormtongue"
+  locatedIn @edoras
+}
+
+gamling {
+  isA #Person
+  name "Gamling"
+  locatedIn @rohan
+}
+
+hama {
+  isA #Person
+  name "Hama"
+  locatedIn @rohan
+}
+
+elfhelm {
+  isA #Person
+  name "Elfhelm"
+  locatedIn @rohan
+}
+
+erkenbrand {
+  isA #Person
+  name "Erkenbrand"
+  locatedIn @rohan
+}
+
+gh an_buri_ghan {
+  isA #Person
+  name "Ghan-buri-Ghan"
+  locatedIn @rohan
+}
+
+elrond {
+  isA #Person
+  name "Elrond"
+  locatedIn @rivendell
+}
+
+arwen {
+  isA #Person
+  name "Arwen"
+  locatedIn @rivendell
+}
+
+glorfindel {
+  isA #Person
+  name "Glorfindel"
+  locatedIn @rivendell
+}
+
+elladan {
+  isA #Person
+  name "Elladan"
+  locatedIn @rivendell
+}
+
+elrohir {
+  isA #Person
+  name "Elrohir"
+  locatedIn @rivendell
+}
+
+galadriel {
+  isA #Person
+  name "Galadriel"
+  locatedIn @lorien
+}
+
+celeborn {
+  isA #Person
+  name "Celeborn"
+  locatedIn @lorien
 }
 
 haldir {
   isA #Person
   name "Haldir"
   locatedIn @lorien
-  participatesIn @farewell_to_lorien
+}
+
+treebeard {
+  isA #Person
+  name "Treebeard"
+  locatedIn @fangorn
+}
+
+quickbeam {
+  isA #Person
+  name "Quickbeam"
+  locatedIn @fangorn
+}
+
+saruman {
+  isA #Person
+  name "Saruman"
+  locatedIn @orthanc
+}
+
+radagast {
+  isA #Person
+  name "Radagast"
+  locatedIn @middle_earth
+}
+
+tom_bombadil {
+  isA #Person
+  name "Tom Bombadil"
+  locatedIn @house_of_tom_bombadil
+}
+
+goldberry {
+  isA #Person
+  name "Goldberry"
+  locatedIn @house_of_tom_bombadil
+}
+
+barliman_butterbur {
+  isA #Person
+  name "Barliman Butterbur"
+  locatedIn @the_prancing_pony
+}
+
+bill_ferny {
+  isA #Person
+  name "Bill Ferny"
+  locatedIn @bree
+}
+
+farmer_maggot {
+  isA #Person
+  name "Farmer Maggot"
+  locatedIn @shire
+}
+
+fredegar_bolger {
+  isA #Person
+  name "Fredegar Bolger"
+  locatedIn @crickhollow
+}
+
+lobelia_sackville_baggins {
+  isA #Person
+  name "Lobelia Sackville-Baggins"
+  locatedIn @shire
+}
+
+lotho_sackville_baggins {
+  isA #Person
+  name "Lotho Sackville-Baggins"
+  locatedIn @shire
+}
+
+gollum {
+  isA #Person
+  name "Gollum"
+  birthDate d2430-01-01
+  locatedIn @mordor
 }
 
 sauron {
   isA #Person
   name "Sauron"
-  locatedIn @mordor
-  participatesIn @beacon_lighting_of_gondor, @battle_of_the_black_gate, @destroying_of_the_ring
+  locatedIn @barad_dur_region
+}
+
+witch_king {
+  isA #Person
+  name "The Witch-king of Angmar"
+  locatedIn @minas_morgul
+}
+
+mouth_of_sauron {
+  isA #Person
+  name "The Mouth of Sauron"
+  locatedIn @black_gate
+}
+
+gorbag {
+  isA #Person
+  name "Gorbag"
+  locatedIn @cirith_ungol
+}
+
+shagrat {
+  isA #Person
+  name "Shagrat"
+  locatedIn @cirith_ungol
+}
+
+shelob {
+  isA #Person
+  name "Shelob"
+  locatedIn @shelobs_lair
+}
+
+imrahil {
+  isA #Person
+  name "Prince Imrahil"
+  locatedIn @gondor
+}
+
+forlong {
+  isA #Person
+  name "Forlong the Fat"
+  locatedIn @gondor
+}
+
+hirluin {
+  isA #Person
+  name "Hirluin the Fair"
+  locatedIn @gondor
+}
+
+duinhir {
+  isA #Person
+  name "Duinhir"
+  locatedIn @gondor
+}
+
+angbor {
+  isA #Person
+  name "Angbor"
+  locatedIn @gondor
+}
+
+gh an_buri_ghan {
+  isA #Person
+  name "Ghan-buri-Ghan"
+  locatedIn @dunharrow
+}
+
+shadowfax {
+  isA #Person
+  name "Shadowfax"
+  locatedIn @rohan
+}
+
+bill_the_pony {
+  isA #Person
+  name "Bill the Pony"
+  locatedIn @shire
+}
+
+fatty_lumpkin {
+  isA #Person
+  name "Fatty Lumpkin"
+  locatedIn @fangorn
+}
+
+barrow_wight {
+  isA #Person
+  name "Barrow-wight"
+  locatedIn @barrow_downs
+}
+
+farmer_cotton {
+  isA #Person
+  name "Farmer Cotton"
+  locatedIn @shire
+}
+
+rose_cotton {
+  isA #Person
+  name "Rose Cotton"
+  locatedIn @shire
+}
+
+ted_sandyman {
+  isA #Person
+  name "Ted Sandyman"
+  locatedIn @shire
+}
+
+saruman_as_sharkey {
+  isA #Person
+  name "Sharkey"
+  locatedIn @shire
 }
 
 birthday_party_at_bag_end {
@@ -416,7 +706,7 @@ birthday_party_at_bag_end {
   startDate d3001-09-22
   endDate d3001-09-22
   locatedIn @hobbiton
-  hasParticipant @bilbo_baggins, @frodo_baggins, @gandalf, @merry, @pippin, @samwise_gamgee
+  hasParticipant @bilbo_baggins, @frodo_baggins, @gandalf, @meriadoc_brandybuck, @peregrin_took, @samwise_gamgee
 }
 
 departure_from_hobbiton {
@@ -425,16 +715,97 @@ departure_from_hobbiton {
   startDate d3018-09-23
   endDate d3018-09-23
   locatedIn @hobbiton
-  hasParticipant @frodo_baggins, @samwise_gamgee, @pippin
+  hasParticipant @frodo_baggins, @samwise_gamgee, @peregrin_took
 }
 
-flight_to_bree {
+meeting_farmer_maggot {
   isA #Event
-  name "Journey to Bree"
+  name "Meeting with Farmer Maggot"
   startDate d3018-09-23
+  endDate d3018-09-23
+  locatedIn @shire
+  hasParticipant @frodo_baggins, @samwise_gamgee, @peregrin_took, @farmer_maggot
+}
+
+arrival_at_crickhollow {
+  isA #Event
+  name "Arrival at Crickhollow"
+  startDate d3018-09-23
+  endDate d3018-09-23
+  locatedIn @crickhollow
+  hasParticipant @frodo_baggins, @samwise_gamgee, @meriadoc_brandybuck, @peregrin_took, @fredegar_bolger
+}
+
+journey_through_old_forest {
+  isA #Event
+  name "Journey through the Old Forest"
+  startDate d3018-09-26
+  endDate d3018-09-26
+  locatedIn @old_forest
+  hasParticipant @frodo_baggins, @samwise_gamgee, @meriadoc_brandybuck, @peregrin_took
+}
+
+rescue_by_tom_bombadil {
+  isA #Event
+  name "Rescue by Tom Bombadil"
+  startDate d3018-09-26
+  endDate d3018-09-26
+  locatedIn @old_forest
+  hasParticipant @frodo_baggins, @samwise_gamgee, @meriadoc_brandybuck, @peregrin_took, @tom_bombadil
+}
+
+stay_with_tom_bombadil {
+  isA #Event
+  name "Stay in the House of Tom Bombadil"
+  startDate d3018-09-26
+  endDate d3018-09-28
+  locatedIn @house_of_tom_bombadil
+  hasParticipant @frodo_baggins, @samwise_gamgee, @meriadoc_brandybuck, @peregrin_took, @tom_bombadil, @goldberry
+}
+
+capture_in_barrow_downs {
+  isA #Event
+  name "Capture in the Barrow-downs"
+  startDate d3018-09-28
+  endDate d3018-09-28
+  locatedIn @barrow_downs
+  hasParticipant @frodo_baggins, @samwise_gamgee, @meriadoc_brandybuck, @peregrin_took, @barrow_wight
+}
+
+rescue_from_barrow {
+  isA #Event
+  name "Rescue from the Barrow"
+  startDate d3018-09-28
+  endDate d3018-09-28
+  locatedIn @barrow_downs
+  hasParticipant @frodo_baggins, @samwise_gamgee, @meriadoc_brandybuck, @peregrin_took, @tom_bombadil, @barrow_wight
+}
+
+arrival_at_bree {
+  isA #Event
+  name "Arrival at Bree"
+  startDate d3018-09-29
   endDate d3018-09-29
   locatedIn @bree
-  hasParticipant @frodo_baggins, @samwise_gamgee, @merry, @pippin, @aragorn
+  hasParticipant @frodo_baggins, @samwise_gamgee, @meriadoc_brandybuck, @peregrin_took, @barliman_butterbur
+}
+
+meeting_at_prancing_pony {
+  isA #Event
+  name "Meeting at the Prancing Pony"
+  startDate d3018-09-29
+  endDate d3018-09-30
+  locatedIn @the_prancing_pony
+  hasParticipant @frodo_baggins, @samwise_gamgee, @meriadoc_brandybuck, @peregrin_took, @aragorn, @barliman_butterbur, @bill_ferny
+}
+
+departure_from_bree {
+  isA #Event
+  name "Departure from Bree"
+  startDate d3018-09-30
+  endDate d3018-09-30
+  locatedIn @bree
+  hasParticipant @frodo_baggins, @samwise_gamgee, @meriadoc_brandybuck, @peregrin_took, @aragorn, @bill_the_pony
 }
 
 attack_on_weathertop {
@@ -443,7 +814,7 @@ attack_on_weathertop {
   startDate d3018-10-06
   endDate d3018-10-06
   locatedIn @weathertop
-  hasParticipant @frodo_baggins, @samwise_gamgee, @merry, @pippin, @aragorn
+  hasParticipant @frodo_baggins, @samwise_gamgee, @meriadoc_brandybuck, @peregrin_took, @aragorn, @witch_king
 }
 
 flight_to_the_ford {
@@ -452,7 +823,16 @@ flight_to_the_ford {
   startDate d3018-10-07
   endDate d3018-10-20
   locatedIn @ford_of_bruinen
-  hasParticipant @frodo_baggins, @aragorn, @elrond
+  hasParticipant @frodo_baggins, @aragorn, @glorfindel, @bill_the_pony, @witch_king
+}
+
+arrival_in_rivendell {
+  isA #Event
+  name "Arrival in Rivendell"
+  startDate d3018-10-20
+  endDate d3018-10-20
+  locatedIn @rivendell
+  hasParticipant @frodo_baggins, @samwise_gamgee, @meriadoc_brandybuck, @peregrin_took, @aragorn, @elrond, @bilbo_baggins
 }
 
 council_of_elrond {
@@ -461,7 +841,34 @@ council_of_elrond {
   startDate d3018-10-25
   endDate d3018-10-25
   locatedIn @rivendell
-  hasParticipant @frodo_baggins, @samwise_gamgee, @merry, @pippin, @aragorn, @gandalf, @legolas, @gimli, @boromir, @bilbo_baggins, @elrond
+  hasParticipant @frodo_baggins, @samwise_gamgee, @meriadoc_brandybuck, @peregrin_took, @aragorn, @gandalf, @legolas, @gimli, @boromir, @bilbo_baggins, @elrond, @glorfindel, @elladan, @elrohir
+}
+
+departure_of_the_fellowship {
+  isA #Event
+  name "Departure of the Fellowship"
+  startDate d3018-12-25
+  endDate d3018-12-25
+  locatedIn @rivendell
+  hasParticipant @frodo_baggins, @samwise_gamgee, @meriadoc_brandybuck, @peregrin_took, @aragorn, @gandalf, @legolas, @gimli, @boromir, @bill_the_pony
+}
+
+attempt_on_caradhras {
+  isA #Event
+  name "Attempt to Cross Caradhras"
+  startDate d3019-01-11
+  endDate d3019-01-12
+  locatedIn @caradhras
+  hasParticipant @frodo_baggins, @samwise_gamgee, @meriadoc_brandybuck, @peregrin_took, @aragorn, @gandalf, @legolas, @gimli, @boromir, @bill_the_pony
+}
+
+entry_into_moria {
+  isA #Event
+  name "Entry into Moria"
+  startDate d3019-01-13
+  endDate d3019-01-13
+  locatedIn @moria
+  hasParticipant @frodo_baggins, @samwise_gamgee, @meriadoc_brandybuck, @peregrin_took, @aragorn, @gandalf, @legolas, @gimli, @boromir, @bill_the_pony
 }
 
 journey_through_moria {
@@ -470,25 +877,52 @@ journey_through_moria {
   startDate d3019-01-13
   endDate d3019-01-15
   locatedIn @moria
-  hasParticipant @frodo_baggins, @samwise_gamgee, @merry, @pippin, @aragorn, @gandalf, @legolas, @gimli, @boromir
+  hasParticipant @frodo_baggins, @samwise_gamgee, @meriadoc_brandybuck, @peregrin_took, @aragorn, @gandalf, @legolas, @gimli, @boromir
 }
 
-fall_in_moria {
+battle_in_chamber_of_mazarbul {
+  isA #Event
+  name "Battle in the Chamber of Mazarbul"
+  startDate d3019-01-15
+  endDate d3019-01-15
+  locatedIn @moria
+  hasParticipant @frodo_baggins, @samwise_gamgee, @meriadoc_brandybuck, @peregrin_took, @aragorn, @gandalf, @legolas, @gimli, @boromir
+}
+
+fall_of_gandalf_in_moria {
   isA #Event
   name "Fall of Gandalf in Moria"
   startDate d3019-01-15
   endDate d3019-01-15
-  locatedIn @moria
-  hasParticipant @gandalf, @aragorn, @frodo_baggins, @samwise_gamgee, @legolas, @gimli, @boromir, @merry, @pippin
+  locatedIn @khazad_dum_bridge
+  hasParticipant @gandalf, @aragorn, @frodo_baggins, @samwise_gamgee, @legolas, @gimli, @boromir, @meriadoc_brandybuck, @peregrin_took
 }
 
-farewell_to_lorien {
+arrival_in_lorien {
+  isA #Event
+  name "Arrival in Lothlorien"
+  startDate d3019-01-17
+  endDate d3019-01-17
+  locatedIn @lorien
+  hasParticipant @frodo_baggins, @samwise_gamgee, @meriadoc_brandybuck, @peregrin_took, @aragorn, @legolas, @gimli, @boromir, @haldir
+}
+
+meeting_galadriel_and_celeborn {
+  isA #Event
+  name "Meeting Galadriel and Celeborn"
+  startDate d3019-01-17
+  endDate d3019-01-18
+  locatedIn @lorien
+  hasParticipant @frodo_baggins, @samwise_gamgee, @meriadoc_brandybuck, @peregrin_took, @aragorn, @legolas, @gimli, @boromir, @galadriel, @celeborn
+}
+
+departure_from_lorien {
   isA #Event
   name "Departure from Lothlorien"
   startDate d3019-02-16
   endDate d3019-02-16
   locatedIn @lorien
-  hasParticipant @frodo_baggins, @samwise_gamgee, @merry, @pippin, @aragorn, @legolas, @gimli, @boromir, @galadriel, @celeborn, @haldir
+  hasParticipant @frodo_baggins, @samwise_gamgee, @meriadoc_brandybuck, @peregrin_took, @aragorn, @legolas, @gimli, @boromir, @galadriel, @celeborn, @haldir, @bill_the_pony
 }
 
 breaking_of_the_fellowship {
@@ -497,34 +931,106 @@ breaking_of_the_fellowship {
   startDate d3019-02-26
   endDate d3019-02-26
   locatedIn @amon_hen
-  hasParticipant @frodo_baggins, @samwise_gamgee, @merry, @pippin, @aragorn, @legolas, @gimli, @boromir
+  hasParticipant @frodo_baggins, @samwise_gamgee, @meriadoc_brandybuck, @peregrin_took, @aragorn, @legolas, @gimli, @boromir, @gollum
 }
 
-meeting_with_treebeard {
+death_of_boromir {
+  isA #Event
+  name "Death of Boromir"
+  startDate d3019-02-26
+  endDate d3019-02-26
+  locatedIn @amon_hen
+  hasParticipant @boromir, @aragorn, @legolas, @gimli, @meriadoc_brandybuck, @peregrin_took
+}
+
+capture_of_merry_and_pippin {
+  isA #Event
+  name "Capture of Merry and Pippin"
+  startDate d3019-02-26
+  endDate d3019-02-26
+  locatedIn @amon_hen
+  hasParticipant @meriadoc_brandybuck, @peregrin_took, @aragorn, @legolas, @gimli
+}
+
+pursuit_of_the_orcs {
+  isA #Event
+  name "Pursuit of the Orcs"
+  startDate d3019-02-27
+  endDate d3019-03-01
+  locatedIn @rohan
+  hasParticipant @aragorn, @legolas, @gimli, @eomer
+}
+
+meeting_eomer {
+  isA #Event
+  name "Meeting with Eomer"
+  startDate d3019-03-01
+  endDate d3019-03-01
+  locatedIn @rohan
+  hasParticipant @aragorn, @legolas, @gimli, @eomer
+}
+
+escape_into_fangorn {
+  isA #Event
+  name "Escape into Fangorn"
+  startDate d3019-02-29
+  endDate d3019-03-01
+  locatedIn @fangorn
+  hasParticipant @meriadoc_brandybuck, @peregrin_took, @treebeard
+}
+
+meeting_treebeard {
   isA #Event
   name "Meeting with Treebeard"
-  startDate d3019-02-29
+  startDate d3019-03-01
   endDate d3019-03-02
   locatedIn @fangorn
-  hasParticipant @merry, @pippin, @treebeard, @aragorn, @legolas, @gimli, @gandalf
+  hasParticipant @meriadoc_brandybuck, @peregrin_took, @treebeard, @quickbeam
 }
 
-march_of_the_ents_on_isengard {
+return_of_gandalf {
   isA #Event
-  name "March of the Ents on Isengard"
-  startDate d3019-03-03
-  endDate d3019-03-04
-  locatedIn @isengard
-  hasParticipant @treebeard, @merry, @pippin, @saruman
+  name "Return of Gandalf"
+  startDate d3019-03-01
+  endDate d3019-03-01
+  locatedIn @fangorn
+  hasParticipant @gandalf, @aragorn, @legolas, @gimli, @shadowfax
 }
 
-mustering_at_edoras {
+ride_to_edoras {
   isA #Event
-  name "Mustering at Edoras"
+  name "Ride to Edoras"
   startDate d3019-03-02
+  endDate d3019-03-02
+  locatedIn @rohan
+  hasParticipant @gandalf, @aragorn, @legolas, @gimli, @shadowfax
+}
+
+healing_of_theoden {
+  isA #Event
+  name "Healing of Theoden"
+  startDate d3019-03-02
+  endDate d3019-03-02
+  locatedIn @golden_hall
+  hasParticipant @gandalf, @theoden, @eomer, @eowyn, @grima_wormtongue, @aragorn, @legolas, @gimli
+}
+
+departure_from_edoras {
+  isA #Event
+  name "Departure from Edoras"
+  startDate d3019-03-03
   endDate d3019-03-03
   locatedIn @edoras
-  hasParticipant @aragorn, @gandalf, @legolas, @gimli, @theoden, @eomer, @eowyn, @grima_wormtongue
+  hasParticipant @theoden, @eomer, @eowyn, @aragorn, @legolas, @gimli, @gandalf, @gamling, @hama
+}
+
+muster_at_helms_deep {
+  isA #Event
+  name "Muster at Helm's Deep"
+  startDate d3019-03-03
+  endDate d3019-03-03
+  locatedIn @helms_deep
+  hasParticipant @theoden, @eomer, @aragorn, @legolas, @gimli, @gamling, @hama
 }
 
 battle_of_helms_deep {
@@ -533,7 +1039,52 @@ battle_of_helms_deep {
   startDate d3019-03-03
   endDate d3019-03-04
   locatedIn @helms_deep
-  hasParticipant @aragorn, @gandalf, @legolas, @gimli, @theoden, @eomer, @saruman
+  hasParticipant @theoden, @aragorn, @legolas, @gimli, @gamling, @hama, @gandalf, @erkenbrand, @saruman
+}
+
+last_march_of_the_ents {
+  isA #Event
+  name "Last March of the Ents"
+  startDate d3019-03-03
+  endDate d3019-03-04
+  locatedIn @fangorn
+  hasParticipant @treebeard, @quickbeam, @meriadoc_brandybuck, @peregrin_took
+}
+
+ruin_of_isengard {
+  isA #Event
+  name "Ruin of Isengard"
+  startDate d3019-03-03
+  endDate d3019-03-04
+  locatedIn @isengard
+  hasParticipant @treebeard, @quickbeam, @meriadoc_brandybuck, @peregrin_took, @saruman
+}
+
+parley_at_orthanc {
+  isA #Event
+  name "Parley at Orthanc"
+  startDate d3019-03-05
+  endDate d3019-03-05
+  locatedIn @orthanc
+  hasParticipant @gandalf, @aragorn, @legolas, @gimli, @theoden, @eomer, @saruman, @grima_wormtongue, @meriadoc_brandybuck, @peregrin_took
+}
+
+palantir_incident {
+  isA #Event
+  name "Palantir Incident"
+  startDate d3019-03-06
+  endDate d3019-03-06
+  locatedIn @orthanc
+  hasParticipant @peregrin_took, @gandalf, @aragorn, @saruman, @grima_wormtongue
+}
+
+ride_to_minas_tirith {
+  isA #Event
+  name "Ride to Minas Tirith"
+  startDate d3019-03-06
+  endDate d3019-03-09
+  locatedIn @gondor
+  hasParticipant @gandalf, @peregrin_took, @shadowfax
 }
 
 taming_of_smeagol {
@@ -554,31 +1105,40 @@ passage_through_dead_marshes {
   hasParticipant @frodo_baggins, @samwise_gamgee, @gollum
 }
 
-meeting_with_faramir {
+meeting_faramir {
   isA #Event
-  name "Meeting with Faramir in Ithilien"
+  name "Meeting with Faramir"
   startDate d3019-03-07
   endDate d3019-03-09
   locatedIn @ithilien
   hasParticipant @frodo_baggins, @samwise_gamgee, @gollum, @faramir
 }
 
-palantir_of_orthanc {
+oliphaunt_sighting {
   isA #Event
-  name "The Palantir of Orthanc"
-  startDate d3019-03-06
-  endDate d3019-03-06
-  locatedIn @isengard
-  hasParticipant @pippin, @gandalf, @aragorn, @saruman, @grima_wormtongue
+  name "Oliphaunt Sighting in Ithilien"
+  startDate d3019-03-07
+  endDate d3019-03-07
+  locatedIn @ithilien
+  hasParticipant @frodo_baggins, @samwise_gamgee, @gollum, @faramir
 }
 
-beacon_lighting_of_gondor {
+departure_from_henneth_annun_region {
+  isA #Event
+  name "Departure from Ithilien"
+  startDate d3019-03-10
+  endDate d3019-03-10
+  locatedIn @ithilien
+  hasParticipant @frodo_baggins, @samwise_gamgee, @gollum, @faramir
+}
+
+beacon_and_mustering_of_gondor {
   isA #Event
   name "Defense of Gondor Begins"
   startDate d3019-03-09
   endDate d3019-03-14
   locatedIn @minas_tirith
-  hasParticipant @pippin, @gandalf, @denethor, @faramir, @sauron
+  hasParticipant @gandalf, @peregrin_took, @denethor_ii, @faramir, @beregond, @bergil, @sauron
 }
 
 muster_of_rohan {
@@ -587,34 +1147,34 @@ muster_of_rohan {
   startDate d3019-03-10
   endDate d3019-03-14
   locatedIn @dunharrow
-  hasParticipant @theoden, @eomer, @eowyn, @merry
+  hasParticipant @theoden, @eomer, @eowyn, @meriadoc_brandybuck, @elfhelm, @gh_an_buri_ghan
 }
 
-paths_of_the_dead_journey {
+journey_on_paths_of_the_dead {
   isA #Event
-  name "Journey through the Paths of the Dead"
+  name "Journey on the Paths of the Dead"
   startDate d3019-03-08
   endDate d3019-03-13
   locatedIn @paths_of_the_dead
-  hasParticipant @aragorn, @legolas, @gimli
+  hasParticipant @aragorn, @legolas, @gimli, @elladan, @elrohir
 }
 
-arrival_of_the_corsair_ships {
+siege_of_gondor {
   isA #Event
-  name "Arrival of Aragorn by the Corsair Ships"
-  startDate d3019-03-15
+  name "Siege of Gondor"
+  startDate d3019-03-13
   endDate d3019-03-15
-  locatedIn @pelennor_fields
-  hasParticipant @aragorn, @legolas, @gimli
+  locatedIn @minas_tirith
+  hasParticipant @gandalf, @peregrin_took, @denethor_ii, @faramir, @beregond, @bergil, @witch_king
 }
 
-battle_of_pelennor_fields {
+retreat_from_osgiliath {
   isA #Event
-  name "Battle of the Pelennor Fields"
-  startDate d3019-03-15
-  endDate d3019-03-15
-  locatedIn @pelennor_fields
-  hasParticipant @aragorn, @gandalf, @theoden, @eomer, @eowyn, @merry, @pippin, @faramir, @legolas, @gimli, @denethor, @beregond
+  name "Retreat from Osgiliath"
+  startDate d3019-03-13
+  endDate d3019-03-13
+  locatedIn @osgiliath
+  hasParticipant @faramir, @gandalf
 }
 
 passage_of_cirith_ungol {
@@ -632,7 +1192,16 @@ shelobs_attack {
   startDate d3019-03-13
   endDate d3019-03-13
   locatedIn @shelobs_lair
-  hasParticipant @frodo_baggins, @samwise_gamgee, @gollum
+  hasParticipant @frodo_baggins, @samwise_gamgee, @gollum, @shelob
+}
+
+capture_of_frodo {
+  isA #Event
+  name "Capture of Frodo at Cirith Ungol"
+  startDate d3019-03-13
+  endDate d3019-03-13
+  locatedIn @cirith_ungol
+  hasParticipant @frodo_baggins, @shagrat, @gorbag
 }
 
 rescue_from_cirith_ungol {
@@ -641,7 +1210,88 @@ rescue_from_cirith_ungol {
   startDate d3019-03-14
   endDate d3019-03-14
   locatedIn @cirith_ungol
-  hasParticipant @samwise_gamgee, @frodo_baggins
+  hasParticipant @samwise_gamgee, @frodo_baggins, @shagrat, @gorbag
+}
+
+riders_reach_pelennor {
+  isA #Event
+  name "Ride of the Rohirrim to Pelennor"
+  startDate d3019-03-15
+  endDate d3019-03-15
+  locatedIn @pelennor_fields
+  hasParticipant @theoden, @eomer, @eowyn, @meriadoc_brandybuck, @elfhelm, @gh_an_buri_ghan
+}
+
+battle_of_pelennor_fields {
+  isA #Event
+  name "Battle of the Pelennor Fields"
+  startDate d3019-03-15
+  endDate d3019-03-15
+  locatedIn @pelennor_fields
+  hasParticipant @gandalf, @peregrin_took, @theoden, @eomer, @eowyn, @meriadoc_brandybuck, @aragorn, @legolas, @gimli, @imrahil, @forlong, @hirluin, @duinhir, @angbor, @beregond, @faramir, @witch_king
+}
+
+slaying_of_the_witch_king {
+  isA #Event
+  name "Slaying of the Witch-king"
+  startDate d3019-03-15
+  endDate d3019-03-15
+  locatedIn @pelennor_fields
+  hasParticipant @eowyn, @meriadoc_brandybuck, @witch_king, @theoden
+}
+
+arrival_of_aragorn_by_ships {
+  isA #Event
+  name "Arrival of Aragorn by the Ships"
+  startDate d3019-03-15
+  endDate d3019-03-15
+  locatedIn @pelennor_fields
+  hasParticipant @aragorn, @legolas, @gimli, @elladan, @elrohir, @imrahil
+}
+
+death_of_denethor {
+  isA #Event
+  name "Death of Denethor"
+  startDate d3019-03-15
+  endDate d3019-03-15
+  locatedIn @minas_tirith
+  hasParticipant @denethor_ii, @peregrin_took, @gandalf, @beregond, @faramir
+}
+
+houses_of_healing {
+  isA #Event
+  name "Healing in the Houses of Healing"
+  startDate d3019-03-16
+  endDate d3019-03-16
+  locatedIn @houses_of_healing
+  hasParticipant @aragorn, @faramir, @eowyn, @meriadoc_brandybuck, @gandalf, @imrahil
+}
+
+debate_of_the_captains {
+  isA #Event
+  name "Debate of the Captains"
+  startDate d3019-03-16
+  endDate d3019-03-18
+  locatedIn @minas_tirith
+  hasParticipant @aragorn, @gandalf, @eomer, @imrahil, @legolas, @gimli
+}
+
+march_on_the_black_gate {
+  isA #Event
+  name "March on the Black Gate"
+  startDate d3019-03-18
+  endDate d3019-03-25
+  locatedIn @black_gate
+  hasParticipant @aragorn, @gandalf, @legolas, @gimli, @eomer, @peregrin_took, @meriadoc_brandybuck, @imrahil
+}
+
+journey_across_gorgoroth {
+  isA #Event
+  name "Journey across Gorgoroth"
+  startDate d3019-03-19
+  endDate d3019-03-25
+  locatedIn @gorgoroth
+  hasParticipant @frodo_baggins, @samwise_gamgee, @gollum
 }
 
 battle_of_the_black_gate {
@@ -650,10 +1300,10 @@ battle_of_the_black_gate {
   startDate d3019-03-25
   endDate d3019-03-25
   locatedIn @black_gate
-  hasParticipant @aragorn, @gandalf, @legolas, @gimli, @merry, @pippin, @eomer, @sauron
+  hasParticipant @aragorn, @gandalf, @legolas, @gimli, @eomer, @peregrin_took, @meriadoc_brandybuck, @imrahil, @mouth_of_sauron, @sauron
 }
 
-destroying_of_the_ring {
+destruction_of_the_one_ring {
   isA #Event
   name "Destruction of the One Ring"
   startDate d3019-03-25
@@ -664,11 +1314,11 @@ destroying_of_the_ring {
 
 field_of_cormallen {
   isA #Event
-  name "Field of Cormallen Honors"
+  name "Field of Cormallen"
   startDate d3019-04-08
   endDate d3019-04-08
   locatedIn @ithilien
-  hasParticipant @frodo_baggins, @samwise_gamgee, @merry, @pippin, @aragorn, @gandalf, @legolas, @gimli, @eomer, @galadriel, @celeborn
+  hasParticipant @frodo_baggins, @samwise_gamgee, @meriadoc_brandybuck, @peregrin_took, @aragorn, @gandalf, @legolas, @gimli, @eomer, @imrahil, @galadriel, @celeborn
 }
 
 coronation_of_aragorn {
@@ -677,5 +1327,77 @@ coronation_of_aragorn {
   startDate d3019-05-01
   endDate d3019-05-01
   locatedIn @minas_tirith
-  hasParticipant @aragorn, @arwen, @frodo_baggins, @samwise_gamgee, @merry, @pippin, @gandalf, @legolas, @gimli, @eowyn, @faramir, @elrond, @bilbo_baggins, @beregond, @eomer
+  hasParticipant @aragorn, @arwen, @frodo_baggins, @samwise_gamgee, @meriadoc_brandybuck, @peregrin_took, @gandalf, @legolas, @gimli, @eowyn, @faramir, @elrond, @bilbo_baggins, @beregond, @eomer, @elladan, @elrohir, @imrahil
+}
+
+departure_from_minas_tirith {
+  isA #Event
+  name "Departure from Minas Tirith"
+  startDate d3019-07-19
+  endDate d3019-07-19
+  locatedIn @minas_tirith
+  hasParticipant @frodo_baggins, @samwise_gamgee, @meriadoc_brandybuck, @peregrin_took, @gandalf, @aragorn, @arwen
+}
+
+return_to_rivendell {
+  isA #Event
+  name "Return to Rivendell"
+  startDate d3019-09-21
+  endDate d3019-09-22
+  locatedIn @rivendell
+  hasParticipant @frodo_baggins, @samwise_gamgee, @meriadoc_brandybuck, @peregrin_took, @bilbo_baggins, @elrond
+}
+
+return_to_the_shire {
+  isA #Event
+  name "Return to the Shire"
+  startDate d3019-10-30
+  endDate d3019-11-02
+  locatedIn @shire
+  hasParticipant @frodo_baggins, @samwise_gamgee, @meriadoc_brandybuck, @peregrin_took
+}
+
+scouring_of_the_shire {
+  isA #Event
+  name "Scouring of the Shire"
+  startDate d3019-11-03
+  endDate d3019-11-03
+  locatedIn @shire
+  hasParticipant @frodo_baggins, @samwise_gamgee, @meriadoc_brandybuck, @peregrin_took, @saruman_as_sharkey, @ted_sandyman, @farmer_cotton, @lobelia_sackville_baggins
+}
+
+death_of_saruman {
+  isA #Event
+  name "Death of Saruman"
+  startDate d3019-11-03
+  endDate d3019-11-03
+  locatedIn @shire
+  hasParticipant @saruman_as_sharkey, @grima_wormtongue, @frodo_baggins, @samwise_gamgee, @meriadoc_brandybuck, @peregrin_took
+}
+
+restoration_of_the_shire {
+  isA #Event
+  name "Restoration of the Shire"
+  startDate d3019-11-04
+  endDate d3020-09-21
+  locatedIn @shire
+  hasParticipant @samwise_gamgee, @frodo_baggins, @farmer_cotton, @rose_cotton
+}
+
+wedding_of_sam_and_rose {
+  isA #Event
+  name "Wedding of Samwise Gamgee and Rose Cotton"
+  startDate d3020-05-01
+  endDate d3020-05-01
+  locatedIn @shire
+  hasParticipant @samwise_gamgee, @rose_cotton, @frodo_baggins
+}
+
+departure_at_the_grey_havens {
+  isA #Event
+  name "Departure at the Grey Havens"
+  startDate d3021-09-29
+  endDate d3021-09-29
+  locatedIn @grey_havens
+  hasParticipant @frodo_baggins, @bilbo_baggins, @gandalf, @elrond, @galadriel, @samwise_gamgee, @meriadoc_brandybuck, @peregrin_took
 }
