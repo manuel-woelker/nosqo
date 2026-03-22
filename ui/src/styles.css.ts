@@ -11,13 +11,13 @@ globalStyle(":root", {
   WebkitFontSmoothing: "antialiased",
   MozOsxFontSmoothing: "grayscale",
   vars: {
-    "--border-color": "rgba(255, 255, 255, 0.12)",
-    "--panel-background": "rgba(15, 23, 42, 0.78)",
+    "--border-color": "#2b3548",
+    "--panel-background": "#0f172a",
     "--panel-shadow": "0 24px 80px rgba(15, 23, 42, 0.4)",
     "--accent": "#8bf5d4",
     "--accent-strong": "#4fd6ac",
     "--danger": "#ffb4ab",
-    "--muted": "rgba(242, 239, 231, 0.72)",
+    "--muted": "#b8c0cf",
   },
 });
 
@@ -68,7 +68,7 @@ globalStyle(".button-link, .nosqo-button", {
   border: "1px solid var(--border-color)",
   borderRadius: "999px",
   padding: "0.6rem 0.9rem",
-  background: "rgba(255, 255, 255, 0.04)",
+  background: "#162033",
   color: "inherit",
   textDecoration: "none",
   transition: "transform 160ms ease, border-color 160ms ease, background 160ms ease",
@@ -81,7 +81,7 @@ globalStyle(".button-link:hover, .nosqo-button:hover", {
 
 globalStyle(".nosqo-button", {
   borderColor: "rgba(139, 245, 212, 0.28)",
-  background: "rgba(139, 245, 212, 0.12)",
+  background: "#14382e",
   color: "#f8fafc",
 });
 
@@ -96,7 +96,6 @@ globalStyle(".nosqo-panel", {
   padding: "0.85rem",
   background: "var(--panel-background)",
   boxShadow: "var(--panel-shadow)",
-  backdropFilter: "blur(24px)",
 });
 
 globalStyle(".panel-stack", {
@@ -140,8 +139,7 @@ globalStyle(".nosqo-shell", {
 
 globalStyle(".shell-header, .shell-navbar", {
   borderColor: "var(--border-color)",
-  background: "rgba(8, 15, 28, 0.88)",
-  backdropFilter: "blur(24px)",
+  background: "#08101c",
 });
 
 globalStyle(".shell-header__row", {
@@ -297,12 +295,12 @@ globalStyle(".nav-link", {
 globalStyle(".nav-link:hover", {
   transform: "translateY(-1px)",
   borderLeftColor: "rgba(139, 245, 212, 0.45)",
-  background: "rgba(139, 245, 212, 0.05)",
+  background: "#102131",
 });
 
 globalStyle(".nav-link--active", {
   borderLeftColor: "rgba(139, 245, 212, 0.72)",
-  background: "rgba(139, 245, 212, 0.1)",
+  background: "#14382e",
 });
 
 globalStyle(".nav-link__label", {
@@ -371,13 +369,13 @@ globalStyle(".field input, .field textarea", {
   border: "1px solid var(--border-color)",
   borderRadius: "16px",
   padding: "0.6rem 0.75rem",
-  background: "rgba(15, 23, 42, 0.75)",
+  background: "#0f172a",
   color: "inherit",
 });
 
 globalStyle(".nosqo-input", {
   color: "#f2efe7",
-  background: "rgba(15, 23, 42, 0.82)",
+  background: "#0f172a",
 });
 
 globalStyle(".nosqo-input::placeholder", {
@@ -407,7 +405,7 @@ globalStyle(".nosqo-error-alert", {
   border: "1px solid rgba(255, 180, 171, 0.4)",
   borderRadius: "20px",
   padding: "0.85rem",
-  background: "rgba(127, 29, 29, 0.18)",
+  background: "#3f1518",
 });
 
 globalStyle(".nosqo-badge", {
@@ -417,7 +415,7 @@ globalStyle(".nosqo-badge", {
   padding: "0.22rem 0.55rem",
   border: "1px solid rgba(139, 245, 212, 0.28)",
   borderRadius: "999px",
-  background: "rgba(139, 245, 212, 0.12)",
+  background: "#14382e",
   color: "#b7f7e4",
   fontSize: "0.72rem",
   fontWeight: "700",
@@ -428,14 +426,14 @@ globalStyle(".nosqo-badge", {
 
 globalStyle(".nosqo-badge--predicate", {
   borderColor: "rgba(103, 232, 249, 0.28)",
-  background: "rgba(103, 232, 249, 0.12)",
+  background: "#11313f",
   color: "#b7f6ff",
 });
 
 globalStyle(".empty-state, .table-shell, .code-block", {
   border: "1px solid var(--border-color)",
   borderRadius: "20px",
-  background: "rgba(5, 24, 44, 0.72)",
+  background: "#08192b",
 });
 
 globalStyle(".empty-state", {
@@ -491,7 +489,7 @@ globalStyle(".feature-card", {
   border: "1px solid var(--border-color)",
   borderRadius: "20px",
   padding: "0.85rem",
-  background: "rgba(255, 255, 255, 0.03)",
+  background: "#121b2d",
 });
 
 globalStyle(".feature-link", {
@@ -586,7 +584,7 @@ globalStyle(".ontology-pane", {
   display: "grid",
   gap: "0.55rem",
   minHeight: 0,
-  background: "linear-gradient(180deg, rgba(6, 27, 49, 0.9), rgba(4, 21, 39, 0.88))",
+  background: "#08192b",
 });
 
 globalStyle(".ontology-pane__header", {
@@ -623,12 +621,12 @@ globalStyle(".ontology-entity", {
 
 globalStyle(".ontology-entity:hover", {
   borderLeftColor: "rgba(139, 245, 212, 0.45)",
-  background: "rgba(139, 245, 212, 0.05)",
+  background: "#102131",
 });
 
 globalStyle(".ontology-entity--selected", {
   borderLeftColor: "rgba(139, 245, 212, 0.72)",
-  background: "rgba(139, 245, 212, 0.1)",
+  background: "#14382e",
 });
 
 globalStyle(".ontology-entity__row", {
@@ -770,7 +768,7 @@ globalStyle(".ontology-tag", {
   padding: "0.25rem 0.5rem",
   border: "1px solid var(--border-color)",
   borderRadius: "999px",
-  background: "rgba(12, 51, 90, 0.42)",
+  background: "#12304a",
   color: "#f8fafc",
   fontSize: "0.85rem",
 });
@@ -973,7 +971,8 @@ globalStyle(".shell-backdrop", {
       position: "fixed",
       inset: "44px 0 0 0",
       border: 0,
-      background: "rgba(2, 8, 23, 0.45)",
+      background: "#020817",
+      opacity: "0.7",
       zIndex: "10",
     },
   },

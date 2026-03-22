@@ -136,7 +136,7 @@ Design principles:
 
 The current visual language is intentionally strong but restrained:
 
-- dark, high-contrast panels over a gradient background
+- dark, high-contrast opaque panels over a gradient background
 - IBM Plex Sans for interface copy and IBM Plex Mono for code-like content
 - rounded panels and controls
 - a restrained accent color for interactive emphasis
@@ -155,6 +155,7 @@ Prefer these styling rules:
 - reuse existing tokens, shared recipes, and layout patterns before adding one-off styles
 - keep spacing, border, and color decisions consistent with the existing tokens
 - default to tighter spacing and smaller layout rhythms unless the content clearly needs more room
+- keep UI surfaces opaque; do not use transparent or translucent panels, cards, inputs, or headers over the app background
 - do not render primary navigation as bordered cards or boxed tiles
 - prefer typed, local style definitions over large global selector piles
 - design mobile-first and then expand layouts with media queries
