@@ -16,6 +16,7 @@ The current UI stack is:
 - TypeScript
 - Vite
 - TanStack Router
+- `vanilla-extract` for styling
 - Zustand
 - Immer
 - Vitest
@@ -39,7 +40,7 @@ Prefer these boundaries:
 - common UI building blocks live in `src/common/components/`
 - use-case-specific code lives in `src/usecases/`
 - cross-cutting technical concerns live in `src/infrastructure/`
-- styles stay centralized and shared until there is enough complexity to justify splitting them
+- styles should be expressed with `vanilla-extract` and kept close to the components or pages they shape
 
 Prefer small files with one clear responsibility.
 If a component becomes hard to scan, split it before adding abstraction layers.
@@ -73,7 +74,7 @@ The application should not depend directly on the implementation details of a th
 
 Core shared components such as buttons, inputs, selects, dialogs, tables, and similar building blocks should be exposed through `src/common/components/`.
 That layer should define the interface the rest of the app uses.
-The current implementation is bespoke React components and plain CSS, but feature code should still treat the underlying implementation as an implementation detail.
+The current implementation is bespoke React components with `vanilla-extract` styling, but feature code should still treat the underlying implementation as an implementation detail.
 
 Use these guidelines:
 
@@ -146,21 +147,20 @@ If the design system changes later, change it deliberately across the app rather
 
 # How should styling be handled?
 
-Use plain CSS in `ui/src/styles.css` unless there is a clear reason to do otherwise.
-The current styling approach is simple, fast, and easy to inspect.
+Use `vanilla-extract` for styling.
+Prefer colocated `*.css.ts` files for component and feature styles, and reserve the shared [styles.css.ts](/data/projects/nosqo/ui/src/styles.css.ts) file for app-level layout, tokens, and global resets.
 
 Prefer these styling rules:
 
-- reuse existing tokens and utility classes before adding new one-off styles
-- use shared semantic class names such as `panel`, `stack`, `field`, and `empty-state`
+- reuse existing tokens, shared recipes, and layout patterns before adding one-off styles
 - keep spacing, border, and color decisions consistent with the existing tokens
 - default to tighter spacing and smaller layout rhythms unless the content clearly needs more room
 - do not render primary navigation as bordered cards or boxed tiles
-- prefer composition through a small number of readable class names over deeply nested selectors
+- prefer typed, local style definitions over large global selector piles
 - design mobile-first and then expand layouts with media queries
 
-Do not introduce CSS-in-JS, utility-first frameworks, or a component styling library without a concrete need.
-That would add churn without solving a current problem.
+Do not reintroduce ad hoc global CSS as the default path.
+Use global styles only for true app-level concerns such as resets, shell layout, and tokens.
 
 # What accessibility and UX expectations should apply?
 
