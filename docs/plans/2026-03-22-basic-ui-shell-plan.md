@@ -68,6 +68,7 @@ Recommended structure:
 - shell layout components in `ui/src/common/components/`
 - route and use-case code under `ui/src/usecases/`
 - cross-cutting route metadata or navigation helpers in `ui/src/infrastructure/`
+- Mantine UI wired in as the current underlying component library implementation
 
 The shell should also respect the documented component abstraction rule:
 
@@ -108,8 +109,10 @@ Existing page behavior tests for query and statement screens should continue to 
 # What implementation order is recommended?
 
 - [ ] Define the intended route labels and breadcrumb labels for the initial Administration section
+- [ ] Wire Mantine into the app entry point with the required provider and base styles
 - [ ] Introduce shared shell components for header, breadcrumbs, left navigation, and main layout regions
 - [ ] Move shell-oriented primitives into `ui/src/common/components/` as needed
+- [ ] Build the first shared shell primitives on top of the Mantine-backed wrapper layer in `ui/src/common/components/`
 - [ ] Add route metadata or a small navigation model that drives breadcrumbs and left navigation
 - [ ] Rework the root layout so it renders a top header, left navigation, and central content region
 - [ ] Add an `Administration` navigation group with links to Query Explorer and Statement Browser
@@ -126,6 +129,7 @@ Existing page behavior tests for query and statement screens should continue to 
 - Breadcrumbs are only useful if route names remain stable and human-readable.
 - A left navigation area can become cluttered quickly if every route is promoted to first-class navigation. Grouping matters.
 - The component wrapper layer may still be thin; the first shell pass should not get blocked on building a complete internal design system.
+- Mantine is the current component library implementation, but the shell should not let Mantine-specific APIs leak through the app unchecked.
 - Responsive navigation behavior may need a follow-up if the first pass prioritizes desktop layout.
 
 # What follow-up questions should stay open?
