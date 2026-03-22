@@ -39,12 +39,55 @@ impl Value {
     pub fn symbol(value: impl Into<SharedString>) -> Self {
         Self::Symbol(value.into())
     }
+
+    /// Renders the value using nosqo/NQL term syntax.
+    pub fn to_nosqo_string(&self) -> String {
+        match self {
+            Self::Id(id) => id.to_nosqo_string(),
+            Self::Text(text) => format!("\"{}\"", escape_double_quoted(text.as_str())),
+            Self::Symbol(symbol) => format!("'{}'", escape_single_quoted(symbol.as_str())),
+            Self::Integer(integer) => format!("i{integer}"),
+            Self::Decimal(decimal) => format!("n{}", decimal.as_str()),
+            Self::Date(date) => format!("d{}", date.as_str()),
+            Self::DateTime(date_time) => format!("t{}", date_time.as_str()),
+            Self::Boolean(true) => "T".to_string(),
+            Self::Boolean(false) => "F".to_string(),
+        }
+    }
 }
 
 impl From<NodeId> for Value {
     fn from(value: NodeId) -> Self {
         Self::Id(value)
     }
+}
+
+fn escape_double_quoted(value: &str) -> String {
+    escape_string(value, '"')
+}
+
+fn escape_single_quoted(value: &str) -> String {
+    escape_string(value, '\'')
+}
+
+fn escape_string(value: &str, quote: char) -> String {
+    let mut escaped = String::new();
+
+    for ch in value.chars() {
+        match ch {
+            '\\' => escaped.push_str("\\\\"),
+            '\n' => escaped.push_str("\\n"),
+            '\r' => escaped.push_str("\\r"),
+            '\t' => escaped.push_str("\\t"),
+            ch if ch == quote => {
+                escaped.push('\\');
+                escaped.push(ch);
+            }
+            ch => escaped.push(ch),
+        }
+    }
+
+    escaped
 }
 
 #[cfg(test)]
@@ -74,5 +117,27 @@ mod tests {
             Value::DateTime(DateTimeValue::new("2026-03-21T12:00:00Z"))
         );
         assert_eq!(Value::Boolean(true), Value::Boolean(true));
+    }
+
+    #[test]
+    fn renders_values_with_nosqo_syntax() {
+        assert_eq!(Value::id("berlin").to_nosqo_string(), "@berlin");
+        assert_eq!(Value::text("Berlin").to_nosqo_string(), "\"Berlin\"");
+        assert_eq!(Value::symbol("de").to_nosqo_string(), "'de'");
+        assert_eq!(Value::Integer(42).to_nosqo_string(), "i42");
+        assert_eq!(
+            Value::Decimal(DecimalValue::new("3.14")).to_nosqo_string(),
+            "n3.14"
+        );
+        assert_eq!(
+            Value::Date(DateValue::new("2026-03-21")).to_nosqo_string(),
+            "d2026-03-21"
+        );
+        assert_eq!(
+            Value::DateTime(DateTimeValue::new("2026-03-21T12:00:00Z")).to_nosqo_string(),
+            "t2026-03-21T12:00:00Z"
+        );
+        assert_eq!(Value::Boolean(true).to_nosqo_string(), "T");
+        assert_eq!(Value::Boolean(false).to_nosqo_string(), "F");
     }
 }

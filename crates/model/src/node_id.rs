@@ -62,6 +62,17 @@ impl NodeId {
     pub fn as_str(&self) -> &str {
         self.value.as_str()
     }
+
+    /// Renders the identifier using nosqo/NQL term syntax.
+    pub fn to_nosqo_string(&self) -> String {
+        let value = self.as_str();
+
+        if value.starts_with('#') || value.starts_with('~') {
+            return value.to_string();
+        }
+
+        format!("@{value}")
+    }
 }
 
 impl From<&str> for NodeId {
@@ -112,6 +123,17 @@ mod tests {
         let id = NodeId::predicate_id("~label").unwrap();
 
         assert_eq!(id.as_str(), "~label");
+    }
+
+    #[test]
+    fn renders_entity_ids_with_at_prefix() {
+        assert_eq!(NodeId::entity("berlin").to_nosqo_string(), "@berlin");
+    }
+
+    #[test]
+    fn renders_prefixed_ids_as_is() {
+        assert_eq!(NodeId::type_name("City").to_nosqo_string(), "#City");
+        assert_eq!(NodeId::predicate_name("label").to_nosqo_string(), "~label");
     }
 
     #[test]

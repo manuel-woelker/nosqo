@@ -19,3 +19,4 @@ tracing = { workspace = true }
 
 [dev-dependencies]
 expect-test = { workspace = true }
+tower = "0.5.2"

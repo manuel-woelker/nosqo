@@ -8,3 +8,7 @@ license = "MIT"
 [dependencies]
 nosqo-base = { path = "../base", version = "0.1.0" }
 nosqo-model = { path = "../model", version = "0.1.0" }
+
+[dev-dependencies]
+expect-test = { workspace = true }
+nosqo-parser = { path = "../parser", version = "0.1.0" }

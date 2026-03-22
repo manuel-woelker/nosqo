@@ -11,3 +11,40 @@ Accept: text/plain
 ### Retrieve all statements about Frodo Baggins
 GET {{baseUrl}}/api/v1/statements?subject=frodo_baggins
 Accept: text/plain
+
+### Retrieve ids and names of all persons
+POST {{baseUrl}}/api/v1/query
+Content-Type: text/plain
+Accept: application/json
+
+match
+?person ~isA #Person
+?person ~name ?name
+return
+?person ?name
+
+### Retrieve locations that Frodo visited via events
+POST {{baseUrl}}/api/v1/query
+Content-Type: text/plain
+Accept: application/json
+
+match
+?event ~hasParticipant @frodo_baggins
+?event ~locatedIn ?location
+?location ~name ?location_name
+return
+?event ?location ?location_name
+
+### Retrieve events and locations for Frodo's journey
+POST {{baseUrl}}/api/v1/query
+Content-Type: text/plain
+Accept: application/json
+
+match
+?event ~hasParticipant @frodo_baggins
+?event ~locatedIn ?location
+?event ~name ?event_name
+?event ~startDate ?event_date
+?location ~name ?location_name
+return
+?event ?event_name ?location ?location_name ?event_date

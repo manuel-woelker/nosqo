@@ -2,7 +2,7 @@ use std::collections::BTreeMap;
 
 use serde::{Deserialize, Serialize};
 
-use crate::{NodeId, Statement, Value};
+use crate::{NodeId, Statement};
 
 /// A collection of statements.
 #[derive(Debug, Clone, PartialEq, Eq, Default, Serialize, Deserialize)]
@@ -45,7 +45,7 @@ impl StatementSet {
                 rendered.push_str("  ");
                 rendered.push_str(&format_predicate(&statement.predicate));
                 rendered.push(' ');
-                rendered.push_str(&format_value(&statement.object));
+                rendered.push_str(&statement.object.to_nosqo_string());
                 rendered.push('\n');
             }
 
@@ -91,58 +91,6 @@ fn format_subject(subject: &NodeId) -> String {
 
 fn format_predicate(predicate: &NodeId) -> String {
     predicate.as_str().trim_start_matches('~').to_string()
-}
-
-fn format_value(value: &Value) -> String {
-    match value {
-        Value::Id(id) => format_object_id(id),
-        Value::Text(text) => format!("\"{}\"", escape_double_quoted(text.as_str())),
-        Value::Symbol(symbol) => format!("'{}'", escape_single_quoted(symbol.as_str())),
-        Value::Integer(integer) => format!("i{integer}"),
-        Value::Decimal(decimal) => format!("n{}", decimal.as_str()),
-        Value::Date(date) => format!("d{}", date.as_str()),
-        Value::DateTime(date_time) => format!("t{}", date_time.as_str()),
-        Value::Boolean(true) => "T".to_string(),
-        Value::Boolean(false) => "F".to_string(),
-    }
-}
-
-fn format_object_id(id: &NodeId) -> String {
-    let value = id.as_str();
-
-    if value.starts_with('#') || value.starts_with('~') {
-        return value.to_string();
-    }
-
-    format!("@{value}")
-}
-
-fn escape_double_quoted(value: &str) -> String {
-    escape_string(value, '"')
-}
-
-fn escape_single_quoted(value: &str) -> String {
-    escape_string(value, '\'')
-}
-
-fn escape_string(value: &str, quote: char) -> String {
-    let mut escaped = String::new();
-
-    for ch in value.chars() {
-        match ch {
-            '\\' => escaped.push_str("\\\\"),
-            '\n' => escaped.push_str("\\n"),
-            '\r' => escaped.push_str("\\r"),
-            '\t' => escaped.push_str("\\t"),
-            ch if ch == quote => {
-                escaped.push('\\');
-                escaped.push(ch);
-            }
-            ch => escaped.push(ch),
-        }
-    }
-
-    escaped
 }
 
 #[cfg(test)]

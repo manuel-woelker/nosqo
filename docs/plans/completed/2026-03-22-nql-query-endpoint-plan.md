@@ -142,16 +142,16 @@ Use data-driven tests for query cases instead of copy-pasting one-off examples a
 
 # What is the recommended implementation order?
 
-- [ ] Add query result types for projected columns and rows
-- [ ] Add an NQL execution module in `crates/engine`
-- [ ] Cover execution semantics with colocated engine tests
-- [ ] Add a `ServerState` method for parsing and executing raw NQL
-- [ ] Add `POST /api/v1/query` to the Axum router
-- [ ] Add HTTP request and response types for the query endpoint
-- [ ] Map invalid queries to `400` and internal failures to `500`
-- [ ] Add server tests covering success, empty results, and invalid input
-- [ ] Add or update a `.http` example file for manual endpoint exercise
-- [ ] Run `./scripts/check-code.sh`
+- [x] Add query result types for projected columns and rows
+- [x] Add an NQL execution module in `crates/engine`
+- [x] Cover execution semantics with colocated engine tests
+- [x] Add a `ServerState` method for parsing and executing raw NQL
+- [x] Add `POST /api/v1/query` to the Axum router
+- [x] Add HTTP request and response types for the query endpoint
+- [x] Map invalid queries to `400` and internal failures to `500`
+- [x] Add server tests covering success, empty results, and invalid input
+- [x] Add or update a `.http` example file for manual endpoint exercise
+- [x] Run `./scripts/check-code.sh`
 
 # What assumptions and risks should stay explicit?
 
@@ -159,3 +159,12 @@ Use data-driven tests for query cases instead of copy-pasting one-off examples a
 - The current NQL parser appears to accept the syntax needed for v1, but execution may reveal missing validation rules that should either move into the parser or be enforced in the executor.
 - The plan assumes returning nosqo-rendered scalar values inside JSON is acceptable for the first endpoint version. If clients need typed JSON values immediately, the API contract should be revised before implementation.
 - The plan assumes `POST /api/v1/query` is the desired public shape. If the product direction wants multiple query languages later, `/api/v1/nql/query` may be cleaner, but that feels premature right now.
+
+# What was verified?
+
+Verified with:
+
+- colocated model tests for nosqo term rendering
+- colocated engine tests for joins, unification, projection order, and empty results
+- colocated server tests for successful HTTP responses and `400` invalid-query responses
+- `./scripts/check-code.sh`

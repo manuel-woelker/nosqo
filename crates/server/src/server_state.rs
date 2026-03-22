@@ -1,7 +1,9 @@
+use crate::{query_request_error::QueryRequestError, query_response::QueryResponse};
 use nosqo_base::result::NosqoResult;
-use nosqo_engine::{InMemoryStatementStore, StatementStore};
+use nosqo_engine::{InMemoryStatementStore, StatementStore, execute_nql_query, validate_nql_query};
 use nosqo_model::StatementPattern;
 use nosqo_pal::pal::PalHandle;
+use nosqo_parser::NqlParser;
 use serde_json::{Value, json};
 use std::sync::Arc;
 
@@ -56,6 +58,18 @@ impl ServerState {
         let statement_set = self.store.find_statements(&pattern)?;
         Ok(statement_set.to_nosqo_string())
     }
+
+    /// Parses, validates, and executes a raw NQL query string.
+    pub fn execute_nql_query(&self, query_text: &str) -> Result<QueryResponse, QueryRequestError> {
+        let query = NqlParser::parse_str(query_text)
+            .map_err(|error| QueryRequestError::InvalidQuery(error.kind().to_string()))?;
+        validate_nql_query(&query)
+            .map_err(|error| QueryRequestError::InvalidQuery(error.kind().to_string()))?;
+        let result =
+            execute_nql_query(&*self.store, &query).map_err(QueryRequestError::Internal)?;
+
+        Ok(QueryResponse::from_query_result(result))
+    }
 }
 
 #[cfg(test)]
@@ -102,5 +116,47 @@ mod tests {
             rendered,
             "berlin {\n  label \"Berlin\"\n}\n\nparis {\n  label \"Paris\"\n}"
         );
+    }
+
+    #[test]
+    fn execute_nql_query_returns_row_oriented_json_payload_data() {
+        let store = Arc::new(InMemoryStatementStore::new(StatementSet::default()));
+        store
+            .assert_statements(StatementSet::from(vec![
+                Statement::from_strings("berlin", "label", "Berlin"),
+                Statement::from_strings("berlin", "isA", "#City"),
+            ]))
+            .expect("test store should accept seed statements");
+        let state = ServerState::new(PalHandle::new(PalMock::new()), store);
+
+        let response = state
+            .execute_nql_query("match\n?city ~label ?label\nreturn\n?city ?label\n")
+            .expect("query should succeed");
+
+        assert_eq!(
+            response,
+            QueryResponse {
+                columns: vec!["?city".to_string(), "?label".to_string()],
+                rows: vec![vec!["@berlin".to_string(), "\"Berlin\"".to_string()]],
+            }
+        );
+    }
+
+    #[test]
+    fn execute_nql_query_returns_invalid_query_errors_for_bad_input() {
+        let state = ServerState::new(
+            PalHandle::new(PalMock::new()),
+            Arc::new(InMemoryStatementStore::default()),
+        );
+
+        let error = state
+            .execute_nql_query("match\nreturn\n*\n")
+            .expect_err("query should fail");
+
+        let QueryRequestError::InvalidQuery(message) = error else {
+            panic!("expected invalid query error");
+        };
+
+        assert!(message.contains("query must contain at least one pattern"));
     }
 }

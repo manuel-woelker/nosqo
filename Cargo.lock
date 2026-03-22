@@ -522,8 +522,10 @@ dependencies = [
 name = "nosqo-engine"
 version = "0.1.0"
 dependencies = [
+ "expect-test",
  "nosqo-base",
  "nosqo-model",
+ "nosqo-parser",
 ]
 
 [[package]]
@@ -568,6 +570,7 @@ dependencies = [
  "serde",
  "serde_json",
  "tokio",
+ "tower",
  "tracing",
 ]
 
