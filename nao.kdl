@@ -1,0 +1,100 @@
+recipe "default" {
+  config live-display="line-per-task" max-parallel-tasks=4
+
+  task "cargo-fmt" description="Run cargo fmt across the Rust workspace" {
+    run shell="""
+      cargo fmt --manifest-path Cargo.toml --all --quiet
+      NAO_TASK_OUTCOME="Rust formatting is clean"
+    """
+  }
+
+  task "cargo-build" description="Build the Rust workspace" {
+    depends-on "cargo-fmt"
+    run shell="""
+      cargo build --manifest-path Cargo.toml --workspace --all-targets --all-features --quiet
+      NAO_TASK_OUTCOME="Rust workspace build succeeded"
+    """
+    artifact "target-dir" path="target"
+  }
+
+  task "cargo-clippy" description="Lint the Rust workspace with clippy" {
+    depends-on "cargo-build"
+    run shell="""
+      cargo clippy --manifest-path Cargo.toml --workspace --all-targets --all-features --quiet --keep-going --no-deps -- -D warnings
+      NAO_TASK_OUTCOME="Clippy passed with warnings denied"
+    """
+  }
+
+  task "cargo-nextest" description="Run the Rust test suite with cargo nextest" {
+    depends-on "cargo-clippy"
+    run shell="""
+      test_output_file="$(mktemp)"
+      trap 'rm -f "$test_output_file"' EXIT
+
+      if ! cargo nextest run --manifest-path Cargo.toml --workspace --all-targets --all-features --show-progress=none --status-level fail --no-fail-fast >"$test_output_file" 2>&1; then
+        cat "$test_output_file"
+        exit 1
+      fi
+
+      executed_tests="$(
+        awk '
+          /Summary .* tests run:/ {
+            for (i = 1; i <= NF; i++) {
+              if ($i == "tests" && $(i + 1) == "run:") {
+                total += $(i - 1)
+              }
+            }
+          }
+          END {
+            print total + 0
+          }
+        ' "$test_output_file"
+      )"
+
+      echo "Task outcome: Executed ${executed_tests} Rust tests"
+    """
+  }
+
+  task "ui-format" description="Check UI formatting with oxfmt" {
+    run shell="""
+      pnpm --dir ui run format:check
+      NAO_TASK_OUTCOME="UI formatting is clean"
+    """
+  }
+
+  task "ui-lint" description="Lint the UI with oxlint" {
+    depends-on "ui-format"
+    run shell="""
+      pnpm --dir ui run lint
+      NAO_TASK_OUTCOME="UI lint passed"
+    """
+  }
+
+  task "ui-test" description="Run the UI test suite" {
+    depends-on "ui-lint"
+    run script="scripts/run-ui-tests-for-nao.sh"
+  }
+
+  task "ui-build" description="Build the UI bundle" {
+    depends-on "ui-test"
+    run shell="""
+      pnpm --dir ui run build
+      NAO_TASK_OUTCOME="UI production build succeeded"
+    """
+    artifact "ui-dist" path="ui/dist"
+  }
+
+  task "check" description="Run every repository check through nao" {
+    depends-on "cargo-fmt"
+    depends-on "cargo-build"
+    depends-on "cargo-clippy"
+    depends-on "cargo-nextest"
+    depends-on "ui-format"
+    depends-on "ui-lint"
+    depends-on "ui-test"
+    depends-on "ui-build"
+    run shell="""
+      NAO_TASK_OUTCOME="All repository checks passed"
+    """
+  }
+}

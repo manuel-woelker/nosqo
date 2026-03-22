@@ -118,7 +118,7 @@ One reasonable starting layout:
 Useful entry points already scaffolded in the repository:
 
 - `cargo run -p nosqo-server`
-- `./scripts/check-code.sh`
+- `nao check`
 - `./scripts/dev.sh`
 - `./scripts/enter-devenv.sh`
 

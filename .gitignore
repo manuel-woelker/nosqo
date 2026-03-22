@@ -1,5 +1,6 @@
 /target
 /.idea
+/.nao
 /dist
 /coverage
 /ui/node_modules

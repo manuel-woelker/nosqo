@@ -85,7 +85,7 @@ Prefer black box testing and try to avoid mocking as much as possible.
 
 ## Checks and formatting
 
-When completing a unit of work run `scripts/check-code.sh` to verify everything is green.
+When completing a unit of work run `nao check` to verify everything is green.
 
 ## Commit messages
 
