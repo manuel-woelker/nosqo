@@ -64,7 +64,7 @@ globalStyle(".button-link, .nosqo-button", {
   display: "inline-flex",
   alignItems: "center",
   justifyContent: "flex-start",
-  gap: "0.4rem",
+  gap: "0.3rem",
   border: "1px solid var(--border-color)",
   borderRadius: "999px",
   padding: "0.6rem 0.9rem",
@@ -93,7 +93,7 @@ globalStyle(".nosqo-button:disabled", {
 globalStyle(".nosqo-panel", {
   border: "1px solid var(--border-color)",
   borderRadius: "20px",
-  padding: "1rem",
+  padding: "0.85rem",
   background: "var(--panel-background)",
   boxShadow: "var(--panel-shadow)",
   backdropFilter: "blur(24px)",
@@ -101,7 +101,7 @@ globalStyle(".nosqo-panel", {
 
 globalStyle(".panel-stack", {
   display: "grid",
-  gap: "0.75rem",
+  gap: "0.55rem",
 });
 
 globalStyle(".page-title", {
@@ -151,7 +151,7 @@ globalStyle(".shell-header__row", {
   alignItems: "center",
   justifyContent: "flex-start",
   flexWrap: "nowrap",
-  gap: "0.75rem",
+  gap: "0.5rem",
 });
 
 globalStyle(".shell-burger", {
@@ -217,7 +217,7 @@ globalStyle(".brand-link", {
 
 globalStyle(".breadcrumb-list", {
   display: "flex",
-  gap: "0.45rem",
+  gap: "0.35rem",
   listStyle: "none",
   margin: 0,
   padding: 0,
@@ -228,7 +228,7 @@ globalStyle(".breadcrumb-list", {
 
 globalStyle(".breadcrumb-item", {
   display: "inline-flex",
-  gap: "0.45rem",
+  gap: "0.35rem",
   alignItems: "center",
   fontSize: "0.86rem",
   minWidth: 0,
@@ -265,11 +265,11 @@ globalStyle(".shell-body", {
 globalStyle(".shell-navbar__scroll", {
   height: "100%",
   overflowY: "auto",
-  padding: "0.85rem",
+  padding: "0.7rem",
 });
 
 globalStyle(".nav-group-label", {
-  margin: "0 0 0.5rem",
+  margin: "0 0 0.35rem",
   color: "var(--accent)",
   fontSize: "0.78rem",
   fontWeight: "700",
@@ -279,12 +279,12 @@ globalStyle(".nav-group-label", {
 
 globalStyle(".nav-list", {
   display: "grid",
-  gap: "0.5rem",
+  gap: "0.3rem",
 });
 
 globalStyle(".nav-link", {
   display: "block",
-  padding: "0.55rem 0.15rem 0.55rem 0.75rem",
+  padding: "0.45rem 0.1rem 0.45rem 0.65rem",
   border: 0,
   borderLeft: "2px solid transparent",
   borderRadius: 0,
@@ -343,7 +343,7 @@ globalStyle(".shell-main__content", {
   width: "min(1200px, 100%)",
   margin: "0 auto",
   background: "transparent",
-  padding: "0.75rem",
+  padding: "0.6rem",
   minHeight: 0,
   overflow: "hidden",
 });
@@ -358,7 +358,7 @@ globalStyle(".shell-backdrop", {
 
 globalStyle(".field", {
   display: "grid",
-  gap: "0.35rem",
+  gap: "0.25rem",
 });
 
 globalStyle(".field span", {
@@ -370,7 +370,7 @@ globalStyle(".field input, .field textarea", {
   width: "100%",
   border: "1px solid var(--border-color)",
   borderRadius: "16px",
-  padding: "0.7rem 0.85rem",
+  padding: "0.6rem 0.75rem",
   background: "rgba(15, 23, 42, 0.75)",
   color: "inherit",
 });
@@ -395,7 +395,7 @@ globalStyle(".field textarea", {
 globalStyle(".toolbar", {
   display: "flex",
   flexWrap: "wrap",
-  gap: "0.5rem",
+  gap: "0.35rem",
   alignItems: "center",
 });
 
@@ -406,7 +406,7 @@ globalStyle(".toolbar--filters", {
 globalStyle(".nosqo-error-alert", {
   border: "1px solid rgba(255, 180, 171, 0.4)",
   borderRadius: "20px",
-  padding: "1rem",
+  padding: "0.85rem",
   background: "rgba(127, 29, 29, 0.18)",
 });
 
@@ -439,7 +439,7 @@ globalStyle(".empty-state, .table-shell, .code-block", {
 });
 
 globalStyle(".empty-state", {
-  padding: "1rem",
+  padding: "0.85rem",
 });
 
 globalStyle(".empty-state h3, .feature-card h3", {
@@ -452,7 +452,7 @@ globalStyle(".table-shell", {
 
 globalStyle(".code-block", {
   margin: 0,
-  padding: "0.85rem",
+  padding: "0.75rem",
   overflow: "auto",
   whiteSpace: "pre-wrap",
 });
@@ -463,7 +463,7 @@ globalStyle("table", {
 });
 
 globalStyle("th, td", {
-  padding: "0.65rem 0.8rem",
+  padding: "0.5rem 0.65rem",
   textAlign: "left",
   borderBottom: "1px solid var(--border-color)",
 });
@@ -479,18 +479,18 @@ globalStyle("tbody tr:last-child td", {
 
 globalStyle(".filters-grid", {
   display: "grid",
-  gap: "0.75rem",
+  gap: "0.55rem",
 });
 
 globalStyle(".feature-grid", {
   display: "grid",
-  gap: "0.85rem",
+  gap: "0.65rem",
 });
 
 globalStyle(".feature-card", {
   border: "1px solid var(--border-color)",
   borderRadius: "20px",
-  padding: "1rem",
+  padding: "0.85rem",
   background: "rgba(255, 255, 255, 0.03)",
 });
 
@@ -516,7 +516,7 @@ globalStyle(".admin-page, .ontology-page", {
   display: "flex",
   flex: "1 1 auto",
   flexDirection: "column",
-  gap: "0.5rem",
+  gap: "0.35rem",
   minHeight: 0,
   overflow: "hidden",
 });
@@ -524,7 +524,7 @@ globalStyle(".admin-page, .ontology-page", {
 globalStyle(".admin-page__header, .ontology-header", {
   display: "flex",
   flex: "0 0 auto",
-  gap: "0.75rem",
+  gap: "0.5rem",
   alignItems: "center",
   justifyContent: "space-between",
   minHeight: 0,
@@ -558,7 +558,7 @@ globalStyle(".admin-page__code-block", {
 
 globalStyle(".ontology-header__copy", {
   display: "flex",
-  gap: "0.6rem",
+  gap: "0.4rem",
   alignItems: "baseline",
   minWidth: 0,
 });
@@ -570,21 +570,21 @@ globalStyle(".ontology-header__title", {
 globalStyle(".ontology-header__meta", {
   display: "flex",
   flexWrap: "nowrap",
-  gap: "0.5rem",
+  gap: "0.35rem",
   alignItems: "center",
   whiteSpace: "nowrap",
 });
 
 globalStyle(".ontology-layout", {
   display: "grid",
-  gap: "1rem",
+  gap: "0.75rem",
   minHeight: 0,
   overflow: "hidden",
 });
 
 globalStyle(".ontology-pane", {
   display: "grid",
-  gap: "0.75rem",
+  gap: "0.55rem",
   minHeight: 0,
   background: "linear-gradient(180deg, rgba(6, 27, 49, 0.9), rgba(4, 21, 39, 0.88))",
 });
@@ -603,14 +603,17 @@ globalStyle(".ontology-sidebar", {
 });
 
 globalStyle(".ontology-entity-list", {
-  display: "grid",
-  gap: "0.5rem",
+  display: "flex",
+  flexDirection: "column",
+  alignItems: "stretch",
+  justifyContent: "flex-start",
+  gap: "0.3rem",
 });
 
 globalStyle(".ontology-entity", {
   display: "block",
   width: "100%",
-  padding: "0.45rem 0.1rem 0.45rem 0.85rem",
+  padding: "0.35rem 0.1rem 0.35rem 0.7rem",
   border: 0,
   borderLeft: "2px solid transparent",
   borderRadius: 0,
@@ -630,7 +633,7 @@ globalStyle(".ontology-entity--selected", {
 
 globalStyle(".ontology-entity__row", {
   display: "flex",
-  gap: "0.5rem",
+  gap: "0.35rem",
   alignItems: "baseline",
   justifyContent: "flex-start",
   whiteSpace: "nowrap",
@@ -683,11 +686,11 @@ globalStyle(".ontology-detail__hero", {
 
 globalStyle(".ontology-section", {
   display: "grid",
-  gap: "0.65rem",
+  gap: "0.45rem",
 });
 
 globalStyle(".ontology-section--spaced", {
-  paddingTop: "0.5rem",
+  paddingTop: "0.35rem",
 });
 
 globalStyle(".ontology-section h3", {
@@ -698,7 +701,7 @@ globalStyle(".ontology-section h3", {
 globalStyle(".ontology-inline-links", {
   display: "flex",
   flexWrap: "wrap",
-  gap: "0.35rem 0.6rem",
+  gap: "0.25rem 0.45rem",
   alignItems: "center",
 });
 
@@ -758,13 +761,13 @@ globalStyle(".ontology-inline-link--secondary", {
 globalStyle(".ontology-tag-list", {
   display: "flex",
   flexWrap: "wrap",
-  gap: "0.5rem",
+  gap: "0.35rem",
 });
 
 globalStyle(".ontology-tag", {
   display: "inline-flex",
   alignItems: "center",
-  padding: "0.35rem 0.6rem",
+  padding: "0.25rem 0.5rem",
   border: "1px solid var(--border-color)",
   borderRadius: "999px",
   background: "rgba(12, 51, 90, 0.42)",
@@ -775,12 +778,12 @@ globalStyle(".ontology-tag", {
 globalStyle(".app-shell", {
   width: "min(1120px, calc(100vw - 2rem))",
   margin: "0 auto",
-  padding: "1.5rem 0 3rem",
+  padding: "1.1rem 0 2rem",
 });
 
 globalStyle(".hero", {
   display: "grid",
-  gap: "1rem",
+  gap: "0.7rem",
   alignItems: "end",
   marginBottom: "1.5rem",
 });
@@ -793,7 +796,7 @@ globalStyle(".hero__copy h1", {
 });
 
 globalStyle(".hero__lede", {
-  margin: "1rem 0 0",
+  margin: "0.7rem 0 0",
   maxWidth: "58ch",
   color: "var(--muted)",
 });
@@ -958,7 +961,7 @@ globalStyle(".shell-main__viewport, .shell-main__content", {
 globalStyle(".shell-main__content", {
   "@media": {
     "(max-width: 47.99rem)": {
-      padding: "1rem",
+      padding: "0.75rem",
     },
   },
 });
