@@ -675,15 +675,25 @@ globalStyle(".ontology-detail", {
 });
 
 globalStyle(".ontology-detail__header", {
-  display: "grid",
-  gap: "0.35rem",
-  justifyItems: "start",
+  display: "flex",
+  alignItems: "baseline",
+  justifyContent: "flex-start",
   textAlign: "left",
 });
 
 globalStyle(".ontology-detail__title", {
   margin: 0,
   fontSize: "clamp(1.35rem, 2.4vw, 1.85rem)",
+  display: "flex",
+  alignItems: "baseline",
+  gap: "0.45rem",
+  flexWrap: "wrap",
+});
+
+globalStyle(".ontology-detail__kind", {
+  color: "var(--muted)",
+  fontSize: "0.9rem",
+  fontWeight: "500",
 });
 
 globalStyle(".ontology-detail__meta", {

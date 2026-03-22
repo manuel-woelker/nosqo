@@ -107,10 +107,10 @@ export function OntologyViewerPage() {
                         type="button"
                       >
                         <div className="ontology-entity__row">
+                          <strong className="ontology-entity__name">{entity.displayName}</strong>
                           <span className="ontology-entity__kind">
                             {formatKindLabel(entity.kind)}
                           </span>
-                          <strong className="ontology-entity__name">{entity.displayName}</strong>
                         </div>
                       </button>
                     );
@@ -160,14 +160,10 @@ function OntologyDetail({
     <div className="panel-stack ontology-detail">
       <div className="panel-stack ontology-detail__hero">
         <div className="ontology-detail__header">
-          <span
-            className={
-              entity.kind === "predicate" ? "nosqo-badge nosqo-badge--predicate" : "nosqo-badge"
-            }
-          >
-            {formatKindLabel(entity.kind)}
-          </span>
-          <h2 className="ontology-detail__title">{entity.displayName}</h2>
+          <h2 className="ontology-detail__title">
+            <span>{entity.displayName}</span>
+            <span className="ontology-detail__kind">{formatKindLabel(entity.kind)}</span>
+          </h2>
         </div>
 
         <p className="body-copy">
