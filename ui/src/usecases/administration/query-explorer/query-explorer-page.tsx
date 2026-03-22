@@ -44,37 +44,43 @@ export function QueryExplorerPage() {
   }
 
   return (
-    <NosqoPanel className="panel-stack">
-      <div className="panel-stack">
-        <p className="kicker">Administration / NQL</p>
-        <h1 className="page-title">Query Explorer</h1>
-        <p className="body-copy">
-          Run queries against the loaded knowledge base without pretending the graph is a
-          spreadsheet. Good query UX beats decorative chrome every time.
-        </p>
+    <section className="admin-page">
+      <div className="admin-page__header">
+        <h1 className="admin-page__title">Query Explorer</h1>
       </div>
 
-      <form className="panel-stack" onSubmit={handleSubmit}>
-        <NosqoTextarea
-          label="Query text"
-          name="nql-query"
-          onChange={(event) => setQueryText(event.currentTarget.value)}
-          value={queryText}
-        />
+      <NosqoPanel className="admin-page__panel">
+        <div className="admin-page__body">
+          <div className="panel-stack">
+            <p className="body-copy">
+              Run queries against the loaded knowledge base without pretending the graph is a
+              spreadsheet. Good query UX beats decorative chrome every time.
+            </p>
+          </div>
 
-        <div className="toolbar">
-          <NosqoButton disabled={isLoading} type="submit">
-            {isLoading ? "Running query..." : "Run query"}
-          </NosqoButton>
-          <p className="hint">
-            Posts plain text to <code>/api/v1/query</code>.
-          </p>
+          <form className="panel-stack" onSubmit={handleSubmit}>
+            <NosqoTextarea
+              label="Query text"
+              name="nql-query"
+              onChange={(event) => setQueryText(event.currentTarget.value)}
+              value={queryText}
+            />
+
+            <div className="toolbar">
+              <NosqoButton disabled={isLoading} type="submit">
+                {isLoading ? "Running query..." : "Run query"}
+              </NosqoButton>
+              <p className="hint">
+                Posts plain text to <code>/api/v1/query</code>.
+              </p>
+            </div>
+          </form>
+
+          {errorMessage ? <NosqoErrorAlert message={errorMessage} /> : null}
+
+          {result ? <QueryResultsTable result={result} /> : null}
         </div>
-      </form>
-
-      {errorMessage ? <NosqoErrorAlert message={errorMessage} /> : null}
-
-      {result ? <QueryResultsTable result={result} /> : null}
-    </NosqoPanel>
+      </NosqoPanel>
+    </section>
   );
 }

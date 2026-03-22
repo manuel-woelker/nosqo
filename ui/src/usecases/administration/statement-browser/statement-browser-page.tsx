@@ -53,77 +53,83 @@ export function StatementBrowserPage() {
   }
 
   return (
-    <NosqoPanel className="panel-stack">
-      <div className="panel-stack">
-        <p className="kicker">Administration / Store</p>
-        <h1 className="page-title">Statement Browser</h1>
-        <p className="body-copy">
-          Inspect the raw statement store without getting clever. This is the blunt instrument
-          screen, and that is fine while the ontology and API are still moving.
-        </p>
+    <section className="admin-page">
+      <div className="admin-page__header">
+        <h1 className="admin-page__title">Statement Browser</h1>
       </div>
 
-      <form className="filters-grid" onSubmit={handleSubmit}>
-        <NosqoTextInput
-          label="Subject"
-          name="subject"
-          onChange={(event) =>
-            setFilters((current) => ({
-              ...current,
-              subject: event.currentTarget.value,
-            }))
-          }
-          placeholder="frodo_baggins"
-          value={filters.subject}
-        />
+      <NosqoPanel className="admin-page__panel">
+        <div className="admin-page__body">
+          <div className="panel-stack">
+            <p className="body-copy">
+              Inspect the raw statement store without getting clever. This is the blunt instrument
+              screen, and that is fine while the ontology and API are still moving.
+            </p>
+          </div>
 
-        <NosqoTextInput
-          label="Predicate"
-          name="predicate"
-          onChange={(event) =>
-            setFilters((current) => ({
-              ...current,
-              predicate: event.currentTarget.value,
-            }))
-          }
-          placeholder="isA"
-          value={filters.predicate}
-        />
+          <form className="filters-grid" onSubmit={handleSubmit}>
+            <NosqoTextInput
+              label="Subject"
+              name="subject"
+              onChange={(event) =>
+                setFilters((current) => ({
+                  ...current,
+                  subject: event.currentTarget.value,
+                }))
+              }
+              placeholder="frodo_baggins"
+              value={filters.subject}
+            />
 
-        <NosqoTextInput
-          label="Object"
-          name="object"
-          onChange={(event) =>
-            setFilters((current) => ({
-              ...current,
-              object: event.currentTarget.value,
-            }))
-          }
-          placeholder="#Person"
-          value={filters.object}
-        />
+            <NosqoTextInput
+              label="Predicate"
+              name="predicate"
+              onChange={(event) =>
+                setFilters((current) => ({
+                  ...current,
+                  predicate: event.currentTarget.value,
+                }))
+              }
+              placeholder="isA"
+              value={filters.predicate}
+            />
 
-        <div className="toolbar toolbar--filters">
-          <NosqoButton disabled={isLoading} type="submit">
-            {isLoading ? "Loading..." : "Load statements"}
-          </NosqoButton>
+            <NosqoTextInput
+              label="Object"
+              name="object"
+              onChange={(event) =>
+                setFilters((current) => ({
+                  ...current,
+                  object: event.currentTarget.value,
+                }))
+              }
+              placeholder="#Person"
+              value={filters.object}
+            />
+
+            <div className="toolbar toolbar--filters">
+              <NosqoButton disabled={isLoading} type="submit">
+                {isLoading ? "Loading..." : "Load statements"}
+              </NosqoButton>
+            </div>
+          </form>
+
+          {errorMessage ? <NosqoErrorAlert message={errorMessage} /> : null}
+
+          {isLoading ? <p className="hint">Loading statements...</p> : null}
+
+          {!isLoading && !errorMessage && statementText.trim().length === 0 ? (
+            <NosqoEmptyState
+              body="Try a broader filter or check whether the knowledge base is loaded."
+              title="No statements matched"
+            />
+          ) : null}
+
+          {!isLoading && statementText.trim().length > 0 ? (
+            <pre className="code-block admin-page__code-block">{statementText}</pre>
+          ) : null}
         </div>
-      </form>
-
-      {errorMessage ? <NosqoErrorAlert message={errorMessage} /> : null}
-
-      {isLoading ? <p className="hint">Loading statements...</p> : null}
-
-      {!isLoading && !errorMessage && statementText.trim().length === 0 ? (
-        <NosqoEmptyState
-          body="Try a broader filter or check whether the knowledge base is loaded."
-          title="No statements matched"
-        />
-      ) : null}
-
-      {!isLoading && statementText.trim().length > 0 ? (
-        <pre className="code-block">{statementText}</pre>
-      ) : null}
-    </NosqoPanel>
+      </NosqoPanel>
+    </section>
   );
 }
