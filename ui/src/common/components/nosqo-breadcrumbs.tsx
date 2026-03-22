@@ -1,23 +1,24 @@
-import { Breadcrumbs, Text } from "@mantine/core";
 import { Link } from "@tanstack/react-router";
 import type { BreadcrumbItem } from "../../infrastructure/routing/navigation-model";
 
 export function NosqoBreadcrumbs({ items }: { items: BreadcrumbItem[] }) {
   return (
     <nav aria-label="Breadcrumbs">
-      <Breadcrumbs className="breadcrumb-list" separator="/">
+      <ol className="breadcrumb-list">
         {items.map((item, index) =>
           item.href ? (
-            <Link className="breadcrumb-link" key={`${item.label}-${index}`} to={item.href}>
-              {item.label}
-            </Link>
+            <li className="breadcrumb-item" key={`${item.label}-${index}`}>
+              <Link className="breadcrumb-link" to={item.href}>
+                {item.label}
+              </Link>
+            </li>
           ) : (
-            <Text className="breadcrumb-current" key={`${item.label}-${index}`} size="sm">
-              {item.label}
-            </Text>
+            <li className="breadcrumb-item" key={`${item.label}-${index}`}>
+              <span className="breadcrumb-current">{item.label}</span>
+            </li>
           ),
         )}
-      </Breadcrumbs>
+      </ol>
     </nav>
   );
 }

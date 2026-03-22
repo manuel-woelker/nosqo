@@ -65,7 +65,7 @@ describe("nosqo app shell", () => {
       expect(breadcrumbNavigation).toHaveTextContent("Ontology");
     });
 
-    expect(screen.getByRole("link", { name: /model ontology/i })).toHaveAttribute(
+    expect(screen.getByRole("link", { name: /^ontology$/i })).toHaveAttribute(
       "data-active",
       "true",
     );

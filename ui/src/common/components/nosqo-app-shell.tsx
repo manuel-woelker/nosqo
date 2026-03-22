@@ -1,5 +1,4 @@
 import { useEffect, type ReactNode } from "react";
-import { AppShell, Burger, Group, ScrollArea, Stack, Text } from "@mantine/core";
 import { Link, useRouterState } from "@tanstack/react-router";
 import {
   getBreadcrumbItems,
@@ -24,50 +23,41 @@ export function NosqoAppShell({ children }: { children: ReactNode }) {
   }, [closeNavigation, pathname]);
 
   return (
-    <AppShell
-      className="nosqo-shell"
-      header={{ height: 88 }}
-      navbar={{
-        width: 320,
-        breakpoint: "sm",
-        collapsed: {
-          desktop: false,
-          mobile: !isNavigationOpen,
-        },
-      }}
-      padding="lg"
-    >
-      <AppShell.Header className="shell-header">
-        <Group className="shell-header__row" gap="md" h="100%" justify="space-between" px="lg">
-          <Group gap="md" wrap="nowrap">
-            <Burger
-              aria-label="Toggle navigation"
-              hiddenFrom="sm"
-              onClick={toggleNavigation}
-              opened={isNavigationOpen}
-              size="sm"
+    <div className="nosqo-shell">
+      <header className="shell-header">
+        <div className="shell-header__row">
+          <button
+            aria-label="Toggle navigation"
+            className="shell-burger"
+            onClick={toggleNavigation}
+            type="button"
+          >
+            <span
+              className={
+                isNavigationOpen
+                  ? "shell-burger__lines shell-burger__lines--open"
+                  : "shell-burger__lines"
+              }
             />
-            <div className="brand-copy">
-              <Link className="brand-link" to={routePaths.home}>
-                nosqo
-              </Link>
-              <Text className="brand-subtitle" size="sm">
-                Knowledge tools
-              </Text>
-            </div>
-          </Group>
+          </button>
+          <div className="brand-copy">
+            <Link className="brand-link" to={routePaths.home}>
+              nosqo
+            </Link>
+          </div>
           <NosqoBreadcrumbs items={breadcrumbs} />
-        </Group>
-      </AppShell.Header>
+        </div>
+      </header>
 
-      <AppShell.Navbar aria-label="Primary navigation" className="shell-navbar" p="md">
-        <ScrollArea className="shell-navbar__scroll" type="never">
-          <Stack gap="xl">
+      <div className="shell-body">
+        <nav
+          aria-label="Primary navigation"
+          className={isNavigationOpen ? "shell-navbar shell-navbar--open" : "shell-navbar"}
+        >
+          <div className="shell-navbar__scroll">
             {navigationGroups.map((group) => (
               <section aria-label={group.label} key={group.label}>
-                <Text className="nav-group-label" size="xs">
-                  {group.label}
-                </Text>
+                <p className="nav-group-label">{group.label}</p>
                 <div className="nav-list">
                   {group.items.map((item) => {
                     const isActive = isNavigationItemActive(pathname, item.href);
@@ -81,7 +71,6 @@ export function NosqoAppShell({ children }: { children: ReactNode }) {
                         onClick={closeNavigation}
                         to={item.href}
                       >
-                        <span className="nav-link__eyebrow">{item.eyebrow}</span>
                         <span className="nav-link__label">{item.label}</span>
                       </Link>
                     );
@@ -89,13 +78,23 @@ export function NosqoAppShell({ children }: { children: ReactNode }) {
                 </div>
               </section>
             ))}
-          </Stack>
-        </ScrollArea>
-      </AppShell.Navbar>
+          </div>
+        </nav>
 
-      <AppShell.Main className="shell-main">
-        <div className="shell-main__content">{children}</div>
-      </AppShell.Main>
-    </AppShell>
+        <main className="shell-main">
+          {isNavigationOpen ? (
+            <button
+              aria-label="Close navigation"
+              className="shell-backdrop"
+              onClick={closeNavigation}
+              type="button"
+            />
+          ) : null}
+          <div className="shell-main__viewport">
+            <div className="shell-main__content">{children}</div>
+          </div>
+        </main>
+      </div>
+    </div>
   );
 }

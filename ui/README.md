@@ -130,6 +130,7 @@ Design principles:
 - prioritize task clarity over visual novelty
 - make important actions and states obvious
 - keep pages calm and scannable
+- prefer smaller, tighter layouts over oversized spacing and decorative breathing room
 - treat empty, loading, and error states as first-class UI
 - prefer real workflows over placeholder surfaces
 
@@ -139,6 +140,7 @@ The current visual language is intentionally strong but restrained:
 - IBM Plex Sans for interface copy and IBM Plex Mono for code-like content
 - rounded panels and controls
 - a restrained accent color for interactive emphasis
+- navigation should feel integrated into the shell, not like a stack of bordered boxes
 
 New screens should extend this visual language instead of introducing unrelated styles.
 If the design system changes later, change it deliberately across the app rather than screen by screen.
@@ -153,6 +155,8 @@ Prefer these styling rules:
 - reuse existing tokens and utility classes before adding new one-off styles
 - use shared semantic class names such as `panel`, `stack`, `field`, and `empty-state`
 - keep spacing, border, and color decisions consistent with the existing tokens
+- default to tighter spacing and smaller layout rhythms unless the content clearly needs more room
+- do not render primary navigation as bordered cards or boxed tiles
 - prefer composition through a small number of readable class names over deeply nested selectors
 - design mobile-first and then expand layouts with media queries
 

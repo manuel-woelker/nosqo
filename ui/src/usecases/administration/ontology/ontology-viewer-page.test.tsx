@@ -59,7 +59,7 @@ describe("ontology viewer page", () => {
     expect(screen.getByText("Read-only")).toBeInTheDocument();
     expect(screen.getByRole("button", { name: /person/i })).toBeInTheDocument();
     expect(screen.getByText("Allowed attributes")).toBeInTheDocument();
-    expect(screen.getAllByText("~name").length).toBeGreaterThan(0);
+    expect(screen.getAllByText("name").length).toBeGreaterThan(0);
   });
 
   it("renders an empty state when the ontology endpoint returns no content", async () => {

@@ -4,9 +4,6 @@
   line-height: 1.5;
   font-weight: 400;
   color: #f2efe7;
-  background:
-    radial-gradient(circle at top, rgba(77, 132, 255, 0.2), transparent 32%),
-    linear-gradient(180deg, #111827 0%, #172033 55%, #0f172a 100%);
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -24,10 +21,17 @@
   box-sizing: border-box;
 }
 
+html,
 body {
   margin: 0;
+  width: 100%;
+  height: 100%;
   min-width: 320px;
-  min-height: 100vh;
+  min-height: 100%;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at top, rgba(77, 132, 255, 0.2), transparent 32%),
+    linear-gradient(180deg, #111827 0%, #172033 55%, #0f172a 100%);
 }
 
 a {
@@ -50,20 +54,24 @@ pre {
 }
 
 #root {
-  min-height: 100vh;
+  width: 100%;
+  height: 100%;
+  min-height: 100%;
+  overflow: hidden;
+  background: transparent;
 }
 
 .app-shell {
   width: min(1120px, calc(100vw - 2rem));
   margin: 0 auto;
-  padding: 2rem 0 4rem;
+  padding: 1.5rem 0 3rem;
 }
 
 .hero {
   display: grid;
-  gap: 1.5rem;
+  gap: 1rem;
   align-items: end;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
 }
 
 .hero__copy h1 {
@@ -102,11 +110,11 @@ pre {
 button {
   display: inline-flex;
   align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
+  justify-content: flex-start;
+  gap: 0.4rem;
   border: 1px solid var(--border-color);
   border-radius: 999px;
-  padding: 0.7rem 1rem;
+  padding: 0.6rem 0.9rem;
   background: rgba(255, 255, 255, 0.04);
   color: inherit;
   text-decoration: none;
@@ -130,13 +138,13 @@ button:hover {
 
 .page-content {
   display: grid;
-  gap: 1.5rem;
+  gap: 1rem;
 }
 
 .panel {
   border: 1px solid var(--border-color);
   border-radius: 28px;
-  padding: 1.5rem;
+  padding: 1rem;
   background: var(--panel-background);
   box-shadow: var(--panel-shadow);
   backdrop-filter: blur(24px);
@@ -144,7 +152,7 @@ button:hover {
 
 .panel-stack {
   display: grid;
-  gap: 1rem;
+  gap: 0.75rem;
 }
 
 .page-title {
@@ -159,7 +167,13 @@ button:hover {
 }
 
 .nosqo-shell {
+  display: grid;
+  grid-template-rows: 44px minmax(0, 1fr);
+  width: 100%;
+  height: 100vh;
   min-height: 100vh;
+  overflow: hidden;
+  background: transparent;
 }
 
 .shell-header,
@@ -170,27 +184,107 @@ button:hover {
 }
 
 .shell-header__row {
+  display: flex;
   height: 100%;
+  padding: 0 0.85rem;
+  align-items: center;
+  justify-content: flex-start;
+  flex-wrap: nowrap;
+  gap: 0.75rem;
+}
+
+.shell-burger {
+  display: none;
+  flex: 0 0 auto;
+  width: 2rem;
+  height: 2rem;
+  padding: 0;
+  border: 0;
+  border-radius: 0.5rem;
+  background: transparent;
+}
+
+.shell-burger__lines,
+.shell-burger__lines::before,
+.shell-burger__lines::after {
+  display: block;
+  width: 1rem;
+  height: 2px;
+  background: #f8fafc;
+  transition:
+    transform 160ms ease,
+    opacity 160ms ease;
+  content: "";
+}
+
+.shell-burger__lines {
+  position: relative;
+  margin: 0 auto;
+}
+
+.shell-burger__lines::before {
+  position: absolute;
+  top: -0.35rem;
+}
+
+.shell-burger__lines::after {
+  position: absolute;
+  top: 0.35rem;
+}
+
+.shell-burger__lines--open {
+  background: transparent;
+}
+
+.shell-burger__lines--open::before {
+  transform: translateY(0.35rem) rotate(45deg);
+}
+
+.shell-burger__lines--open::after {
+  transform: translateY(-0.35rem) rotate(-45deg);
 }
 
 .brand-copy {
-  display: grid;
-  gap: 0.1rem;
+  display: flex;
+  gap: 0.35rem;
+  align-items: baseline;
+  flex: 0 0 auto;
 }
 
 .brand-link {
   color: #f8fafc;
-  font-size: 1.15rem;
+  font-size: 1rem;
   font-weight: 700;
   text-decoration: none;
 }
 
 .brand-subtitle {
+  white-space: nowrap;
   color: var(--muted);
 }
 
 .breadcrumb-list {
+  display: flex;
+  gap: 0.45rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
   max-width: min(52vw, 42rem);
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.breadcrumb-item {
+  display: inline-flex;
+  gap: 0.45rem;
+  align-items: center;
+  font-size: 0.86rem;
+  min-width: 0;
+}
+
+.breadcrumb-item:not(:last-child)::after {
+  color: var(--muted);
+  content: "/";
 }
 
 .breadcrumb-link {
@@ -209,10 +303,12 @@ button:hover {
 
 .shell-navbar__scroll {
   height: 100%;
+  overflow-y: auto;
+  padding: 0.85rem;
 }
 
 .nav-group-label {
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.5rem;
   color: var(--accent);
   font-size: 0.78rem;
   font-weight: 700;
@@ -222,21 +318,21 @@ button:hover {
 
 .feature-grid {
   display: grid;
-  gap: 1rem;
+  gap: 0.85rem;
 }
 
 .nav-list {
   display: grid;
-  gap: 0.65rem;
+  gap: 0.5rem;
 }
 
 .nav-link {
-  display: grid;
-  gap: 0.15rem;
-  padding: 0.9rem 1rem;
-  border: 1px solid var(--border-color);
-  border-radius: 20px;
-  background: rgba(255, 255, 255, 0.03);
+  display: block;
+  padding: 0.55rem 0.15rem 0.55rem 0.75rem;
+  border: 0;
+  border-left: 2px solid transparent;
+  border-radius: 0;
+  background: transparent;
   color: #f8fafc;
   text-decoration: none;
   transition:
@@ -247,39 +343,77 @@ button:hover {
 
 .nav-link:hover {
   transform: translateY(-1px);
-  border-color: rgba(139, 245, 212, 0.5);
-  background: rgba(255, 255, 255, 0.06);
+  border-left-color: rgba(139, 245, 212, 0.45);
+  background: rgba(139, 245, 212, 0.05);
 }
 
 .nav-link--active {
-  border-color: rgba(139, 245, 212, 0.65);
-  background: rgba(139, 245, 212, 0.14);
-}
-
-.nav-link__eyebrow {
-  color: var(--accent);
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
+  border-left-color: rgba(139, 245, 212, 0.72);
+  background: rgba(139, 245, 212, 0.1);
 }
 
 .nav-link__label {
-  font-size: 0.98rem;
+  display: block;
+  color: #f8fafc;
+  font-size: 0.92rem;
   font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .ontology-header {
   display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  align-items: start;
+  flex-wrap: nowrap;
+  gap: 0.75rem;
+  align-items: center;
   justify-content: space-between;
+  min-height: 0;
+}
+
+.ontology-header__copy {
+  display: flex;
+  gap: 0.6rem;
+  align-items: baseline;
+  min-width: 0;
+}
+
+.ontology-header__title {
+  margin: 0;
+  font-size: clamp(1.15rem, 1.6vw, 1.4rem);
+  line-height: 1.1;
+  white-space: nowrap;
+}
+
+.ontology-header__meta {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 0.5rem;
+  align-items: center;
+  white-space: nowrap;
 }
 
 .ontology-layout {
   display: grid;
-  gap: 1.5rem;
+  gap: 1rem;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.ontology-pane {
+  display: grid;
+  gap: 0.75rem;
+  min-height: 0;
+  background: linear-gradient(180deg, rgba(6, 27, 49, 0.9), rgba(4, 21, 39, 0.88));
+}
+
+.ontology-pane__header {
+  align-content: start;
+}
+
+.ontology-pane__body {
+  min-height: 0;
+  overflow: hidden;
 }
 
 .ontology-sidebar {
@@ -288,138 +422,162 @@ button:hover {
 
 .ontology-entity-list {
   display: grid;
-  gap: 0.75rem;
+  gap: 0.5rem;
 }
 
 .ontology-entity {
-  display: grid;
-  gap: 0.2rem;
+  display: block;
   width: 100%;
-  padding: 0.95rem 1rem;
-  border: 1px solid var(--border-color);
-  border-radius: 18px;
-  background: rgba(255, 255, 255, 0.03);
+  padding: 0.45rem 0.1rem 0.45rem 0.85rem;
+  border: 0;
+  border-left: 2px solid transparent;
+  border-radius: 0;
+  background: transparent;
   text-align: left;
 }
 
 .ontology-entity:hover {
-  border-color: rgba(139, 245, 212, 0.45);
-  background: rgba(255, 255, 255, 0.06);
+  border-left-color: rgba(139, 245, 212, 0.45);
+  background: rgba(139, 245, 212, 0.05);
 }
 
 .ontology-entity--selected {
-  border-color: rgba(139, 245, 212, 0.7);
-  background: rgba(139, 245, 212, 0.14);
+  border-left-color: rgba(139, 245, 212, 0.72);
+  background: rgba(139, 245, 212, 0.1);
+}
+
+.ontology-entity__row {
+  display: flex;
+  gap: 0.5rem;
+  align-items: baseline;
+  justify-content: flex-start;
+  white-space: nowrap;
 }
 
 .ontology-entity__kind {
   color: var(--accent);
+  flex: 0 0 auto;
   font-size: 0.72rem;
   font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
+  letter-spacing: 0.04em;
 }
 
 .ontology-entity__name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
   font-size: 1rem;
 }
 
-.ontology-entity__subject {
-  color: var(--muted);
-  font-family: "IBM Plex Mono", "SFMono-Regular", monospace;
-  font-size: 0.88rem;
-}
-
 .ontology-detail__header {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  align-items: start;
-  justify-content: space-between;
+  display: grid;
+  gap: 0.35rem;
+  justify-items: start;
+  text-align: left;
 }
 
 .ontology-detail__title {
   margin: 0;
-  font-size: clamp(1.5rem, 3vw, 2.25rem);
+  font-size: clamp(1.35rem, 2.4vw, 1.85rem);
+}
+
+.ontology-detail__meta {
+  margin: 0.2rem 0 0;
+  color: var(--muted);
+  font-family: "IBM Plex Mono", "SFMono-Regular", monospace;
+  font-size: 0.84rem;
+}
+
+.ontology-detail__hero {
+  padding-bottom: 0.25rem;
 }
 
 .ontology-section {
   display: grid;
-  gap: 0.9rem;
+  gap: 0.65rem;
 }
 
 .ontology-section h3 {
   margin: 0;
-}
-
-.ontology-overview-grid {
-  display: grid;
-  gap: 0.75rem;
-  margin: 0;
-}
-
-.ontology-overview-item {
-  border: 1px solid var(--border-color);
-  border-radius: 16px;
-  padding: 1rem;
-  background: rgba(255, 255, 255, 0.03);
-}
-
-.ontology-overview-item dt {
-  color: var(--accent);
-  font-size: 0.8rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-.ontology-overview-item dd {
-  margin: 0.35rem 0 0;
+  font-size: 1rem;
 }
 
 .ontology-relationship-grid {
   display: grid;
-  gap: 1rem;
+  gap: 0.75rem;
 }
 
 .ontology-tag-list {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.65rem;
+  gap: 0.5rem;
 }
 
 .ontology-tag {
   display: inline-flex;
   align-items: center;
-  padding: 0.45rem 0.7rem;
+  padding: 0.35rem 0.6rem;
   border: 1px solid var(--border-color);
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.04);
+  background: rgba(12, 51, 90, 0.42);
   color: #f8fafc;
-  font-family: "IBM Plex Mono", "SFMono-Regular", monospace;
   font-size: 0.85rem;
 }
 
-.ontology-stat {
-  margin: 0;
-  font-size: clamp(1.8rem, 4vw, 2.5rem);
-  font-weight: 700;
+.shell-main {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 0;
+  background: transparent;
+  overflow: hidden;
+  position: relative;
 }
 
-.shell-main {
+.shell-body {
+  display: grid;
+  grid-template-columns: 320px minmax(0, 1fr);
+  height: 100%;
+  min-height: 0;
+  overflow: hidden;
+  background: transparent;
+}
+
+.shell-main__viewport {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  height: 100%;
+  min-height: 0;
+  overflow: hidden;
   background: transparent;
 }
 
 .shell-main__content {
+  display: grid;
+  flex: 1 1 auto;
+  grid-template-rows: minmax(0, 1fr);
+  height: 100%;
   width: min(1200px, 100%);
   margin: 0 auto;
-  padding-bottom: 4rem;
+  background: transparent;
+  padding: 0;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.shell-main__content > * {
+  min-height: 0;
+}
+
+.shell-backdrop {
+  display: none;
 }
 
 .feature-card {
   border: 1px solid var(--border-color);
   border-radius: 20px;
-  padding: 1.25rem;
+  padding: 1rem;
   background: rgba(255, 255, 255, 0.03);
 }
 
@@ -436,7 +594,7 @@ button:hover {
 
 .field {
   display: grid;
-  gap: 0.5rem;
+  gap: 0.35rem;
 }
 
 .field span {
@@ -449,7 +607,7 @@ button:hover {
   width: 100%;
   border: 1px solid var(--border-color);
   border-radius: 16px;
-  padding: 0.85rem 1rem;
+  padding: 0.7rem 0.85rem;
   background: rgba(15, 23, 42, 0.75);
   color: inherit;
 }
@@ -461,7 +619,7 @@ button:hover {
 .toolbar {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.75rem;
+  gap: 0.5rem;
   align-items: center;
 }
 
@@ -484,11 +642,11 @@ button:hover {
 .code-block {
   border: 1px solid var(--border-color);
   border-radius: 20px;
-  background: rgba(2, 8, 23, 0.5);
+  background: rgba(5, 24, 44, 0.72);
 }
 
 .empty-state {
-  padding: 1.25rem;
+  padding: 1rem;
 }
 
 .table-shell {
@@ -502,7 +660,7 @@ table {
 
 th,
 td {
-  padding: 0.85rem 1rem;
+  padding: 0.65rem 0.8rem;
   text-align: left;
   border-bottom: 1px solid var(--border-color);
 }
@@ -518,14 +676,14 @@ tbody tr:last-child td {
 
 .code-block {
   margin: 0;
-  padding: 1rem;
+  padding: 0.85rem;
   overflow-x: auto;
   white-space: pre-wrap;
 }
 
 .filters-grid {
   display: grid;
-  gap: 1rem;
+  gap: 0.75rem;
 }
 
 .sr-only {
@@ -543,7 +701,6 @@ tbody tr:last-child td {
 @media (min-width: 720px) {
   .feature-grid,
   .filters-grid,
-  .ontology-overview-grid,
   .ontology-relationship-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -555,8 +712,64 @@ tbody tr:last-child td {
 }
 
 @media (min-width: 960px) {
+  .ontology-page {
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+    gap: 0.5rem;
+    height: 100%;
+    min-height: 0;
+    overflow: hidden;
+  }
+
   .ontology-layout {
+    flex: 1 1 auto;
+    height: 100%;
     grid-template-columns: minmax(18rem, 22rem) minmax(0, 1fr);
+    align-items: stretch;
+    min-height: 0;
+  }
+
+  .ontology-pane {
+    height: 100%;
+    grid-template-rows: auto minmax(0, 1fr);
+    overflow: hidden;
+  }
+
+  .ontology-pane__body {
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+    overflow: hidden;
+    padding-right: 0.25rem;
+  }
+
+  .ontology-sidebar {
+    min-height: 0;
+  }
+
+  .ontology-entity-list {
+    flex: 1 1 auto;
+    min-height: 0;
+    overflow-y: auto;
+    padding-right: 0.25rem;
+  }
+
+  .ontology-detail {
+    flex: 1 1 auto;
+    min-height: 0;
+    overflow-y: auto;
+    padding-right: 0.25rem;
+  }
+
+  .ontology-sidebar .ontology-pane__body,
+  .ontology-detail-pane .ontology-pane__body {
+    min-height: 0;
+  }
+
+  .ontology-sidebar .empty-state,
+  .ontology-detail-pane .empty-state {
+    margin: auto 0;
   }
 
   .filters-grid {
@@ -565,12 +778,51 @@ tbody tr:last-child td {
 }
 
 @media (max-width: 47.99rem) {
-  .breadcrumb-list {
-    display: none;
+  .nosqo-shell {
+    grid-template-rows: 44px minmax(0, 1fr);
   }
 
+  .shell-burger {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .shell-body {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .shell-navbar {
+    position: fixed;
+    top: 44px;
+    bottom: 0;
+    left: 0;
+    width: min(18rem, 85vw);
+    transform: translateX(-100%);
+    transition: transform 160ms ease;
+    z-index: 20;
+  }
+
+  .shell-navbar--open {
+    transform: translateX(0);
+  }
+
+  .shell-main__viewport,
   .shell-main__content {
     width: 100%;
+  }
+
+  .shell-backdrop {
+    display: block;
+    position: fixed;
+    inset: 44px 0 0 0;
+    border: 0;
+    background: rgba(2, 8, 23, 0.45);
+    z-index: 10;
+  }
+
+  .breadcrumb-list {
+    display: none;
   }
 
   .page-title {

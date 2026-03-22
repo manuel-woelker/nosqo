@@ -5,7 +5,7 @@ export function NosqoPanel({ children, className }: { children: ReactNode; class
   const nextClassName = className ? `nosqo-panel ${className}` : "nosqo-panel";
 
   return (
-    <Paper className={nextClassName} p="xl" radius="xl" withBorder>
+    <Paper className={nextClassName} p="md" radius="lg" withBorder>
       {children}
     </Paper>
   );
