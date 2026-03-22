@@ -173,7 +173,7 @@ function OntologyDetail({
 
       {entity.kind === "type" ? (
         <section className="ontology-section">
-          <h3>Allowed attributes</h3>
+          <h3>Attributes</h3>
           {entity.attributes.length === 0 ? (
             <p className="body-copy">No attribute predicates declared.</p>
           ) : (

@@ -717,10 +717,13 @@ globalStyle(".ontology-detail__hero .body-copy", {
 globalStyle(".ontology-section", {
   display: "grid",
   gap: "0.45rem",
+  padding: "0.7rem 0.85rem",
+  borderRadius: "14px",
+  background: "#102437",
 });
 
 globalStyle(".ontology-section--spaced", {
-  paddingTop: "0.35rem",
+  marginTop: "0.15rem",
 });
 
 globalStyle(".ontology-section h3", {

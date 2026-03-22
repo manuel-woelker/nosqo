@@ -61,9 +61,7 @@ describe("ontology viewer page", () => {
     expect(await screen.findByRole("heading", { level: 1, name: /ontology/i })).toBeInTheDocument();
     expect(screen.getByText("Read-only")).toBeInTheDocument();
     expect(screen.getByRole("button", { name: /person/i })).toBeInTheDocument();
-    expect(
-      screen.getByRole("heading", { level: 3, name: /allowed attributes/i }),
-    ).toBeInTheDocument();
+    expect(screen.getByRole("heading", { level: 3, name: /attributes/i })).toBeInTheDocument();
     expect(screen.getByRole("button", { name: /^name$/i })).toBeInTheDocument();
     expect(screen.getByText("Human-readable name.")).toBeInTheDocument();
     expect(screen.getByRole("button", { name: /^string$/i })).toBeInTheDocument();
