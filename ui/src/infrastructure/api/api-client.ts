@@ -54,6 +54,20 @@ export async function fetchStatements(filters: StatementFilters): Promise<string
   return response.text();
 }
 
+export async function fetchOntologyText(): Promise<string> {
+  const response = await fetch(buildApiUrl("/api/v1/ontology"), {
+    headers: {
+      Accept: "text/plain",
+    },
+  });
+
+  if (!response.ok) {
+    throw new ApiError(await readErrorMessage(response, "ontology viewer"), response.status);
+  }
+
+  return response.text();
+}
+
 function buildApiUrl(path: string): string {
   const configuredBaseUrl = import.meta.env.VITE_API_BASE_URL;
 

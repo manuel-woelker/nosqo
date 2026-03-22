@@ -1,9 +1,10 @@
 // @vitest-environment happy-dom
 
-import { render, screen } from "@testing-library/react";
-import { StatementsPage } from "./statements-page";
+import { screen } from "@testing-library/react";
+import { renderWithNosqoProviders } from "../../../test/render";
+import { StatementBrowserPage } from "./statement-browser-page";
 
-describe("statements page", () => {
+describe("statement browser page", () => {
   afterEach(() => {
     vi.unstubAllGlobals();
   });
@@ -21,7 +22,7 @@ describe("statements page", () => {
       ),
     );
 
-    render(<StatementsPage />);
+    renderWithNosqoProviders(<StatementBrowserPage />);
 
     expect(
       await screen.findByRole("heading", {

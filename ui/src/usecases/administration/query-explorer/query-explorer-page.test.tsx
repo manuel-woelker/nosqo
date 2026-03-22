@@ -1,9 +1,10 @@
 // @vitest-environment happy-dom
 
-import { fireEvent, render, screen, waitFor } from "@testing-library/react";
-import { QueryPage } from "./query-page";
+import { fireEvent, screen, waitFor } from "@testing-library/react";
+import { renderWithNosqoProviders } from "../../../test/render";
+import { QueryExplorerPage } from "./query-explorer-page";
 
-describe("query page", () => {
+describe("query explorer page", () => {
   afterEach(() => {
     vi.unstubAllGlobals();
   });
@@ -27,7 +28,7 @@ describe("query page", () => {
       ),
     );
 
-    render(<QueryPage />);
+    renderWithNosqoProviders(<QueryExplorerPage />);
 
     fireEvent.click(screen.getByRole("button", { name: /run query/i }));
 
@@ -53,7 +54,7 @@ describe("query page", () => {
       ),
     );
 
-    render(<QueryPage />);
+    renderWithNosqoProviders(<QueryExplorerPage />);
 
     fireEvent.click(screen.getByRole("button", { name: /run query/i }));
 

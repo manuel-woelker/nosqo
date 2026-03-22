@@ -1,12 +1,13 @@
-import type { QueryResponse } from "../lib/api-client";
+import type { QueryResponse } from "../../../infrastructure/api/api-client";
+import { NosqoEmptyState } from "../../../common/components/nosqo-empty-state";
 
 export function QueryResultsTable({ result }: { result: QueryResponse }) {
   if (result.rows.length === 0) {
     return (
-      <div className="empty-state">
-        <h3>No matching rows</h3>
-        <p>The query executed successfully, but nothing matched this pattern.</p>
-      </div>
+      <NosqoEmptyState
+        body="The query executed successfully, but nothing matched this pattern."
+        title="No matching rows"
+      />
     );
   }
 

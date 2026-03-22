@@ -1,7 +1,8 @@
 // @vitest-environment happy-dom
 
 import type { ReactNode } from "react";
-import { render, screen } from "@testing-library/react";
+import { screen } from "@testing-library/react";
+import { renderWithNosqoProviders } from "../../test/render";
 import { HomePage } from "./home-page";
 
 vi.mock("@tanstack/react-router", () => ({
@@ -13,22 +14,26 @@ vi.mock("@tanstack/react-router", () => ({
 }));
 
 describe("home page", () => {
-  it("renders the main entry points", () => {
-    render(<HomePage />);
+  it("renders the administration entry points", () => {
+    renderWithNosqoProviders(<HomePage />);
 
     expect(
       screen.getByRole("heading", {
-        level: 2,
+        level: 1,
         name: /start with the real workflows/i,
       }),
     ).toBeInTheDocument();
+    expect(screen.getByRole("link", { name: /open ontology/i })).toHaveAttribute(
+      "href",
+      "/administration/ontology",
+    );
     expect(screen.getByRole("link", { name: /open query explorer/i })).toHaveAttribute(
       "href",
-      "/query",
+      "/administration/query-explorer",
     );
     expect(screen.getByRole("link", { name: /open statement browser/i })).toHaveAttribute(
       "href",
-      "/statements",
+      "/administration/statement-browser",
     );
   });
 });
