@@ -1,5 +1,5 @@
-import { screen } from "@testing-library/react";
-import { renderApp } from "../test/render-app";
+import { render, screen } from "@testing-library/react";
+import { StatementsPage } from "./statements-page";
 
 describe("statements page", () => {
   afterEach(() => {
@@ -19,7 +19,7 @@ describe("statements page", () => {
       ),
     );
 
-    await renderApp(["/statements"]);
+    render(<StatementsPage />);
 
     expect(
       await screen.findByRole("heading", {

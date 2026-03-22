@@ -26,6 +26,20 @@ Prefer:
 
 Avoid mocking when a real in-memory or file-backed path is practical.
 
+# What frontend testing style should be preferred?
+
+Prefer small component tests over heavy app-shell integration tests.
+
+In practice, that means:
+
+- render the component or page under test directly when router behavior is not the thing being verified
+- keep DOM-heavy integration tests rare and focused
+- avoid full-router tests unless navigation behavior itself is the feature under test
+- prefer a few high-value integration tests plus many fast component tests
+
+The browser test environment has meaningful startup cost.
+If a test can verify the same behavior without mounting the full router or a heavier DOM stack, do the simpler thing.
+
 # When should `PalMock` be used?
 
 Use `nosqo_pal::pal_mock::PalMock` when the code depends on platform behavior such as:
@@ -54,10 +68,10 @@ If a bug fix changed a query result, API payload, or validation rule, add a focu
 When completing a unit of work, run:
 
 ```bash
-./scripts/check-code.sh
+nao check
 ```
 
-That script runs formatting, build, clippy, and the test suite.
+That task graph runs formatting, build, clippy, and the test suite.
 
 # What should happen when a change is not tested?
 

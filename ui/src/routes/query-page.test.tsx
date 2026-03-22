@@ -1,5 +1,5 @@
-import { fireEvent, screen, waitFor } from "@testing-library/react";
-import { renderApp } from "../test/render-app";
+import { fireEvent, render, screen, waitFor } from "@testing-library/react";
+import { QueryPage } from "./query-page";
 
 describe("query page", () => {
   afterEach(() => {
@@ -25,7 +25,7 @@ describe("query page", () => {
       ),
     );
 
-    await renderApp(["/query"]);
+    render(<QueryPage />);
 
     fireEvent.click(screen.getByRole("button", { name: /run query/i }));
 
@@ -51,7 +51,7 @@ describe("query page", () => {
       ),
     );
 
-    await renderApp(["/query"]);
+    render(<QueryPage />);
 
     fireEvent.click(screen.getByRole("button", { name: /run query/i }));
 
