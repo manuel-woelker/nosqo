@@ -59,6 +59,23 @@ impl ServerState {
         Ok(statement_set.to_nosqo_string())
     }
 
+    /// Returns ontology statements as pretty-printed nosqo text.
+    pub fn ontology_nosqo(&self) -> NosqoResult<String> {
+        let ontology_statements = self
+            .store
+            .find_statements(&StatementPattern::any())?
+            .as_slice()
+            .iter()
+            .filter(|statement| {
+                let subject = statement.subject.as_str();
+                subject.starts_with('#') || subject.starts_with('~')
+            })
+            .cloned()
+            .collect();
+
+        Ok(nosqo_model::StatementSet::new(ontology_statements).to_nosqo_string())
+    }
+
     /// Parses, validates, and executes a raw NQL query string.
     pub fn execute_nql_query(&self, query_text: &str) -> Result<QueryResponse, QueryRequestError> {
         let query = NqlParser::parse_str(query_text)
@@ -158,5 +175,30 @@ mod tests {
         };
 
         assert!(message.contains("query must contain at least one pattern"));
+    }
+
+    #[test]
+    fn ontology_nosqo_returns_only_ontology_subjects() {
+        let store = Arc::new(InMemoryStatementStore::new(StatementSet::default()));
+        store
+            .assert_statements(StatementSet::from(vec![
+                Statement::from_strings("#Person", "isA", "#Type"),
+                Statement::from_strings("#Person", "name", "Person"),
+                Statement::from_strings("frodo_baggins", "isA", "#Person"),
+                Statement::from_strings("frodo_baggins", "name", "Frodo Baggins"),
+                Statement::from_strings("~name", "isA", "#Predicate"),
+                Statement::from_strings("~name", "targetType", "#String"),
+            ]))
+            .expect("test store should accept seed statements");
+        let state = ServerState::new(PalHandle::new(PalMock::new()), store);
+
+        let rendered = state
+            .ontology_nosqo()
+            .expect("ontology rendering should succeed");
+
+        assert_eq!(
+            rendered,
+            "#Person {\n  isA #Type\n  name \"Person\"\n}\n\n~name {\n  isA #Predicate\n  targetType #String\n}"
+        );
     }
 }

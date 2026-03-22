@@ -63,6 +63,7 @@ fn create_app(state: ServerState) -> Router {
     Router::new()
         .route("/health", get(health))
         .route("/api/v1/info", get(info))
+        .route("/api/v1/ontology", get(get_ontology))
         .route("/api/v1/statements", get(get_statements))
         .route("/api/v1/query", post(post_query))
         .with_state(state)
@@ -88,6 +89,22 @@ async fn get_statements(
             tracing::error!("failed to query statements from the in-memory store: {error:?}");
             StatusCode::INTERNAL_SERVER_ERROR
         })?;
+
+    Ok((
+        [(
+            header::CONTENT_TYPE,
+            HeaderValue::from_static(NOSQO_MIME_TYPE),
+        )],
+        rendered,
+    )
+        .into_response())
+}
+
+async fn get_ontology(State(state): State<ServerState>) -> Result<Response, StatusCode> {
+    let rendered = state.ontology_nosqo().map_err(|error| {
+        tracing::error!("failed to retrieve ontology from the in-memory store: {error:?}");
+        StatusCode::INTERNAL_SERVER_ERROR
+    })?;
 
     Ok((
         [(
@@ -238,6 +255,43 @@ mod tests {
                 "columns": ["?city"],
                 "rows": []
             })
+        );
+    }
+
+    #[tokio::test]
+    async fn get_ontology_returns_nosqo_text_for_ontology_subjects() {
+        let store = std::sync::Arc::new(InMemoryStatementStore::new(StatementSet::default()));
+        store
+            .assert_statements(StatementSet::from(vec![
+                Statement::from_strings("#Person", "isA", "#Type"),
+                Statement::from_strings("#Person", "name", "Person"),
+                Statement::from_strings("frodo_baggins", "isA", "#Person"),
+                Statement::from_strings("~name", "isA", "#Predicate"),
+            ]))
+            .expect("test store should accept seed statements");
+        let app = create_app(ServerState::new(PalHandle::new(PalMock::new()), store));
+
+        let response = app
+            .oneshot(
+                Request::builder()
+                    .method("GET")
+                    .uri("/api/v1/ontology")
+                    .body(Body::empty())
+                    .expect("request should build"),
+            )
+            .await
+            .expect("request should succeed");
+
+        assert_eq!(response.status(), StatusCode::OK);
+
+        let body = axum::body::to_bytes(response.into_body(), usize::MAX)
+            .await
+            .expect("body should read");
+        let rendered = String::from_utf8(body.to_vec()).expect("body should be valid utf-8");
+
+        assert_eq!(
+            rendered,
+            "#Person {\n  isA #Type\n  name \"Person\"\n}\n\n~name {\n  isA #Predicate\n}"
         );
     }
 }

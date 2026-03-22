@@ -1,5 +1,9 @@
 @baseUrl = http://127.0.0.1:3000
 
+### Retrieve server info
+GET {{baseUrl}}/api/v1/info
+Accept: application/json
+
 ### Retrieve all statements about Japan
 GET {{baseUrl}}/api/v1/statements?subject=japan
 Accept: text/plain
@@ -10,6 +14,10 @@ Accept: text/plain
 
 ### Retrieve all statements about Frodo Baggins
 GET {{baseUrl}}/api/v1/statements?subject=frodo_baggins
+Accept: text/plain
+
+### Retrieve ontology statements for clients
+GET {{baseUrl}}/api/v1/ontology
 Accept: text/plain
 
 ### Retrieve ids and names of all persons
