@@ -16,7 +16,6 @@ The current UI stack is:
 - TypeScript
 - Vite
 - TanStack Router
-- Mantine UI as the current UI component library implementation
 - Zustand
 - Immer
 - Vitest
@@ -74,7 +73,7 @@ The application should not depend directly on the implementation details of a th
 
 Core shared components such as buttons, inputs, selects, dialogs, tables, and similar building blocks should be exposed through `src/common/components/`.
 That layer should define the interface the rest of the app uses.
-Mantine UI is the current underlying component library implementation, but feature code should treat that as an implementation detail.
+The current implementation is bespoke React components and plain CSS, but feature code should still treat the underlying implementation as an implementation detail.
 
 Use these guidelines:
 

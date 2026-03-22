@@ -131,6 +131,17 @@ button:hover {
   border-color: rgba(139, 245, 212, 0.5);
 }
 
+.nosqo-button {
+  border: 1px solid rgba(139, 245, 212, 0.28);
+  background: rgba(139, 245, 212, 0.12);
+  color: #f8fafc;
+}
+
+.nosqo-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.65;
+}
+
 .nav-link--active {
   border-color: var(--accent);
   background: rgba(139, 245, 212, 0.12);
@@ -605,7 +616,7 @@ button:hover {
   width: min(1200px, 100%);
   margin: 0 auto;
   background: transparent;
-  padding: 0;
+  padding: 0.75rem;
   min-height: 0;
   overflow: hidden;
 }
@@ -656,6 +667,19 @@ button:hover {
   color: inherit;
 }
 
+.nosqo-input {
+  color: #f2efe7;
+  background: rgba(15, 23, 42, 0.82);
+}
+
+.nosqo-input::placeholder {
+  color: rgba(242, 239, 231, 0.4);
+}
+
+.nosqo-textarea {
+  min-height: 9rem;
+}
+
 .field textarea {
   resize: vertical;
 }
@@ -679,6 +703,28 @@ button:hover {
 .hint {
   margin: 0;
   color: var(--muted);
+}
+
+.nosqo-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.22rem 0.55rem;
+  border: 1px solid rgba(139, 245, 212, 0.28);
+  border-radius: 999px;
+  background: rgba(139, 245, 212, 0.12);
+  color: #b7f7e4;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.nosqo-badge--predicate {
+  border-color: rgba(103, 232, 249, 0.28);
+  background: rgba(103, 232, 249, 0.12);
+  color: #b7f6ff;
 }
 
 .empty-state,
@@ -854,6 +900,7 @@ tbody tr:last-child td {
 
   .shell-main__viewport,
   .shell-main__content {
+    padding: 1rem;
     width: 100%;
   }
 

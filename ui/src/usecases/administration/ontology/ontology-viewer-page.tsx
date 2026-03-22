@@ -1,4 +1,3 @@
-import { Badge } from "@mantine/core";
 import { useEffect } from "react";
 import { NosqoEmptyState } from "../../../common/components/nosqo-empty-state";
 import { NosqoErrorAlert } from "../../../common/components/nosqo-error-alert";
@@ -82,9 +81,7 @@ export function OntologyViewerPage() {
             {countEntitiesByKind(entities, "type")} types,{" "}
             {countEntitiesByKind(entities, "predicate")} predicates
           </p>
-          <Badge color="teal" radius="xl" size="sm" variant="light">
-            Read-only
-          </Badge>
+          <span className="nosqo-badge">Read-only</span>
         </div>
       </div>
 
@@ -180,14 +177,13 @@ function OntologyDetail({
     <div className="panel-stack ontology-detail">
       <div className="panel-stack ontology-detail__hero">
         <div className="ontology-detail__header">
-          <Badge
-            color={entity.kind === "predicate" ? "cyan" : "teal"}
-            radius="xl"
-            size="sm"
-            variant="light"
+          <span
+            className={
+              entity.kind === "predicate" ? "nosqo-badge nosqo-badge--predicate" : "nosqo-badge"
+            }
           >
             {formatKindLabel(entity.kind)}
-          </Badge>
+          </span>
           <h2 className="ontology-detail__title">{entity.displayName}</h2>
           <p className="ontology-detail__meta">{entity.subject}</p>
         </div>

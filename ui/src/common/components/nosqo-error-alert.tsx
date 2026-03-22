@@ -1,9 +1,7 @@
-import { Alert } from "@mantine/core";
-
 export function NosqoErrorAlert({ message }: { message: string }) {
   return (
-    <Alert className="nosqo-error-alert" color="red" radius="lg" role="alert" variant="light">
+    <div className="nosqo-error-alert" role="alert">
       {message}
-    </Alert>
+    </div>
   );
 }

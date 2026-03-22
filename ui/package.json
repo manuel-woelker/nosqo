@@ -16,8 +16,6 @@
     "check": "pnpm run format:check && pnpm run lint && pnpm run typecheck && pnpm run test:run && pnpm run build"
   },
   "dependencies": {
-    "@mantine/core": "^8.2.8",
-    "@mantine/hooks": "^8.2.8",
     "@tanstack/react-router": "^1.122.0",
     "immer": "^11.1.4",
     "react": "^19.1.1",

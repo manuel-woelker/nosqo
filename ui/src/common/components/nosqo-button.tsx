@@ -1,5 +1,4 @@
 import type { MouseEventHandler, ReactNode } from "react";
-import { Button } from "@mantine/core";
 
 export function NosqoButton({
   children,
@@ -13,8 +12,8 @@ export function NosqoButton({
   type?: "button" | "reset" | "submit";
 }) {
   return (
-    <Button disabled={disabled} onClick={onClick} radius="xl" type={type} variant="light">
+    <button className="nosqo-button" disabled={disabled} onClick={onClick} type={type}>
       {children}
-    </Button>
+    </button>
   );
 }
