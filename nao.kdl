@@ -70,6 +70,14 @@ recipe "default" {
     """
   }
 
+  task "ui-typecheck" description="Typecheck the UI application source" {
+    depends-on "ui-format"
+    run shell="""
+      pnpm --dir ui run typecheck
+      NAO_TASK_OUTCOME="UI app typecheck passed"
+    """
+  }
+
   task "ui-test" description="Run the UI test suite" {
     depends-on "ui-format"
     run script="scripts/run-ui-tests-for-nao.sh"
@@ -91,6 +99,7 @@ recipe "default" {
     depends-on "cargo-nextest"
     depends-on "ui-format"
     depends-on "ui-lint"
+    depends-on "ui-typecheck"
     depends-on "ui-test"
     depends-on "ui-build"
     run shell="""
