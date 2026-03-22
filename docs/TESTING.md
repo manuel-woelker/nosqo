@@ -36,9 +36,18 @@ In practice, that means:
 - keep DOM-heavy integration tests rare and focused
 - avoid full-router tests unless navigation behavior itself is the feature under test
 - prefer a few high-value integration tests plus many fast component tests
+- default Vitest to the `node` environment and opt specific test files into a DOM environment only when they actually render DOM
 
 The browser test environment has meaningful startup cost.
 If a test can verify the same behavior without mounting the full router or a heavier DOM stack, do the simpler thing.
+
+For UI tests that need DOM APIs, use an explicit file-level environment annotation such as:
+
+```ts
+// @vitest-environment happy-dom
+```
+
+That keeps non-DOM tests on the faster Node path by default.
 
 # When should `PalMock` be used?
 

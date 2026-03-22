@@ -1,3 +1,5 @@
+// @vitest-environment happy-dom
+
 import { render, screen } from "@testing-library/react";
 import { StatementsPage } from "./statements-page";
 
