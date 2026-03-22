@@ -138,8 +138,15 @@ globalStyle(".nosqo-shell", {
 });
 
 globalStyle(".shell-header, .shell-navbar", {
-  borderColor: "var(--border-color)",
   background: "#08101c",
+});
+
+globalStyle(".shell-header", {
+  borderBottom: "1px solid var(--border-color)",
+});
+
+globalStyle(".shell-navbar", {
+  borderRight: "1px solid var(--border-color)",
 });
 
 globalStyle(".shell-header__row", {
