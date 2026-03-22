@@ -686,14 +686,73 @@ globalStyle(".ontology-section", {
   gap: "0.65rem",
 });
 
+globalStyle(".ontology-section--spaced", {
+  paddingTop: "0.5rem",
+});
+
 globalStyle(".ontology-section h3", {
   margin: 0,
   fontSize: "1rem",
 });
 
-globalStyle(".ontology-relationship-grid", {
-  display: "grid",
-  gap: "0.75rem",
+globalStyle(".ontology-inline-links", {
+  display: "flex",
+  flexWrap: "wrap",
+  gap: "0.35rem 0.6rem",
+  alignItems: "center",
+});
+
+globalStyle(".nosqo-table", {
+  width: "100%",
+  borderCollapse: "collapse",
+  tableLayout: "fixed",
+  fontSize: "0.92rem",
+});
+
+globalStyle(".nosqo-table th", {
+  padding: "0 0 0.3rem",
+  color: "var(--muted)",
+  fontSize: "0.74rem",
+  fontWeight: "700",
+  letterSpacing: "0.04em",
+  textAlign: "left",
+  textTransform: "uppercase",
+});
+
+globalStyle(".nosqo-table td", {
+  padding: "0.2rem 0.75rem 0.2rem 0",
+  verticalAlign: "top",
+  textAlign: "left",
+});
+
+globalStyle(".nosqo-table th:last-child, .nosqo-table td:last-child", {
+  paddingRight: 0,
+});
+
+globalStyle(".ontology-reference-table td:first-child", {
+  width: "20%",
+});
+
+globalStyle(".ontology-inline-link", {
+  padding: 0,
+  border: 0,
+  background: "transparent",
+  color: "var(--accent)",
+  fontWeight: "600",
+  textDecoration: "underline",
+  textUnderlineOffset: "0.15em",
+});
+
+globalStyle(".ontology-inline-link:hover", {
+  color: "#f8fafc",
+  borderColor: "transparent",
+  background: "transparent",
+  transform: "none",
+});
+
+globalStyle(".ontology-inline-link--secondary", {
+  color: "rgba(183, 247, 228, 0.82)",
+  fontWeight: "500",
 });
 
 globalStyle(".ontology-tag-list", {

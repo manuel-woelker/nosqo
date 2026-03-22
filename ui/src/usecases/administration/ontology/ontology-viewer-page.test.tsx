@@ -1,6 +1,6 @@
 // @vitest-environment happy-dom
 
-import { screen } from "@testing-library/react";
+import { fireEvent, screen, within } from "@testing-library/react";
 import { OntologyViewerPage } from "./ontology-viewer-page";
 import { renderWithNosqoProviders } from "../../../test/render";
 
@@ -58,8 +58,23 @@ describe("ontology viewer page", () => {
     expect(await screen.findByRole("heading", { level: 1, name: /ontology/i })).toBeInTheDocument();
     expect(screen.getByText("Read-only")).toBeInTheDocument();
     expect(screen.getByRole("button", { name: /person/i })).toBeInTheDocument();
-    expect(screen.getByText("Allowed attributes")).toBeInTheDocument();
-    expect(screen.getAllByText("name").length).toBeGreaterThan(0);
+    expect(
+      screen.getByRole("heading", { level: 3, name: /allowed attributes/i }),
+    ).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: /^name$/i })).toBeInTheDocument();
+    expect(screen.getByText("Human-readable name.")).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: /^string$/i })).toBeInTheDocument();
+    expect(screen.queryByText("#Person")).not.toBeInTheDocument();
+
+    fireEvent.click(
+      within(screen.getByRole("list", { name: /ontology entities/i })).getByRole("button", {
+        name: /name/i,
+      }),
+    );
+
+    expect(screen.getByRole("heading", { level: 3, name: /source types/i })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { level: 3, name: /target types/i })).toBeInTheDocument();
+    expect(screen.getByText("A human individual.")).toBeInTheDocument();
   });
 
   it("renders an empty state when the ontology endpoint returns no content", async () => {
