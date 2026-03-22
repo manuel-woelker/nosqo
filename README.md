@@ -109,7 +109,7 @@ One reasonable starting layout:
 │   └── server/      # axum application and HTTP API
 ├── docs/            # contributor guidance and plans
 ├── scripts/         # repo tooling
-├── web/             # browser-based UI
+├── ui/              # browser-based UI
 └── README.md
 ```
 

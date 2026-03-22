@@ -15,7 +15,7 @@ Note: All developer documentation should be written in English.
 
 - Implementation Language: Rust
 - API framework: Axum
-- Web UI: browser-based frontend in `web/`
+- Web UI: browser-based frontend in `ui/`
 - Use `nosqo_base::shared_string::SharedString` instead of plain `String` for string-heavy struct fields when shared ownership matters
 - Use `nosqo_pal::pal::Pal` for platform interaction such as filesystem access, clocks, and process execution
 - Prefer `nosqo_pal::pal_mock::PalMock` in tests when code depends on platform behavior

@@ -1,4 +1,4 @@
-# web
+# ui
 
 This directory is reserved for the browser-based `nosqo` UI.
 
