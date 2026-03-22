@@ -707,6 +707,13 @@ globalStyle(".ontology-detail__hero", {
   paddingBottom: "0.25rem",
 });
 
+globalStyle(".ontology-detail__hero .body-copy", {
+  borderLeft: "2px solid #35506d",
+  paddingLeft: "0.75rem",
+  color: "#d7deea",
+  lineHeight: "1.6",
+});
+
 globalStyle(".ontology-section", {
   display: "grid",
   gap: "0.45rem",
@@ -757,6 +764,11 @@ globalStyle(".nosqo-table th:last-child, .nosqo-table td:last-child", {
 
 globalStyle(".ontology-reference-table td:first-child", {
   width: "20%",
+});
+
+globalStyle(".ontology-reference-table td:nth-child(2)", {
+  color: "#d1d9e6",
+  fontWeight: "500",
 });
 
 globalStyle(".ontology-inline-link", {
