@@ -5,6 +5,7 @@ set -euo pipefail
 echo
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 MANIFEST_PATH="$ROOT_DIR/Cargo.toml"
+UI_DIR="$ROOT_DIR/ui"
 GREEN=$'\033[32m'
 RESET=$'\033[0m'
 
@@ -49,6 +50,18 @@ run_step() {
     "cargo clippy")
       emoji="📎"
       ;;
+    "ui format")
+      emoji="🎨"
+      ;;
+    "ui lint")
+      emoji="🧭"
+      ;;
+    "ui test")
+      emoji="🧪"
+      ;;
+    "ui build")
+      emoji="🕸️"
+      ;;
   esac
   print_timing_line "$emoji" "Running $name..." "$elapsed_ns"
 }
@@ -92,6 +105,13 @@ EXECUTED_TESTS="$(
 
 TEST_END_NS="$(now_ns)"
 print_timing_line "🧪" "Running cargo nextest..." "$((TEST_END_NS - TEST_START_NS))"
+
+if [[ -f "$UI_DIR/package.json" ]]; then
+  run_step "ui format" pnpm --dir "$UI_DIR" run format:check
+  run_step "ui lint" pnpm --dir "$UI_DIR" run lint
+  run_step "ui test" pnpm --dir "$UI_DIR" run test:run
+  run_step "ui build" pnpm --dir "$UI_DIR" run build
+fi
 
 TOTAL_END_NS="$(now_ns)"
 print_timing_line "🏁" "Complete check..." "$((TOTAL_END_NS - TOTAL_START_NS))"
