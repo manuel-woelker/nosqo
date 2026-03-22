@@ -1,5 +1,5 @@
 recipe "default" {
-  config live-display="line-per-task" max-parallel-tasks=4
+  config live-display="line-per-task" max-parallel-tasks=8
 
   task "cargo-fmt" description="Run cargo fmt across the Rust workspace" {
     run shell="""
@@ -57,8 +57,8 @@ recipe "default" {
 
   task "ui-format" description="Check UI formatting with oxfmt" {
     run shell="""
-      pnpm --dir ui run format:check
-      NAO_TASK_OUTCOME="UI formatting is clean"
+      pnpm --dir ui run format
+      NAO_TASK_OUTCOME="UI files were formatted"
     """
   }
 
@@ -71,12 +71,12 @@ recipe "default" {
   }
 
   task "ui-test" description="Run the UI test suite" {
-    depends-on "ui-lint"
+    depends-on "ui-format"
     run script="scripts/run-ui-tests-for-nao.sh"
   }
 
   task "ui-build" description="Build the UI bundle" {
-    depends-on "ui-test"
+    depends-on "ui-format"
     run shell="""
       pnpm --dir ui run build
       NAO_TASK_OUTCOME="UI production build succeeded"
