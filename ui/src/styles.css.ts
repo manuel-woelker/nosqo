@@ -213,6 +213,14 @@ globalStyle(".brand-copy", {
   flex: "0 0 auto",
 });
 
+globalStyle(".brand-mark", {
+  width: "1.1rem",
+  height: "1.1rem",
+  borderRadius: "0.25rem",
+  alignSelf: "center",
+  flex: "0 0 auto",
+});
+
 globalStyle(".brand-link", {
   color: "#f8fafc",
   fontSize: "1rem",
@@ -789,8 +797,13 @@ globalStyle(".app-shell", {
 globalStyle(".hero", {
   display: "grid",
   gap: "0.7rem",
-  alignItems: "end",
+  alignItems: "center",
   marginBottom: "1.5rem",
+  gridTemplateColumns: "minmax(0, 1fr)",
+});
+
+globalStyle(".hero__copy", {
+  minWidth: 0,
 });
 
 globalStyle(".hero__copy h1", {
@@ -806,6 +819,20 @@ globalStyle(".hero__lede", {
   color: "var(--muted)",
 });
 
+globalStyle(".hero__image", {
+  display: "block",
+  width: "min(100%, 16rem)",
+  height: "auto",
+  marginLeft: "auto",
+});
+
+globalStyle(".hero__media", {
+  display: "flex",
+  justifyContent: "flex-end",
+  alignItems: "center",
+  minWidth: 0,
+});
+
 globalStyle(".feature-grid, .filters-grid, .ontology-relationship-grid", {
   "@media": {
     "(min-width: 720px)": {
@@ -818,6 +845,15 @@ globalStyle(".filters-grid .field:last-of-type, .filters-grid .toolbar--filters"
   "@media": {
     "(min-width: 720px)": {
       gridColumn: "span 1",
+    },
+  },
+});
+
+globalStyle(".hero", {
+  "@media": {
+    "(min-width: 720px)": {
+      gridTemplateColumns: "minmax(0, 1fr) minmax(12rem, 16rem)",
+      gap: "1.25rem",
     },
   },
 });

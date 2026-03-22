@@ -4,14 +4,26 @@ import { routePaths } from "../../infrastructure/routing/route-paths";
 export function HomePage() {
   return (
     <section className="nosqo-panel panel-stack">
-      <div className="panel-stack">
-        <p className="kicker">Administration</p>
-        <h1 className="page-title">Start with the real workflows.</h1>
-        <p className="body-copy">
-          The first durable shell focuses on the two browser jobs that already matter: running NQL
-          and inspecting the statement store. More sections can earn their way into the navigation
-          later.
-        </p>
+      <div className="hero">
+        <div className="hero__copy panel-stack">
+          <p className="kicker">Administration</p>
+          <h1 className="page-title">Start with the real workflows.</h1>
+          <p className="body-copy hero__lede">
+            The first durable shell focuses on the browser jobs that already matter: browsing the
+            ontology, running NQL, and inspecting the statement store. More sections can earn their
+            way into the navigation later.
+          </p>
+        </div>
+
+        <div className="hero__media">
+          <img
+            alt="nosqo logo"
+            className="hero__image"
+            height="320"
+            src="/nosqo-logo.png"
+            width="320"
+          />
+        </div>
       </div>
 
       <div className="feature-grid">

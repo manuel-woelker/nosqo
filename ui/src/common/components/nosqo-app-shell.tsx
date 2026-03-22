@@ -41,6 +41,7 @@ export function NosqoAppShell({ children }: { children: ReactNode }) {
             />
           </button>
           <div className="brand-copy">
+            <img alt="" aria-hidden="true" className="brand-mark" src="/nosqo-logo.png" />
             <Link className="brand-link" to={routePaths.home}>
               nosqo
             </Link>

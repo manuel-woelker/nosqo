@@ -23,6 +23,10 @@ describe("home page", () => {
         name: /start with the real workflows/i,
       }),
     ).toBeInTheDocument();
+    expect(screen.getByRole("img", { name: /nosqo logo/i })).toHaveAttribute(
+      "src",
+      "/nosqo-logo.png",
+    );
     expect(screen.getByRole("link", { name: /open ontology/i })).toHaveAttribute(
       "href",
       "/administration/ontology",
