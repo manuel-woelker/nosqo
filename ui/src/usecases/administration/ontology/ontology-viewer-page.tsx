@@ -4,9 +4,7 @@ import { NosqoErrorAlert } from "../../../common/components/nosqo-error-alert";
 import { NosqoPanel } from "../../../common/components/nosqo-panel";
 import { NosqoTable, type NosqoTableRow } from "../../../common/components/nosqo-table";
 import { NosqoTextInput } from "../../../common/components/nosqo-text-input";
-import { ApiError, fetchOntologyStatementJson } from "../../../infrastructure/api/api-client";
 import type { OntologyEntity } from "./ontology-types";
-import { transformOntologyStatementJson } from "./transform-ontology-statement-json";
 import { useOntologyViewerStore } from "./use-ontology-viewer-store";
 
 export function OntologyViewerPage() {
@@ -14,42 +12,14 @@ export function OntologyViewerPage() {
   const errorMessage = useOntologyViewerStore((state) => state.errorMessage);
   const filterText = useOntologyViewerStore((state) => state.filterText);
   const isLoading = useOntologyViewerStore((state) => state.isLoading);
-  const reset = useOntologyViewerStore((state) => state.reset);
+  const loadOntology = useOntologyViewerStore((state) => state.loadOntology);
   const selectedEntityId = useOntologyViewerStore((state) => state.selectedEntityId);
   const selectEntity = useOntologyViewerStore((state) => state.selectEntity);
-  const setEntities = useOntologyViewerStore((state) => state.setEntities);
-  const setErrorMessage = useOntologyViewerStore((state) => state.setErrorMessage);
   const setFilterText = useOntologyViewerStore((state) => state.setFilterText);
-  const setIsLoading = useOntologyViewerStore((state) => state.setIsLoading);
 
   useEffect(() => {
-    async function loadOntology() {
-      setIsLoading(true);
-      setErrorMessage(null);
-
-      try {
-        const ontologyStatementJson = await fetchOntologyStatementJson();
-        setEntities(transformOntologyStatementJson(ontologyStatementJson));
-      } catch (error) {
-        if (error instanceof ApiError) {
-          setErrorMessage(error.message);
-        } else if (error instanceof Error) {
-          setErrorMessage(error.message);
-        } else {
-          setErrorMessage("The ontology viewer failed for an unknown reason.");
-        }
-        setEntities([]);
-      } finally {
-        setIsLoading(false);
-      }
-    }
-
     void loadOntology();
-
-    return () => {
-      reset();
-    };
-  }, [reset, setEntities, setErrorMessage, setIsLoading]);
+  }, [loadOntology]);
 
   const normalizedFilter = filterText.trim().toLowerCase();
   const filteredEntities = entities.filter((entity) => {

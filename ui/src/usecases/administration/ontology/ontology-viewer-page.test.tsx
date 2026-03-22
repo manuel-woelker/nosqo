@@ -1,11 +1,14 @@
 // @vitest-environment happy-dom
 
+import { StrictMode } from "react";
 import { fireEvent, screen, within } from "@testing-library/react";
 import { OntologyViewerPage } from "./ontology-viewer-page";
 import { renderWithNosqoProviders } from "../../../test/render";
+import { useOntologyViewerStore } from "./use-ontology-viewer-store";
 
 describe("ontology viewer page", () => {
   afterEach(() => {
+    useOntologyViewerStore.getState().reset();
     vi.unstubAllGlobals();
   });
 
@@ -123,5 +126,34 @@ describe("ontology viewer page", () => {
     renderWithNosqoProviders(<OntologyViewerPage />);
 
     expect(await screen.findByRole("alert")).toHaveTextContent("backend melted");
+  });
+
+  it("only loads the ontology once under strict mode", async () => {
+    const fetchMock = vi.fn().mockResolvedValue(
+      new Response(
+        JSON.stringify({
+          format: "nosqo-statement-json-v1",
+          values: ["#Type", "~label", ["Type"]],
+          statements: [[0, 1, 2]],
+        }),
+        {
+          status: 200,
+          headers: {
+            "Content-Type": "application/json",
+          },
+        },
+      ),
+    );
+
+    vi.stubGlobal("fetch", fetchMock);
+
+    renderWithNosqoProviders(
+      <StrictMode>
+        <OntologyViewerPage />
+      </StrictMode>,
+    );
+
+    expect(await screen.findByRole("heading", { level: 1, name: /ontology/i })).toBeInTheDocument();
+    expect(fetchMock).toHaveBeenCalledTimes(1);
   });
 });
