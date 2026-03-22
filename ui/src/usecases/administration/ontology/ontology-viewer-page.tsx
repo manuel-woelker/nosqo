@@ -4,9 +4,9 @@ import { NosqoEmptyState } from "../../../common/components/nosqo-empty-state";
 import { NosqoErrorAlert } from "../../../common/components/nosqo-error-alert";
 import { NosqoPanel } from "../../../common/components/nosqo-panel";
 import { NosqoTextInput } from "../../../common/components/nosqo-text-input";
-import { ApiError, fetchOntologyText } from "../../../infrastructure/api/api-client";
-import { parseOntologyNosqo, normalizeOntologyValue } from "./parse-ontology-nosqo";
+import { ApiError, fetchOntologyStatementJson } from "../../../infrastructure/api/api-client";
 import type { OntologyEntity } from "./ontology-types";
+import { transformOntologyStatementJson } from "./transform-ontology-statement-json";
 import { useOntologyViewerStore } from "./use-ontology-viewer-store";
 
 export function OntologyViewerPage() {
@@ -28,8 +28,8 @@ export function OntologyViewerPage() {
       setErrorMessage(null);
 
       try {
-        const ontologyText = await fetchOntologyText();
-        setEntities(parseOntologyNosqo(ontologyText));
+        const ontologyStatementJson = await fetchOntologyStatementJson();
+        setEntities(transformOntologyStatementJson(ontologyStatementJson));
       } catch (error) {
         if (error instanceof ApiError) {
           setErrorMessage(error.message);
@@ -251,9 +251,9 @@ function OntologyDetail({ entity }: { entity: OntologyEntity }) {
             </thead>
             <tbody>
               {entity.statements.map((statement) => (
-                <tr key={`${statement.predicate}-${statement.object}`}>
+                <tr key={`${statement.predicate}-${statement.rawObject}`}>
                   <td>{statement.predicate}</td>
-                  <td>{normalizeOntologyValue(statement.object)}</td>
+                  <td>{statement.object}</td>
                 </tr>
               ))}
             </tbody>

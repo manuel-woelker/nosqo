@@ -1,6 +1,7 @@
 export interface OntologyStatement {
   object: string;
   predicate: string;
+  rawObject: string;
 }
 
 export type OntologyEntityKind = "type" | "predicate";

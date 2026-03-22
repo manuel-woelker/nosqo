@@ -41,12 +41,19 @@ describe("nosqo app shell", () => {
     vi.stubGlobal(
       "fetch",
       vi.fn().mockResolvedValue(
-        new Response("", {
-          status: 200,
-          headers: {
-            "Content-Type": "text/plain",
+        new Response(
+          JSON.stringify({
+            format: "nosqo-statement-json-v1",
+            values: [],
+            statements: [],
+          }),
+          {
+            status: 200,
+            headers: {
+              "Content-Type": "application/json",
+            },
           },
-        }),
+        ),
       ),
     );
 

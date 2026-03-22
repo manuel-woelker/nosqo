@@ -14,23 +14,39 @@ describe("ontology viewer page", () => {
       "fetch",
       vi.fn().mockResolvedValue(
         new Response(
-          `#Person {
-  attribute ~name
-  description "A human individual."
-  isA #Type
-  label "Person"
-}
-
-~name {
-  description "Human-readable name."
-  isA #Predicate
-  label "name"
-  targetType #String
-}`,
+          JSON.stringify({
+            format: "nosqo-statement-json-v1",
+            values: [
+              "#Person",
+              "~attribute",
+              "~name",
+              "~description",
+              ["A human individual."],
+              "~isA",
+              "#Type",
+              "~label",
+              ["Person"],
+              ["name"],
+              "#Predicate",
+              ["Human-readable name."],
+              "#String",
+              "~targetType",
+            ],
+            statements: [
+              [0, 1, 2],
+              [0, 3, 4],
+              [0, 5, 6],
+              [0, 7, 8],
+              [2, 3, 11],
+              [2, 5, 10],
+              [2, 7, 9],
+              [2, 13, 12],
+            ],
+          }),
           {
             status: 200,
             headers: {
-              "Content-Type": "text/plain",
+              "Content-Type": "application/json",
             },
           },
         ),
@@ -50,12 +66,19 @@ describe("ontology viewer page", () => {
     vi.stubGlobal(
       "fetch",
       vi.fn().mockResolvedValue(
-        new Response("", {
-          status: 200,
-          headers: {
-            "Content-Type": "text/plain",
+        new Response(
+          JSON.stringify({
+            format: "nosqo-statement-json-v1",
+            values: [],
+            statements: [],
+          }),
+          {
+            status: 200,
+            headers: {
+              "Content-Type": "application/json",
+            },
           },
-        }),
+        ),
       ),
     );
 

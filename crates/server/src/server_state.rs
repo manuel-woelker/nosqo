@@ -1,7 +1,7 @@
 use crate::{query_request_error::QueryRequestError, query_response::QueryResponse};
 use nosqo_base::result::NosqoResult;
 use nosqo_engine::{InMemoryStatementStore, StatementStore, execute_nql_query, validate_nql_query};
-use nosqo_model::StatementPattern;
+use nosqo_model::{StatementJsonDocument, StatementPattern};
 use nosqo_pal::pal::PalHandle;
 use nosqo_parser::NqlParser;
 use serde_json::{Value, json};
@@ -59,8 +59,8 @@ impl ServerState {
         Ok(statement_set.to_nosqo_string())
     }
 
-    /// Returns ontology statements as pretty-printed nosqo text.
-    pub fn ontology_nosqo(&self) -> NosqoResult<String> {
+    /// Returns ontology statements using the indexed JSON transport.
+    pub fn ontology_statement_json(&self) -> NosqoResult<StatementJsonDocument> {
         let ontology_statements = self
             .store
             .find_statements(&StatementPattern::any())?
@@ -73,7 +73,7 @@ impl ServerState {
             .cloned()
             .collect();
 
-        Ok(nosqo_model::StatementSet::new(ontology_statements).to_nosqo_string())
+        Ok(nosqo_model::StatementSet::new(ontology_statements).to_statement_json())
     }
 
     /// Parses, validates, and executes a raw NQL query string.
@@ -178,7 +178,7 @@ mod tests {
     }
 
     #[test]
-    fn ontology_nosqo_returns_only_ontology_subjects() {
+    fn ontology_statement_json_returns_only_ontology_subjects() {
         let store = Arc::new(InMemoryStatementStore::new(StatementSet::default()));
         store
             .assert_statements(StatementSet::from(vec![
@@ -192,13 +192,23 @@ mod tests {
             .expect("test store should accept seed statements");
         let state = ServerState::new(PalHandle::new(PalMock::new()), store);
 
-        let rendered = state
-            .ontology_nosqo()
-            .expect("ontology rendering should succeed");
+        let emitted = state
+            .ontology_statement_json()
+            .expect("ontology emission should succeed");
 
-        assert_eq!(
-            rendered,
-            "#Person {\n  isA #Type\n  name \"Person\"\n}\n\n~name {\n  isA #Predicate\n  targetType #String\n}"
-        );
+        assert_eq!(emitted.format, "nosqo-statement-json-v1");
+        assert_eq!(emitted.statements.len(), 4);
+        assert!(emitted.values.iter().any(|value| {
+            matches!(
+                value,
+                nosqo_model::StatementJsonValue::NosqoToken(token) if token == "#Person"
+            )
+        }));
+        assert!(emitted.values.iter().any(|value| {
+            matches!(
+                value,
+                nosqo_model::StatementJsonValue::Text(text) if text[0] == "Person"
+            )
+        }));
     }
 }

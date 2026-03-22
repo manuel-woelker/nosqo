@@ -13,6 +13,7 @@ use axum::response::{IntoResponse, Response};
 use axum::routing::get;
 use axum::routing::post;
 use nosqo_base::logging::init_logging;
+use nosqo_model::StatementJsonDocument;
 use nosqo_pal::pal_real::PalReal;
 use read_knowledge::read_knowledge;
 use serde::Deserialize;
@@ -100,20 +101,15 @@ async fn get_statements(
         .into_response())
 }
 
-async fn get_ontology(State(state): State<ServerState>) -> Result<Response, StatusCode> {
-    let rendered = state.ontology_nosqo().map_err(|error| {
+async fn get_ontology(
+    State(state): State<ServerState>,
+) -> Result<Json<StatementJsonDocument>, StatusCode> {
+    let emitted = state.ontology_statement_json().map_err(|error| {
         tracing::error!("failed to retrieve ontology from the in-memory store: {error:?}");
         StatusCode::INTERNAL_SERVER_ERROR
     })?;
 
-    Ok((
-        [(
-            header::CONTENT_TYPE,
-            HeaderValue::from_static(NOSQO_MIME_TYPE),
-        )],
-        rendered,
-    )
-        .into_response())
+    Ok(Json(emitted))
 }
 
 async fn post_query(
@@ -259,7 +255,7 @@ mod tests {
     }
 
     #[tokio::test]
-    async fn get_ontology_returns_nosqo_text_for_ontology_subjects() {
+    async fn get_ontology_returns_statement_json_for_ontology_subjects() {
         let store = std::sync::Arc::new(InMemoryStatementStore::new(StatementSet::default()));
         store
             .assert_statements(StatementSet::from(vec![
@@ -287,11 +283,27 @@ mod tests {
         let body = axum::body::to_bytes(response.into_body(), usize::MAX)
             .await
             .expect("body should read");
-        let rendered = String::from_utf8(body.to_vec()).expect("body should be valid utf-8");
+        let json: serde_json::Value =
+            serde_json::from_slice(body.as_ref()).expect("body should be valid json");
 
         assert_eq!(
-            rendered,
-            "#Person {\n  isA #Type\n  name \"Person\"\n}\n\n~name {\n  isA #Predicate\n}"
+            json,
+            serde_json::json!({
+                "format": "nosqo-statement-json-v1",
+                "values": [
+                    "#Person",
+                    "~isA",
+                    "#Type",
+                    "~name",
+                    ["Person"],
+                    "#Predicate"
+                ],
+                "statements": [
+                    [0, 1, 2],
+                    [0, 3, 4],
+                    [3, 1, 5]
+                ]
+            })
         );
     }
 }

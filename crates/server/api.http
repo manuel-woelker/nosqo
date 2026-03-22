@@ -18,7 +18,7 @@ Accept: text/plain
 
 ### Retrieve ontology statements for clients
 GET {{baseUrl}}/api/v1/ontology
-Accept: text/plain
+Accept: application/json
 
 ### Retrieve ids and names of all persons
 POST {{baseUrl}}/api/v1/query

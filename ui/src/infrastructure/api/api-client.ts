@@ -9,6 +9,14 @@ export interface StatementFilters {
   object?: string;
 }
 
+export type NosqoStatementJsonValue = string | [string];
+
+export interface NosqoStatementJsonDocument {
+  format: string;
+  values: NosqoStatementJsonValue[];
+  statements: number[][];
+}
+
 export class ApiError extends Error {
   readonly status: number;
 
@@ -54,18 +62,14 @@ export async function fetchStatements(filters: StatementFilters): Promise<string
   return response.text();
 }
 
-export async function fetchOntologyText(): Promise<string> {
+export async function fetchOntologyStatementJson(): Promise<NosqoStatementJsonDocument> {
   const response = await fetch(buildApiUrl("/api/v1/ontology"), {
     headers: {
-      Accept: "text/plain",
+      Accept: "application/json",
     },
   });
 
-  if (!response.ok) {
-    throw new ApiError(await readErrorMessage(response, "ontology viewer"), response.status);
-  }
-
-  return response.text();
+  return readJsonResponse<NosqoStatementJsonDocument>(response, "ontology viewer");
 }
 
 function buildApiUrl(path: string): string {
