@@ -1,13 +1,22 @@
+mod entity_detail_attribute;
+mod entity_detail_response;
+mod entity_search_request;
+mod entity_search_response;
+mod entity_search_result;
 mod error_response;
 mod query_request_error;
 mod query_response;
 mod read_knowledge;
 mod server_state;
 
-use crate::{query_request_error::QueryRequestError, query_response::QueryResponse};
+use crate::{
+    entity_detail_response::EntityDetailResponse, entity_search_request::EntitySearchRequest,
+    entity_search_response::EntitySearchResponse, error_response::ErrorResponse,
+    query_request_error::QueryRequestError, query_response::QueryResponse,
+};
 use axum::Json;
 use axum::Router;
-use axum::extract::{Query, State};
+use axum::extract::{Path, Query, State};
 use axum::http::{HeaderValue, StatusCode, header};
 use axum::response::{IntoResponse, Response};
 use axum::routing::get;
@@ -64,6 +73,8 @@ fn create_app(state: ServerState) -> Router {
     Router::new()
         .route("/health", get(health))
         .route("/api/v1/info", get(info))
+        .route("/api/v1/entities/search", post(post_entity_search))
+        .route("/api/v1/entities/{entity_id}", get(get_entity_detail))
         .route("/api/v1/ontology", get(get_ontology))
         .route("/api/v1/statements", get(get_statements))
         .route("/api/v1/query", post(post_query))
@@ -120,6 +131,46 @@ async fn post_query(
     Ok(Json(response))
 }
 
+async fn post_entity_search(
+    State(state): State<ServerState>,
+    Json(request): Json<EntitySearchRequest>,
+) -> Result<Json<EntitySearchResponse>, StatusCode> {
+    let response = state.search_entities(&request).map_err(|error| {
+        tracing::error!("failed to search entities from the in-memory store: {error:?}");
+        StatusCode::INTERNAL_SERVER_ERROR
+    })?;
+
+    Ok(Json(response))
+}
+
+async fn get_entity_detail(
+    State(state): State<ServerState>,
+    Path(entity_id): Path<String>,
+) -> Result<Json<EntityDetailResponse>, (StatusCode, Json<ErrorResponse>)> {
+    let entity = state
+        .get_entity_detail(entity_id.as_str())
+        .map_err(|error| {
+            tracing::error!(
+                "failed to retrieve entity details from the in-memory store: {error:?}"
+            );
+            (
+                StatusCode::INTERNAL_SERVER_ERROR,
+                Json(ErrorResponse::new("failed to retrieve entity details")),
+            )
+        })?;
+
+    let Some(entity) = entity else {
+        return Err((
+            StatusCode::NOT_FOUND,
+            Json(ErrorResponse::new(format!(
+                "entity `{entity_id}` was not found"
+            ))),
+        ));
+    };
+
+    Ok(Json(entity))
+}
+
 #[cfg(test)]
 mod tests {
     use axum::{
@@ -130,6 +181,7 @@ mod tests {
     use nosqo_model::{Statement, StatementSet};
     use nosqo_pal::pal::PalHandle;
     use nosqo_pal::pal_mock::PalMock;
+    use serde_json::json;
     use tower::ServiceExt;
 
     use super::create_app;
@@ -305,5 +357,147 @@ mod tests {
                 ]
             })
         );
+    }
+
+    #[tokio::test]
+    async fn post_entity_search_returns_matching_entities() {
+        let store = std::sync::Arc::new(InMemoryStatementStore::new(StatementSet::default()));
+        store
+            .assert_statements(StatementSet::from(vec![
+                Statement::from_strings("#Person", "attribute", "~email"),
+                Statement::from_strings("alice", "isA", "#Person"),
+                Statement::from_strings("alice", "label", "Alice"),
+                Statement::from_strings("alice", "email", "alice@example.com"),
+                Statement::from_strings("bob", "isA", "#Person"),
+                Statement::from_strings("bob", "label", "Bob"),
+                Statement::from_strings("bob", "email", "bob@example.com"),
+            ]))
+            .expect("test store should accept seed statements");
+        let app = create_app(ServerState::new(PalHandle::new(PalMock::new()), store));
+
+        let response = app
+            .oneshot(
+                Request::builder()
+                    .method("POST")
+                    .uri("/api/v1/entities/search")
+                    .header("content-type", "application/json")
+                    .body(Body::from(
+                        json!({
+                            "type": "#Person",
+                            "filters": {
+                                "~email": "alice@example.com"
+                            }
+                        })
+                        .to_string(),
+                    ))
+                    .expect("request should build"),
+            )
+            .await
+            .expect("request should succeed");
+
+        assert_eq!(response.status(), StatusCode::OK);
+
+        let body = axum::body::to_bytes(response.into_body(), usize::MAX)
+            .await
+            .expect("body should read");
+        let json: serde_json::Value =
+            serde_json::from_slice(body.as_ref()).expect("body should be valid json");
+
+        assert_eq!(
+            json,
+            json!({
+                "results": [
+                    {
+                        "id": "alice",
+                        "nosqoId": "@alice",
+                        "label": "Alice",
+                        "typeIds": ["#Person"]
+                    }
+                ]
+            })
+        );
+    }
+
+    #[tokio::test]
+    async fn get_entity_detail_returns_grouped_attributes() {
+        let store = std::sync::Arc::new(InMemoryStatementStore::new(StatementSet::default()));
+        store
+            .assert_statements(StatementSet::from(vec![
+                Statement::from_strings("~label", "label", "Label"),
+                Statement::from_strings("~alias", "label", "Alias"),
+                Statement::from_strings("frodo_baggins", "isA", "#Person"),
+                Statement::from_strings("frodo_baggins", "label", "Frodo Baggins"),
+                Statement::from_strings("frodo_baggins", "alias", "Ring-bearer"),
+                Statement::from_strings("frodo_baggins", "alias", "Mr. Underhill"),
+            ]))
+            .expect("test store should accept seed statements");
+        let app = create_app(ServerState::new(PalHandle::new(PalMock::new()), store));
+
+        let response = app
+            .oneshot(
+                Request::builder()
+                    .method("GET")
+                    .uri("/api/v1/entities/frodo_baggins")
+                    .body(Body::empty())
+                    .expect("request should build"),
+            )
+            .await
+            .expect("request should succeed");
+
+        assert_eq!(response.status(), StatusCode::OK);
+
+        let body = axum::body::to_bytes(response.into_body(), usize::MAX)
+            .await
+            .expect("body should read");
+        let json: serde_json::Value =
+            serde_json::from_slice(body.as_ref()).expect("body should be valid json");
+
+        assert_eq!(
+            json,
+            json!({
+                "id": "frodo_baggins",
+                "nosqoId": "@frodo_baggins",
+                "label": "Frodo Baggins",
+                "typeIds": ["#Person"],
+                "attributes": [
+                    {
+                        "predicateId": "~alias",
+                        "label": "Alias",
+                        "values": ["Ring-bearer", "Mr. Underhill"]
+                    },
+                    {
+                        "predicateId": "~isA",
+                        "label": "isA",
+                        "values": ["#Person"]
+                    },
+                    {
+                        "predicateId": "~label",
+                        "label": "Label",
+                        "values": ["Frodo Baggins"]
+                    }
+                ]
+            })
+        );
+    }
+
+    #[tokio::test]
+    async fn get_entity_detail_returns_not_found_for_unknown_ids() {
+        let app = create_app(ServerState::new(
+            PalHandle::new(PalMock::new()),
+            std::sync::Arc::new(InMemoryStatementStore::default()),
+        ));
+
+        let response = app
+            .oneshot(
+                Request::builder()
+                    .method("GET")
+                    .uri("/api/v1/entities/missing")
+                    .body(Body::empty())
+                    .expect("request should build"),
+            )
+            .await
+            .expect("request should succeed");
+
+        assert_eq!(response.status(), StatusCode::NOT_FOUND);
     }
 }

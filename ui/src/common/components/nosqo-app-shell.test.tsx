@@ -37,6 +37,49 @@ describe("nosqo app shell", () => {
     expect(breadcrumbNavigation).toHaveTextContent("Query Explorer");
   });
 
+  it("renders entity browser breadcrumbs inside the shared shell", async () => {
+    vi.stubGlobal(
+      "fetch",
+      vi.fn().mockImplementation((input: string | URL | Request) => {
+        const url =
+          typeof input === "string" ? input : input instanceof URL ? input.toString() : input.url;
+
+        if (url.endsWith("/api/v1/ontology")) {
+          return Promise.resolve(
+            new Response(
+              JSON.stringify({
+                format: "nosqo-statement-json-v1",
+                values: [],
+                statements: [],
+              }),
+              {
+                status: 200,
+                headers: {
+                  "Content-Type": "application/json",
+                },
+              },
+            ),
+          );
+        }
+
+        throw new Error(`Unexpected fetch URL: ${url}`);
+      }),
+    );
+
+    await renderRouterAtPath(routePaths.entityBrowser);
+
+    const breadcrumbNavigation = screen.getByRole("navigation", { name: "Breadcrumbs" });
+
+    await waitFor(() => {
+      expect(breadcrumbNavigation).toHaveTextContent("Entity Browser");
+    });
+
+    expect(screen.getByRole("link", { name: /entity browser/i })).toHaveAttribute(
+      "data-active",
+      "true",
+    );
+  });
+
   it("renders ontology breadcrumbs inside the shared shell", async () => {
     vi.stubGlobal(
       "fetch",

@@ -27,6 +27,10 @@ describe("home page", () => {
       "src",
       "/nosqo-logo.png",
     );
+    expect(screen.getByRole("link", { name: /open entity browser/i })).toHaveAttribute(
+      "href",
+      "/administration/entity-browser",
+    );
     expect(screen.getByRole("link", { name: /open ontology/i })).toHaveAttribute(
       "href",
       "/administration/ontology",

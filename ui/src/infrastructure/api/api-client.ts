@@ -3,6 +3,36 @@ export interface QueryResponse {
   rows: string[][];
 }
 
+export interface EntitySearchRequest {
+  filters: Record<string, string>;
+  type: string;
+}
+
+export interface EntitySearchResult {
+  id: string;
+  label: string;
+  nosqoId: string;
+  typeIds: string[];
+}
+
+export interface EntitySearchResponse {
+  results: EntitySearchResult[];
+}
+
+export interface EntityDetailAttribute {
+  label: string;
+  predicateId: string;
+  values: string[];
+}
+
+export interface EntityDetailResponse {
+  attributes: EntityDetailAttribute[];
+  id: string;
+  label: string;
+  nosqoId: string;
+  typeIds: string[];
+}
+
 export interface StatementFilters {
   subject?: string;
   predicate?: string;
@@ -38,6 +68,31 @@ export async function fetchNqlQuery(queryText: string): Promise<QueryResponse> {
   });
 
   return readJsonResponse<QueryResponse>(response, "query");
+}
+
+export async function fetchEntitySearch(
+  request: EntitySearchRequest,
+): Promise<EntitySearchResponse> {
+  const response = await fetch(buildApiUrl("/api/v1/entities/search"), {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+    },
+    body: JSON.stringify(request),
+  });
+
+  return readJsonResponse<EntitySearchResponse>(response, "entity browser");
+}
+
+export async function fetchEntityDetail(entityId: string): Promise<EntityDetailResponse> {
+  const response = await fetch(buildApiUrl(`/api/v1/entities/${encodeURIComponent(entityId)}`), {
+    headers: {
+      Accept: "application/json",
+    },
+  });
+
+  return readJsonResponse<EntityDetailResponse>(response, "entity browser");
 }
 
 export async function fetchStatements(filters: StatementFilters): Promise<string> {

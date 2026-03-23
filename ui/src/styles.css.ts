@@ -44,6 +44,10 @@ globalStyle("button, input, textarea", {
   font: "inherit",
 });
 
+globalStyle("select", {
+  font: "inherit",
+});
+
 globalStyle("button", {
   cursor: "pointer",
 });
@@ -379,7 +383,7 @@ globalStyle(".field span", {
   color: "var(--muted)",
 });
 
-globalStyle(".field input, .field textarea", {
+globalStyle(".field input, .field textarea, .field select", {
   width: "100%",
   border: "1px solid var(--border-color)",
   borderRadius: "16px",
@@ -403,6 +407,10 @@ globalStyle(".nosqo-textarea", {
 
 globalStyle(".field textarea", {
   resize: "vertical",
+});
+
+globalStyle(".field select", {
+  appearance: "none",
 });
 
 globalStyle(".toolbar", {
@@ -525,7 +533,7 @@ globalStyle(".sr-only", {
   border: 0,
 });
 
-globalStyle(".admin-page, .ontology-page", {
+globalStyle(".admin-page, .entity-browser-page, .ontology-page", {
   display: "flex",
   flex: "1 1 auto",
   flexDirection: "column",
@@ -593,6 +601,79 @@ globalStyle(".ontology-layout", {
   gap: "0.75rem",
   minHeight: 0,
   overflow: "hidden",
+});
+
+globalStyle(".entity-browser-layout, .entity-browser-results-detail", {
+  display: "grid",
+  gap: "0.75rem",
+  minHeight: 0,
+});
+
+globalStyle(".entity-browser-pane", {
+  display: "grid",
+  gap: "0.55rem",
+  minHeight: 0,
+  background: "#08192b",
+});
+
+globalStyle(".entity-browser-pane__header", {
+  display: "flex",
+  alignItems: "flex-start",
+  justifyContent: "space-between",
+  gap: "0.8rem",
+});
+
+globalStyle(".entity-browser-pane__title", {
+  margin: "0.15rem 0 0",
+  fontSize: "1.1rem",
+});
+
+globalStyle(".entity-browser-result-button", {
+  display: "inline-flex",
+  alignItems: "center",
+  padding: 0,
+  border: 0,
+  background: "transparent",
+  color: "inherit",
+  font: "inherit",
+  textAlign: "left",
+});
+
+globalStyle(".entity-browser-result-button:hover", {
+  color: "var(--accent)",
+});
+
+globalStyle(".entity-browser-result-row--selected", {
+  background: "rgba(139, 245, 212, 0.08)",
+});
+
+globalStyle(".entity-browser-detail-summary", {
+  padding: "0.85rem",
+  border: "1px solid var(--border-color)",
+  borderRadius: "20px",
+  background: "#08192b",
+});
+
+globalStyle(".entity-browser-detail-heading", {
+  display: "flex",
+  alignItems: "baseline",
+  justifyContent: "space-between",
+  gap: "0.8rem",
+  flexWrap: "wrap",
+});
+
+globalStyle(".entity-browser-detail-title", {
+  margin: 0,
+  fontSize: "1.25rem",
+});
+
+globalStyle(".entity-browser-values", {
+  display: "grid",
+  gap: "0.35rem",
+});
+
+globalStyle(".entity-browser-type-copy", {
+  marginTop: "-0.15rem",
 });
 
 globalStyle(".ontology-pane", {
@@ -883,10 +964,38 @@ globalStyle(".hero", {
   },
 });
 
-globalStyle(".admin-page, .ontology-page", {
+globalStyle(".admin-page, .entity-browser-page, .ontology-page", {
   "@media": {
     "(min-width: 960px)": {
       height: "100%",
+    },
+  },
+});
+
+globalStyle(".entity-browser-layout", {
+  "@media": {
+    "(min-width: 960px)": {
+      height: "100%",
+      gridTemplateColumns: "minmax(18rem, 22rem) minmax(0, 1fr)",
+      alignItems: "stretch",
+    },
+  },
+});
+
+globalStyle(".entity-browser-results-detail", {
+  "@media": {
+    "(min-width: 960px)": {
+      minHeight: 0,
+      gridTemplateRows: "minmax(14rem, 1fr) minmax(16rem, 1fr)",
+    },
+  },
+});
+
+globalStyle(".entity-browser-pane", {
+  "@media": {
+    "(min-width: 960px)": {
+      height: "100%",
+      overflow: "hidden",
     },
   },
 });

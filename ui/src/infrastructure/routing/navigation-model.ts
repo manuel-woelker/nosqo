@@ -21,6 +21,11 @@ export const navigationGroups: NavigationGroup[] = [
     label: "Administration",
     items: [
       {
+        label: "Entity Browser",
+        eyebrow: "Data",
+        href: routePaths.entityBrowser,
+      },
+      {
         label: "Ontology",
         eyebrow: "Model",
         href: routePaths.ontology,
@@ -41,6 +46,12 @@ export const navigationGroups: NavigationGroup[] = [
 
 export function getBreadcrumbItems(pathname: string): BreadcrumbItem[] {
   switch (pathname) {
+    case routePaths.entityBrowser:
+      return [
+        { href: routePaths.home, label: "Home" },
+        { label: "Administration" },
+        { label: "Entity Browser" },
+      ];
     case routePaths.ontology:
       return [
         { href: routePaths.home, label: "Home" },

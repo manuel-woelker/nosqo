@@ -9,9 +9,9 @@ export function HomePage() {
           <p className="kicker">Administration</p>
           <h1 className="page-title">Start with the real workflows.</h1>
           <p className="body-copy hero__lede">
-            The first durable shell focuses on the browser jobs that already matter: browsing the
-            ontology, running NQL, and inspecting the statement store. More sections can earn their
-            way into the navigation later.
+            The first durable shell focuses on the browser jobs that already matter: finding
+            entities, browsing the ontology, running NQL, and inspecting the statement store. More
+            sections can earn their way into the navigation later.
           </p>
         </div>
 
@@ -27,6 +27,18 @@ export function HomePage() {
       </div>
 
       <div className="feature-grid">
+        <article className="feature-card">
+          <p className="kicker">Data</p>
+          <h2>Entity Browser</h2>
+          <p>
+            Pick a type, enter exact attribute values, and inspect matching entities without writing
+            raw query text.
+          </p>
+          <Link className="feature-link" to={routePaths.entityBrowser}>
+            Open Entity Browser
+          </Link>
+        </article>
+
         <article className="feature-card">
           <p className="kicker">Model</p>
           <h2>Ontology</h2>

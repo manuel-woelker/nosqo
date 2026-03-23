@@ -8,6 +8,7 @@ import {
 import type { RouterHistory } from "@tanstack/react-router";
 import { NosqoAppShell } from "./common/components/nosqo-app-shell";
 import { routePaths } from "./infrastructure/routing/route-paths";
+import { EntityBrowserPage } from "./usecases/administration/entity-browser/entity-browser-page";
 import { OntologyViewerPage } from "./usecases/administration/ontology/ontology-viewer-page";
 import { HomePage } from "./usecases/home/home-page";
 import { QueryExplorerPage } from "./usecases/administration/query-explorer/query-explorer-page";
@@ -35,6 +36,12 @@ const homeRoute = createRoute({
   getParentRoute: () => rootRoute,
   path: routePaths.home,
   component: HomePage,
+});
+
+const entityBrowserRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: routePaths.entityBrowser,
+  component: EntityBrowserPage,
 });
 
 const queryRoute = createRoute({
@@ -69,6 +76,7 @@ const legacyStatementsRoute = createRoute({
 
 export const routeTree = rootRoute.addChildren([
   homeRoute,
+  entityBrowserRoute,
   ontologyRoute,
   queryRoute,
   statementsRoute,
